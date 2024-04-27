@@ -1,0 +1,7 @@
+#
+# robots.txt for https://tylerjm.org/
+#
+
+# Disallow all agents and all file paths
+User-agent: *
+Disallow: /
