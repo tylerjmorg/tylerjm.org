@@ -1,0 +1,108 @@
+                   -------------------------------
+
+                      Record Inventory Template
+
+                   -------------------------------
+
+
+Part 1:
++------+------------+----------------+------------------+------------+
+| Qty  | Artist(s)  |  Record Name   | Record Label(s)  |  Genre(s)  |
++------+------------+----------------+------------------+------------+
+|  1   |   Adele    |       30       |    Columbia      | Jazz, Pop  |
++------+------------+----------------+------------------+------------+
+
+
+
+Part 2:
++----------+---------------------------+------------+----------------+
+| Explicit |       Disc Color(s)       | Disc Count | Contents Count |
++----------+---------------------------+------------+----------------+
+|    NO    |           Clear           |     2      |       3        |
++----------+---------------------------+------------+----------------+
+
+
+
+Part 3:
++----------------------------+---------------------------------------+
+|    Contents Description    |         Discogs Release Code          |
++----------------------------+---------------------------------------+
+| 1 - Jacket (Single Pocket) |               r21046597               |
+|     2 - Inner-sleeve       |                                       |
++----------------------------+---------------------------------------+
+
+
+
+Part 4:
++------------------------+----------+--------------------------------+
+|  Goldmine Condition(s) | Listened |      Digital Download(s)       |
++------------------------+----------+--------------------------------+
+|      Jacket - VG+      |   YES    |             No                 |
+|     Disc A/B - VG+     |          |           (Qobuz)              |
+|     Disc C/D - VG+     |          |                                |
++------------------------+----------+--------------------------------+
+
+|             Inventory List Last Updated: 2024-06-16 UTC            |
+|             Latest Full Inventory Check: 2024-01-18 UTC            |
+|         Document Information Last Updated: 2024-06-24 UTC          |
+
+
+
+The Record Handbook
+-------------------
+Handbook URL: https://tylerjm.org/record-handbook/
+Inventory URL: https://tylerjm.org/record-handbook/inv/
+
+OpenDocument URL: https://tylerjm.org/record-handbook/2.0.2/inventory.odt
+Office Open XML URL: https://tylerjm.org/record-handbook/2.0.2/inventory.docx
+Plain Text URL: https://tylerjm.org/record-handbook/2.0.2/inventory.txt
+Portable Document URL: https://tylerjm.org/record-handbook/2.0.2/inventory.pdf
+
+Handbook Version: 2.0.2
+Last Updated: 2024-06-24 UTC
+
+
+Definitions
+-----------
+Qty:
+Quantity (Qty) of the exact same record in the inventory. The record must be exactly the same as the other(s) and must have the same column properties. A "0" quantity (Qty) indicates that a record used to belong in the inventory but has changed possession willfully (e.g., sold or gifted).
+
+
+Disc Color(s):
+To signify different types of disc. (e.g., "Target Exclusive (Blue)" or "Walmart Exclusive (Transparent)"). The disc color(s) only are okay to add as well, (e.g., "Clear" or "Apricot").
+
+
+Disc Count:
+The number of discs contained within the specific record.
+
+
+Contents Count:
+All contents in the originally purchased record, including any original sleeve(s), jacket(s), digital download slips, posters, booklets, hype stickers, and other bonus content. Post-sale sleeves or any aftermarket items will not be counted. The contents count excludes the disc(s).
+
+
+Contents Description(s):
+The quantity and brief description of all original contents contained within one  record, including any original sleeve(s), jacket(s), digital download slips, posters, booklets, hype stickers, and other bonus content. Post-sale sleeves or any aftermarket items will not be counted. The contents count excludes the disc(s). The contents description must equal the contents count column.
+
+
+Discogs Release Code:
+Identifies the specific record on https://www.discogs.com. Searching the release code brings up all information regarding the specific record.
+
+
+Goldmine Condition(s):
+Each disc(s) and jacket(s)' condition according to The Goldmine Grading Guide. URL: https://www.goldminemag.com/collector-resources/record-grading-101. Each disc and jacket must be graded individually. Acceptable grades: M, NM, VG+, VG, G+, G, F, P.
+
+
+Listened:
+A Boolean value identifying if all tracks on a specific record have been played and listened to in its entirety. All quantities must be listened to, i.e., if the "Qty" column is 3, all three records must be listened to in their entirety, even though they are the same tracks.
+
+
+Digital Download(s):
+A Yes, No, or N/A value indicating if a digital format of the exact same record was downloaded. The digital download must include the same album name and the same and/or more tracks as the physical record (excluding hidden tracks). "No" value means that there exists a buyable download that meets the "Yes" value requirements but has not been purchased. "N/A" value means that there is no existing buyable download that meets the "Yes" value requirements. "Yes" value requirements: 1. The download must contain at least a FLAC or WAV original file for all tracks. 2. The download has to be an official download from the label, artist, or a trusted 3rd party. 3. The download must be a portable file (i.e., not downloaded from iTunes or another proprietary store). 4. The proof of purchase (PoP) (digital download slips are okay) must be stored safely alongside the music file(s) in cloud storage. 5. All files, including all music files and PoPs, must be stored in at least two different cloud storage providers for resilience.
+
+ --------------------------------------------------------------------
+
+    Record Inventory v2.0.2 by Tyler Morgan is marked with CC0 1.0
+
+ --------------------------------------------------------------------
+
+ Encoding: Unicode UTF-8
