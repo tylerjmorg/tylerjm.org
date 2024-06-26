@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Record Inventory</title>
+  <link rel="stylesheet" crossorigin href="https://tylermorgan.co/style.css">
+  <meta name="description" content="An inventory of Tyler's record collection.">
+  <link rel="icon" type="image/svg" media="(prefers-color-scheme: light)" crossorigin href="https://tylermorgan.co/elements/icons/favicon-day.svg">
+  <link rel="icon" type="image/svg" media="(prefers-color-scheme: dark)" crossorigin href="https://tylermorgan.co/elements/icons/favicon-night.svg">
+  <link rel="icon" type="image/avif" media="(prefers-color-scheme: light)" crossorigin href="https://tylermorgan.co/elements/icons/favicon-day-180.avif">
+  <link rel="icon" type="image/avif" media="(prefers-color-scheme: dark)" crossorigin href="https://tylermorgan.co/elements/icons/favicon-night-180.avif">
+  <link rel="icon" type="image/avif" media="(prefers-color-scheme: light)" sizes="192x192" crossorigin href="https://tylermorgan.co/elements/icons/favicon-day-192.avif">
+  <link rel="icon" type="image/avif" media="(prefers-color-scheme: dark)" sizes="192x192" crossorigin href="https://tylermorgan.co/elements/icons/favicon-night-192.avif">
+  <link rel="apple-touch-icon" crossorigin href="https://tylermorgan.co/apple-touch-icon.avif">
+  <link rel="mask-icon" crossorigin href="https://tylermorgan.co/elements/icons/mask-icon.svg" color="#454D51">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#444444">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#121111">
+  <link rel="canonical" href="https://tylerjm.org/record-inventory/">
+  <meta name="keywords" content="record, handbook, tyler morgan, vinyl, tylerjmorg, discogs, goldmine, music, inventory">
+ </head>
+ <body>
+  <style>
+   :root {
+    color: var(--primary-color);
+   }
+   table {
+    border-collapse: seperate;
+    border-spacing: 0;
+    color: var(--primary-color);
+   }
+   td, th {
+    text-align: center;
+    padding: 4px;
+   }
+   tr:nth-child(even) {
+    background-color: var(--secondary-bkg-color);
+   }
+   tr:nth-child(even) td:first-of-type{
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+   }
+   tr th:first-of-type{
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+   }
+   tr:nth-child(even) td:last-of-type{
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+   }
+   tr th:last-of-type{
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+   }
+   a {
+    text-decoration: underline solid transparent;
+    font-weight: bold;
+    color: var(--biolink-color);
+    cursor: pointer;
+    transition: color 150ms linear, text-decoration 150ms linear;
+   }
+   a:hover {
+    color: var(--primary-hover);
+    text-decoration: underline solid currentColor;
+   }
+   svg {
+    vertical-align: center;
+    margin-left: 5px;
+   }
+   .bottom-link-group {
+    display: grid;
+    grid: 'defs hand-info';
+   }
+   .bottom-link {
+    text-decoration: underline solid transparent;
+    font-weight: bold;
+    color: var(--biolink-color);
+    fill: var(--biolink-color);
+    cursor: pointer;
+    transition: color 150ms linear, text-decoration 150ms linear, fill 150ms linear;
+   }
+   .bottom-link:hover {
+    color: var(--primary-hover);
+    fill: var(--primary-hover);
+    text-decoration: underline solid currentColor;
+   }
+   thead{
+    position: sticky;
+    top: 0;
+   }
+   .updates {
+    display: grid;
+    grid: 'inv-up inv-check info-up';
+   }
+  </style>
+  <header>
+   <h1 style="text-align: center; margin-top: 50px; margin-bottom: 50px; color: var(--primary-color);">RECORD INVENTORY</h1>
+  </header>
+  <main>
+  <table style="font-size: 12px; justify-content: center;">
+   <thead style="background-color: rgba(49, 48, 49, 0.7); backdrop-filter: blur(5px);">
+    <tr style="font-size: 14px;">
+     <th>Qty</th>
+     <th>Artist(s)</th>
+     <th>Record Title</th>
+     <th>Record Label(s)</th>
+     <th>Genre(s)</th>
+     <th>Explicit</th>
+     <th title="Disc Colors">Disc Color(s)</th>
+     <th>Disc Count</th>
+     <th>Contents Count</th>
+     <th>Contents Description</th>
+     <th>Discogs Release Code</th>
+     <th title="Goldmine Conditions">Goldmine<sup>®</sup> Condition(s)</th>
+     <th>Listened</th>
+     <th>Digital Downloads</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td>1</td>
+     <td>Adele</td>
+     <td>30</td>
+     <td>Columbia</td>
+     <td>Jazz, Pop</td>
+     <td>NO</td>
+     <td>Clear</td>
+     <td>2</td>
+     <td>3</td>
+     <td>1 – Jacket (Single Pocket)<br>2 – Inner-sleeve</td>
+     <td><a target="_blank" href="https://www.discogs.com/release/21046597-Adele-30">r21046597</a></td>
+     <td>Jacket – VG+<br>Disc A/B – VG+<br>Disc C/D – VG+</td>
+     <td>YES</td>
+     <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/30-adele/tuzhj8k94jxoc">(Qobuz)</a></td>
+    </tr>
+    <tr>
+     <td>1</td>
+     <td>Billie Eilish</td>
+     <td>dont smile at me</td>
+     <td>Darkroom, Interscope Records</td>
+     <td>Electronic, Pop</td>
+     <td>NO</td>
+     <td>Black</td>
+     <td>1</td>
+     <td>2</td>
+     <td>1 – Jacket (Single Pocket)<br>1 – Inner-sleeve</td>
+     <td><a target="_blank" href="https://www.discogs.com/release/13893955-Billie-Eilish-Dont-Smile-At-Me">r13893955</a></td>
+     <td>Jacket – VG+<br>Disc – VG+</td>
+     <td>YES</td>
+     <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/dont-smile-at-me-billie-eilish/n796jd6uaf11b">(Qobuz)</a></td>
+    </tr>
+    <tr>
+     <td>1</td>
+     <td>Billie Eilish</td>
+     <td>WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?</td>
+     <td>Darkroom, Interscope Records</td>
+     <td>Electronic, Pop</td>
+     <td>NO</td>
+     <td>Apricot</td>
+     <td>1</td>
+     <td>2</td>
+     <td>1 – Gatefold Jacket (Single Pocket)<br>1 – Inner-sleeve</td>
+     <td><a target="_blank" href="https://www.discogs.com/release/14198724-Billie-Eilish-When-We-All-Fall-Asleep-Where-Do-We-Go">r14198724</a></td>
+     <td>Jacket – VG<br>Disc – VG+</td>
+     <td>YES</td>
+     <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/when-we-all-fall-asleep-where-do-we-go-billie-eilish/wo456u01fehgc">(Qobuz)</a></td>
+    </tr>
+    <tr>
+     <td>1</td>
+     <td>Billie Eilish</td>
+     <td>Happier Than Ever</td>
+     <td>Darkroom, Interscope Records</td>
+     <td>Pop</td>
+     <td>YES</td>
+     <td>Pale Blue</td>
+     <td>2</td>
+     <td>4</td>
+     <td>1 – Gatefold Jacket (Double Pocket)<br>2 – Inner-sleeve<br>1 – Poster</td>
+     <td><a target="_blank" href="https://www.discogs.com/release/19677331-Billie-Eilish-Happier-Than-Ever">r19677331</a></td>
+     <td>Jacket – VG+<br>Disc A/B – NM<br>Disc C/D – NM</td>
+     <td>YES</td>
+     <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/happier-than-ever-explicit-billie-eilish/vewzc8hmoqc8a">(Qobuz)</a><br><a target="_blank" href="https://store.billieeilish.com/products/happier-than-ever-digital-album">(Official is MP3 only)</a></td>
+    </tr>
+    <tr>
+     <td>1</td>
+     <td>Billie Eilish</td>
+     <td>HIT ME HARD AND SOFT</td>
+     <td>Darkroom, Interscope Records</td>
+     <td>Electronic, Pop</td>
+     <td>NO</td>
+     <td>Red</td>
+     <td>1</td>
+     <td>3</td>
+     <td>1 – Gatefold Jacket (Single Pocket)<br>1 – Inner-sleeve<br>1 – Hype Sticker</td>
+     <td><a target="_blank" href="https://www.discogs.com/release/30693268-Billie-Eilish-Hit-Me-Hard-And-Soft">r30693268</a></td>
+     <td>Jacket – VG+<br>Disc A/B – NM<br>Disc C/D – NM</td>
+     <td>YES</td>
+     <td><a target="_blank" href="https://drive.proton.me/urls/RDAAVE7VVM#sxL979xIB7yx">Yes</a> <a target="_blank" href="https://www.qobuz.com/us-en/album/hit-me-hard-and-soft-billie-eilish/gvcirtodd95kc">(Qobuz)</a><br><a target="_blank" href="https://store.billieeilish.com/products/hit-me-hard-and-soft-digital-album">(Official is MP3 only)</a></td>
+    </tr>
+    <tr>
+     <td>1</td>
+     <td>Conan Gray</td>
+     <td>Superache</td>
+     <td>Republic Records</td>
+     <td>Pop</td>
+     <td>YES</td>
+     <td>Ruby Red</td>
+     <td>1</td>
+     <td>14</td>
+     <td>1 – Jacket (Single Pocket)<br>1 – Inner-sleeve<br>2 – Poster<br>1 – Envelope<br>4 – Album Photo<br>4 – Song Letter<br>1 – Hype Sticker</td>
+     <td><a target="_blank" href="https://www.discogs.com/release/23683412-Conan-Gray-Superache">r23683412</a></td>
+     <td>Jacket – VG<br>Disc – VG+</td>
+     <td>YES</td>
+     <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/superache-conan-gray/enqrpjtn03sra">(Qobuz)</a><br><a target="_blank" href="https://shop.conangray.com/products/superache-digital-album">(Official is MP3 only)</a></td>
+    </tr>
+    <tr>
+     <td>1</td>
+     <td>Noah Kahan</td>
+     <td>Stick Season</td>
+     <td>Mercury, Republic Records</td>
+     <td>Rock, Pop, Folk, World, & Country</td>
+     <td>YES</td>
+     <td>Black</td>
+     <td>2</td>
+     <td>5</td>
+     <td>1 – Gatefold Jacket (Double Pocket)<br>2 – Inner-sleeve<br>1 – Poster<br>1 – Hype Sticker</td>
+     <td><a target="_blank" href="https://www.discogs.com/release/28830886-Noah-Kahan-Stick-Season">r28830886</a></td>
+     <td>Jacket – VG+<br>Disc A/B – VG+<br>Disc C/D – VG+</td>
+     <td>YES</td>
+     <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/stick-season-noah-kahan/p87zu4urgi2tb">(Qobuz)</a></td>
+    </tr>
+    <tr>
+     <td>1</td>
+     <td>Khalid</td>
+     <td>American Teen</td>
+     <td>RCA Records, Right Hand Music Group</td>
+     <td>Funk / Soul</td>
+     <td>YES</td>
+     <td>Black</td>
+     <td>2</td>
+     <td>4</td>
+     <td>1 – Gatefold Jacket (Double Pocket)<br>2 – Inner-sleeve<br>1 – Digital Download Slip (Inactive)</td>
+     <td><a target="_blank" href="https://www.discogs.com/release/10123738-Khalid-American-Teen">r10123738</a></td>
+     <td>Jacket – VG+<br>Disc One/Two – VG+<br>Disc Three/Four – VG+</td>
+     <td>YES</td>
+     <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/american-teen-khalid/0886446309347">(Qobuz)</a></td>
+    </tr>
+    <tr>
+     <td>1</td>
+     <td>Khalid</td>
+     <td>Free Spirit</td>
+     <td>RCA Records, Right Hand Music Group</td>
+     <td>Funk / Soul</td>
+     <td>YES</td>
+     <td>Black</td>
+     <td>2</td>
+     <td>5</td>
+     <td>1 – Gatefold Jacket (Double Pocket)<br>2 – Inner-sleeve<br>1 – Digital Download Slip (Inactive)<br>1 – Poster</td>
+     <td><a target="_blank" href="https://www.discogs.com/release/13693928-Khalid-Free-Spirit">r13693928</a></td>
+     <td>Jacket – VG+<br>Disc One/Two – VG+<br>Disc Three/Four – VG+</td>
+     <td>YES</td>
+     <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/free-spirit-khalid/f06uhxxw9omba">(Qobuz)</a></td>
+    </tr>
+    <tr>
+     <td>1</td>
+     <td>Kendrick Lamar</td>
+     <td>DAMN.</td>
+     <td>Aftermath, Interscope Records, Top Dawg Entertainment</td>
+     <td>Hip Hop</td>
+     <td>YES</td>
+     <td>Black</td>
+     <td>2</td>
+     <td>3</td>
+     <td>1 – Gatefold Jacket (Double Pocket)<br>2 – Inner-sleeve</td>
+     <td><a target="_blank" href="https://www.discogs.com/release/10559651-Kendrick-Lamar-Damn">r10559651</a></td>
+     <td>Jacket – VG<br>Disc A/B – VG+<br>Disc C/D – VG+</td>
+     <td>YES</td>
+     <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/damn-kendrick-lamar/0060255760871">(Qobuz)</a></td>
+    </tr>
+    <tr>
+     <td>1</td>
+     <td>Post Malone</td>
+     <td>Stoney</td>
+     <td>Republic Records</td>
+     <td>Hip Hop</td>
+     <td>YES</td>
+     <td>Orange</td>
+     <td>2</td>
+     <td>3</td>
+     <td>1 – Gatefold Jacket (Double Pocket)<br>2 – Inner-sleeve</td>
+     <td><a target="_blank" href="https://www.discogs.com/release/10469963-Post-Malone-Stoney">r10469963</a></td>
+     <td>Jacket – VG+<br>Disc A/B – VG+<br>Disc C/D – VG+</td>
+     <td>YES</td>
+     <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/stoney-post-malone/0060255726179">(Qobuz)</a><br><a target="_blank" href="https://shop.republicrecords.com/collections/post-malone/products/post-malone-stoney-digital-album">(Official is MP3 only)</a></td>
+    </tr>
+    <tr>
+     <td>1</td>
+     <td>Post Malone</td>
+     <td>Beerbongs & Bentleys</td>
+     <td>Republic Records</td>
+     <td>Hip Hop, Rock, Pop</td>
+     <td>YES</td>
+     <td>Clear</td>
+     <td>2</td>
+     <td>5</td>
+     <td>1 – Gatefold Jacket (Double Pocket)<br>2 – Inner-sleeve<br>2 – Double-Sided Artwork Slip</td>
+     <td><a target="_blank" href="https://www.discogs.com/release/12705859-Post-Malone-Beerbongs-Bentleys">r12705859</a></td>
+     <td>Jacket – VG<br>Disc A/B – VG+<br>Disc C/D – VG+</td>
+     <td>YES</td>
+     <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/beerbongs-bentleys-post-malone/mb0zgu7w885cc">(Qobuz)</a><br><a target="_blank" href="https://shop.republicrecords.com/products/post-malone-beerbongs-bentleys-digital-album">(Official is MP3 only)</a></td>
+    </tr>
+    <tr>
+     <td>1</td>
+     <td>Post Malone</td>
+     <td>Hollywood’s Bleeding</td>
+     <td>Republic Records</td>
+     <td>Hip Hop, Rock, Pop</td>
+     <td>YES</td>
+     <td>Lavender</td>
+     <td>2</td>
+     <td>5</td>
+     <td>1 – Gatefold Jacket (Double Pocket)<br>2 – Inner-sleeve<br>2 – Photo Album Booklet</td>
+     <td><a target="_blank" href="https://www.discogs.com/release/15522170-Post-Malone-Hollywoods-Bleeding">r15522170</a></td>
+     <td>Jacket – VG<br>Disc A/B – VG+<br>Disc C/D – VG+</td>
+     <td>YES</td>
+     <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/hollywoods-bleeding-post-malone/jgjvoqpvrvngc">(Qobuz)</a><br><a target="_blank" href="https://shop.republicrecords.com/collections/digital-music/products/post-malone-hollywoods-bleeding-digital-album">(Official is MP3 only)</a></td>
+    </tr>
+    <tr>
+     <td>1</td>
+     <td>Melanie Martinez</td>
+     <td>Cry Baby</td>
+     <td>Atlantic</td>
+     <td>Pop</td>
+     <td>YES</td>
+     <td>Black</td>
+     <td>1</td>
+     <td>4</td>
+     <td>1 – Gatefold Jacket (Double Pocket)<br>1 – Inner-sleeve<br>1 – Song Info Slip<br>1 – Story Booklet</td>
+     <td><a target="_blank" href="https://www.discogs.com/release/7773820-Melanie-Martinez-Cry-Baby">r7773820</a></td>
+     <td>Jacket – VG+<br>Disc – VG+</td>
+     <td>YES</td>
+     <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/cry-baby-melanie-martinez/0075679921369">(Qobuz)</a></td>
+    </tr>
+    <tr>
+     <td>1</td>
+     <td>Olivia Rodrigo</td>
+     <td>Sour</td>
+     <td>Geffen Records</td>
+     <td>Rock, Pop</td>
+     <td>YES</td>
+     <td>Black</td>
+     <td>1</td>
+     <td>3</td>
+     <td>1 – Gatefold Jacket (Single Pocket)<br>1 – Inner-sleeve<br>1 – Hype Sticker</td>
+     <td><a target="_blank" href="https://www.discogs.com/release/23011151-Olivia-Rodrigo-Sour">r23011151</a></td>
+     <td>Jacket – VG+<br>Disc – VG+</td>
+     <td>YES</td>
+     <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/sour-olivia-rodrigo/pqbbikwu2ljnb">(Qobuz)</a><br><a target="_blank" href="https://shopau.oliviarodrigo.com/collections/au/products/sour-digital-album">(Official is MP3, AU only)</a></td>
+    </tr>
+    <tr>
+     <td>1</td>
+     <td>Olivia Rodrigo</td>
+     <td>GUTS</td>
+     <td>Geffen Records</td>
+     <td>Rock, Pop</td>
+     <td>YES</td>
+     <td>Black</td>
+     <td>1</td>
+     <td>2</td>
+     <td>1 – Gatefold Jacket (Single Pocket)<br>1 – Inner-sleeve</td>
+     <td><a target="_blank" href="https://www.discogs.com/release/27940287-Olivia-Rodrigo-Guts">r27940287</a></td>
+     <td>Jacket – VG+<br>Disc – VG+</td>
+     <td>YES</td>
+     <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/guts-olivia-rodrigo/vrqtmyvds2ztc">(Qobuz)</a><br><a target="_blank" href="https://shopau.oliviarodrigo.com/collections/a-la-carte/products/guts-digital-album">(Official is MP3, AU only)</a></td>
+    </tr>
+    <tr>
+     <td>1</td>
+     <td>Harry Styles</td>
+     <td>Harry's House</td>
+     <td>Columbia, Erskine Records</td>
+     <td>Rock, Pop</td>
+     <td>NO</td>
+     <td>Black</td>
+     <td>1</td>
+     <td>4</td>
+     <td>1 – Gatefold Jacket (Double Pocket)<br>1 – Inner-sleeve<br>1 – Song Lyrics Booklet<br>1 – Album Photo</td>
+     <td><a target="_blank" href="https://www.discogs.com/release/26128271-Harry-Styles-Harrys-House">r26128271</a></td>
+     <td>Jacket – VG<br>Disc – VG+</td>
+     <td>YES</td>
+     <td><a target="_blank" href="https://shopus.hstyles.co.uk/products/harrys-house-digital-download">No</a><br><a target="_blank" href="https://www.qobuz.com/us-en/album/harrys-house-harry-styles/kowixpbhn056a">(Qobuz)</a></td>
+    </tr>
+    <tr>
+     <td>1</td>
+     <td>Taylor Swift</td>
+     <td>Midnights</td>
+     <td>Republic Records</td>
+     <td>Electronic, Pop</td>
+     <td>YES</td>
+     <td>Mahogany Marbled</td>
+     <td>1</td>
+     <td>3</td>
+     <td>1 – Gatefold Jacket (Double Pocket)<br>1 – Inner-sleeve<br>1 – Song Lyrics Booklet</td>
+     <td><a target="_blank" href="https://www.discogs.com/release/24893972-Taylor-Swift-Midnights">r24893972</a></td>
+     <td>Jacket – VG+<br>Disc – VG+</td>
+     <td>YES</td>
+     <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/midnights-taylor-swift/lfrznf57rq9pa">(Qobuz)</a></td>
+    </tr>
+    <tr>
+     <td>1</td>
+     <td>SZA</td>
+     <td>SOS</td>
+     <td>RCA, Top Dawg Entertainment</td>
+     <td>Funk / Soul</td>
+     <td>YES</td>
+     <td>Black</td>
+     <td>2</td>
+     <td>5</td>
+     <td>1 – Jacket (Single Pocket)<br>2 – Inner-sleeve<br>1 – Double-Sided Artwork Slip<br>1 – Hype Sticker</td>
+     <td><a target="_blank" href="https://www.discogs.com/release/27139257-SZA-SOS">r27139257</a></td>
+     <td>Jacket – VG+<br>Disc One/Two – VG+<br>Disc Three/Four – VG+</td>
+     <td>YES</td>
+     <td><a target="_blank" href="https://txdxe.com/products/sos">No</a><br><a target="_blank" href="https://www.qobuz.com/us-en/album/sos-sza/ckyh7bv0dt6tb">(Qobuz)</a></td>
+    </tr>
+    <tr>
+     <td>1</td>
+     <td>Kali Uchis</td>
+     <td>Red Moon in Venus</td>
+     <td>Interscope Records</td>
+     <td>Electronic, Latin, Funk / Soul, Pop</td>
+     <td>YES</td>
+     <td>Black</td>
+     <td>1</td>
+     <td>2</td>
+     <td>1 – Jacket (Single Pocket)<br>1 – Inner-sleeve</td>
+     <td><a target="_blank" href="https://www.discogs.com/release/26364716-Kali-Uchis-Red-Moon-In-Venus">r26364716</a></td>
+     <td>Jacket – VG+<br>Disc – VG+</td>
+     <td>YES</td>
+     <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/red-moon-in-venus-kali-uchis/nh8wmgsf1t4ya">(Qobuz)</a><br><a target="_blank" href="https://shopkaliuchis.com/products/red-moon-in-venus-digital-album">(Official is MP3 only)</a></td>
+    </tr>
+    <tr>
+     <td>1</td>
+     <td>Young the Giant</td>
+     <td>Young the Giant</td>
+     <td>Roadrunner Records</td>
+     <td>Rock, Pop</td>
+     <td>NO</td>
+     <td>Black</td>
+     <td>2</td>
+     <td>4</td>
+     <td>1 – Jacket (Single Pocket)<br>2 – Inner-sleeve<br>1 – Double-Sided Artwork Slip</td>
+     <td><a target="_blank" href="https://www.discogs.com/release/3102547-Young-The-Giant-Young-The-Giant">r3102547</a></td>
+     <td>Jacket – VG<br>Disc – VG+</td>
+     <td>NO</td>
+     <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/young-the-giant-young-the-giant/dhx79zq3t2sbc">(Qobuz)</a></td>
+    </tr>
+    <tr>
+     <td>1</td>
+     <td>Def Leppard</td>
+     <td>Pyromania</td>
+     <td>Mercury</td>
+     <td>Rock</td>
+     <td>NO</td>
+     <td>Black</td>
+     <td>1</td>
+     <td>2</td>
+     <td>1 – Jacket (Single Pocket)<br>1 – Inner-sleeve</td>
+     <td><a target="_blank" href="https://www.discogs.com/release/393266-Def-Leppard-Pyromania">r393266</a></td>
+     <td>Jacket – F<br>Disc – F</td>
+     <td>YES</td>
+     <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/pyromania-def-leppard/u5pezdh2j0oub">(Qobuz)</a></td>
+    </tr>
+    <tr>
+     <td>1</td>
+     <td><span style="font-style: italic;">Various</span></td>
+     <td>Barbie The Album</td>
+     <td>Atlantic, WaterTower Music</td>
+     <td>Electronic, Pop, Stage & Screen</td>
+     <td>NO</td>
+     <td>Hot Pink</td>
+     <td>1</td>
+     <td>4</td>
+     <td>1 – Jacket (Single Pocket)<br>1 – Inner-sleeve<br>1 – Poster<br>1 – Hype Sticker</td>
+     <td><a target="_blank" href="https://www.discogs.com/release/27535197-Various-Barbie-The-Album">r27535197</a></td>
+     <td>Jacket – VG+<br>Disc – VG+</td>
+     <td>YES</td>
+     <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/barbie-the-album-various-artists/vt0p2099gflua">(Qobuz)</a></td>
+    </tr>
+    <tr>
+     <td>1</td>
+     <td><span style="font-style: italic;">Various</span></td>
+     <td>Stranger Things (Music From The Netflix Original Series)</td>
+     <td>Legacy, Netflix</td>
+     <td>Rock, Pop</td>
+     <td>NO</td>
+     <td>Black</td>
+     <td>2</td>
+     <td>5</td>
+     <td>1 – Gatefold Jacket (Double Pocket)<br>2 – Inner-sleeve<br>1 – Mini Season 2 Poster<br>1 – Logo Photo</td>
+     <td><a target="_blank" href="https://www.discogs.com/release/11273965-Various-Stranger-Things-Music-From-The-Netflix-Original-Series">r11273965</a></td>
+     <td>Jacket – VG<br>Disc A/B – VG+<br>Disc C/D – VG+</td>
+     <td>YES</td>
+     <td>N/A</td>
+    </tr>
+    <tr>
+     <td>1</td>
+     <td>Berlin Philharmonic Orchestra, Antonín Dvořák, <span style="font-style: italic;">et al.</span></td>
+     <td>Symphony No. 9 “From the New World”</td>
+     <td>Vinyl Passion Classical</td>
+     <td>Classical</td>
+     <td>NO</td>
+     <td>Black</td>
+     <td>1</td>
+     <td>2</td>
+     <td>1 – Jacket (Single Pocket)<br>1 – Inner-sleeve</td>
+     <td><a target="_blank" href="https://www.discogs.com/release/6469008-Dvo%C5%99%C3%A1k-Berlin-Philharmonic-Orchestra-Conducted-By-Ferenc-Fricsay-Symphony-No-9-From-The-New-World">r6469008</a></td>
+     <td>Jacket – VG<br>Disc – VG+</td>
+     <td>YES</td>
+     <td>N/A</td>
+    </tr>
+    <tr>
+     <td>1</td>
+     <td>Cleveland Orchestra, Ludwig van Beethoven, <span style="font-style: italic;">et al.</span></td>
+     <td>George Szell Conducts Beethoven (Symphony No.4 & Symphony No. 5)</td>
+     <td>Sony Classical</td>
+     <td>Classical</td>
+     <td>NO</td>
+     <td>Black</td>
+     <td>2</td>
+     <td>4</td>
+     <td>1 – Gatefold Jacket (Double Pocket)<br>2 – Inner-sleeve<br>1 – Digital Download Slip (Inactive)</td>
+     <td><a target="_blank" href="https://www.discogs.com/release/13128709-George-Szell-George-Szell-Conducts-Beethoven">r13128709</a></td>
+     <td>Jacket – VG<br>Disc A/B – VG+<br>Disc C/D – VG+</td>
+     <td>YES</td>
+     <td>N/A</td>
+    </tr>
+    <tr>
+     <td>1</td>
+     <td>Konzerthaus Kammerorchester Berlin, Antonio Vivaldi, <span style="font-style: italic;">et al.</span></td>
+     <td>Recomposed By Max Richter: Vivaldi · The Four Seasons</td>
+     <td>Deutsche Grammophon</td>
+     <td>Electronic, Classical</td>
+     <td>NO</td>
+     <td>Black</td>
+     <td>2</td>
+     <td>4</td>
+     <td>1 – Gatefold Jacket (Double Pocket)<br>2 – Inner-sleeve<br>1 – Digital Download Slip (Inactive)</td>
+     <td><a target="_blank" href="https://www.discogs.com/release/5629297-Max-Richter-Vivaldi-Daniel-Hope-Konzerthaus-Kammerorchester-Berlin-Andr%C3%A9-de-Ridder-Recomposed-By-Ma">r5629297</a></td>
+     <td>Jacket – VG+<br>Disc A/B – VG+<br>Disc C/D – VG+</td>
+     <td>YES</td>
+     <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/recomposed-by-max-richter-vivaldi-the-four-seasons-konzerthaus-kammerorchester-berlin/0002894793305">(Qobuz)</a></td>
+    </tr>
+    <tr>
+     <td>1</td>
+     <td>New Philharmonic Orchestra, Pyotr Ilyich Tchaikovsky, <span style="font-style: italic;">et al.</span></td>
+     <td>Tchaikovsky Symphony No. 1 in G minor “Winter Dreams”</td>
+     <td>Angel Records, Angel Red Line</td>
+     <td>Classical</td>
+     <td>NO</td>
+     <td>Black</td>
+     <td>1</td>
+     <td>2</td>
+     <td>1 – Jacket (Single Pocket)<br>1 – Inner-sleeve</td>
+     <td><a target="_blank" href="https://www.discogs.com/release/17084202-New-Philharmonia-Orchestra-Riccardo-Muti-Tchaikovsky-Symphony-No-1-In-G-Minor-Winter-Dreams">r17084202</a></td>
+     <td>Jacket – G+<br>Disc – VG</td>
+     <td>YES</td>
+     <td>N/A</td>
+    </tr>
+    <tr>
+     <td>1</td>
+     <td>Roger Williams, <span style="font-style: italic;">et al.</span></td>
+     <td>Autumn Leaves The Best of Roger Williams</td>
+     <td>Reader’s Digest</td>
+     <td>Pop</td>
+     <td>NO</td>
+     <td>Black</td>
+     <td>8</td>
+     <td>10</td>
+     <td>1 – Inner-Jacket Shell<br>1 – Outer-Jacket Shell<br>8 – Inner-sleeve</td>
+     <td><a target="_blank" href="https://www.discogs.com/release/3905196-Roger-Williams-Autumn-Leaves-The-Best-Of-Roger-Williams">r3905196</a></td>
+     <td>All Jackets – VG<br>All Discs – VG+</td>
+     <td>YES</td>
+     <td>N/A</td>
+    </tr>
+    <tr>
+     <td>1</td>
+     <td><span style="font-style: italic;">Various</span></td>
+     <td>23 Great Themes From Great Music</td>
+     <td>Symphonic Treasures</td>
+     <td>Classical</td>
+     <td>NO</td>
+     <td>Black</td>
+     <td>1</td>
+     <td>2</td>
+     <td>1 – Jacket (Single Pocket)<br>1 – MIM Article Slip</td>
+     <td><a target="_blank" href="https://www.discogs.com/release/6034299-Various-23-Great-Themes-From-Great-Music">r6034299</a></td>
+     <td>Jacket – G<br>Disc – VG</td>
+     <td>YES</td>
+     <td>N/A</td>
+    </tr>
+   </tbody>
+  </table>
+  <section class="updates" style="text-align: center;">
+   <p><span style="text-decoration: underline;">Inventory List Last Updated</span><br>2024-06-26 UTC</p>
+   <p><span style="text-decoration: underline;">Latest Full Inventory Check</span><br>2024-01-18 UTC</p>
+   <p><span style="text-decoration: underline;">Document Information Last Updated</span><br>2024-06-26 UTC</p>
+  </section>
+  <section class="bottom-link-group" style="text-align: center; margin-top: 40px; margin-bottom: 40px; font-size: 25px;">
+   <p><a class="bottom-link" target="_blank" href="https://tylerjm.org/record-handbook/inv/defs/">Definitions<span><svg viewBox="0 -960 800 400" width="24" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M 360,-560 H 200 Q 117,-560 58.5,-618.5 0,-677 0,-760 0,-843 58.5,-901.5 117,-960 200,-960 h 160 v 80 H 200 q -50,0 -85,35 -35,35 -35,85 0,50 35,85 35,35 85,35 H 360 Z M 240,-720 v -80 h 320 v 80 z m 200,160 v -80 h 160 q 50,0 85,-35 35,-35 35,-85 0,-50 -35,-85 -35,-35 -85,-35 H 440 v -80 h 160 q 83,0 141.5,58.5 58.5,58.5 58.5,141.5 0,83 -58.5,141.5 Q 683,-560 600,-560 Z" /></svg></span></a></p>
+   <p><a class="bottom-link" target="_blank" href="https://tylerjm.org/record-handbook/">The Record Handbook<svg viewBox="0 -960 800 400" width="24" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M 360,-560 H 200 Q 117,-560 58.5,-618.5 0,-677 0,-760 0,-843 58.5,-901.5 117,-960 200,-960 h 160 v 80 H 200 q -50,0 -85,35 -35,35 -35,85 0,50 35,85 35,35 85,35 H 360 Z M 240,-720 v -80 h 320 v 80 z m 200,160 v -80 h 160 q 50,0 85,-35 35,-35 35,-85 0,-50 -35,-85 -35,-35 -85,-35 H 440 v -80 h 160 q 83,0 141.5,58.5 58.5,58.5 58.5,141.5 0,83 -58.5,141.5 Q 683,-560 600,-560 Z" /></svg></span></a></p>
+  </section>
+  </main>
+  <footer>
+   <p style="font-size: 12px; text-align: center;">© 2024 <a href="https://tylermorgan.co">Tyler Morgan</a>. All rights reserved.</p>
+  </footer>
+ </body>
+</html>
