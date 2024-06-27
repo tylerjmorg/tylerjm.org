@@ -22,6 +22,12 @@
    :root {
     color: var(--primary-color);
    }
+   .table-view{
+    box-shadow: inset #22222255 0px 0px 8px 0px;
+    overflow-x: scroll;
+    height: 573px;
+    border-radius: 15px;
+   }
    table {
     border-collapse: separate;
     border-spacing: 0;
@@ -97,6 +103,9 @@
     top: 0;
     box-shadow: rgba(0, 0, 0, 0.34) 0px 2px 8px 0px;
     border-radius: 15px;
+    background-color: var(--bkg-color-3-trans);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
    }
    .updates {
     display: grid;
@@ -118,9 +127,9 @@
    <h1 style="font-size: 25px; text-align: center; margin-top: 15px; margin-bottom: 5px; color: var(--primary-color);">RECORD INVENTORY</h1>
   </header>
   <main>
-   <div style="overflow-x: scroll; height: 573px; border-radius: 15px;">
+   <div class="table-view">
     <table style="font-size: 12px; justify-content: center;">
-     <thead style="background-color: rgba(49, 48, 49, 0.8); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); -moz-backdrop-filter: blur(5px);">
+     <thead>
       <tr style="font-size: 14px;">
        <th>Qty</th>
        <th>Artist(s)</th>
