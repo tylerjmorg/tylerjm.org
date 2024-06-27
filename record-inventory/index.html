@@ -72,6 +72,12 @@
     display: grid;
     grid: 'defs handinfo';
    }
+   .defs {
+    grid-area: defs;
+   }
+   .handinfo {
+    grid-area: handinfo;
+   }
    .bottom-link {
     text-decoration: underline solid transparent;
     font-weight: bold;
@@ -96,16 +102,25 @@
     display: grid;
     grid: 'invup invcheck infoup';
    }
+   .invup {
+    grid-area: invup;
+   }
+   .invcheck {
+    grid-area: invcheck
+   }
+   .infoup {
+    grid-area: infoup;
+   }
   </style>
  </head>
  <body>
   <header>
-   <h1 style="font-size: 25px; text-align: center; margin-top: 30px; margin-bottom: 5px; color: var(--primary-color);">RECORD INVENTORY</h1>
+   <h1 style="font-size: 25px; text-align: center; margin-top: 15px; margin-bottom: 5px; color: var(--primary-color);">RECORD INVENTORY</h1>
   </header>
   <main>
-   <div style="overflow-x: scroll; height:482px; border-radius: 15px;">
+   <div style="overflow-x: scroll; height:507px; border-radius: 15px;">
     <table style="font-size: 12px; justify-content: center;">
-     <thead style="background-color: rgba(49, 48, 49, 0.7); backdrop-filter: blur(5px);">
+     <thead style="background-color: rgba(49, 48, 49, 0.8); backdrop-filter: blur(5px);">
       <tr style="font-size: 14px;">
        <th>Qty</th>
        <th>Artist(s)</th>
@@ -123,7 +138,11 @@
        <th>Digital Downloads</th>
       </tr>
      </thead>
+
+     <!--Organized by order of priority: 1. Genre, 2. Artist Last Name (if applicaple), 3. Chronological Release-->
      <tbody>
+
+      <!--Adele: 30-->
       <tr>
        <td>1</td>
        <td>Adele</td>
@@ -140,6 +159,8 @@
        <td>YES</td>
        <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/30-adele/tuzhj8k94jxoc">(Qobuz)</a></td>
       </tr>
+
+      <!--Billie Eilish: dont smile at me-->
       <tr>
        <td>1</td>
        <td>Billie Eilish</td>
@@ -156,6 +177,8 @@
        <td>YES</td>
        <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/dont-smile-at-me-billie-eilish/n796jd6uaf11b">(Qobuz)</a></td>
       </tr>
+
+      <!--Billie Eilish: WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?-->
       <tr>
        <td>1</td>
        <td>Billie Eilish</td>
@@ -172,6 +195,8 @@
        <td>YES</td>
        <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/when-we-all-fall-asleep-where-do-we-go-billie-eilish/wo456u01fehgc">(Qobuz)</a></td>
       </tr>
+
+      <!--Billie Eilish: Happier Than Ever-->
       <tr>
        <td>1</td>
        <td>Billie Eilish</td>
@@ -188,6 +213,8 @@
        <td>YES</td>
        <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/happier-than-ever-explicit-billie-eilish/vewzc8hmoqc8a">(Qobuz)</a><br><a target="_blank" href="https://store.billieeilish.com/products/happier-than-ever-digital-album">(Official is MP3 only)</a></td>
       </tr>
+
+      <!--Billie Eilish: HIT ME HARD AND SOFT-->
       <tr>
        <td>1</td>
        <td>Billie Eilish</td>
@@ -204,6 +231,8 @@
        <td>YES</td>
        <td><a target="_blank" href="https://drive.proton.me/urls/RDAAVE7VVM#sxL979xIB7yx">Yes</a> <a target="_blank" href="https://www.qobuz.com/us-en/album/hit-me-hard-and-soft-billie-eilish/gvcirtodd95kc">(Qobuz)</a><br><a target="_blank" href="https://store.billieeilish.com/products/hit-me-hard-and-soft-digital-album">(Official is MP3 only)</a></td>
       </tr>
+
+      <!--Conan Gray: Superache-->
       <tr>
        <td>1</td>
        <td>Conan Gray</td>
@@ -220,6 +249,8 @@
        <td>YES</td>
        <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/superache-conan-gray/enqrpjtn03sra">(Qobuz)</a><br><a target="_blank" href="https://shop.conangray.com/products/superache-digital-album">(Official is MP3 only)</a></td>
       </tr>
+
+      <!--Noah Kahan: Stick Season-->
       <tr>
        <td>1</td>
        <td>Noah Kahan</td>
@@ -236,6 +267,8 @@
        <td>YES</td>
        <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/stick-season-noah-kahan/p87zu4urgi2tb">(Qobuz)</a></td>
       </tr>
+
+      <!--Khalid: American Teen-->
       <tr>
        <td>1</td>
        <td>Khalid</td>
@@ -252,6 +285,8 @@
        <td>YES</td>
        <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/american-teen-khalid/0886446309347">(Qobuz)</a></td>
       </tr>
+
+      <!--Khalid: Free Spirit-->
       <tr>
        <td>1</td>
        <td>Khalid</td>
@@ -268,6 +303,8 @@
        <td>YES</td>
        <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/free-spirit-khalid/f06uhxxw9omba">(Qobuz)</a></td>
       </tr>
+
+      <!--Kendrick Lamar: DAMN.-->
       <tr>
        <td>1</td>
        <td>Kendrick Lamar</td>
@@ -284,6 +321,8 @@
        <td>YES</td>
        <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/damn-kendrick-lamar/0060255760871">(Qobuz)</a></td>
       </tr>
+
+      <!--Post Malone: Stoney-->
       <tr>
        <td>1</td>
        <td>Post Malone</td>
@@ -300,6 +339,8 @@
        <td>YES</td>
        <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/stoney-post-malone/0060255726179">(Qobuz)</a><br><a target="_blank" href="https://shop.republicrecords.com/collections/post-malone/products/post-malone-stoney-digital-album">(Official is MP3 only)</a></td>
       </tr>
+
+      <!--Post Malone: Beerbongs & Bentleys-->
       <tr>
        <td>1</td>
        <td>Post Malone</td>
@@ -316,6 +357,8 @@
        <td>YES</td>
        <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/beerbongs-bentleys-post-malone/mb0zgu7w885cc">(Qobuz)</a><br><a target="_blank" href="https://shop.republicrecords.com/products/post-malone-beerbongs-bentleys-digital-album">(Official is MP3 only)</a></td>
       </tr>
+
+      <!--Post Malone: Hollywood’s Bleeding-->
       <tr>
        <td>1</td>
        <td>Post Malone</td>
@@ -332,6 +375,8 @@
        <td>YES</td>
        <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/hollywoods-bleeding-post-malone/jgjvoqpvrvngc">(Qobuz)</a><br><a target="_blank" href="https://shop.republicrecords.com/collections/digital-music/products/post-malone-hollywoods-bleeding-digital-album">(Official is MP3 only)</a></td>
       </tr>
+
+      <!--Melanie Martinez: Cry Baby-->
       <tr>
        <td>1</td>
        <td>Melanie Martinez</td>
@@ -348,6 +393,8 @@
        <td>YES</td>
        <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/cry-baby-melanie-martinez/0075679921369">(Qobuz)</a></td>
       </tr>
+
+      <!--Olivia Rodrigo: Sour-->
       <tr>
        <td>1</td>
        <td>Olivia Rodrigo</td>
@@ -364,6 +411,8 @@
        <td>YES</td>
        <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/sour-olivia-rodrigo/pqbbikwu2ljnb">(Qobuz)</a><br><a target="_blank" href="https://shopau.oliviarodrigo.com/collections/au/products/sour-digital-album">(Official is MP3, AU only)</a></td>
       </tr>
+
+      <!--Olivia Rodrigo: GUTS-->
       <tr>
        <td>1</td>
        <td>Olivia Rodrigo</td>
@@ -380,6 +429,8 @@
        <td>YES</td>
        <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/guts-olivia-rodrigo/vrqtmyvds2ztc">(Qobuz)</a><br><a target="_blank" href="https://shopau.oliviarodrigo.com/collections/a-la-carte/products/guts-digital-album">(Official is MP3, AU only)</a></td>
       </tr>
+
+      <!--Harry Styles: Harry's House-->
       <tr>
        <td>1</td>
        <td>Harry Styles</td>
@@ -396,6 +447,8 @@
        <td>YES</td>
        <td><a target="_blank" href="https://shopus.hstyles.co.uk/products/harrys-house-digital-download">No</a><br><a target="_blank" href="https://www.qobuz.com/us-en/album/harrys-house-harry-styles/kowixpbhn056a">(Qobuz)</a></td>
       </tr>
+
+      <!--Taylor Swift: Midnights-->
       <tr>
        <td>1</td>
        <td>Taylor Swift</td>
@@ -412,6 +465,8 @@
        <td>YES</td>
        <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/midnights-taylor-swift/lfrznf57rq9pa">(Qobuz)</a></td>
       </tr>
+
+      <!--SZA: SOS-->
       <tr>
        <td>1</td>
        <td>SZA</td>
@@ -428,6 +483,8 @@
        <td>YES</td>
        <td><a target="_blank" href="https://txdxe.com/products/sos">No</a><br><a target="_blank" href="https://www.qobuz.com/us-en/album/sos-sza/ckyh7bv0dt6tb">(Qobuz)</a></td>
       </tr>
+
+      <!--Kali Uchis: Red Moon in Venus-->
       <tr>
        <td>1</td>
        <td>Kali Uchis</td>
@@ -444,6 +501,8 @@
        <td>YES</td>
        <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/red-moon-in-venus-kali-uchis/nh8wmgsf1t4ya">(Qobuz)</a><br><a target="_blank" href="https://shopkaliuchis.com/products/red-moon-in-venus-digital-album">(Official is MP3 only)</a></td>
       </tr>
+
+      <!--Young the Giant: Young the Giant-->
       <tr>
        <td>1</td>
        <td>Young the Giant</td>
@@ -460,6 +519,8 @@
        <td>NO</td>
        <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/young-the-giant-young-the-giant/dhx79zq3t2sbc">(Qobuz)</a></td>
       </tr>
+
+      <!--Def Leppard: Pyromania-->
       <tr>
        <td>1</td>
        <td>Def Leppard</td>
@@ -476,6 +537,8 @@
        <td>YES</td>
        <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/pyromania-def-leppard/u5pezdh2j0oub">(Qobuz)</a></td>
       </tr>
+
+      <!--Various: Barbie The Album-->
       <tr>
        <td>1</td>
        <td><span style="font-style: italic;">Various</span></td>
@@ -492,6 +555,8 @@
        <td>YES</td>
        <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/barbie-the-album-various-artists/vt0p2099gflua">(Qobuz)</a></td>
       </tr>
+
+      <!--Various: Stranger Things (Music From The Netflix Original Series)-->
       <tr>
        <td>1</td>
        <td><span style="font-style: italic;">Various</span></td>
@@ -508,6 +573,8 @@
        <td>YES</td>
        <td>N/A</td>
       </tr>
+
+      <!--Berlin Philharmonic Orchestra, Antonín Dvořák, et al.: Symphony No. 9 “From the New World”-->
       <tr>
        <td>1</td>
        <td>Berlin Philharmonic Orchestra, Antonín Dvořák, <span style="font-style: italic;">et al.</span></td>
@@ -524,6 +591,8 @@
        <td>YES</td>
        <td>N/A</td>
       </tr>
+
+      <!--Cleveland Orchestra, Ludwig van Beethoven, et al.: George Szell Conducts Beethoven (Symphony No.4 & Symphony No. 5)-->
       <tr>
        <td>1</td>
        <td>Cleveland Orchestra, Ludwig van Beethoven, <span style="font-style: italic;">et al.</span></td>
@@ -540,6 +609,8 @@
        <td>YES</td>
        <td>N/A</td>
       </tr>
+
+      <!--Konzerthaus Kammerorchester Berlin, Antonio Vivaldi, et al.: Recomposed By Max Richter: Vivaldi · The Four Seasons-->
       <tr>
        <td>1</td>
        <td>Konzerthaus Kammerorchester Berlin, Antonio Vivaldi, <span style="font-style: italic;">et al.</span></td>
@@ -556,6 +627,8 @@
        <td>YES</td>
        <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/recomposed-by-max-richter-vivaldi-the-four-seasons-konzerthaus-kammerorchester-berlin/0002894793305">(Qobuz)</a></td>
       </tr>
+
+      <!--New Philharmonic Orchestra, Pyotr Ilyich Tchaikovsky, et al.: Tchaikovsky Symphony No. 1 in G minor “Winter Dreams”-->
       <tr>
        <td>1</td>
        <td>New Philharmonic Orchestra, Pyotr Ilyich Tchaikovsky, <span style="font-style: italic;">et al.</span></td>
@@ -572,6 +645,8 @@
        <td>YES</td>
        <td>N/A</td>
       </tr>
+
+      <!--Roger Williams, et al.: Autumn Leaves The Best of Roger Williams-->
       <tr>
        <td>1</td>
        <td>Roger Williams, <span style="font-style: italic;">et al.</span></td>
@@ -588,6 +663,8 @@
        <td>YES</td>
        <td>N/A</td>
       </tr>
+
+      <!--Various: 23 Great Themes From Great Music-->
       <tr>
        <td>1</td>
        <td><span style="font-style: italic;">Various</span></td>
@@ -608,13 +685,13 @@
     </table>
    </div>
   <div class="updates" style="text-align: center;">
-   <p style="font-size: 14px;"><span style="text-decoration: underline;">Inventory List Last Updated</span><br>2024-06-26 UTC</p>
-   <p style="font-size: 14px;"><span style="text-decoration: underline;">Latest Full Inventory Check</span><br>2024-01-18 UTC</p>
-   <p style="font-size: 14px;"><span style="text-decoration: underline;">Document Information Last Updated</span><br>2024-06-26 UTC</p>
+   <p class="invup" style="font-size: 12px;"><span style="text-decoration: underline;">Inventory List Last Updated</span><br>2024-06-26 UTC</p>
+   <p class="invcheck" style="font-size: 12px;"><span style="text-decoration: underline;">Latest Full Inventory Check</span><br>2024-01-18 UTC</p>
+   <p class="infoup" style="font-size: 12px;"><span style="text-decoration: underline;">Document Information Last Updated</span><br>2024-06-26 UTC</p>
    </div>
-  <div class="bottom-link-group" style="text-align: center; font-size: 25px;">
-   <p style="font-size: 16px;"><a class="bottom-link" target="_blank" href="https://tylerjm.org/record-handbook/inv/defs/">Definitions<svg viewBox="0 -960 800 400" width="24" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M 360,-560 H 200 Q 117,-560 58.5,-618.5 0,-677 0,-760 0,-843 58.5,-901.5 117,-960 200,-960 h 160 v 80 H 200 q -50,0 -85,35 -35,35 -35,85 0,50 35,85 35,35 85,35 H 360 Z M 240,-720 v -80 h 320 v 80 z m 200,160 v -80 h 160 q 50,0 85,-35 35,-35 35,-85 0,-50 -35,-85 -35,-35 -85,-35 H 440 v -80 h 160 q 83,0 141.5,58.5 58.5,58.5 58.5,141.5 0,83 -58.5,141.5 Q 683,-560 600,-560 Z" /></svg></a></p>
-   <p style="font-size: 16px;"><a class="bottom-link" target="_blank" href="https://tylerjm.org/record-handbook/">The Record Handbook<svg viewBox="0 -960 800 400" width="24" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M 360,-560 H 200 Q 117,-560 58.5,-618.5 0,-677 0,-760 0,-843 58.5,-901.5 117,-960 200,-960 h 160 v 80 H 200 q -50,0 -85,35 -35,35 -35,85 0,50 35,85 35,35 85,35 H 360 Z M 240,-720 v -80 h 320 v 80 z m 200,160 v -80 h 160 q 50,0 85,-35 35,-35 35,-85 0,-50 -35,-85 -35,-35 -85,-35 H 440 v -80 h 160 q 83,0 141.5,58.5 58.5,58.5 58.5,141.5 0,83 -58.5,141.5 Q 683,-560 600,-560 Z" /></svg></a></p>
+  <div class="bottom-link-group" style="text-align: center; font-size: 25px; margin: 0px;">
+   <p class="defs" style="font-size: 14px;"><a class="bottom-link" target="_blank" href="https://tylerjm.org/record-handbook/inv/defs/">Definitions<svg viewBox="0 -960 800 400" width="24" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M 360,-560 H 200 Q 117,-560 58.5,-618.5 0,-677 0,-760 0,-843 58.5,-901.5 117,-960 200,-960 h 160 v 80 H 200 q -50,0 -85,35 -35,35 -35,85 0,50 35,85 35,35 85,35 H 360 Z M 240,-720 v -80 h 320 v 80 z m 200,160 v -80 h 160 q 50,0 85,-35 35,-35 35,-85 0,-50 -35,-85 -35,-35 -85,-35 H 440 v -80 h 160 q 83,0 141.5,58.5 58.5,58.5 58.5,141.5 0,83 -58.5,141.5 Q 683,-560 600,-560 Z" /></svg></a></p>
+   <p class="handinfo" style="font-size: 14px;"><a class="bottom-link" target="_blank" href="https://tylerjm.org/record-handbook/">The Record Handbook<svg viewBox="0 -960 800 400" width="24" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M 360,-560 H 200 Q 117,-560 58.5,-618.5 0,-677 0,-760 0,-843 58.5,-901.5 117,-960 200,-960 h 160 v 80 H 200 q -50,0 -85,35 -35,35 -35,85 0,50 35,85 35,35 85,35 H 360 Z M 240,-720 v -80 h 320 v 80 z m 200,160 v -80 h 160 q 50,0 85,-35 35,-35 35,-85 0,-50 -35,-85 -35,-35 -85,-35 H 440 v -80 h 160 q 83,0 141.5,58.5 58.5,58.5 58.5,141.5 0,83 -58.5,141.5 Q 683,-560 600,-560 Z" /></svg></a></p>
   </div>
   </main>
   <footer>
