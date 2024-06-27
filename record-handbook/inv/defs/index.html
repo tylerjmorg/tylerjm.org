@@ -18,8 +18,6 @@
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#121111">
   <link rel="canonical" href="https://tylerjm.org/record-handbook/inv/defs/">
   <meta name="keywords" content="record, handbook, tyler morgan, vinyl, tylerjmorg, discogs, goldmine, music, inventory, definitions">
- </head>
- <body>
   <style>
    :root {
     color: var(--primary-color)
@@ -33,53 +31,87 @@
     width: 88%; 
     justify-content: center; 
     margin: auto;
+    margin-bottom: 30px;
+   }
+   dt {
+    padding-top: 20px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    font-size: 20px;
+   }
+   dd {
+    padding-bottom: 20px;
+   }
+   ul {
+    padding-left: 20px;
+   }
+   li {
+    list-style-type: disc;
    }
   </style>
+ </head>
+ <body>
   <header>
    <h1 style="color: var(--primary-color); text-align: center;">Record Inventory<br>Definitions</h1>
   </header>
   <main>
-   <section class="def-box">
-    <h2 style="padding-top: 20px;">Qty</h2>
-    <p>Quantity (Qty) of the exact same record in the inventory. The record must be exactly the same as the other(s) and must have the same column properties. A “0” quantity (Qty) indicates that a record used to belong in the inventory but has changed possession willfully (e.g., sold or gifted).</p>
-   </section>
-   <section class="def-box">
-    <h2 style="padding-top: 20px;">Disc Color(s)</h2>
-    <p>To signify different types of disc. (e.g., “Target Exclusive (Blue)” or “Walmart Exclusive (Transparent)”). The disc color(s) only are okay to add as well, (e.g., “Clear” or “Apricot”).</p>
-   </section>
-   <section class="def-box">
-    <h2 style="padding-top: 20px;">Disc Count</h2>
-    <p>The number of original discs contained within the specific record.</p>
-   </section>
-   <section class="def-box">
-    <h2 style="padding-top: 20px;">Contents Count</h2>
-    <p>All contents in the originally purchased record, including any original sleeve(s), jacket(s), digital download slips, posters, booklets, hype stickers, and other bonus content. Post-sale sleeves or any aftermarket items will not be counted. The contents count excludes the disc(s).</p>
-   </section>
-   <section class="def-box">
-    <h2 style="padding-top: 20px;">Contents Description(s)</h2>
-    <p>The quantity and brief description of all original contents contained within one  record, including any original sleeve(s), jacket(s), digital download slips, posters, booklets, hype stickers, and other bonus content. Post-sale sleeves or any aftermarket items will not be counted. The contents count excludes the disc(s). The contents description must equal the contents count column.</p>
-   </section>
-   <section class="def-box">
-    <h2 style="padding-top: 20px;">Discogs Release Code</h2>
-    <p>Identifies the specific record on <a class="content-link" target="_blank" href="https://www.discogs.com">https://www.discogs.com</a>. Searching the release code brings up all information regarding the specific record.</p>
-   </section>
-   <section class="def-box">
-    <h2 style="padding-top: 20px;">Goldmine<sup>®</sup> Condition(s)</h2>
-    <p>Each disc(s) and jacket(s)’ condition according to The Goldmine® Grading Guide. URL: <a class="content-link" target="_blank" href="https://www.goldminemag.com/collector-resources/record-grading-101">https://www.goldminemag.com/collector-resources/record-grading-101</a>. Each disc and jacket must be graded individually. Acceptable grades: M, NM, VG+, VG, G+, G, F, P.</p>
-   </section>
-   <section class="def-box">
-    <h2 style="padding-top: 20px;">Listened</h2>
-    <p>A Boolean value identifying if all tracks on a specific record have been played and listened to in its entirety. All quantities must be listened to, i.e., if the “Qty” column is 3, all three records must be listened to in their entirety, even though they are the same tracks.</p>
-   </section>
-   <section class="def-box">
-    <h2 style="padding-top: 20px;">Digital Download(s)</h2>
-    <p>A Yes, No, or N/A value indicating if a digital format of the exact same record was downloaded. The digital download must include the same album name and the same and/or more tracks as the physical record (excluding hidden tracks). “No” value means that there exists a buyable download that meets the “Yes” value requirements but has not been purchased. “N/A” value means that there is no existing buyable download that meets the “Yes” value requirements. “Yes” value requirements:</p>
-     <p>1. The download must contain at least a FLAC or WAV original file for all tracks.</p>
-     <p>2. The download has to be an official download from the label, artist, or a trusted 3rd party.</p>
-     <p>3. The download must be a portable file (i.e., not downloaded from iTunes or another proprietary store).</p>
-     <p>4. The proof of purchase (PoP) (digital download slips are okay) must be stored safely alongside the music file(s) in cloud storage.</p>
-     <p>5. All files, including all music files and PoPs, must be stored in at least two different cloud storage providers for resilience.</p>
-   </section>
+   <dl>
+    <div class="def-box">
+     <dt>Qty</dt>
+     <dd>Quantity (Qty) of the exact same record in the inventory. The record must be exactly the same as the other(s) and must have the same column properties. A <span style="font-style: italic;">0</span> quantity (Qty) indicates that a record used to belong in the inventory but has changed possession willfully (e.g., sold or gifted).</dd>
+    </div>
+    <div class="def-box">
+     <dt>Disc Color(s)</dt>
+     <dd>To signify different types of disc. (e.g., <span style="font-style: italic;">Target Exclusive (Blue)</span> or <span style="font-style: italic;">Walmart Exclusive (Transparent)</span>). Name disc's color(s) only are allowed as long as it is generally descriptive, (e.g., <span style="font-style: italic;">Clear</span> or <span style="font-style: italic;">Apricot</span>).</dd>
+    </div>
+    <div class="def-box">
+     <dt>Disc Count</dt>
+     <dd>The number of original discs contained within a specific record.</dd>
+    </div>
+    <div class="def-box">
+     <dt>Contents Count</dt>
+     <dd>All contents in the originally purchased record, including any original sleeves, jackets, digital download slips, posters, booklets, hype stickers, and other bonus content. Post-sale sleeves or any other aftermarket items will not be counted. The contents count excludes discs.</dd>
+    </div>
+    <div class="def-box">
+     <dt>Contents Description(s)</dt>
+     <dd>The quantity and brief description of all original contents contained within one record, including any original sleeves, jackets, digital download slips, posters, booklets, hype stickers, and other bonus content. Post-sale sleeves or any other aftermarket items will not be counted. The contents count excludes discs. The total contents description quantity must be equal to the contents count column.</dd>
+    </div>
+    <div class="def-box">
+     <dt>Discogs Release Code</dt>
+     <dd>Identifies the specific record at <a class="content-link" target="_blank" href="https://www.discogs.com">https://www.discogs.com</a>. Searching the release code pulls up all information regarding the specific record. An example of a Discogs release code is <a target="_blank" class="content-link" style="font-style: italic;" href="https://www.discogs.com/release/26128271-Harry-Styles-Harrys-House">r26128271</a>.</dd>
+    </div>
+    <div class="def-box">
+     <dt>Goldmine<sup>®</sup> Condition(s)</dt>
+     <dd>Each disc and jacket's condition according to The Goldmine<sup>®</sup> Grading Guide. URL: <a class="content-link" target="_blank" href="https://www.goldminemag.com/collector-resources/record-grading-101">https://www.goldminemag.com/collector-resources/record-grading-101</a>. Each disc and jacket must be graded individually. Acceptable grades: 
+      <ul>
+       <li>M (Mint) <span style="font-style: italic; font-size: 13px; color: var(--highlight-color-sec);">Very rarely used</span></li>
+       <li>NM (Near Mint)</li>
+       <li>VG+ (Very Good Plus)</li>
+       <li>VG (Very Good)</li>
+       <li>G+ (Good Plus)</li>
+       <li>G (Good)</li>
+       <li>F (Fair)</li>
+       <li>P (Poor)</li>
+      </ul>
+     </dd>
+    </div>
+    <div class="def-box">
+     <dt>Listened</dt>
+     <dd>A Boolean value identifying if all tracks on a specific record have been played and listened to in its entirety. All quantities must be listened to receive a YES value; i.e., if the <span style="font-style: italic;">Qty</span> column is 3, all three records must be listened to in their entirety, even though they are the same tracks.</dd>
+    </div>
+    <div class="def-box">
+     <dt>Digital Download(s)</dt>
+     <dd>A Yes, No, or N/A value indicating if a digital format of the exact same record was downloaded. The digital download must include the same album name and the same and/or more tracks as the physical record (excluding hidden tracks). No value means that there exists a buyable download that meets the Yes value requirements but has not been purchased. N/A value means that there is no existing buyable download that meets the Yes value requirements. Yes value requirements:
+      <ul>
+       <li>The download must contain at least a FLAC or WAV original file for all tracks.</li>
+       <li>The download has to be an official download from the label, artist, or a trusted 3rd party.</li>
+       <li>The download must be a portable file (i.e., not downloaded from iTunes or another proprietary store).</li>
+       <li>The proof of purchase (PoP) (digital download slips are okay) must be stored safely alongside the music file(s) in cloud storage.</li>
+       <li>All files, including all music files and PoPs, must be stored in at least two different cloud storage providers for resilience.</li>
+      </ul>
+     </dd>
+    </div>
+   </dl>
    <a style="margin-top: 20px; max-width: 200px;" class="social-button" href="https://tylerjm.org/record-handbook/">
     <p>Return to Handbook</p>
    </a>
