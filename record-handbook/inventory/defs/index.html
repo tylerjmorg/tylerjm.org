@@ -16,7 +16,7 @@
   <link rel="mask-icon" crossorigin href="https://tylermorgan.co/elements/icons/mask-icon.svg" color="#454D51">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#444444">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#121111">
-  <link rel="canonical" href="https://tylerjm.org/record-handbook/inv/defs/">
+  <link rel="canonical" href="https://tylerjm.org/record-handbook/inventory/defs/">
   <meta name="keywords" content="record, handbook, tyler morgan, vinyl, tylerjmorg, discogs, goldmine, music, inventory, definitions">
   <style>
    :root {
@@ -24,12 +24,12 @@
    }
    .def-box{
     background-color: var(--secondary-bkg-color); 
-    border-radius: 30px; 
-    padding: 0 20px; 
-    padding-bottom: 10px; 
-    max-width: 600px; 
-    width: 88%; 
-    justify-content: center; 
+    border-radius: 30px;
+    padding: 0 20px;
+    padding-bottom: 10px;
+    max-width: 600px;
+    width: 88%;
+    justify-content: center;
     margin: auto;
     margin-bottom: 30px;
    }
@@ -56,31 +56,31 @@
   </header>
   <main>
    <dl>
-    <div class="def-box">
+    <div class="def-box" id="qty">
      <dt>Qty</dt>
      <dd>Quantity (Qty) of the exact same record in the inventory. The record must be exactly the same as the other(s) and must have the same column properties. A <span style="font-style: italic;">0</span> quantity (Qty) indicates that a record used to belong in the inventory but has changed possession willfully (e.g., sold or gifted).</dd>
     </div>
-    <div class="def-box">
+    <div class="def-box" id="disc-colors">
      <dt>Disc Color(s)</dt>
      <dd>To signify different types of disc. (e.g., <span style="font-style: italic;">Target Exclusive (Blue)</span> or <span style="font-style: italic;">Walmart Exclusive (Transparent)</span>). Name disc's color(s) only are allowed as long as it is generally descriptive, (e.g., <span style="font-style: italic;">Clear</span> or <span style="font-style: italic;">Apricot</span>).</dd>
     </div>
-    <div class="def-box">
+    <div class="def-box" id="disc-count">
      <dt>Disc Count</dt>
      <dd>The number of original discs contained within a specific record.</dd>
     </div>
-    <div class="def-box">
+    <div class="def-box" id="contents-count">
      <dt>Contents Count</dt>
      <dd>All contents in the originally purchased record, including any original sleeves, jackets, digital download slips, posters, booklets, hype stickers, and other bonus content. Post-sale sleeves or any other aftermarket items will not be counted. The contents count excludes discs.</dd>
     </div>
-    <div class="def-box">
+    <div class="def-box" id="contents-descriptions">
      <dt>Contents Description(s)</dt>
      <dd>The quantity and brief description of all original contents contained within one record, including any original sleeves, jackets, digital download slips, posters, booklets, hype stickers, and other bonus content. Post-sale sleeves or any other aftermarket items will not be counted. The contents count excludes discs. The total contents description quantity must be equal to the contents count column.</dd>
     </div>
-    <div class="def-box">
+    <div class="def-box" id="discogs-release-code">
      <dt>Discogs Release Code</dt>
      <dd>Identifies the specific record at <a class="content-link" target="_blank" href="https://www.discogs.com">https://www.discogs.com</a>. Searching the release code pulls up all information regarding the specific record. An example of a Discogs release code is <a target="_blank" class="content-link" style="font-style: italic;" href="https://www.discogs.com/release/26128271-Harry-Styles-Harrys-House">r26128271</a>.</dd>
     </div>
-    <div class="def-box">
+    <div class="def-box" id="goldmine-conditions">
      <dt>Goldmine<sup>®</sup> Condition(s)</dt>
      <dd>Each disc and jacket's condition according to The Goldmine<sup>®</sup> Grading Guide. URL: <a class="content-link" target="_blank" href="https://www.goldminemag.com/collector-resources/record-grading-101">https://www.goldminemag.com/collector-resources/record-grading-101</a>. Each disc and jacket must be graded individually. Acceptable grades: 
       <ul>
@@ -95,11 +95,11 @@
       </ul>
      </dd>
     </div>
-    <div class="def-box">
+    <div class="def-box" id="listened">
      <dt>Listened</dt>
      <dd>A Boolean value identifying if all tracks on a specific record have been played and listened to in its entirety. All quantities must be listened to receive a YES value; i.e., if the <span style="font-style: italic;">Qty</span> column is 3, all three records must be listened to in their entirety, even though they are the same tracks.</dd>
     </div>
-    <div class="def-box">
+    <div class="def-box" id="digital-downloads">
      <dt>Digital Download(s)</dt>
      <dd>A Yes, No, or N/A value indicating if a digital format of the exact same record was downloaded. The digital download must include the same album name and the same and/or more tracks as the physical record (excluding hidden tracks). No value means that there exists a buyable download that meets the Yes value requirements but has not been purchased. N/A value means that there is no existing buyable download that meets the Yes value requirements. Yes value requirements:
       <ul>
@@ -112,7 +112,7 @@
      </dd>
     </div>
    </dl>
-   <a style="margin-top: 20px; max-width: 200px;" class="social-button" href="https://tylerjm.org/record-handbook/">
+   <a style="margin-top: 20px; max-width: 200px;" class="social-button" href="/record-handbook/">
     <p>Return to Handbook</p>
    </a>
   </main>

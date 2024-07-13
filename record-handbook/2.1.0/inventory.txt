@@ -1,0 +1,76 @@
+                   -------------------------------
+
+                      Record Inventory Template
+
+                   -------------------------------
+
+
+Part 1:
++------+------------+----------------+------------------+------------+
+| Qty  | Artist(s)  | Record Name    | Record Label(s)  | Genre(s)   |
++------+------------+----------------+------------------+------------+
+| 1    | Adele      | 30             | Columbia         | Jazz, Pop  |
++------+------------+----------------+------------------+------------+
+
+Part 2:
++----------+---------------------------+------------+----------------+
+| Explicit | Disc Color(s)             | Disc Count | Contents Count |
++----------+---------------------------+------------+----------------+
+| NO       | Clear                     | 2          | 3              |
++----------+---------------------------+------------+----------------+
+
+Part 3:
++----------------------------+---------------------------------------+
+| Contents Description       | Discogs Release Code                  |
++----------------------------+---------------------------------------+
+| 1 - Jacket (Single Pocket) | r21046597 <https://www.discogs.com/re |
+| 2 - Inner-sleeve           | lease/21046597-Adele-30>              |
++----------------------------+---------------------------------------+
+
+Part 4:
++------------------------+----------+--------------------------------+
+| Goldmine Condition(s)  | Listened | Digital Download(s)            |
++------------------------+----------+--------------------------------+
+| Jacket - VG+           | YES      | No                             |
+| Disc A/B - VG+         |          | (Qobuz) <https://www.qobuz.com |
+| Disc C/D - VG+         |          | /us-en/album/30-adele/tuzhj8k9 |
+|                        |          | 4jxoc>                         |
++------------------------+----------+--------------------------------+
+
+| Inventory List Last Updated: 2024-06-16 UTC                        |
+| Latest Full Inventory Check: 2024-01-18 UTC                        |
+| Document Information Last Updated: 2024-07-13 UTC                  |
+
+
+The Record Handbook
+-------------------
+Handbook URL:
+   <https://tylerjm.org/record-handbook/>
+Inventory Templates URL:
+   <https://tylerjm.org/record-handbook/inventory/>
+
+OpenDocument URL:
+   <https://tylerjm.org/record-handbook/2.1.0/inventory.odt>
+Office Open XML URL:
+   <https://tylerjm.org/record-handbook/2.1.0/inventory.docx>
+Plain Text URL:
+   <https://tylerjm.org/record-handbook/2.1.0/inventory.txt>
+Portable Document URL:
+   <https://tylerjm.org/record-handbook/2.1.0/inventory.pdf>
+
+Handbook Version: 2.1.0
+Last Updated: 2024-07-13 UTC
+
+
+Definitions
+-----------
+See <https://tylerjm.org/record-handbook/inventory/defs/> for definitions.
+
+
+ --------------------------------------------------------------------
+
+    Record Inventory v2.1.0 by Tyler Morgan is marked with CC0 1.0
+
+ --------------------------------------------------------------------
+
+ Encoding: Unicode UTF-8
