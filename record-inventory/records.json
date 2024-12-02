@@ -1,0 +1,918 @@
+[
+  {
+    "qty": 1,
+    "title": "30",
+    "artists": ["Adele"],
+    "labels": ["Columbia"],
+    "genres": ["Jazz", "Pop"],
+    "explicit": false,
+    "listened": true,
+    "disc_colors": ["Clear"],
+    "disc_count": 2,
+    "disc1_type": "Disc A/B",
+    "disc2_type": "Disc C/D",
+    "contents_count": 3,
+    "id": 21046597,
+    "img_alt": "Adele positions the right side of her face towards the viewer in front of a blue background.",
+
+    "jacket1_qty": 1,
+    "jacket1_pocket_qty": 1,
+
+    "inner_sleeve_qty": 2,
+
+    "jacket1_goldmine": "VG+",
+    "disc1_goldmine": "VG+",
+    "disc2_goldmine": "VG+",
+
+    "dd": "No",
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/30-adele/tuzhj8k94jxoc"
+  },
+
+  {
+    "qty": 1,
+    "title": "dont smile at me",
+    "artists": ["Billie Eilish"],
+    "labels": ["Darkroom", "Interscope Records"],
+    "genres": ["Electronic", "Pop"],
+    "explicit": false,
+    "listened": true,
+    "disc_colors": ["Black"],
+    "disc_count": 1,
+    "contents_count": 2,
+    "id": 13893955,
+    "img_alt": "Billie Eilish sits under a red ladder in a yellow room.",
+
+    "jacket1_qty": 1,
+    "jacket1_pocket_qty": 1,
+
+    "inner_sleeve_qty": 1,
+
+    "jacket1_goldmine": "VG+",
+    "disc1_goldmine": "VG+",
+
+    "dd": "No",
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/dont-smile-at-me-billie-eilish/n796jd6uaf11b"
+  },
+
+  {
+    "qty": 1,
+    "title": "WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",
+    "artists": ["Billie Eilish"],
+    "labels": ["Darkroom", "Interscope Records"],
+    "genres": ["Electronic", "Pop"],
+    "explicit": false,
+    "listened": true,
+    "disc_colors": ["Apricot"],
+    "disc_count": 1,
+    "contents_count": 2,
+    "id": 14198724,
+    "img_alt": "Billie Eilish sits on a bed in a black room.",
+
+    "jacket1_qty": 1,
+    "jacket1_type": "Gatefold Jacket",
+    "jacket1_pocket_qty": 1,
+
+    "inner_sleeve_qty": 1,
+
+    "jacket1_goldmine": "VG+",
+    "disc1_goldmine": "VG+",
+
+    "dd": "No",
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/when-we-all-fall-asleep-where-do-we-go-billie-eilish/wo456u01fehgc"
+  },
+
+  {
+    "qty": 1,
+    "title": "Happier Than Ever",
+    "artists": ["Billie Eilish"],
+    "labels": ["Darkroom", "Interscope Records"],
+    "genres": ["Pop"],
+    "explicit": true,
+    "listened": true,
+    "disc_colors": ["Pale Blue"],
+    "disc_count": 2,
+    "disc1_type": "Disc A/B",
+    "disc2_type": "Disc C/D",
+    "contents_count": 4,
+    "id": 19677331,
+    "img_alt": "Billie Eilish sits in front of a tan background with her arms crossed.",
+
+    "jacket1_qty": 1,
+    "jacket1_type": "Gatefold Jacket",
+    "jacket1_pocket_qty": 2,
+
+    "inner_sleeve_qty": 2,
+    "poster_qty": 1,
+
+    "jacket1_goldmine": "VG+",
+    "disc1_goldmine": "NM",
+    "disc2_goldmine": "NM",
+
+    "dd": "No",
+    "dd_official_url": "https://store.billieeilish.com/products/happier-than-ever-digital-album",
+    "dd_official_formats": ["MP3"],
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/happier-than-ever-explicit-billie-eilish/vewzc8hmoqc8a"
+  },
+
+  {
+    "qty": 1,
+    "title": "HIT ME HARD AND SOFT",
+    "artists": ["Billie Eilish"],
+    "labels": ["Darkroom", "Interscope Records"],
+    "genres": ["Electronic", "Pop"],
+    "explicit": false,
+    "listened": true,
+    "disc_colors": ["Red"],
+    "disc_count": 1,
+    "contents_count": 4,
+    "id": 30693268,
+    "img_alt": "Billie Eilish lays floating in a pool of water. A opened white door lays upon the water's surface above her.",
+
+    "jacket1_qty": 1,
+    "jacket1_type": "Gatefold Jacket",
+    "jacket1_pocket_qty": 1,
+
+    "inner_sleeve_qty": 1,
+    "outer_sleeve_qty": 1,
+    "hype_sticker_qty": 1,
+
+    "jacket1_goldmine": "VG+",
+    "disc1_goldmine": "VG+",
+
+    "dd": "Yes",
+    "dd_yes_url": "https://drive.proton.me/urls/ZD4BWPYJKR#SL8crwNBgdFF",
+    "dd_official_url": "https://store.billieeilish.com/products/hit-me-hard-and-soft-digital-album",
+    "dd_official_formats": ["MP3"],
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/hit-me-hard-and-soft-billie-eilish/gvcirtodd95kc"
+  },
+
+  {
+    "qty": 1,
+    "title": "Superache",
+    "artists": ["Conan Gray"],
+    "labels": ["Republic Records"],
+    "genres": ["Pop"],
+    "explicit": true,
+    "listened": true,
+    "disc_colors": ["Ruby Red"],
+    "disc_count": 1,
+    "contents_count": 14,
+    "id": 23683412,
+
+    "jacket1_qty": 1,
+    "jacket1_pocket_qty": 1,
+
+    "inner_sleeve_qty": 1,
+    "poster_qty": 2,
+    "envelope_qty": 1,
+    "album_photo_qty": 4,
+    "song_letter_qty": 4,
+    "hype_sticker_qty": 1,
+
+    "jacket1_goldmine": "VG",
+    "disc1_goldmine": "VG+",
+
+    "dd": "No",
+    "dd_official_url": "https://shop.conangray.com/products/superache-digital-album",
+    "dd_official_formats": ["MP3"],
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/superache-conan-gray/enqrpjtn03sra"
+  },
+
+  {
+    "qty": 1,
+    "title": "Stick Season",
+    "artists": ["Noah Kahan"],
+    "labels": ["Mercury", "Republic Records"],
+    "genres": ["Rock", "Pop", "Folk", "World", "Country"],
+    "explicit": true,
+    "listened": true,
+    "disc_colors": ["Black"],
+    "disc_count": 2,
+    "disc1_type": "Disc A/B",
+    "disc2_type": "Disc C/D",
+    "contents_count": 5,
+    "id": 28830886,
+
+    "jacket1_qty": 1,
+    "jacket1_type": "Gatefold Jacket",
+    "jacket1_pocket_qty": 2,
+
+    "inner_sleeve_qty": 2,
+    "poster_qty": 1,
+    "hype_sticker_qty": 1,
+
+    "jacket1_goldmine": "VG+",
+    "disc1_goldmine": "VG+",
+    "disc2_goldmine": "VG+",
+
+    "dd": "No",
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/stick-season-noah-kahan/p87zu4urgi2tb"
+  },
+
+  {
+    "qty": 1,
+    "title": "American Teen",
+    "artists": ["Khalid"],
+    "labels": ["RCA Records", "Right Hand Music Group"],
+    "genres": ["Funk / Soul"],
+    "explicit": true,
+    "listened": true,
+    "disc_colors": ["Black"],
+    "disc_count": 2,
+    "disc1_type": "Disc One/Two",
+    "disc2_type": "Disc Three/Four",
+    "contents_count": 4,
+    "id": 10123738,
+
+    "jacket1_qty": 1,
+    "jacket1_type": "Gatefold Jacket",
+    "jacket1_pocket_qty": 2,
+
+    "inner_sleeve_qty": 2,
+    "digital_download_slip_qty": 1,
+    "digital_download_slip1_fate": "Inactive",
+
+    "jacket1_goldmine": "VG+",
+    "disc1_goldmine": "VG+",
+    "disc2_goldmine": "VG+",
+
+    "dd": "No",
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/american-teen-khalid/0886446309347"
+  },
+
+  {
+    "qty": 1,
+    "title": "Free Spirit",
+    "artists": ["Khalid"],
+    "labels": ["RCA Records", "Right Hand Music Group"],
+    "genres": ["Funk / Soul"],
+    "explicit": true,
+    "listened": true,
+    "disc_colors": ["Black"],
+    "disc_count": 2,
+    "disc1_type": "Disc One/Two",
+    "disc2_type": "Disc Three/Four",
+    "contents_count": 5,
+    "id": 13693928,
+
+    "jacket1_qty": 1,
+    "jacket1_type": "Gatefold Jacket",
+    "jacket1_pocket_qty": 2,
+
+    "inner_sleeve_qty": 2,
+    "digital_download_slip_qty": 1,
+    "digital_download_slip1_fate": "Inactive",
+    "poster_qty": 1,
+
+    "jacket1_goldmine": "VG+",
+    "disc1_goldmine": "VG+",
+    "disc2_goldmine": "VG+",
+
+    "dd": "No",
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/free-spirit-khalid/f06uhxxw9omba"
+  },
+
+  {
+    "qty": 1,
+    "title": "DAMN.",
+    "artists": ["Kendrick Lamar"],
+    "labels": ["Aftermath", "Interscope Records", "Top Dawg Entertainment"],
+    "genres": ["Hip Hop"],
+    "explicit": true,
+    "listened": true,
+    "disc_colors": ["Black"],
+    "disc_count": 2,
+    "disc1_type": "Disc A/B",
+    "disc2_type": "Disc C/D",
+    "contents_count": 3,
+    "id": 10559651,
+
+    "jacket1_qty": 1,
+    "jacket1_type": "Gatefold Jacket",
+    "jacket1_pocket_qty": 2,
+
+    "inner_sleeve_qty": 2,
+
+    "jacket1_goldmine": "VG",
+    "disc1_goldmine": "VG+",
+    "disc2_goldmine": "VG+",
+
+    "dd": "No",
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/damn-kendrick-lamar/0060255760871"
+  },
+
+  {
+    "qty": 1,
+    "title": "Stoney",
+    "artists": ["Post Malone"],
+    "labels": ["Republic Records"],
+    "genres": ["Hip Hop"],
+    "explicit": true,
+    "listened": true,
+    "disc_colors": ["Orange"],
+    "disc_count": 2,
+    "disc1_type": "Disc A/B",
+    "disc2_type": "Disc C/D",
+    "contents_count": 3,
+    "id": 10469963,
+
+    "jacket1_qty": 1,
+    "jacket1_type": "Gatefold Jacket",
+    "jacket1_pocket_qty": 2,
+
+    "inner_sleeve_qty": 2,
+
+    "jacket1_goldmine": "VG+",
+    "disc1_goldmine": "VG+",
+    "disc2_goldmine": "VG+",
+
+    "dd": "No",
+    "dd_official_url": "https://shop.republicrecords.com/collections/post-malone/products/post-malone-stoney-digital-album",
+    "dd_official_formats": ["MP3"],
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/stoney-post-malone/0060255726179"
+  },
+
+  {
+    "qty": 1,
+    "title": "beerbongs & bentleys",
+    "artists": ["Post Malone"],
+    "labels": ["Republic Records"],
+    "genres": ["Hip Hop", "Rock", "Pop"],
+    "explicit": true,
+    "listened": true,
+    "disc_colors": ["Clear"],
+    "disc_count": 2,
+    "disc1_type": "Disc A/B",
+    "disc2_type": "Disc C/D",
+    "contents_count": 5,
+    "id": 12705859,
+
+    "jacket1_qty": 1,
+    "jacket1_type": "Gatefold Jacket",
+    "jacket1_pocket_qty": 2,
+
+    "inner_sleeve_qty": 2,
+    "other_item1_qty": 2,
+    "other_item1_type": "Double-sided Artwork Slip",
+
+    "jacket1_goldmine": "VG",
+    "disc1_goldmine": "VG+",
+    "disc2_goldmine": "VG+",
+
+    "dd": "No",
+    "dd_official_url": "https://shop.republicrecords.com/products/post-malone-beerbongs-bentleys-digital-album",
+    "dd_official_formats": ["MP3"],
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/beerbongs-bentleys-post-malone/mb0zgu7w885cc"
+  },
+
+  {
+    "qty": 1,
+    "title": "Hollywood's Bleeding",
+    "artists": ["Post Malone"],
+    "labels": ["Republic Records"],
+    "genres": ["Hip Hop", "Rock", "Pop"],
+    "explicit": true,
+    "listened": true,
+    "disc_colors": ["Lavender"],
+    "disc_count": 2,
+    "disc1_type": "Disc A/B",
+    "disc2_type": "Disc C/D",
+    "contents_count": 5,
+    "id": 15522170,
+
+    "jacket1_qty": 1,
+    "jacket1_type": "Gatefold Jacket",
+    "jacket1_pocket_qty": 2,
+
+    "inner_sleeve_qty": 2,
+    "photo_album_booklet_qty": 2,
+
+    "jacket1_goldmine": "VG",
+    "disc1_goldmine": "VG+",
+    "disc2_goldmine": "VG+",
+
+    "dd": "No",
+    "dd_official_url": "https://shop.republicrecords.com/collections/digital-music/products/post-malone-hollywoods-bleeding-digital-album",
+    "dd_official_formats": ["MP3"],
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/hollywoods-bleeding-post-malone/jgjvoqpvrvngc"
+  },
+
+  {
+    "qty": 1,
+    "title": "Cry Baby",
+    "artists": ["Melanie Martinez"],
+    "labels": ["Atlantic"],
+    "genres": ["Pop"],
+    "explicit": true,
+    "listened": true,
+    "disc_colors": ["Black"],
+    "disc_count": 1,
+    "contents_count": 4,
+    "id": 7773820,
+
+    "jacket1_qty": 1,
+    "jacket1_type": "Gatefold Jacket",
+    "jacket1_pocket_qty": 2,
+
+    "inner_sleeve_qty": 1,
+    "other_item1_qty": 1,
+    "other_item1_type": "Song Info Slip",
+    "other_item2_qty": 1,
+    "other_item2_type": "Story Booklet",
+
+    "jacket1_goldmine": "VG+",
+    "disc1_goldmine": "VG+",
+
+    "dd": "No",
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/cry-baby-melanie-martinez/0075679921369"
+  },
+
+  {
+    "qty": 1,
+    "title": "A Son's Path / Giantess Of Ironwood (Music From God Of War Ragnarök)",
+    "artists": ["Bear McCreary"],
+    "labels": ["Sony Interactive Entertainment LLC"],
+    "genres": ["Classical", "Stage & Screen"],
+    "explicit": false,
+    "listened": true,
+    "disc_colors": ["Green Transparent"],
+    "disc_count": 1,
+    "contents_count": 2,
+    "id": 25110724,
+
+    "jacket1_qty": 1,
+    "jacket1_pocket_qty": 1,
+
+    "inner_sleeve_qty": 1,
+
+    "jacket1_goldmine": "NM",
+    "disc1_goldmine": "NM",
+
+    "dd": "No",
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/god-of-war-ragnarok-original-soundtrack-bear-mccreary/nk0xepbhgucwb"
+  },
+
+  {
+    "qty": 1,
+    "title": "SOUR",
+    "artists": ["Olivia Rodrigo"],
+    "labels": ["Geffen Records"],
+    "genres": ["Rock", "Pop"],
+    "explicit": true,
+    "listened": true,
+    "disc_colors": ["Black"],
+    "disc_count": 1,
+    "contents_count": 3,
+    "id": 23011151,
+
+    "jacket1_qty": 1,
+    "jacket1_type": "Gatefold Jacket",
+    "jacket1_pocket_qty": 1,
+
+    "inner_sleeve_qty": 1,
+    "hype_sticker_qty": 1,
+
+    "jacket1_goldmine": "VG+",
+    "disc1_goldmine": "VG+",
+
+    "dd": "No",
+    "dd_official_url": "https://shopau.oliviarodrigo.com/collections/au/products/sour-digital-album",
+    "dd_official_formats": ["MP3"],
+    "dd_official_regions": ["AU"],
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/sour-olivia-rodrigo/pqbbikwu2ljnb"
+  },
+
+  {
+    "qty": 1,
+    "title": "GUTS",
+    "artists": ["Olivia Rodrigo"],
+    "labels": ["Geffen Records"],
+    "genres": ["Rock", "Pop"],
+    "explicit": true,
+    "listened": true,
+    "disc_colors": ["Black"],
+    "disc_count": 1,
+    "contents_count": 2,
+    "id": 27940287,
+
+    "jacket1_qty": 1,
+    "jacket1_type": "Gatefold Jacket",
+    "jacket1_pocket_qty": 1,
+
+    "inner_sleeve_qty": 1,
+
+    "jacket1_goldmine": "VG+",
+    "disc1_goldmine": "VG+",
+
+    "dd": "No",
+    "dd_official_url": "https://shopau.oliviarodrigo.com/collections/a-la-carte/products/guts-digital-album",
+    "dd_official_formats": ["MP3"],
+    "dd_official_regions": ["AU"],
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/guts-olivia-rodrigo/vrqtmyvds2ztc"
+  },
+
+  {
+    "qty": 1,
+    "title": "Harry's House",
+    "artists": ["Harry Styles"],
+    "labels": ["Columbia", "Erskine Records"],
+    "genres": ["Rock", "Pop"],
+    "explicit": false,
+    "listened": true,
+    "disc_colors": ["Black"],
+    "disc_count": 1,
+    "contents_count": 4,
+    "id": 26128271,
+
+    "jacket1_qty": 1,
+    "jacket1_type": "Gatefold Jacket",
+    "jacket1_pocket_qty": 2,
+
+    "inner_sleeve_qty": 1,
+    "song_lyrics_booklet_qty": 1,
+    "album_photo_qty": 1,
+
+    "jacket1_goldmine": "VG",
+    "disc1_goldmine": "VG+",
+
+    "dd": "No",
+    "dd_official_url": "https://shopus.hstyles.co.uk/products/harrys-house-digital-download",
+    "dd_official_formats": ["AAC", "FLAC"],
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/harrys-house-harry-styles/kowixpbhn056a"
+  },
+
+  {
+    "qty": 1,
+    "title": "Midnights",
+    "artists": ["Taylor Swift"],
+    "labels": ["Republic Records"],
+    "genres": ["Electronic", "Pop"],
+    "explicit": true,
+    "listened": true,
+    "disc_colors": ["Mahogany Marbled"],
+    "disc_count": 1,
+    "contents_count": 3,
+    "id": 24893972,
+
+    "jacket1_qty": 1,
+    "jacket1_type": "Gatefold Jacket",
+    "jacket1_pocket_qty": 2,
+
+    "inner_sleeve_qty": 1,
+    "song_lyrics_booklet_qty": 1,
+
+    "jacket1_goldmine": "VG+",
+    "disc1_goldmine": "VG+",
+
+    "dd": "No",
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/midnights-taylor-swift/lfrznf57rq9pa"
+  },
+
+  {
+    "qty": 1,
+    "title": "SOS",
+    "artists": ["SZA"],
+    "labels": ["RCA", "Top Dawg Entertainment"],
+    "genres": ["Funk / Soul"],
+    "explicit": true,
+    "listened": true,
+    "disc_colors": ["Black"],
+    "disc_count": 2,
+    "disc1_type": "Disc A/B",
+    "disc2_type": "Disc C/D",
+    "contents_count": 5,
+    "id": 27139257,
+
+    "jacket1_qty": 1,
+    "jacket1_pocket_qty": 1,
+
+    "inner_sleeve_qty": 2,
+    "other_item1_qty": 1,
+    "other_item1_type": "Double-sided Artwork Slip",
+    "hype_sticker_qty": 1,
+
+    "jacket1_goldmine": "VG+",
+    "disc1_goldmine": "VG+",
+    "disc2_goldmine": "VG+",
+
+    "dd": "No",
+    "dd_official_url": "https://txdxe.com/products/sos",
+    "dd_official_formats": ["MP3", "WAV", "FLAC"],
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/sos-sza/ckyh7bv0dt6tb"
+  },
+
+  {
+    "qty": 1,
+    "title": "Red Moon in Venus",
+    "artists": ["Kali Uchis"],
+    "labels": ["Interscope Records"],
+    "genres": ["Electronic", "Latin", "Funk / Soul", "Pop"],
+    "explicit": true,
+    "listened": true,
+    "disc_colors": ["Black"],
+    "disc_count": 1,
+    "contents_count": 2,
+    "id": 26364716,
+
+    "jacket1_qty": 1,
+    "jacket1_pocket_qty": 1,
+
+    "inner_sleeve_qty": 1,
+
+    "jacket1_goldmine": "VG+",
+    "disc1_goldmine": "VG+",
+
+    "dd": "No",
+    "dd_official_url": "https://shopkaliuchis.com/products/red-moon-in-venus-digital-album",
+    "dd_official_formats": ["MP3"],
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/red-moon-in-venus-kali-uchis/nh8wmgsf1t4ya"
+  },
+
+  {
+    "qty": 1,
+    "title": "Young the Giant",
+    "artists": ["Young the Giant"],
+    "labels": ["Roadrunner Records"],
+    "genres": ["Rock", "Pop"],
+    "explicit": false,
+    "listened": true,
+    "disc_colors": ["Black"],
+    "disc_count": 2,
+    "disc1_type": "Disc A/B",
+    "disc2_type": "Disc C/D",
+    "contents_count": 4,
+    "id": 3102547,
+
+    "jacket1_qty": 1,
+    "jacket1_pocket_qty": 1,
+
+    "inner_sleeve_qty": 2,
+    "other_item1_qty": 1,
+    "other_item1_type": "Double-sided Artwork Slip",
+
+    "jacket1_goldmine": "VG",
+    "disc1_goldmine": "VG+",
+    "disc2_goldmine": "VG+",
+
+    "dd": "No",
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/young-the-giant-young-the-giant/dhx79zq3t2sbc"
+  },
+
+  {
+    "qty": 1,
+    "title": "Pyromania",
+    "artists": ["Def Leppard"],
+    "labels": ["Mercury"],
+    "genres": ["Rock"],
+    "explicit": false,
+    "listened": true,
+    "disc_colors": ["Black"],
+    "disc_count": 1,
+    "contents_count": 2,
+    "id": 393266,
+
+    "jacket1_qty": 1,
+    "jacket1_pocket_qty": 1,
+
+    "inner_sleeve_qty": 1,
+
+    "jacket1_goldmine": "F",
+    "disc1_goldmine": "F",
+
+    "dd": "No",
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/pyromania-def-leppard/u5pezdh2j0oub"
+  },
+
+  {
+    "qty": 1,
+    "title": "Barbie The Album",
+    "artists": ["Various"],
+    "labels": ["Atlantic", "WaterTower Music"],
+    "genres": ["Electronic", "Pop", "Stage & Screen"],
+    "explicit": false,
+    "listened": true,
+    "disc_colors": ["Hot Pink"],
+    "disc_count": 1,
+    "contents_count": 4,
+    "id": 27535197,
+
+    "jacket1_qty": 1,
+    "jacket1_pocket_qty": 1,
+
+    "inner_sleeve_qty": 1,
+    "poster_qty": 1,
+    "hype_sticker_qty": 1,
+
+    "jacket1_goldmine": "VG+",
+    "disc1_goldmine": "VG+",
+
+    "dd": "No",
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/barbie-the-album-various-artists/vt0p2099gflua"
+  },
+
+  {
+    "qty": 1,
+    "title": "Stranger Things (Music From The Netflix Original Series)",
+    "artists": ["Various"],
+    "labels": ["Legacy", "Netflix"],
+    "genres": ["Rock", "Pop"],
+    "explicit": false,
+    "listened": true,
+    "disc_colors": ["Black"],
+    "disc_count": 2,
+    "disc1_type": "Disc A/B",
+    "disc2_type": "Disc C/D",
+    "contents_count": 5,
+    "id": 11273965,
+
+    "jacket1_qty": 1,
+    "jacket1_type": "Gatefold Jacket",
+    "jacket1_pocket_qty": 2,
+
+    "inner_sleeve_qty": 2,
+    "other_item1_qty": 1,
+    "other_item1_type": "Mini Season 2 Poster",
+    "logo_photo_qty": 1,
+
+    "jacket1_goldmine": "VG",
+    "disc1_goldmine": "VG+",
+    "disc2_goldmine": "VG+",
+
+    "dd": "N/A"
+  },
+
+  {
+    "qty": 1,
+    "title": "Symphony No. 9 \"From the New World\"",
+    "artists": ["Berlin Philharmonic Orchestra", "Antonín Dvořák"],
+    "labels": ["Vinyl Passion Classical"],
+    "genres": ["Classical"],
+    "explicit": false,
+    "listened": true,
+    "disc_colors": ["Black"],
+    "disc_count": 1,
+    "contents_count": 2,
+    "id": 6469008,
+
+    "jacket1_qty": 1,
+    "jacket1_pocket_qty": 1,
+
+    "inner_sleeve_qty": 1,
+
+    "jacket1_goldmine": "VG",
+    "disc1_goldmine": "VG+",
+
+    "dd": "N/A"
+  },
+
+  {
+    "qty": 1,
+    "title": "George Szell Conducts Beethoven (Symphony No. 4 & Symphony No. 5)",
+    "artists": ["Cleveland Orchestra", "Ludwig van Beethoven", "George Szell"],
+    "labels": ["Sony Classical"],
+    "genres": ["Classical"],
+    "explicit": false,
+    "listened": true,
+    "disc_colors": ["Black"],
+    "disc_count": 2,
+    "disc1_type": "Disc A/B",
+    "disc2_type": "Disc C/D",
+    "contents_count": 4,
+    "id": 13128709,
+
+    "jacket1_qty": 1,
+    "jacket1_type": "Gatefold Jacket",
+    "jacket1_pocket_qty": 2,
+
+    "inner_sleeve_qty": 2,
+    "digital_download_slip_qty": 1,
+    "digital_download_slip1_fate": "Inactive",
+
+    "jacket1_goldmine": "VG",
+    "disc1_goldmine": "VG+",
+    "disc2_goldmine": "VG+",
+
+    "dd": "N/A"
+  },
+
+  {
+    "qty": 1,
+    "title": "Recomposed By Max Richter: Vivaldi · The Four Seasons",
+    "artists": ["Konzerthaus Kammerorchester Berlin", "Antonio Vivaldi", "Max Richter"],
+    "labels": ["Deutsche Grammophon"],
+    "genres": ["Electronic", "Classical"],
+    "explicit": false,
+    "listened": true,
+    "disc_colors": ["Black"],
+    "disc_count": 2,
+    "disc1_type": "Disc A/B",
+    "disc2_type": "Disc C/D",
+    "contents_count": 4,
+    "id": 5629297,
+
+    "jacket1_qty": 1,
+    "jacket1_type": "Gatefold Jacket",
+    "jacket1_pocket_qty": 2,
+    
+    "inner_sleeve_qty": 2,
+    "digital_download_slip_qty": 1,
+    "digital_download_slip1_fate": "Inactive",
+
+    "jacket1_goldmine": "VG+",
+    "disc1_goldmine": "VG+",
+    "disc2_goldmine": "VG+",
+
+    "dd": "No",
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/recomposed-by-max-richter-vivaldi-the-four-seasons-konzerthaus-kammerorchester-berlin/0002894793305"
+  },
+
+  {
+    "qty": 1,
+    "title": "Tchaikovsky Symphony No. 1 in G minor \"Winter Dreams\"",
+    "artists": ["New Philharmonic Orchestra", "Pyotr Ilyich Tchaikovsky"],
+    "labels": ["Angel Records", "Angel Red Line"],
+    "genres": ["Classical"],
+    "explicit": false,
+    "listened": true,
+    "disc_colors": ["Black"],
+    "disc_count": 1,
+    "contents_count": 2,
+    "id": 17084202,
+
+    "jacket1_qty": 1,
+    "jacket1_pocket_qty": 1,
+
+    "inner_sleeve_qty": 1,
+
+    "jacket1_goldmine": "G+",
+    "disc1_goldmine": "VG",
+
+    "dd": "N/A"
+  },
+
+  {
+    "qty": 1,
+    "title": "Autumn Leaves The Best of Roger Williams",
+    "artists": ["Roger Williams"],
+    "labels": ["Reader's Digest"],
+    "genres": ["Pop"],
+    "explicit": false,
+    "listened": true,
+    "disc_colors": ["Black"],
+    "disc_count": 8,
+    "disc1_type": "Record 1",
+    "disc2_type": "Record 2",
+    "disc3_type": "Record 3",
+    "disc4_type": "Record 4",
+    "disc5_type": "Record 5",
+    "disc6_type": "Record 6",
+    "disc7_type": "Record 7",
+    "disc8_type": "Record 8",
+    "contents_count": 10,
+    "id": 3905196,
+
+    "jacket1_qty": 1,
+    "jacket1_type": "Outer-jacket Shell",
+    "jacket2_qty": 1,
+    "jacket2_type": "Inner-jacket Shell",
+    "inner_sleeve_qty": 8,
+
+    "jacket1_goldmine": "VG",
+    "jacket2_goldmine": "VG",
+    "disc1_goldmine": "VG+",
+    "disc2_goldmine": "VG+",
+    "disc3_goldmine": "VG+",
+    "disc4_goldmine": "VG+",
+    "disc5_goldmine": "VG+",
+    "disc6_goldmine": "VG+",
+    "disc7_goldmine": "VG+",
+    "disc8_goldmine": "VG+",
+
+    "dd": "N/A"
+  },
+
+  {
+    "qty": 1,
+    "title": "23 Great Themes From Great Music",
+    "artists": ["Various"],
+    "labels": ["Symphonic Treasures"],
+    "genres": ["Classical"],
+    "explicit": false,
+    "listened": true,
+    "disc_colors": ["Black"],
+    "disc_count": 1,
+    "contents_count": 2,
+    "id": 6034299,
+
+    "jacket1_qty": 1,
+    "jacket1_pocket_qty": 1,
+
+    "other_item1_qty": 1,
+    "other_item1_type": "MIM Article Slip",
+
+    "jacket1_goldmine": "G",
+    "disc1_goldmine": "VG",
+
+    "dd": "N/A"
+  }
+]
