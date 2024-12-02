@@ -15,7 +15,7 @@ function startRecordGrid() {
 
         const mod = item.mod_id ? `-${item.mod_id}` : '';
         const alt = item.img_alt ? ` alt="${item.img_alt}"` : '';
-        table += `<div><div class="img-container"><img class="record-img foreground-img" src="/record-inventory/covers/${item.id}${mod}.avif"${alt}><img class="record-img background-img" src="/record-inventory/covers/${item.id}${mod}.avif"></div>`;
+        table += `<div><div class="img-container"><img class="record-img foreground-img" src="/record-inventory/covers/${item.id}${mod}.avif"${alt}><img class="record-img background-img" role="presentation" src="/record-inventory/covers/${item.id}${mod}.avif"></div>`;
 
         const title = item.title ? `<p class="record-title">${item.title}` : '';
         const explicit = item.explicit ? '<span id="explicit"></span>' : '';
