@@ -158,6 +158,7 @@
     "disc_count": 1,
     "contents_count": 14,
     "id": 23683412,
+    "img_alt": "Conan Gray lays in a heart-shaped pile of red roses on a black floor.",
 
     "jacket1_qty": 1,
     "jacket1_pocket_qty": 1,
@@ -192,6 +193,7 @@
     "disc2_type": "Disc C/D",
     "contents_count": 5,
     "id": 28830886,
+    "img_alt": "Noah Kahan stands within the background of a barnyard. One german shapherd sits beside Noah while the other german shepard runs towards the foreground.",
 
     "jacket1_qty": 1,
     "jacket1_type": "Gatefold Jacket",
@@ -223,6 +225,7 @@
     "disc2_type": "Disc Three/Four",
     "contents_count": 4,
     "id": 10123738,
+    "img_alt": "Khalid stands in front of a mountainous landscape. The sky is clear and blue.",
 
     "jacket1_qty": 1,
     "jacket1_type": "Gatefold Jacket",
@@ -254,6 +257,7 @@
     "disc2_type": "Disc Three/Four",
     "contents_count": 5,
     "id": 13693928,
+    "img_alt": "Khalid stands on top of a van in front of a desertous landscape on a sunset sky.",
 
     "jacket1_qty": 1,
     "jacket1_type": "Gatefold Jacket",
@@ -286,6 +290,7 @@
     "disc2_type": "Disc C/D",
     "contents_count": 3,
     "id": 10559651,
+    "img_alt": "Kendrick Lamar stands in front of a maroon brick wall. He wears a white t-shirt.",
 
     "jacket1_qty": 1,
     "jacket1_type": "Gatefold Jacket",
@@ -315,6 +320,7 @@
     "disc2_type": "Disc C/D",
     "contents_count": 3,
     "id": 10469963,
+    "img_alt": "Stylized golden text spells out 'Stoney' on a brown background.",
 
     "jacket1_qty": 1,
     "jacket1_type": "Gatefold Jacket",
@@ -346,6 +352,7 @@
     "disc2_type": "Disc C/D",
     "contents_count": 5,
     "id": 12705859,
+    "img_alt": "Barbed wire dig inside along the corners of the left eye of a face.",
 
     "jacket1_qty": 1,
     "jacket1_type": "Gatefold Jacket",
@@ -379,6 +386,7 @@
     "disc2_type": "Disc C/D",
     "contents_count": 5,
     "id": 15522170,
+    "img_alt": "Post Malone turns his back against the viewer wearing a black jacket and pants. He stands inside a mural with bones and a sword beside him.",
 
     "jacket1_qty": 1,
     "jacket1_type": "Gatefold Jacket",
@@ -409,6 +417,7 @@
     "disc_count": 1,
     "contents_count": 4,
     "id": 7773820,
+    "img_alt": "Melanie Martinez rest upon a cloud. Paper tears fall from her eyes onto a paper village.",
 
     "jacket1_qty": 1,
     "jacket1_type": "Gatefold Jacket",
@@ -439,6 +448,7 @@
     "disc_count": 1,
     "contents_count": 2,
     "id": 25110724,
+    "img_alt": "The silhouette of two overlapping hands present a mountainous landscape. The sky fades between gold, blue, and green hues.",
 
     "jacket1_qty": 1,
     "jacket1_pocket_qty": 1,
@@ -464,6 +474,7 @@
     "disc_count": 1,
     "contents_count": 3,
     "id": 23011151,
+    "img_alt": "Olivia Rodrigo's face is cover in stickers. She sticks out her tongue which has stickers spelling out 'SOUR'.",
 
     "jacket1_qty": 1,
     "jacket1_type": "Gatefold Jacket",
@@ -767,7 +778,7 @@
 
   {
     "qty": 1,
-    "title": "George Szell Conducts Beethoven (Symphony No. 4 & Symphony No. 5)",
+    "title": "George Szell Conducts Beethoven Symphonies 4 & 5",
     "artists": ["Cleveland Orchestra", "Ludwig van Beethoven", "George Szell"],
     "labels": ["Sony Classical"],
     "genres": ["Classical"],
