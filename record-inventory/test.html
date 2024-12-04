@@ -43,6 +43,7 @@
         .ring-svg {
           height: 450px;
           width: 450px;
+          border-radius: 50%;
         }
         .record-grid{
           justify-content: center;
@@ -64,7 +65,8 @@
           justify-content: center;
           margin-top: -350px;
           margin-bottom: 15px;
-          width: 475px;
+          width: 450px;
+          border-radius: 50%;
         }
         .record {
           padding: 10px;
@@ -124,6 +126,7 @@
         .ring-svg {
           height: 450px;
           width: 450px;
+          border-radius: 50%;
         }
         .record-grid{
           justify-content: center;
@@ -150,7 +153,8 @@
           justify-content: center;
           margin-top: -350px;
           margin-bottom: 15px;
-          width: 475px;
+          width: 450px;
+          border-radius: 50%;
         }
         .record-title {
           font: 'Noto Sans', sans-serif;
@@ -202,6 +206,7 @@
         .ring-svg {
           height: 450px;
           width: 450px;
+          border-radius: 50%;
         }
         .record-grid{
           justify-content: center;
@@ -222,7 +227,8 @@
           justify-content: center;
           margin-top: -350px;
           margin-bottom: 15px;
-          width: 475px;
+          width: 450px;
+          border-radius: 50%;
         }
         .record {
           padding: 10px;
@@ -292,11 +298,13 @@
           justify-content: center;
           margin-top: -200px;
           margin-bottom: 15px;
-          width: 275px;
+          width: 250px;
+          border-radius: 50%;
         }
         .ring-svg {
           height: 250px;
           width: 250px;
+          border-radius: 50%;
         }
         .record {
           padding: 10px;
@@ -462,14 +470,17 @@
         text-transform: uppercase;
         font-size: calc(var(--font-size, 1) * 1rem);
         position: relative;
-        border: 50%;
+        border-radius: 50%;
       }
       @media (prefers-reduced-motion: no-preference) {
         .ring {
-          animation: spin 8s infinite linear;  
+          animation: spin 8s infinite linear;
+          transition: all 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s;
+          transform: scale(1);
         }
         .ring:hover {
-          animation: spin 1.8s infinite linear;  
+          animation: spin 1.8s infinite linear;
+          transform: scale(1.08);
         }
         @keyframes spin {
           to {
@@ -488,7 +499,7 @@
   </head>
   <body>
     <div class="title-container">
-      <h1 class="title ring">
+      <h1 class="title ring" aria-label="Vinyl Records">
         <svg class="ring-svg"
           viewBox="0 0 100 100"
           xmlns="http://www.w3.org/2000/svg"

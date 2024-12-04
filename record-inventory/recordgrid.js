@@ -9,7 +9,7 @@ function startRecordGrid() {
     .then(data => {
       let table = '<ul class="record-grid">';
       data.forEach((item, index) => {
-        table += `<li class="record collapsible-r" tabindex="0" id="aboutMeButton-${index}" data-target-id="aboutMeContent-${index}">`;
+        table += `<li class="record collapsible-r" aria-expanded="false" tabindex="0" id="aboutMeButton-${index}" data-target-id="aboutMeContent-${index}">`;
 
         table += `<div class="record-content-wrapper">`
 
