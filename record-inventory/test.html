@@ -27,6 +27,7 @@
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        overflow-x: hidden;
       }
       li {
         text-indent: 0px;
@@ -39,6 +40,10 @@
         list-style-type: none;
       }
       @media (min-width: 1081px){
+        .ring-svg {
+          height: 450px;
+          width: 450px;
+        }
         .record-grid{
           justify-content: center;
           margin: auto;
@@ -51,6 +56,14 @@
           width: 97.5%;
           font-size: 0.92rem;
           text-wrap: pretty;
+        }
+        .title {
+          font-size: 40px;
+          text-align: center;
+          margin: auto;
+          justify-content: center;
+          margin-top: -350px;
+          margin-bottom: 15px;
         }
         .record {
           padding: 10px;
@@ -107,6 +120,10 @@
         }
       } 
       @media (max-width: 1080px){
+        .ring-svg {
+          height: 450px;
+          width: 450px;
+        }
         .record-grid{
           justify-content: center;
           margin: auto;
@@ -124,6 +141,14 @@
           border-radius: 10px;
           display: block;
           background-color: var(--secondary-bkg-color);
+        }
+        .title {
+          font-size: 40px;
+          text-align: center;
+          margin: auto;
+          justify-content: center;
+          margin-top: -350px;
+          margin-bottom: 15px;
         }
         .record-title {
           font: 'Noto Sans', sans-serif;
@@ -172,6 +197,10 @@
         }
       } 
       @media (max-width: 850px){
+        .ring-svg {
+          height: 450px;
+          width: 450px;
+        }
         .record-grid{
           justify-content: center;
           margin: auto;
@@ -183,6 +212,14 @@
           width: 97.5%;
           font-size: 0.92rem;
           text-wrap: pretty;
+        }
+        .title {
+          font-size: 40px;
+          text-align: center;
+          margin: auto;
+          justify-content: center;
+          margin-top: -350px;
+          margin-bottom: 15px;
         }
         .record {
           padding: 10px;
@@ -245,6 +282,18 @@
           font-size: 0.92rem;
           text-wrap: pretty;
         }
+        .title {
+          font-size: 40px;
+          text-align: center;
+          margin: auto;
+          justify-content: center;
+          margin-top: -180px;
+          margin-bottom: 15px;
+        }
+        .ring-svg {
+          height: 225px;
+          width: 225px;
+        }
         .record {
           padding: 10px;
           border-radius: 10px;
@@ -300,10 +349,6 @@
       .record-img {
         width: 100%;
         border-radius: 7px;
-      }
-      .title {
-        font-size: 40px;
-        text-align: center;
       }
       .italic {
         font-style: italic;
@@ -405,10 +450,54 @@
         z-index: 2;
         pointer-events: none;
       }
+      .ring {
+      /* 	--character-width: 1ch; */
+        --inner-angle: calc((360 / var(--char-count)) * 1deg);
+        --character-width: 1;
+        font-family: monospace;
+        text-transform: uppercase;
+        font-size: calc(var(--font-size, 1) * 1rem);
+        position: relative;
+        border: 50%;
+      }
+      @media (prefers-reduced-motion: no-preference) {
+        .ring {
+          animation: spin 8s infinite linear;  
+        }
+        @keyframes spin {
+          to {
+            rotate: 360deg;
+          }
+        }
+      }
+      path {
+        visibility: hidden;
+      }
+      textPath {
+        font-size: 0.8rem;
+        text-shadow: 1px 5px 8px rgba(0, 0, 0, 0.2);
+      }
     </style>
   </head>
   <body>
-    <h1 class="title">Records</h1>
+    <div class="title-container">
+      <h1 class="title ring">
+        <svg class="ring-svg"
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            id="circlePath"
+            d="M 4.1779659,50 A 45.822034,45.822034 0 1 0 95.822034,50 45.822034,45.822034 0 1 0 4.1779658,50"    
+          />
+          <text>
+            <textPath href="#circlePath" textLength="255" fill="var(--primary-color)">
+              VINYL RECORDS &nbsp; VINYL RECORDS
+            </textPath>
+          </text>
+        </svg>
+      </h1>
+    </div>
     <div id="record-grid"></div>
     <div id="update-grid"></div>
     <footer class="footer">
