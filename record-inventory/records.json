@@ -66,7 +66,7 @@
     "disc_count": 1,
     "contents_count": 2,
     "id": 14198724,
-    "img_alt": "Billie Eilish sits on a bed in a black room.",
+    "img_alt": "Billie Eilish sits on the corner of a white bed in a black room.",
 
     "jacket1_qty": 1,
     "jacket1_type": "Gatefold Jacket",
@@ -74,7 +74,7 @@
 
     "inner_sleeve_qty": 1,
 
-    "jacket1_goldmine": "VG+",
+    "jacket1_goldmine": "VG",
     "disc1_goldmine": "VG+",
 
     "dd": "No",
@@ -126,7 +126,7 @@
     "disc_count": 1,
     "contents_count": 4,
     "id": 30693268,
-    "img_alt": "Billie Eilish lays floating in a pool of water. A opened white door lays upon the water's surface above her.",
+    "img_alt": "Billie Eilish lies floating in a pool of water. An opened white door lays upon the water's surface above her.",
 
     "jacket1_qty": 1,
     "jacket1_type": "Gatefold Jacket",
@@ -158,7 +158,7 @@
     "disc_count": 1,
     "contents_count": 14,
     "id": 23683412,
-    "img_alt": "Conan Gray lays in a heart-shaped pile of red roses on a black floor.",
+    "img_alt": "Conan Gray lies in a heart-shaped pile of red roses on a black floor.",
 
     "jacket1_qty": 1,
     "jacket1_pocket_qty": 1,
@@ -193,7 +193,7 @@
     "disc2_type": "Disc C/D",
     "contents_count": 5,
     "id": 28830886,
-    "img_alt": "Noah Kahan stands within the background of a barnyard. One german shapherd sits beside Noah while the other german shepard runs towards the foreground.",
+    "img_alt": "Noah Kahan stands in the background of a barnyard setting. One German Shepherd sits beside Noah while the other German Shepherd runs towards the foreground.",
 
     "jacket1_qty": 1,
     "jacket1_type": "Gatefold Jacket",
@@ -257,7 +257,7 @@
     "disc2_type": "Disc Three/Four",
     "contents_count": 5,
     "id": 13693928,
-    "img_alt": "Khalid stands on top of a van in front of a desertous landscape on a sunset sky.",
+    "img_alt": "Khalid stands on top of a van in front of a desert landscape in the sunset sky.",
 
     "jacket1_qty": 1,
     "jacket1_type": "Gatefold Jacket",
@@ -290,7 +290,7 @@
     "disc2_type": "Disc C/D",
     "contents_count": 3,
     "id": 10559651,
-    "img_alt": "Kendrick Lamar stands in front of a maroon brick wall. He wears a white t-shirt.",
+    "img_alt": "Kendrick Lamar stands in front of a maroon brick wall wearing a white t-shirt.",
 
     "jacket1_qty": 1,
     "jacket1_type": "Gatefold Jacket",
@@ -352,7 +352,7 @@
     "disc2_type": "Disc C/D",
     "contents_count": 5,
     "id": 12705859,
-    "img_alt": "Barbed wire dig inside along the corners of the left eye of a face.",
+    "img_alt": "Barbed wire digs inside the corners of the left eye of a face.",
 
     "jacket1_qty": 1,
     "jacket1_type": "Gatefold Jacket",
@@ -417,7 +417,7 @@
     "disc_count": 1,
     "contents_count": 4,
     "id": 7773820,
-    "img_alt": "Melanie Martinez rest upon a cloud. Paper tears fall from her eyes onto a paper village.",
+    "img_alt": "Melanie Martinez rests upon a cloud. Paper tears fall from her eyes onto a paper village.",
 
     "jacket1_qty": 1,
     "jacket1_type": "Gatefold Jacket",
@@ -448,7 +448,7 @@
     "disc_count": 1,
     "contents_count": 2,
     "id": 25110724,
-    "img_alt": "The silhouette of two overlapping hands present a mountainous landscape. The sky fades between gold, blue, and green hues.",
+    "img_alt": "The silhouette of two overlapping hands presents a mountainous landscape. The sky fades between gold, blue, and green hues.",
 
     "jacket1_qty": 1,
     "jacket1_pocket_qty": 1,
@@ -474,7 +474,7 @@
     "disc_count": 1,
     "contents_count": 3,
     "id": 23011151,
-    "img_alt": "Olivia Rodrigo's face is cover in stickers. She sticks out her tongue which has stickers spelling out 'SOUR'.",
+    "img_alt": "Olivia Rodrigo's face is covered in stickers. She sticks out her tongue which has stickers spelling out 'SOUR'.",
 
     "jacket1_qty": 1,
     "jacket1_type": "Gatefold Jacket",
@@ -505,6 +505,7 @@
     "disc_count": 1,
     "contents_count": 2,
     "id": 27940287,
+    "img_alt": "Olivia Rodrigo lies on a purple floor. She bites the tip of her right thumb. Rings around her right hand spell out 'GUTS'.",
 
     "jacket1_qty": 1,
     "jacket1_type": "Gatefold Jacket",
@@ -534,6 +535,7 @@
     "disc_count": 1,
     "contents_count": 4,
     "id": 26128271,
+    "img_alt": "Harry Styles stands on the ceiling of an upside-down furnished room.",
 
     "jacket1_qty": 1,
     "jacket1_type": "Gatefold Jacket",
@@ -564,6 +566,7 @@
     "disc_count": 1,
     "contents_count": 3,
     "id": 24893972,
+    "img_alt": "Taylor Swift sits against a wooden wall with her left palm on her face. The top and right border of the cover presents the album and track names.",
 
     "jacket1_qty": 1,
     "jacket1_type": "Gatefold Jacket",
@@ -589,10 +592,11 @@
     "listened": true,
     "disc_colors": ["Black"],
     "disc_count": 2,
-    "disc1_type": "Disc A/B",
-    "disc2_type": "Disc C/D",
+    "disc1_type": "Disc One/Two",
+    "disc2_type": "Disc Three/Four",
     "contents_count": 5,
     "id": 27139257,
+    "img_alt": "SZA sits on the edge of a diving board in the middle of the water.",
 
     "jacket1_qty": 1,
     "jacket1_pocket_qty": 1,
@@ -624,6 +628,7 @@
     "disc_count": 1,
     "contents_count": 2,
     "id": 26364716,
+    "img_alt": "A portrait photo of Kali Uchis wearing a decorative headpiece with butterflies around it.",
 
     "jacket1_qty": 1,
     "jacket1_pocket_qty": 1,
@@ -653,6 +658,7 @@
     "disc2_type": "Disc C/D",
     "contents_count": 4,
     "id": 3102547,
+    "img_alt": "A scrap paper artwork of a mountainous landscape. Hues of green, red, cream, and blue radiate throughout the cover.",
 
     "jacket1_qty": 1,
     "jacket1_pocket_qty": 1,
@@ -681,6 +687,7 @@
     "disc_count": 1,
     "contents_count": 2,
     "id": 393266,
+    "img_alt": "A drawing of a scope aiming at a burning skyscraper.",
 
     "jacket1_qty": 1,
     "jacket1_pocket_qty": 1,
@@ -706,6 +713,7 @@
     "disc_count": 1,
     "contents_count": 4,
     "id": 27535197,
+    "img_alt": "Margot Robbie (a.k.a. Barbie) poses lying down against a pink glittered background. The pink background is bordered by a blue sky.",
 
     "jacket1_qty": 1,
     "jacket1_pocket_qty": 1,
@@ -735,6 +743,7 @@
     "disc2_type": "Disc C/D",
     "contents_count": 5,
     "id": 11273965,
+    "img_alt": "Four kids on a road with their bikes stare at the monster in the dark clouds.",
 
     "jacket1_qty": 1,
     "jacket1_type": "Gatefold Jacket",
@@ -755,7 +764,7 @@
   {
     "qty": 1,
     "title": "Symphony No. 9 \"From the New World\"",
-    "artists": ["Berlin Philharmonic Orchestra", "Antonín Dvořák"],
+    "artists": ["Berlin Philharmonic Orchestra", "Antonín Dvořák", "Ferenc Fricsay"],
     "labels": ["Vinyl Passion Classical"],
     "genres": ["Classical"],
     "explicit": false,
@@ -764,6 +773,7 @@
     "disc_count": 1,
     "contents_count": 2,
     "id": 6469008,
+    "img_alt": "A view of a foggy mountainside with a light beige border around the cover.",
 
     "jacket1_qty": 1,
     "jacket1_pocket_qty": 1,
@@ -790,6 +800,7 @@
     "disc2_type": "Disc C/D",
     "contents_count": 4,
     "id": 13128709,
+    "img_alt": "George Szell holds his hand toward the foreground blocking the view of his face. The background is a light blue.",
 
     "jacket1_qty": 1,
     "jacket1_type": "Gatefold Jacket",
@@ -820,6 +831,7 @@
     "disc2_type": "Disc C/D",
     "contents_count": 4,
     "id": 5629297,
+    "img_alt": "A grey background with slits of green, yellow, red, and blue are visible. The cover has the standard Deutsche Grammophon logo.",
 
     "jacket1_qty": 1,
     "jacket1_type": "Gatefold Jacket",
@@ -840,7 +852,7 @@
   {
     "qty": 1,
     "title": "Tchaikovsky Symphony No. 1 in G minor \"Winter Dreams\"",
-    "artists": ["New Philharmonic Orchestra", "Pyotr Ilyich Tchaikovsky"],
+    "artists": ["New Philharmonic Orchestra", "Pyotr Ilyich Tchaikovsky", "Riccardo Muti"],
     "labels": ["Angel Records", "Angel Red Line"],
     "genres": ["Classical"],
     "explicit": false,
@@ -849,6 +861,7 @@
     "disc_count": 1,
     "contents_count": 2,
     "id": 17084202,
+    "img_alt": "Riccardo Muti stands in front of a black background. His hands together in front of his chin. The cover is surrounded by a red border.",
 
     "jacket1_qty": 1,
     "jacket1_pocket_qty": 1,
@@ -881,6 +894,7 @@
     "disc8_type": "Record 8",
     "contents_count": 10,
     "id": 3905196,
+    "img_alt": "Roger Williams plays the piano in front of a red curtain. Lights beam down on him.",
 
     "jacket1_qty": 1,
     "jacket1_type": "Outer-jacket Shell",
@@ -914,6 +928,7 @@
     "disc_count": 1,
     "contents_count": 2,
     "id": 6034299,
+    "img_alt": "A gold record disc rests on top of red velvet fabric. A white tone-arm rests atop the disc.",
 
     "jacket1_qty": 1,
     "jacket1_pocket_qty": 1,

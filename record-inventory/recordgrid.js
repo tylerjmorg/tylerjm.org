@@ -9,28 +9,28 @@ function startRecordGrid() {
     .then(data => {
       let table = '<ul class="record-grid">';
       data.forEach((item, index) => {
-        table += `<li class="record collapsible-r" aria-expanded="false" tabindex="0" id="aboutMeButton-${index}" data-target-id="aboutMeContent-${index}">`;
+        table += `<li class="record collapsible-r" role="button" aria-pressed="false" aria-expanded="false" tabindex="0" id="aboutMeButton-${index}" data-target-id="aboutMeContent-${index}">`;
 
         table += `<div class="record-content-wrapper">`
 
         const mod = item.mod_id ? `-${item.mod_id}` : '';
         const alt = item.img_alt ? ` alt="${item.img_alt}"` : '';
-        table += `<div><div class="img-container"><img class="record-img foreground-img" src="/record-inventory/covers/${item.id}${mod}.avif"${alt}><img class="record-img background-img" role="presentation" src="/record-inventory/covers/${item.id}${mod}.avif"></div>`;
+        table += `<div class="img-container" role="none"><img class="record-img foreground-img" src="/record-inventory/covers/${item.id}${mod}.avif"${alt}><img class="record-img background-img" role="presentation" src="/record-inventory/covers/${item.id}${mod}.avif"></div>`;
 
         const title = item.title ? `<p class="record-title">${item.title}` : '';
-        const explicit = item.explicit ? '<span id="explicit"></span>' : '';
+        const explicit = item.explicit ? '<span id="explicit" aria-label="Explicit"></span>' : '';
         table += `${title}${explicit}`
         
         let artists = '';
         if (Array.isArray(item.artists)) {
           if (!item.artists.includes("Various")) {
             if (item.artists.length > 2) {
-              artists = `<br><span class="artist">${item.artists.slice(0, 2).join(', ')}, <span class="italic">et al.</span></span></p></div>`;
+              artists = `<br><span class="artist">${item.artists.slice(0, 2).join(', ')}, <span class="italic">et al.</span></span></p>`;
             } else {
-              artists = `<br><span class="artist">${item.artists.join(', ')}</span></p></div>`;
+              artists = `<br><span class="artist">${item.artists.join(', ')}</span></p>`;
             }
           } else if (item.artists.includes("Various")) {
-            artists = `<br><span class="artist italic">${item.artists}</span></p></div>`;
+            artists = `<br><span class="artist italic">${item.artists}</span></p>`;
           }};
           table += `${artists}`;
 
@@ -209,10 +209,10 @@ function startRecordGrid() {
           table += listened;
 
           const releaseCode = item.id ? `r${item.id}` : '';
-          table += `<p><span class="label">Discogs Release Code</span>: <a href="https://www.discogs.com/release/${item.id}" target="_blank" tabindex="-1" class="content-link">${releaseCode}</a></p>`;
+          table += `<p><span class="label">Discogs Release Code</span>: <a href="https://www.discogs.com/release/${item.id}" tabindex="-1" aria-hidden="true" class="content-link">${releaseCode}</a></p>`;
           
-          const ddYes = item.dd_yes_url ? `<a href="${item.dd_yes_url}" target="_blank" tabindex="-1" class="content-link">Yes</a>` : 'Yes';
-          const ddNo = item.dd_no_url ? `<a href="${item.dd_no_url}" target="_blank" tabindex="-1" class="content-link">No</a>` : `No`;
+          const ddYes = item.dd_yes_url ? `<a href="${item.dd_yes_url}" tabindex="-1" class="content-link">Yes</a>` : 'Yes';
+          const ddNo = item.dd_no_url ? `<a href="${item.dd_no_url}" tabindex="-1" class="content-link">No</a>` : `No`;
           const ddNA = item.dd ? 'N/A' : '';
           let dd;
           if (item.dd === 'Yes') {
@@ -228,8 +228,8 @@ function startRecordGrid() {
 
           const artistRegions = item.dd_official_regions ? ` [${item.dd_official_regions.join(', ')} Only]` : '';
           const artistFormats = item.dd_official_formats ? ` (${item.dd_official_formats.join(', ')}${artistRegions})` : '';
-          const artistWebsite = item.dd_official_url ? `<br><a href="${item.dd_official_url}" target="_blank" tabindex="-1" class="content-link">Artist Website${artistFormats}</a>` : '';
-          const qobuz = item.dd_qobuz_url ? `<br><a href="${item.dd_qobuz_url}" target="_blank" tabindex="-1" class="content-link">Qobuz</a>` : '';
+          const artistWebsite = item.dd_official_url ? `<br><a href="${item.dd_official_url}" aria-hidden="true" tabindex="-1" class="content-link">Artist Website${artistFormats}</a>` : '';
+          const qobuz = item.dd_qobuz_url ? `<br><a href="${item.dd_qobuz_url}" aria-hidden="true" tabindex="-1" class="content-link">Qobuz</a>` : '';
 
           let downloadWebsites;
           if (item.dd === "Yes" || item.dd === "No") {

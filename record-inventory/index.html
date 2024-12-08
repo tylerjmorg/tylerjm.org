@@ -1,769 +1,568 @@
 <!DOCTYPE html>
-<html lang="en">
- <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Record Inventory</title>
-  <link rel="stylesheet" crossorigin href="https://tylermorgan.co/style.css">
-  <meta name="description" content="An inventory of Tyler's record collection.">
-  <link rel="icon" type="image/svg" media="(prefers-color-scheme: light)" crossorigin href="https://tylermorgan.co/elements/icons/favicon-day.svg">
-  <link rel="icon" type="image/svg" media="(prefers-color-scheme: dark)" crossorigin href="https://tylermorgan.co/elements/icons/favicon-night.svg">
-  <link rel="icon" type="image/avif" media="(prefers-color-scheme: light)" crossorigin href="https://tylermorgan.co/elements/icons/favicon-day-180.avif">
-  <link rel="icon" type="image/avif" media="(prefers-color-scheme: dark)" crossorigin href="https://tylermorgan.co/elements/icons/favicon-night-180.avif">
-  <link rel="icon" type="image/avif" media="(prefers-color-scheme: light)" sizes="192x192" crossorigin href="https://tylermorgan.co/elements/icons/favicon-day-192.avif">
-  <link rel="icon" type="image/avif" media="(prefers-color-scheme: dark)" sizes="192x192" crossorigin href="https://tylermorgan.co/elements/icons/favicon-night-192.avif">
-  <link rel="apple-touch-icon" crossorigin href="https://tylermorgan.co/apple-touch-icon.avif">
-  <link rel="mask-icon" crossorigin href="https://tylermorgan.co/elements/icons/mask-icon.svg" color="#454D51">
-  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#444444">
-  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#121111">
-  <link rel="canonical" href="https://tylerjm.org/record-inventory/">
-  <meta name="keywords" content="record, handbook, tyler morgan, vinyl, tylerjmorg, discogs, goldmine, music, inventory">
-  <style>
-   :root {
-    color: var(--primary-color);
-   }
-   .table-view{
-    box-shadow: inset lab(0 0 0 / 0.33) 0px 0px 8px 0px;
-    overflow-x: scroll;
-    height: 573px;
-    border-radius: 15px;
-   }
-   table {
-    border-collapse: separate;
-    border-spacing: 0;
-    color: var(--primary-color);
-    width: 100%;
-    justify-content: center;
-    margin: auto;
-   }
-   td, th {
-    text-align: center;
-    padding: 5px;
-   }
-   tr:nth-child(even) {
-    background-color: var(--secondary-bkg-color);
-   }
-   tr:nth-child(even) td:first-of-type{
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-   }
-   tr th:first-of-type{
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-   }
-   tr:nth-child(even) td:last-of-type{
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
-   }
-   tr th:last-of-type{
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
-   }
-   a {
-    text-decoration: underline solid transparent;
-    font-weight: bold;
-    color: var(--biolink-color);
-    cursor: pointer;
-    transition: color 150ms linear, text-decoration 150ms linear;
-   }
-   a:hover {
-    color: var(--primary-hover);
-    text-decoration: underline solid currentColor;
-   }
-   svg {
-    vertical-align: middle;
-    margin-left: 5px;
-   }
-   .bottom-link-group {
-    display: grid;
-    grid-template-columns: auto auto;
-   }
-   .bottom-link {
-    text-decoration: underline solid transparent;
-    font-weight: bold;
-    color: var(--biolink-color);
-    fill: var(--biolink-color);
-    cursor: pointer;
-    transition: color 150ms linear, text-decoration 150ms linear, fill 150ms linear;
-   }
-   .bottom-link:hover {
-    color: var(--primary-hover);
-    fill: var(--primary-hover);
-    text-decoration: underline solid currentColor;
-   }
-   thead{
-    padding-top: 5px;
-    position: sticky;
-    top: 0;
-    box-shadow: lab(0 0 0 / 0.34) 0px 2px 8px 0px;
-    border-radius: 15px;
-    background-color: var(--bkg-color-3-trans);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-   }
-   .updates {
-    display: grid;
-    grid-template-columns: auto auto auto;
-   }
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Records</title>
+    <link rel="stylesheet" crossorigin href="https://tylermorgan.co/style.css">
+    <meta name="description" content="An inventory of Tyler's record collection.">
+    <link rel="icon" type="image/svg" media="(prefers-color-scheme: light)" crossorigin href="https://tylermorgan.co/elements/icons/favicon-day.svg">
+    <link rel="icon" type="image/svg" media="(prefers-color-scheme: dark)" crossorigin href="https://tylermorgan.co/elements/icons/favicon-night.svg">
+    <link rel="icon" type="image/avif" media="(prefers-color-scheme: light)" crossorigin href="https://tylermorgan.co/elements/icons/favicon-day-180.avif">
+    <link rel="icon" type="image/avif" media="(prefers-color-scheme: dark)" crossorigin href="https://tylermorgan.co/elements/icons/favicon-night-180.avif">
+    <link rel="icon" type="image/avif" media="(prefers-color-scheme: light)" sizes="192x192" crossorigin href="https://tylermorgan.co/elements/icons/favicon-day-192.avif">
+    <link rel="icon" type="image/avif" media="(prefers-color-scheme: dark)" sizes="192x192" crossorigin href="https://tylermorgan.co/elements/icons/favicon-night-192.avif">
+    <link rel="apple-touch-icon" crossorigin href="https://tylermorgan.co/apple-touch-icon.avif">
+    <link rel="mask-icon" crossorigin href="https://tylermorgan.co/elements/icons/mask-icon.svg" color="#454D51">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#444444">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#121111">
+    <link rel="canonical" href="https://tylerjm.org/record-inventory/">
+    <meta name="keywords" content="record, handbook, tyler morgan, vinyl, tylerjmorg, discogs, goldmine, music, inventory">
+    <style>
+      :root {
+        color: var(--primary-color);
+        font-size: 0.89rem;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        overflow-x: hidden;
+      }
+      li {
+        text-indent: 0px;
+        padding: 0;
+        list-style-type: none;
+      }
+      ul {
+        text-indent: 0px;
+        padding: 0;
+        list-style-type: none;
+      }
+      @media (min-width: 1081px){
+        .ring-svg {
+          height: 450px;
+          width: 450px;
+          border-radius: 50%;
+        }
+        .record-grid{
+          justify-content: center;
+          margin: auto;
+          display: grid;
+          flex-wrap: wrap;
+          max-width: 1350px;
+          gap: 30px 10px;
+          grid-template-columns: repeat(5, 1fr);
+          grid-template-rows: auto;
+          width: 97.5%;
+          font-size: 0.92rem;
+          text-wrap: pretty;
+        }
+        .title {
+          font-size: 40px;
+          text-align: center;
+          margin: auto;
+          justify-content: center;
+          margin-top: -350px;
+          margin-bottom: 15px;
+          width: 450px;
+          border-radius: 50%;
+        }
+        .record {
+          padding: 10px;
+          border-radius: 10px;
+          display: block;
+          background-color: var(--secondary-bkg-color);
+        }
+        .record-img {
+          min-height: 182px;
+          min-width: 182px;
+        }
+        .record-title {
+          font: 'Noto Sans', sans-serif;
+          height: fit-content;
+          font-weight: 400;
+          font-size: 0.96rem;
+          margin-top: 15px;
+          text-align: left;
+          text-wrap: pretty;
+        }
+        .artist {
+          font: 'Noto Sans', sans-serif;
+          color: #ccc;
+          font-size: 0.8rem;
+          text-wrap: pretty;
+        }
+        #explicit::before {
+          background: url(/elements/icons/explicit.svg);
+          width: 20px;
+          height: 20px;
+          vertical-align: bottom;
+          content: "";
+          margin-left: 7px;
+          display: inline-block;
+        }
+        .update-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          text-align: center;
+          gap: 30px 10px;
+          grid-template-rows: auto;
+          font-size: 0.84rem;
+          width: 97.5%;
+          max-width: 800px;
+          margin: auto;
+          justify-content: center;
+          padding-top: 20px;
+        }
+        .update-card-content {
+          padding: 10px;
+          border-radius: 10px;
+          display: block;
+          background-color: var(--secondary-bkg-color);
+        }
+      } 
+      @media (max-width: 1080px){
+        .ring-svg {
+          height: 450px;
+          width: 450px;
+          border-radius: 50%;
+        }
+        .record-grid{
+          justify-content: center;
+          margin: auto;
+          display: grid;
+          flex-wrap: wrap;
+          gap: 30px 10px;
+          grid-template-columns: repeat(4, 1fr);
+          grid-template-rows: auto;
+          width: 97.5%;
+          font-size: 0.92rem;
+          text-wrap: pretty;
+        }
+        .record {
+          padding: 10px;
+          border-radius: 10px;
+          display: block;
+          background-color: var(--secondary-bkg-color);
+        }
+        .title {
+          font-size: 40px;
+          text-align: center;
+          margin: auto;
+          justify-content: center;
+          margin-top: -350px;
+          margin-bottom: 15px;
+          width: 450px;
+          border-radius: 50%;
+        }
+        .record-title {
+          font: 'Noto Sans', sans-serif;
+          height: fit-content;
+          font-weight: 400;
+          font-size: 0.92rem;
+          margin-top: 15px;
+          text-align: left;
+        }
+        .artist {
+          font: 'Noto Sans', sans-serif;
+          color: var(--sec-color);
+          font-size: 0.88rem;
+        }
+        #explicit::before {
+          background: url(/elements/icons/explicit.svg);
+          width: 20px;
+          height: 20px;
+          vertical-align: bottom;
+          content: "";
+          margin-left: 7px;
+          display: inline-block;
+        }
+        .record-img {
+          min-height: 179px;
+          min-width: 179px;
+        }
+        .update-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          text-align: center;
+          gap: 30px 10px;
+          grid-template-rows: auto;
+          font-size: 0.84rem;
+          width: 97.5%;
+          max-width: 800px;
+          margin: auto;
+          justify-content: center;
+          padding-top: 20px;
+        }
+        .update-card-content {
+          padding: 10px;
+          border-radius: 10px;
+          display: block;
+          background-color: var(--secondary-bkg-color);
+        }
+      } 
+      @media (max-width: 850px){
+        .ring-svg {
+          height: 450px;
+          width: 450px;
+          border-radius: 50%;
+        }
+        .record-grid{
+          justify-content: center;
+          margin: auto;
+          display: grid;
+          flex-wrap: wrap;
+          gap: 30px 10px;
+          grid-template-columns: repeat(3, 1fr);
+          grid-template-rows: auto;
+          width: 97.5%;
+          font-size: 0.92rem;
+          text-wrap: pretty;
+        }
+        .title {
+          font-size: 40px;
+          text-align: center;
+          margin: auto;
+          justify-content: center;
+          margin-top: -350px;
+          margin-bottom: 15px;
+          width: 450px;
+          border-radius: 50%;
+        }
+        .record {
+          padding: 10px;
+          border-radius: 10px;
+          display: block;
+          background-color: var(--secondary-bkg-color);
+        }
+        .record-title {
+          font: 'Noto Sans', sans-serif;
+          height: fit-content;
+          font-weight: 400;
+          font-size: 0.94rem;
+          margin-top: 15px;
+          text-align: left;
+        }
+        .artist {
+          font: 'Noto Sans', sans-serif;
+          color: var(--sec-color);
+          font-size: 0.88rem;
+        }
+        #explicit::before {
+          background: url(/elements/icons/explicit.svg);
+          width: 20px;
+          height: 20px;
+          vertical-align: bottom;
+          content: "";
+          margin-left: 7px;
+          display: inline-block;
+        }
+        .update-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          text-align: center;
+          gap: 30px 10px;
+          grid-template-rows: auto;
+          font-size: 0.84rem;
+          width: 97.5%;
+          max-width: 800px;
+          margin: auto;
+          justify-content: center;
+          padding-top: 20px;
+        }
+        .update-card-content {
+          padding: 10px;
+          border-radius: 10px;
+          display: block;
+          background-color: var(--secondary-bkg-color);
+        }
+      }
+      @media (max-width: 640px){
+        .record-grid{
+          justify-content: center;
+          margin: auto;
+          display: grid;
+          flex-wrap: wrap;
+          gap: 30px 10px;
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: auto;
+          width: 97.5%;
+          font-size: 0.92rem;
+          text-wrap: pretty;
+        }
+        .title {
+          font-size: 40px;
+          text-align: center;
+          margin: auto;
+          justify-content: center;
+          margin-top: -190px;
+          margin-bottom: 15px;
+          width: 243px;
+          border-radius: 50%;
+        }
+        .ring-svg {
+          height: 243px;
+          width: 243px;
+          border-radius: 50%;
+        }
+        .record {
+          padding: 10px;
+          border-radius: 10px;
+          display: block;
+          background-color: var(--secondary-bkg-color);
+        }
+        .record-title {
+          font: 'Noto Sans', sans-serif;
+          height: fit-content;
+          font-weight: 400;
+          font-size: 0.94rem;
+          margin-top: 15px;
+          text-align: left;
+        }
+        .artist {
+          font: 'Noto Sans', sans-serif;
+          color: var(--sec-color);
+          font-size: 0.88rem;
+        }
+        #explicit::before {
+          background: url(/elements/icons/explicit.svg);
+          width: 20px;
+          height: 20px;
+          vertical-align: bottom;
+          content: "";
+          margin-left: 7px;
+          display: inline-block;
+        }
+        .record-img {
+          min-height: 130px;
+          min-width: 130px;
+        }
+        .update-grid {
+          display: grid;
+          grid-template-columns: repeat(1, 1fr);
+          text-align: center;
+          gap: 10px 10px;
+          grid-template-rows: auto;
+          font-size: 0.84rem;
+          width: 80%;
+          max-width: 250px;
+          margin: auto;
+          justify-content: center;
+          padding-top: 20px;
+        }
+        .update-card-content {
+          padding: 10px;
+          border-radius: 10px;
+          display: block;
+          background-color: var(--secondary-bkg-color);
+        }
+      }
+      .bottom-links {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        text-align: center;
+        gap: 30px 20px;
+        grid-template-rows: auto;
+        font-size: 0.84rem;
+        width: 90%;
+        max-width: 800px;
+        margin: auto;
+        justify-content: center;
+        padding-top: 20px;
+      }
+      .bottom-link {
+        padding: 10px;
+        border-radius: 30px;
+        display: block;
+        background-color: var(--button-link);
+        color: var(--highlight-color);
+        text-decoration: none;
+        transition: all 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s;
+        transform: scale(1);
+      }
+      .bottom-link:hover {
+        background-color: var(--secondary-bkg-color);
+        color: var(--primary-color);
+        transform: scale(1.05);
+      }
+      .record-img {
+        width: 100%;
+        border-radius: 7px;
+      }
+      .italic {
+        font-style: italic;
+      }
+      .collapsible-r{
+        font-family: 'Noto Sans', sans-serif;
+        color: var(--primary-color);
+        cursor: pointer;
+        border: none;
+      }
 
-   .headphones {
-    justify-content: center;
-    margin: auto;
-    display: flex;
-    padding-right: 5px;
-    align-items: center;
-   }
-   .explicit {
-    justify-content: center;
-    margin: auto;
-    display: flex;
-    padding-right: 5px;
-    align-items: center;
-   }
-   #explicit::before {
-    background: url(/elements/icons/explicit.svg);
-    width: 24px;
-    height: 24px;
-    content: "";
-    display: inline-block;
-   }
-   #listened::before {
-    background: url(/elements/icons/headphones.svg);
-    width: 24px;
-    height: 24px;
-    content: "";
-    display: inline-block;
-   }
-  </style>
- </head>
- <body>
-  <header>
-   <h1 style="font-size: 25px; text-align: center; margin-top: 15px; margin-bottom: 5px; color: var(--primary-color);">RECORD INVENTORY</h1>
-  </header>
-  <main>
-   <div class="table-view">
-    <table style="font-size: 12px; justify-content: center;">
-     <thead>
-      <tr style="font-size: 14px;">
-       <th>Qty</th>
-       <th>Artist(s)</th>
-       <th>Record Title</th>
-       <th>Record Label(s)</th>
-       <th>Genre(s)</th>
-       <th>Explicit</th>
-       <th>Disc Color(s)</th>
-       <th>Disc Count</th>
-       <th>Contents Count</th>
-       <th>Contents Description</th>
-       <th>Discogs Release Code</th>
-       <th>Goldmine<sup>®</sup> Condition(s)</th>
-       <th>Listened</th>
-       <th>Digital Download(s)</th>
-      </tr>
-     </thead>
+      .collapsible-r img {
+        transform: scale(1);
+        transition: background-color 175ms linear, transform 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s;
+      }
+      .collapsible-r:hover img{
+        transform: scale(1.05);
+      }
+      .collapsible-r:hover .background-img {
+        opacity: 1;
+        filter: blur(8px);
+        transform: scale(1.05);
+      }
+      .collapsible-r .foreground-img {
+        transition: all 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s;
+        box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.25);
+      }
+      .collapsible-r:hover .foreground-img {
+        box-shadow: none;
+      }
+      .collapsible-r .background-img {
+        position: absolute;
+        top: 2px;
+        left: 0;
+        transform: scale(1);
+        transition: all 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s;
+        opacity: 0;
+        z-index: 1;
+      }
+      img {
+        pointer-events: none;
+      }
+      .active {
+        background-color: var(--secondary-bkg-color);
 
-     <!--Organized by order of priority: 1. Genre, 2. Artist Last Name (if applicaple), 3. Chronological Release-->
-     <tbody>
+        .background-img {
+          opacity: 1;
+          filter: blur(4px);
+          transform: scale(1.03);
+        }
+        .foreground-img {
+          box-shadow: none;
+        }
+        img {
+          transform: scale(1.03);
+        }
+      }
 
-      <!--Adele: 30-->
-      <tr>
-       <!--Qty--><td>1</td>
-       <!--Artist(s)--><td>Adele</td>
-       <!--Record Title--><td>30</td>
-       <!--Record Label(s)--><td>Columbia</td>
-       <!--Genre(s)--><td>Jazz, Pop</td>
-       <!--Explicit--><td></td>
-       <!--Disc Color(s)--><td>Clear</td>
-       <!--Disc Count--><td>2</td>
-       <!--Contents Count--><td>3</td>
-       <!--Contents Description-->
-       <td>
-        1 – Jacket (Single Pocket)
-        <br>
-        2 – Inner-sleeve
-       </td>
-       <!--Discogs Release Code: Add target="_blank" to links--><td><a target="_blank" href="https://www.discogs.com/release/21046597-Adele-30">r21046597</a></td>
-       <!--Goldmine Condition(s)-->
-       <td>
-        Jacket – VG+
-        <br>
-        Disc A/B – VG+
-        <br>
-        Disc C/D – VG+
-       </td>
-       <!--Listened--><td id="listened"></td>
-       <!--Digital Download(s): Add target="_blank" to links--><td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/30-adele/tuzhj8k94jxoc">(Qobuz)</a></td>
-      </tr>
-
-      <!--Billie Eilish: dont smile at me-->
-      <tr>
-       <!--Qty--><td>1</td>
-       <!--Artist(s)--><td>Billie Eilish</td>
-       <!--Record Title--><td>dont smile at me</td>
-       <!--Record Label(s)--><td>Darkroom, Interscope Records</td>
-       <!--Genre(s)--><td>Electronic, Pop</td>
-       <!--Explicit--><td></td>
-       <!--Disc Color(s)--><td>Black</td>
-       <!--Disc Count--><td>1</td>
-       <!--Contents Count--><td>2</td>
-       <!--Contents Description-->
-       <td>
-        1 – Jacket (Single Pocket)
-        <br>
-        1 – Inner-sleeve
-       </td>
-       <!--Discogs Release Code: Add target="_blank" to links--><td><a target="_blank" href="https://www.discogs.com/release/13893955-Billie-Eilish-Dont-Smile-At-Me">r13893955</a></td>
-       <!--Goldmine Condition(s)-->
-       <td>
-        Jacket – VG+
-        <br>
-        Disc – VG+
-       </td>
-       <!--Listened--><td id="listened"></td>
-       <!--Digital Download(s): Add target="_blank" to links--><td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/dont-smile-at-me-billie-eilish/n796jd6uaf11b">(Qobuz)</a></td>
-      </tr>
-
-      <!--Billie Eilish: WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?-->
-      <tr>
-       <!--Qty--><td>1</td>
-       <!--Artist(s)--><td>Billie Eilish</td>
-       <!--Record Title--><td>WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?</td>
-       <!--Record Label(s)--><td>Darkroom, Interscope Records</td>
-       <!--Genre(s)--><td>Electronic, Pop</td>
-       <!--Explicit--><td></td>
-       <!--Disc Color(s)--><td>Apricot</td>
-       <!--Disc Count--><td>1</td>
-       <!--Contents Count--><td>2</td>
-       <!--Contents Description-->
-       <td>
-        1 – Gatefold Jacket (Single Pocket)
-        <br>
-        1 – Inner-sleeve
-       </td>
-       <!--Discogs Release Code: Add target="_blank" to links--><td><a target="_blank" href="https://www.discogs.com/release/14198724-Billie-Eilish-When-We-All-Fall-Asleep-Where-Do-We-Go">r14198724</a></td>
-       <td>Jacket – VG<br>Disc – VG+</td>
-       <td id="listened"></td>
-       <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/when-we-all-fall-asleep-where-do-we-go-billie-eilish/wo456u01fehgc">(Qobuz)</a></td>
-      </tr>
-
-      <!--Billie Eilish: Happier Than Ever-->
-      <tr>
-       <!--Qty--><td>1</td>
-       <!--Artist(s)--><td>Billie Eilish</td>
-       <!--Record Title--><td>Happier Than Ever</td>
-       <!--Record Label(s)--><td>Darkroom, Interscope Records</td>
-       <!--Genre(s)--><td>Pop</td>
-       <!--Explicit--><td id="explicit"></td>
-       <!--Disc Color(s)--><td>Pale Blue</td>
-       <!--Disc Count--><td>2</td>
-       <!--Contents Count--><td>4</td>
-       <!--Contents Description--><td>1 – Gatefold Jacket (Double Pocket)<br>2 – Inner-sleeve<br>1 – Poster</td>
-       <!--Discogs Release Code: Add target="_blank" to links--><td><a target="_blank" href="https://www.discogs.com/release/19677331-Billie-Eilish-Happier-Than-Ever">r19677331</a></td>
-       <td>Jacket – VG+<br>Disc A/B – NM<br>Disc C/D – NM</td>
-       <td id="listened"></td>
-       <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/happier-than-ever-explicit-billie-eilish/vewzc8hmoqc8a">(Qobuz)</a><br><a target="_blank" href="https://store.billieeilish.com/products/happier-than-ever-digital-album">(Official is MP3 only)</a></td>
-      </tr>
-
-      <!--Billie Eilish: HIT ME HARD AND SOFT-->
-      <tr>
-       <!--Qty--><td>1</td>
-       <!--Artist(s)--><td>Billie Eilish</td>
-       <!--Record Title--><td>HIT ME HARD AND SOFT</td>
-       <!--Record Label(s)--><td>Darkroom, Interscope Records</td>
-       <!--Genre(s)--><td>Electronic, Pop</td>
-       <!--Explicit--><td></td>
-       <!--Disc Color(s)--><td>Red</td>
-       <!--Disc Count--><td>1</td>
-       <!--Contents Count--><td>4</td>
-       <!--Contents Description--><td>1 – Gatefold Jacket (Single Pocket)<br>1 – Inner-sleeve<br>1 – Outer-sleeve<br>1 – Hype Sticker</td>
-       <!--Discogs Release Code: Add target="_blank" to links--><td><a target="_blank" href="https://www.discogs.com/release/30693268-Billie-Eilish-Hit-Me-Hard-And-Soft">r30693268</a></td>
-       <td>Jacket – VG+<br>Disc – VG+</td>
-       <td id="listened"></td>
-       <td><a target="_blank" href="https://drive.proton.me/urls/RDAAVE7VVM#sxL979xIB7yx">Yes</a> <a target="_blank" href="https://www.qobuz.com/us-en/album/hit-me-hard-and-soft-billie-eilish/gvcirtodd95kc">(Qobuz)</a><br><a target="_blank" href="https://store.billieeilish.com/products/hit-me-hard-and-soft-digital-album">(Official is MP3 only)</a></td>
-      </tr>
-
-      <!--Conan Gray: Superache-->
-      <tr>
-       <!--Qty--><td>1</td>
-       <!--Artist(s)--><td>Conan Gray</td>
-       <!--Record Title--><td>Superache</td>
-       <!--Record Label(s)--><td>Republic Records</td>
-       <!--Genre(s)--><td>Pop</td>
-       <!--Explicit--><td id="explicit"></td>
-       <!--Disc Color(s)--><td>Ruby Red</td>
-       <!--Disc Count--><td>1</td>
-       <!--Contents Count--><td>14</td>
-       <!--Contents Description--><td>1 – Jacket (Single Pocket)<br>1 – Inner-sleeve<br>2 – Poster<br>1 – Envelope<br>4 – Album Photo<br>4 – Song Letter<br>1 – Hype Sticker</td>
-       <!--Discogs Release Code: Add target="_blank" to links--><td><a target="_blank" href="https://www.discogs.com/release/23683412-Conan-Gray-Superache">r23683412</a></td>
-       <td>Jacket – VG<br>Disc – VG+</td>
-       <td id="listened"></td>
-       <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/superache-conan-gray/enqrpjtn03sra">(Qobuz)</a><br><a target="_blank" href="https://shop.conangray.com/products/superache-digital-album">(Official is MP3 only)</a></td>
-      </tr>
-
-      <!--Noah Kahan: Stick Season-->
-      <tr>
-       <!--Qty--><td>1</td>
-       <!--Artist(s)--><td>Noah Kahan</td>
-       <!--Record Title--><td>Stick Season</td>
-       <!--Record Label(s)--><td>Mercury, Republic Records</td>
-       <!--Genre(s)--><td>Rock, Pop, Folk, World, & Country</td>
-       <!--Explicit--><td id="explicit"></td>
-       <!--Disc Color(s)--><td>Black</td>
-       <!--Disc Count--><td>2</td>
-       <!--Contents Count--><td>5</td>
-       <!--Contents Description--><td>1 – Gatefold Jacket (Double Pocket)<br>2 – Inner-sleeve<br>1 – Poster<br>1 – Hype Sticker</td>
-       <!--Discogs Release Code: Add target="_blank" to links--><td><a target="_blank" href="https://www.discogs.com/release/28830886-Noah-Kahan-Stick-Season">r28830886</a></td>
-       <td>Jacket – VG+<br>Disc A/B – VG+<br>Disc C/D – VG+</td>
-       <td id="listened"></td>
-       <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/stick-season-noah-kahan/p87zu4urgi2tb">(Qobuz)</a></td>
-      </tr>
-
-      <!--Khalid: American Teen-->
-      <tr>
-       <!--Qty--><td>1</td>
-       <!--Artist(s)--><td>Khalid</td>
-       <!--Record Title--><td>American Teen</td>
-       <!--Record Label(s)--><td>RCA Records, Right Hand Music Group</td>
-       <!--Genre(s)--><td>Funk / Soul</td>
-       <!--Explicit--><td id="explicit"></td>
-       <!--Disc Color(s)--><td>Black</td>
-       <!--Disc Count--><td>2</td>
-       <!--Contents Count--><td>4</td>
-       <!--Contents Description--><td>1 – Gatefold Jacket (Double Pocket)<br>2 – Inner-sleeve<br>1 – Digital Download Slip (Inactive)</td>
-       <!--Discogs Release Code: Add target="_blank" to links--><td><a target="_blank" href="https://www.discogs.com/release/10123738-Khalid-American-Teen">r10123738</a></td>
-       <td>Jacket – VG+<br>Disc One/Two – VG+<br>Disc Three/Four – VG+</td>
-       <td id="listened"></td>
-       <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/american-teen-khalid/0886446309347">(Qobuz)</a></td>
-      </tr>
-
-      <!--Khalid: Free Spirit-->
-      <tr>
-       <!--Qty--><td>1</td>
-       <!--Artist(s)--><td>Khalid</td>
-       <!--Record Title--><td>Free Spirit</td>
-       <!--Record Label(s)--><td>RCA Records, Right Hand Music Group</td>
-       <!--Genre(s)--><td>Funk / Soul</td>
-       <!--Explicit--><td id="explicit"></td>
-       <!--Disc Color(s)--><td>Black</td>
-       <!--Disc Count--><td>2</td>
-       <!--Contents Count--><td>5</td>
-       <!--Contents Description--><td>1 – Gatefold Jacket (Double Pocket)<br>2 – Inner-sleeve<br>1 – Digital Download Slip (Inactive)<br>1 – Poster</td>
-       <!--Discogs Release Code: Add target="_blank" to links--><td><a target="_blank" href="https://www.discogs.com/release/13693928-Khalid-Free-Spirit">r13693928</a></td>
-       <td>Jacket – VG+<br>Disc One/Two – VG+<br>Disc Three/Four – VG+</td>
-       <td id="listened"></td>
-       <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/free-spirit-khalid/f06uhxxw9omba">(Qobuz)</a></td>
-      </tr>
-
-      <!--Kendrick Lamar: DAMN.-->
-      <tr>
-       <!--Qty--><td>1</td>
-       <!--Artist(s)--><td>Kendrick Lamar</td>
-       <!--Record Title--><td>DAMN.</td>
-       <!--Record Label(s)--><td>Aftermath, Interscope Records, Top Dawg Entertainment</td>
-       <!--Genre(s)--><td>Hip Hop</td>
-       <!--Explicit--><td id="explicit"></td>
-       <!--Disc Color(s)--><td>Black</td>
-       <!--Disc Count--><td>2</td>
-       <!--Contents Count--><td>3</td>
-       <!--Contents Description--><td>1 – Gatefold Jacket (Double Pocket)<br>2 – Inner-sleeve</td>
-       <!--Discogs Release Code: Add target="_blank" to links--><td><a target="_blank" href="https://www.discogs.com/release/10559651-Kendrick-Lamar-Damn">r10559651</a></td>
-       <td>Jacket – VG<br>Disc A/B – VG+<br>Disc C/D – VG+</td>
-       <td id="listened"></td>
-       <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/damn-kendrick-lamar/0060255760871">(Qobuz)</a></td>
-      </tr>
-
-      <!--Post Malone: Stoney-->
-      <tr>
-       <!--Qty--><td>1</td>
-       <!--Artist(s)--><td>Post Malone</td>
-       <!--Record Title--><td>Stoney</td>
-       <!--Record Label(s)--><td>Republic Records</td>
-       <!--Genre(s)--><td>Hip Hop</td>
-       <!--Explicit--><td id="explicit"></td>
-       <!--Disc Color(s)--><td>Orange</td>
-       <!--Disc Count--><td>2</td>
-       <!--Contents Count--><td>3</td>
-       <!--Contents Description--><td>1 – Gatefold Jacket (Double Pocket)<br>2 – Inner-sleeve</td>
-       <!--Discogs Release Code: Add target="_blank" to links--><td><a target="_blank" href="https://www.discogs.com/release/10469963-Post-Malone-Stoney">r10469963</a></td>
-       <td>Jacket – VG+<br>Disc A/B – VG+<br>Disc C/D – VG+</td>
-       <td id="listened"></td>
-       <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/stoney-post-malone/0060255726179">(Qobuz)</a><br><a target="_blank" href="https://shop.republicrecords.com/collections/post-malone/products/post-malone-stoney-digital-album">(Official is MP3 only)</a></td>
-      </tr>
-
-      <!--Post Malone: Beerbongs & Bentleys-->
-      <tr>
-       <!--Qty--><td>1</td>
-       <!--Artist(s)--><td>Post Malone</td>
-       <!--Record Title--><td>Beerbongs & Bentleys</td>
-       <!--Record Label(s)--><td>Republic Records</td>
-       <!--Genre(s)--><td>Hip Hop, Rock, Pop</td>
-       <!--Explicit--><td id="explicit"></td>
-       <!--Disc Color(s)--><td>Clear</td>
-       <!--Disc Count--><td>2</td>
-       <!--Contents Count--><td>5</td>
-       <!--Contents Description--><td>1 – Gatefold Jacket (Double Pocket)
-        <br>
-        2 – Inner-sleeve
-        <br>
-        2 – Double-Sided Artwork Slip</td>
-       <!--Discogs Release Code: Add target="_blank" to links--><td><a target="_blank" href="https://www.discogs.com/release/12705859-Post-Malone-Beerbongs-Bentleys">r12705859</a></td>
-       <td>Jacket – VG<br>Disc A/B – VG+<br>Disc C/D – VG+</td>
-       <td id="listened"></td>
-       <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/beerbongs-bentleys-post-malone/mb0zgu7w885cc">(Qobuz)</a><br><a target="_blank" href="https://shop.republicrecords.com/products/post-malone-beerbongs-bentleys-digital-album">(Official is MP3 only)</a></td>
-      </tr>
-
-      <!--Post Malone: Hollywood’s Bleeding-->
-      <tr>
-       <!--Qty--><td>1</td>
-       <!--Artist(s)--><td>Post Malone</td>
-       <!--Record Title--><td>Hollywood’s Bleeding</td>
-       <!--Record Label(s)--><td>Republic Records</td>
-       <!--Genre(s)--><td>Hip Hop, Rock, Pop</td>
-       <!--Explicit--><td id="explicit"></td>
-       <!--Disc Color(s)--><td>Lavender</td>
-       <!--Disc Count--><td>2</td>
-       <!--Contents Count--><td>5</td>
-       <!--Contents Description--><td>1 – Gatefold Jacket (Double Pocket)<br>2 – Inner-sleeve<br>2 – Photo Album Booklet</td>
-       <!--Discogs Release Code: Add target="_blank" to links--><td><a target="_blank" href="https://www.discogs.com/release/15522170-Post-Malone-Hollywoods-Bleeding">r15522170</a></td>
-       <td>Jacket – VG<br>Disc A/B – VG+<br>Disc C/D – VG+</td>
-       <td id="listened"></td>
-       <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/hollywoods-bleeding-post-malone/jgjvoqpvrvngc">(Qobuz)</a><br><a target="_blank" href="https://shop.republicrecords.com/collections/digital-music/products/post-malone-hollywoods-bleeding-digital-album">(Official is MP3 only)</a></td>
-      </tr>
-
-      <!--Melanie Martinez: Cry Baby-->
-      <tr>
-       <!--Qty--><td>1</td>
-       <!--Artist(s)--><td>Melanie Martinez</td>
-       <!--Record Title--><td>Cry Baby</td>
-       <!--Record Label(s)--><td>Atlantic</td>
-       <!--Genre(s)--><td>Pop</td>
-       <!--Explicit--><td id="explicit"></td>
-       <!--Disc Color(s)--><td>Black</td>
-       <!--Disc Count--><td>1</td>
-       <!--Contents Count--><td>4</td>
-       <!--Contents Description--><td>1 – Gatefold Jacket (Double Pocket)<br>1 – Inner-sleeve<br>1 – Song Info Slip<br>1 – Story Booklet</td>
-       <!--Discogs Release Code: Add target="_blank" to links--><td><a target="_blank" href="https://www.discogs.com/release/7773820-Melanie-Martinez-Cry-Baby">r7773820</a></td>
-       <td>Jacket – VG+<br>Disc – VG+</td>
-       <td id="listened"></td>
-       <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/cry-baby-melanie-martinez/0075679921369">(Qobuz)</a></td>
-      </tr>
-
-      <!--Olivia Rodrigo: Sour-->
-      <tr>
-       <!--Qty--><td>1</td>
-       <!--Artist(s)--><td>Olivia Rodrigo</td>
-       <!--Record Title--><td>Sour</td>
-       <!--Record Label(s)--><td>Geffen Records</td>
-       <!--Genre(s)--><td>Rock, Pop</td>
-       <!--Explicit--><td id="explicit"></td>
-       <!--Disc Color(s)--><td>Black</td>
-       <!--Disc Count--><td>1</td>
-       <!--Contents Count--><td>3</td>
-       <!--Contents Description--><td>1 – Gatefold Jacket (Single Pocket)<br>1 – Inner-sleeve<br>1 – Hype Sticker</td>
-       <!--Discogs Release Code: Add target="_blank" to links--><td><a target="_blank" href="https://www.discogs.com/release/23011151-Olivia-Rodrigo-Sour">r23011151</a></td>
-       <td>Jacket – VG+<br>Disc – VG+</td>
-       <td id="listened"></td>
-       <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/sour-olivia-rodrigo/pqbbikwu2ljnb">(Qobuz)</a><br><a target="_blank" href="https://shopau.oliviarodrigo.com/collections/au/products/sour-digital-album">(Official is MP3, AU only)</a></td>
-      </tr>
-
-      <!--Olivia Rodrigo: GUTS-->
-      <tr>
-       <!--Qty--><td>1</td>
-       <!--Artist(s)--><td>Olivia Rodrigo</td>
-       <!--Record Title--><td>GUTS</td>
-       <!--Record Label(s)--><td>Geffen Records</td>
-       <!--Genre(s)--><td>Rock, Pop</td>
-       <!--Explicit--><td id="explicit"></td>
-       <!--Disc Color(s)--><td>Black</td>
-       <!--Disc Count--><td>1</td>
-       <!--Contents Count--><td>2</td>
-       <!--Contents Description--><td>1 – Gatefold Jacket (Single Pocket)<br>1 – Inner-sleeve</td>
-       <!--Discogs Release Code: Add target="_blank" to links--><td><a target="_blank" href="https://www.discogs.com/release/27940287-Olivia-Rodrigo-Guts">r27940287</a></td>
-       <td>Jacket – VG+<br>Disc – VG+</td>
-       <td id="listened"></td>
-       <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/guts-olivia-rodrigo/vrqtmyvds2ztc">(Qobuz)</a><br><a target="_blank" href="https://shopau.oliviarodrigo.com/collections/a-la-carte/products/guts-digital-album">(Official is MP3, AU only)</a></td>
-      </tr>
-
-      <!--Harry Styles: Harry's House-->
-      <tr>
-       <!--Qty--><td>1</td>
-       <!--Artist(s)--><td>Harry Styles</td>
-       <!--Record Title--><td>Harry's House</td>
-       <!--Record Label(s)--><td>Columbia, Erskine Records</td>
-       <!--Genre(s)--><td>Rock, Pop</td>
-       <!--Explicit--><td></td>
-       <!--Disc Color(s)--><td>Black</td>
-       <!--Disc Count--><td>1</td>
-       <!--Contents Count--><td>4</td>
-       <!--Contents Description--><td>1 – Gatefold Jacket (Double Pocket)<br>1 – Inner-sleeve<br>1 – Song Lyrics Booklet<br>1 – Album Photo</td>
-       <!--Discogs Release Code: Add target="_blank" to links--><td><a target="_blank" href="https://www.discogs.com/release/26128271-Harry-Styles-Harrys-House">r26128271</a></td>
-       <td>Jacket – VG<br>Disc – VG+</td>
-       <td id="listened"></td>
-       <td><a target="_blank" href="https://shopus.hstyles.co.uk/products/harrys-house-digital-download">No</a><br><a target="_blank" href="https://www.qobuz.com/us-en/album/harrys-house-harry-styles/kowixpbhn056a">(Qobuz)</a></td>
-      </tr>
-
-      <!--Taylor Swift: Midnights-->
-      <tr>
-       <!--Qty--><td>1</td>
-       <!--Artist(s)--><td>Taylor Swift</td>
-       <!--Record Title--><td>Midnights</td>
-       <!--Record Label(s)--><td>Republic Records</td>
-       <!--Genre(s)--><td>Electronic, Pop</td>
-       <!--Explicit--><td id="explicit"></td>
-       <!--Disc Color(s)--><td>Mahogany Marbled</td>
-       <!--Disc Count--><td>1</td>
-       <!--Contents Count--><td>3</td>
-       <!--Contents Description--><td>1 – Gatefold Jacket (Double Pocket)<br>1 – Inner-sleeve<br>1 – Song Lyrics Booklet</td>
-       <!--Discogs Release Code: Add target="_blank" to links--><td><a target="_blank" href="https://www.discogs.com/release/24893972-Taylor-Swift-Midnights">r24893972</a></td>
-       <td>Jacket – VG+<br>Disc – VG+</td>
-       <td id="listened"></td>
-       <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/midnights-taylor-swift/lfrznf57rq9pa">(Qobuz)</a></td>
-      </tr>
-
-      <!--SZA: SOS-->
-      <tr>
-       <!--Qty--><td>1</td>
-       <!--Artist(s)--><td>SZA</td>
-       <!--Record Title--><td>SOS</td>
-       <!--Record Label(s)--><td>RCA, Top Dawg Entertainment</td>
-       <!--Genre(s)--><td>Funk / Soul</td>
-       <!--Explicit--><td id="explicit"></td>
-       <!--Disc Color(s)--><td>Black</td>
-       <!--Disc Count--><td>2</td>
-       <!--Contents Count--><td>5</td>
-       <!--Contents Description--><td>1 – Jacket (Single Pocket)<br>2 – Inner-sleeve<br>1 – Double-Sided Artwork Slip<br>1 – Hype Sticker</td>
-       <!--Discogs Release Code: Add target="_blank" to links--><td><a target="_blank" href="https://www.discogs.com/release/27139257-SZA-SOS">r27139257</a></td>
-       <td>Jacket – VG+<br>Disc One/Two – VG+<br>Disc Three/Four – VG+</td>
-       <td id="listened"></td>
-       <td><a target="_blank" href="https://txdxe.com/products/sos">No</a><br><a target="_blank" href="https://www.qobuz.com/us-en/album/sos-sza/ckyh7bv0dt6tb">(Qobuz)</a></td>
-      </tr>
-
-      <!--Kali Uchis: Red Moon in Venus-->
-      <tr>
-       <!--Qty--><td>1</td>
-       <!--Artist(s)--><td>Kali Uchis</td>
-       <!--Record Title--><td>Red Moon in Venus</td>
-       <!--Record Label(s)--><td>Interscope Records</td>
-       <!--Genre(s)--><td>Electronic, Latin, Funk / Soul, Pop</td>
-       <!--Explicit--><td id="explicit"></td>
-       <!--Disc Color(s)--><td>Black</td>
-       <!--Disc Count--><td>1</td>
-       <!--Contents Count--><td>2</td>
-       <!--Contents Description--><td>1 – Jacket (Single Pocket)<br>1 – Inner-sleeve</td>
-       <!--Discogs Release Code: Add target="_blank" to links--><td><a target="_blank" href="https://www.discogs.com/release/26364716-Kali-Uchis-Red-Moon-In-Venus">r26364716</a></td>
-       <td>Jacket – VG+<br>Disc – VG+</td>
-       <td id="listened"></td>
-       <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/red-moon-in-venus-kali-uchis/nh8wmgsf1t4ya">(Qobuz)</a><br><a target="_blank" href="https://shopkaliuchis.com/products/red-moon-in-venus-digital-album">(Official is MP3 only)</a></td>
-      </tr>
-
-      <!--Young the Giant: Young the Giant-->
-      <tr>
-       <!--Qty--><td>1</td>
-       <!--Artist(s)--><td>Young the Giant</td>
-       <!--Record Title--><td>Young the Giant</td>
-       <!--Record Label(s)--><td>Roadrunner Records</td>
-       <!--Genre(s)--><td>Rock, Pop</td>
-       <!--Explicit--><td></td>
-       <!--Disc Color(s)--><td>Black</td>
-       <!--Disc Count--><td>2</td>
-       <!--Contents Count--><td>4</td>
-       <!--Contents Description--><td>1 – Jacket (Single Pocket)<br>2 – Inner-sleeve<br>1 – Double-Sided Artwork Slip</td>
-       <!--Discogs Release Code: Add target="_blank" to links--><td><a target="_blank" href="https://www.discogs.com/release/3102547-Young-The-Giant-Young-The-Giant">r3102547</a></td>
-       <td>Jacket – VG<br>Disc – VG+</td>
-       <td id="listened"></td>
-       <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/young-the-giant-young-the-giant/dhx79zq3t2sbc">(Qobuz)</a></td>
-      </tr>
-
-      <!--Def Leppard: Pyromania-->
-      <tr>
-       <!--Qty--><td>1</td>
-       <!--Artist(s)--><td>Def Leppard</td>
-       <!--Record Title--><td>Pyromania</td>
-       <!--Record Label(s)--><td>Mercury</td>
-       <!--Genre(s)--><td>Rock</td>
-       <!--Explicit--><td></td>
-       <!--Disc Color(s)--><td>Black</td>
-       <!--Disc Count--><td>1</td>
-       <!--Contents Count--><td>2</td>
-       <!--Contents Description--><td>1 – Jacket (Single Pocket)<br>1 – Inner-sleeve</td>
-       <!--Discogs Release Code: Add target="_blank" to links--><td><a target="_blank" href="https://www.discogs.com/release/393266-Def-Leppard-Pyromania">r393266</a></td>
-       <td>Jacket – F<br>Disc – F</td>
-       <td id="listened"></td>
-       <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/pyromania-def-leppard/u5pezdh2j0oub">(Qobuz)</a></td>
-      </tr>
-
-      <!--Various: Barbie The Album-->
-      <tr>
-       <!--Qty--><td>1</td>
-       <!--Artist(s)--><td><span style="font-style: italic;">Various</span></td>
-       <!--Record Title--><td>Barbie The Album</td>
-       <!--Record Label(s)--><td>Atlantic, WaterTower Music</td>
-       <!--Genre(s)--><td>Electronic, Pop, Stage & Screen</td>
-       <!--Explicit--><td></td>
-       <!--Disc Color(s)--><td>Hot Pink</td>
-       <!--Disc Count--><td>1</td>
-       <!--Contents Count--><td>4</td>
-       <!--Contents Description--><td>1 – Jacket (Single Pocket)<br>1 – Inner-sleeve<br>1 – Poster<br>1 – Hype Sticker</td>
-       <!--Discogs Release Code: Add target="_blank" to links--><td><a target="_blank" href="https://www.discogs.com/release/27535197-Various-Barbie-The-Album">r27535197</a></td>
-       <td>Jacket – VG+<br>Disc – VG+</td>
-       <td id="listened"></td>
-       <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/barbie-the-album-various-artists/vt0p2099gflua">(Qobuz)</a></td>
-      </tr>
-
-      <!--Various: Stranger Things (Music From The Netflix Original Series)-->
-      <tr>
-       <!--Qty--><td>1</td>
-       <!--Artist(s)--><td><span style="font-style: italic;">Various</span></td>
-       <!--Record Title--><td>Stranger Things (Music From The Netflix Original Series)</td>
-       <!--Record Label(s)--><td>Legacy, Netflix</td>
-       <!--Genre(s)--><td>Rock, Pop</td>
-       <!--Explicit--><td></td>
-       <!--Disc Color(s)--><td>Black</td>
-       <!--Disc Count--><td>2</td>
-       <!--Contents Count--><td>5</td>
-       <!--Contents Description--><td>1 – Gatefold Jacket (Double Pocket)<br>2 – Inner-sleeve<br>1 – Mini Season 2 Poster<br>1 – Logo Photo</td>
-       <!--Discogs Release Code: Add target="_blank" to links--><td><a target="_blank" href="https://www.discogs.com/release/11273965-Various-Stranger-Things-Music-From-The-Netflix-Original-Series">r11273965</a></td>
-       <td>Jacket – VG<br>Disc A/B – VG+<br>Disc C/D – VG+</td>
-       <td id="listened"></td>
-       <td>N/A</td>
-      </tr>
-
-      <!--Berlin Philharmonic Orchestra, Antonín Dvořák, et al.: Symphony No. 9 “From the New World”-->
-      <tr>
-       <!--Qty--><td>1</td>
-       <!--Artist(s)--><td>Berlin Philharmonic Orchestra, Antonín Dvořák, <span style="font-style: italic;">et al.</span></td>
-       <!--Record Title--><td>Symphony No. 9 “From the New World”</td>
-       <!--Record Label(s)--><td>Vinyl Passion Classical</td>
-       <!--Genre(s)--><td>Classical</td>
-       <!--Explicit--><td></td>
-       <!--Disc Color(s)--><td>Black</td>
-       <!--Disc Count--><td>1</td>
-       <!--Contents Count--><td>2</td>
-       <!--Contents Description--><td>1 – Jacket (Single Pocket)<br>1 – Inner-sleeve</td>
-       <!--Discogs Release Code: Add target="_blank" to links--><td><a target="_blank" href="https://www.discogs.com/release/6469008-Dvo%C5%99%C3%A1k-Berlin-Philharmonic-Orchestra-Conducted-By-Ferenc-Fricsay-Symphony-No-9-From-The-New-World">r6469008</a></td>
-       <td>Jacket – VG<br>Disc – VG+</td>
-       <td id="listened"></td>
-       <td>N/A</td>
-      </tr>
-
-      <!--Cleveland Orchestra, Ludwig van Beethoven, et al.: George Szell Conducts Beethoven (Symphony No.4 & Symphony No. 5)-->
-      <tr>
-       <!--Qty--><td>1</td>
-       <!--Artist(s)--><td>Cleveland Orchestra, Ludwig van Beethoven, <span style="font-style: italic;">et al.</span></td>
-       <!--Record Title--><td>George Szell Conducts Beethoven (Symphony No.4 & Symphony No. 5)</td>
-       <!--Record Label(s)--><td>Sony Classical</td>
-       <!--Genre(s)--><td>Classical</td>
-       <!--Explicit--><td></td>
-       <!--Disc Color(s)--><td>Black</td>
-       <!--Disc Count--><td>2</td>
-       <!--Contents Count--><td>4</td>
-       <!--Contents Description--><td>1 – Gatefold Jacket (Double Pocket)<br>2 – Inner-sleeve<br>1 – Digital Download Slip (Inactive)</td>
-       <!--Discogs Release Code: Add target="_blank" to links--><td><a target="_blank" href="https://www.discogs.com/release/13128709-George-Szell-George-Szell-Conducts-Beethoven">r13128709</a></td>
-       <td>Jacket – VG<br>Disc A/B – VG+<br>Disc C/D – VG+</td>
-       <td id="listened"></td>
-       <td>N/A</td>
-      </tr>
-
-      <!--Konzerthaus Kammerorchester Berlin, Antonio Vivaldi, et al.: Recomposed By Max Richter: Vivaldi · The Four Seasons-->
-      <tr>
-       <!--Qty--><td>1</td>
-       <!--Artist(s)--><td>Konzerthaus Kammerorchester Berlin, Antonio Vivaldi, <span style="font-style: italic;">et al.</span></td>
-       <!--Record Title--><td>Recomposed By Max Richter: Vivaldi · The Four Seasons</td>
-       <!--Record Label(s)--><td>Deutsche Grammophon</td>
-       <!--Genre(s)--><td>Electronic, Classical</td>
-       <!--Explicit--><td></td>
-       <!--Disc Color(s)--><td>Black</td>
-       <!--Disc Count--><td>2</td>
-       <!--Contents Count--><td>4</td>
-       <!--Contents Description--><td>1 – Gatefold Jacket (Double Pocket)<br>2 – Inner-sleeve<br>1 – Digital Download Slip (Inactive)</td>
-       <!--Discogs Release Code: Add target="_blank" to links--><td><a target="_blank" href="https://www.discogs.com/release/5629297-Max-Richter-Vivaldi-Daniel-Hope-Konzerthaus-Kammerorchester-Berlin-Andr%C3%A9-de-Ridder-Recomposed-By-Ma">r5629297</a></td>
-       <td>Jacket – VG+<br>Disc A/B – VG+<br>Disc C/D – VG+</td>
-       <td id="listened"></td>
-       <td>No<br><a target="_blank" href="https://www.qobuz.com/us-en/album/recomposed-by-max-richter-vivaldi-the-four-seasons-konzerthaus-kammerorchester-berlin/0002894793305">(Qobuz)</a></td>
-      </tr>
-
-      <!--New Philharmonic Orchestra, Pyotr Ilyich Tchaikovsky, et al.: Tchaikovsky Symphony No. 1 in G minor “Winter Dreams”-->
-      <tr>
-       <!--Qty--><td>1</td>
-       <!--Artist(s)--><td>New Philharmonic Orchestra, Pyotr Ilyich Tchaikovsky, <span style="font-style: italic;">et al.</span></td>
-       <!--Record Title--><td>Tchaikovsky Symphony No. 1 in G minor “Winter Dreams”</td>
-       <!--Record Label(s)--><td>Angel Records, Angel Red Line</td>
-       <!--Genre(s)--><td>Classical</td>
-       <!--Explicit--><td></td>
-       <!--Disc Color(s)--><td>Black</td>
-       <!--Disc Count--><td>1</td>
-       <!--Contents Count--><td>2</td>
-       <!--Contents Description--><td>1 – Jacket (Single Pocket)<br>1 – Inner-sleeve</td>
-       <!--Discogs Release Code: Add target="_blank" to links--><td><a target="_blank" href="https://www.discogs.com/release/17084202-New-Philharmonia-Orchestra-Riccardo-Muti-Tchaikovsky-Symphony-No-1-In-G-Minor-Winter-Dreams">r17084202</a></td>
-       <td>Jacket – G+<br>Disc – VG</td>
-       <td id="listened"></td>
-       <td>N/A</td>
-      </tr>
-
-      <!--Roger Williams, et al.: Autumn Leaves The Best of Roger Williams-->
-      <tr>
-       <!--Qty--><td>1</td>
-       <!--Artist(s)--><td>Roger Williams, <span style="font-style: italic;">et al.</span></td>
-       <!--Record Title--><td>Autumn Leaves The Best of Roger Williams</td>
-       <!--Record Label(s)--><td>Reader’s Digest</td>
-       <!--Genre(s)--><td>Pop</td>
-       <!--Explicit--><td></td>
-       <!--Disc Color(s)--><td>Black</td>
-       <!--Disc Count--><td>8</td>
-       <!--Contents Count--><td>10</td>
-       <!--Contents Description-->
-       <td>
-        1 – Inner-Jacket Shell
-        <br>
-        1 – Outer-Jacket Shell
-        <br>
-        8 – Inner-sleeve
-       </td>
-       <!--Discogs Release Code: Add target="_blank" to links--><td><a target="_blank" href="https://www.discogs.com/release/3905196-Roger-Williams-Autumn-Leaves-The-Best-Of-Roger-Williams">r3905196</a></td>
-       <td>All Jackets – VG<br>All Discs – VG+</td>
-       <td id="listened"></td>
-       <td>N/A</td>
-      </tr>
-
-      <!--Various: 23 Great Themes From Great Music-->
-      <tr>
-       <!--Qty--><td>1</td>
-       <!--Artist(s)--><td><span style="font-style: italic;">Various</span></td>
-       <!--Record Title--><td>23 Great Themes From Great Music</td>
-       <!--Record Label(s)--><td>Symphonic Treasures</td>
-       <!--Genre(s)--><td>Classical</td>
-       <!--Explicit--><td></td>
-       <!--Disc Color(s)--><td>Black</td>
-       <!--Disc Count--><td>1</td>
-       <!--Contents Count--><td>2</td>
-       <!--Contents Description-->
-       <td>
-        1 – Jacket (Single Pocket)
-        <br>
-        1 – MIM Article Slip
-       </td>
-       <!--Discogs Release Code: Add target="_blank" to links--><td><a target="_blank" href="https://www.discogs.com/release/6034299-Various-23-Great-Themes-From-Great-Music">r6034299</a></td>
-       <td>Jacket – G<br>Disc – VG</td>
-       <td id="listened"></td>
-       <td>N/A</td>
-      </tr>
-     </tbody>
-    </table>
-   </div>
-  <div class="updates" style="text-align: center; margin-top: -5px;">
-   <p style="font-size: 12px;"><span style="text-decoration: underline;">Inventory Updated</span><br>2024-06-27 UTC</p>
-   <p style="font-size: 12px;"><span style="text-decoration: underline;">Last Inventory Check</span><br>2024-01-18 UTC</p>
-   <p style="font-size: 12px;"><span style="text-decoration: underline;">Doc Info Updated</span><br>2024-07-13 UTC</p>
-   </div>
-  <div class="bottom-link-group" style="text-align: center; font-size: 25px; margin-top: -20px;">
-   <p style="font-size: 14px;"><a class="bottom-link" target="_blank" href="/record-handbook/inventory/defs/">Definitions<svg viewBox="0 -960 800 400" width="24" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M 360,-560 H 200 Q 117,-560 58.5,-618.5 0,-677 0,-760 0,-843 58.5,-901.5 117,-960 200,-960 h 160 v 80 H 200 q -50,0 -85,35 -35,35 -35,85 0,50 35,85 35,35 85,35 H 360 Z M 240,-720 v -80 h 320 v 80 z m 200,160 v -80 h 160 q 50,0 85,-35 35,-35 35,-85 0,-50 -35,-85 -35,-35 -85,-35 H 440 v -80 h 160 q 83,0 141.5,58.5 58.5,58.5 58.5,141.5 0,83 -58.5,141.5 Q 683,-560 600,-560 Z" /></svg></a></p>
-   <p style="font-size: 14px;"><a class="bottom-link" target="_blank" href="/record-handbook/">The Record Handbook<svg viewBox="0 -960 800 400" width="24" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M 360,-560 H 200 Q 117,-560 58.5,-618.5 0,-677 0,-760 0,-843 58.5,-901.5 117,-960 200,-960 h 160 v 80 H 200 q -50,0 -85,35 -35,35 -35,85 0,50 35,85 35,35 85,35 H 360 Z M 240,-720 v -80 h 320 v 80 z m 200,160 v -80 h 160 q 50,0 85,-35 35,-35 35,-85 0,-50 -35,-85 -35,-35 -85,-35 H 440 v -80 h 160 q 83,0 141.5,58.5 58.5,58.5 58.5,141.5 0,83 -58.5,141.5 Q 683,-560 600,-560 Z" /></svg></a></p>
-  </div>
-  </main>
-  <footer>
-   <p style="font-size: 12px; text-align: center; margin-top: -5px;">&copy; <span id="year2024"></span> <a href="https://tylermorgan.co" target="_blank">Tyler Morgan</a>. All rights reserved.</p>
-   <p class="footer2"><a class="content-link" rel="privacy-policy" href="https://tylermorgan.co/privacy-policy/">Privacy Policy</a></p>
-  </footer>
-  <script src="https://tylermorgan.co/year2024.js" type="module"></script>
- </body>
+      .collapsible-r:active {
+        .background-img {
+          opacity: 0.8;
+          filter: blur(8px);
+          transform: scale(1.02);
+        }
+        .foreground-img {
+          box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.25);
+        }
+        img {
+          transform: scale(1.02);
+        }
+      }
+      
+      .content-1 > p {
+        margin-top: 2px;
+        margin-bottom: 2px;
+      }
+      .content-1 {
+        font-size: 0.9rem;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.7s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s;
+        background-color: rgba(0, 0, 0, 0);
+      }
+      .label {
+        font-weight: bold;
+      }
+      .footer {
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-size: 0.8rem;
+      }
+      .img-container {
+        position: relative;
+      }
+      .foreground-img {
+        cursor: pointer;
+        position: relative;
+        z-index: 2;
+        pointer-events: none;
+      }
+      .ring {
+      /* 	--character-width: 1ch; */
+        --inner-angle: calc((360 / var(--char-count)) * 1deg);
+        --character-width: 1;
+        font-family: 'Roboto Flex', sans-serif;
+        text-transform: uppercase;
+        font-size: calc(var(--font-size, 1) * 1rem);
+        position: relative;
+        border-radius: 50%;
+      }
+      @media (prefers-reduced-motion: no-preference) {
+        .ring {
+          animation: spin 8s infinite linear;
+          transition: all 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s;
+          transform: scale(1);
+        }
+        .ring:hover {
+          animation: spin 1.8s infinite linear;
+          transform: scale(1.08);
+        }
+        @keyframes spin {
+          to {
+            rotate: 360deg;
+          }
+        }
+      }
+      .ring-circle {
+        visibility: hidden;
+      }
+      textPath {
+        font-family: 'Noto Sans', sans-serif;
+        font-size: 0.75rem;
+        text-shadow: 1px 5px 8px rgba(0, 0, 0, 0.2);
+      }
+      text { text-rendering: geometricPrecision; }
+    </style>
+  </head>
+  <body>
+    <header class="title-container">
+      <h1 class="title ring" aria-label="Records">
+        <svg class="ring-svg"
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path class="ring-circle"
+            id="circlePath"
+            d="M 4.1779659,50 A 45.822034,45.822034 0 1 0 95.822034,50 45.822034,45.822034 0 1 0 4.1779658,50"    
+          />
+          <text>
+            <textPath href="#circlePath" fill="var(--primary-color)">
+              RECORDS · RECORDS · RECORDS · RECORDS · RECORDS ·
+            </textPath>
+          </text>
+        </svg>
+      </h1>
+    </header>
+    <main>
+      <section id="record-grid"></section>
+      <section id="update-grid"></section>
+      <section class="bottom-links">
+        <a class="bottom-link" href="/record-handbook/inventory/defs/">Definitions</a>
+        <a class="bottom-link" href="/record-handbook/ ">The Record Handbook</a>
+      </section>
+    </main>
+    <footer class="footer">
+      <p>Some URLs may be expired or password protected. Contact owner for any questions.</p>
+      <p>&copy; <span id="year2024"></span> <a href="https://tylermorgan.co/" class="content-link">Tyler Morgan</a>. All rights reserved.</p>
+      <p><a class="content-link" rel="privacy-policy" href="https://tylermorgan.co/privacy-policy/">Privacy Policy</a></p>
+    </footer>
+    <script src="/record-inventory/recordgrid.js"></script>
+    <script src="/record-inventory/collapsible.js"></script>
+    <script src="/record-inventory/init.js"></script>
+    <script src="/record-inventory/inventory-update.js"></script>
+    <script src="https://tylermorgan.co/year2024.js" type="module"></script>
+  </body>
 </html>
