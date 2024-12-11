@@ -83,8 +83,10 @@
     "dd_yes_url": "",
     "dd_no_url": "",
     "dd_official_url": "",
+    "dd_archived_official_timestamp": "",
     "dd_official_formats": [],
     "dd_official_regions": [],
-    "dd_qobuz_url": ""
+    "dd_qobuz_url": "",
+    "dd_archived_qobuz_timestamp": ""
   }
 ]

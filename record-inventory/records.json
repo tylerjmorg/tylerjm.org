@@ -25,7 +25,8 @@
     "disc2_goldmine": "VG+",
 
     "dd": "No",
-    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/30-adele/tuzhj8k94jxoc"
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/30-adele/tuzhj8k94jxoc",
+    "dd_archived_qobuz_timestamp": 20241209072057
   },
 
   {
@@ -51,7 +52,8 @@
     "disc1_goldmine": "VG+",
 
     "dd": "No",
-    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/dont-smile-at-me-billie-eilish/n796jd6uaf11b"
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/dont-smile-at-me-billie-eilish/n796jd6uaf11b",
+    "dd_archived_qobuz_timestamp": 20241209072621
   },
 
   {
@@ -78,7 +80,8 @@
     "disc1_goldmine": "VG+",
 
     "dd": "No",
-    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/when-we-all-fall-asleep-where-do-we-go-billie-eilish/wo456u01fehgc"
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/when-we-all-fall-asleep-where-do-we-go-billie-eilish/wo456u01fehgc",
+    "dd_archived_qobuz_timestamp": 20241209073155
   },
 
   {
@@ -110,8 +113,10 @@
 
     "dd": "No",
     "dd_official_url": "https://store.billieeilish.com/products/happier-than-ever-digital-album",
+    "dd_archived_official_timestamp": 20241209060557,
     "dd_official_formats": ["MP3"],
-    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/happier-than-ever-explicit-billie-eilish/vewzc8hmoqc8a"
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/happier-than-ever-explicit-billie-eilish/vewzc8hmoqc8a",
+    "dd_archived_qobuz_timestamp": 20241209073738
   },
 
   {
@@ -141,9 +146,11 @@
 
     "dd": "Yes",
     "dd_yes_url": "https://drive.proton.me/urls/ZD4BWPYJKR#SL8crwNBgdFF",
-    "dd_official_url": "https://store.billieeilish.com/products/hit-me-hard-and-soft-digital-album",
+    "dd_official_url": "https://store.billieeilish.com/collections/hit-me-hard-and-soft-music/products/hit-me-hard-and-soft-exclusive-digital-album-with-all-isolated-vocals",
+    "dd_archived_official_timestamp": 20241209071459,
     "dd_official_formats": ["MP3"],
-    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/hit-me-hard-and-soft-billie-eilish/gvcirtodd95kc"
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/hit-me-hard-and-soft-billie-eilish/gvcirtodd95kc",
+    "dd_archived_qobuz_timestamp": 20241209074144
   },
 
   {
@@ -175,8 +182,10 @@
 
     "dd": "No",
     "dd_official_url": "https://shop.conangray.com/products/superache-digital-album",
+    "dd_archived_official_timestamp": 20240725002944,
     "dd_official_formats": ["MP3"],
-    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/superache-conan-gray/enqrpjtn03sra"
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/superache-conan-gray/enqrpjtn03sra",
+    "dd_archived_qobuz_timestamp": 20241209074627
   },
 
   {
@@ -208,7 +217,8 @@
     "disc2_goldmine": "VG+",
 
     "dd": "No",
-    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/stick-season-noah-kahan/p87zu4urgi2tb"
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/stick-season-noah-kahan/p87zu4urgi2tb",
+    "dd_archived_qobuz_timestamp": 20241209075034
   },
 
   {
@@ -240,7 +250,8 @@
     "disc2_goldmine": "VG+",
 
     "dd": "No",
-    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/american-teen-khalid/0886446309347"
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/american-teen-khalid/0886446309347",
+    "dd_archived_qobuz_timestamp": 20241209075333
   },
 
   {
@@ -273,7 +284,8 @@
     "disc2_goldmine": "VG+",
 
     "dd": "No",
-    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/free-spirit-khalid/f06uhxxw9omba"
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/free-spirit-khalid/f06uhxxw9omba",
+    "dd_archived_qobuz_timestamp": 20241209075358
   },
 
   {
@@ -303,7 +315,8 @@
     "disc2_goldmine": "VG+",
 
     "dd": "No",
-    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/damn-kendrick-lamar/0060255760871"
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/damn-kendrick-lamar/0060255760871",
+    "dd_archived_qobuz_timestamp": 20241209164030
   },
 
   {
@@ -334,8 +347,10 @@
 
     "dd": "No",
     "dd_official_url": "https://shop.republicrecords.com/collections/post-malone/products/post-malone-stoney-digital-album",
+    "dd_archived_official_timestamp": 20241209062533,
     "dd_official_formats": ["MP3"],
-    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/stoney-post-malone/0060255726179"
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/stoney-post-malone/0060255726179",
+    "dd_archived_qobuz_timestamp": 20241209200344
   },
 
   {
@@ -368,8 +383,10 @@
 
     "dd": "No",
     "dd_official_url": "https://shop.republicrecords.com/products/post-malone-beerbongs-bentleys-digital-album",
+    "dd_archived_official_timestamp": 20241209063440,
     "dd_official_formats": ["MP3"],
-    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/beerbongs-bentleys-post-malone/mb0zgu7w885cc"
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/beerbongs-bentleys-post-malone/mb0zgu7w885cc",
+    "dd_archived_qobuz_timestamp": 20241209200344
   },
 
   {
@@ -401,8 +418,10 @@
 
     "dd": "No",
     "dd_official_url": "https://shop.republicrecords.com/collections/digital-music/products/post-malone-hollywoods-bleeding-digital-album",
+    "dd_archived_official_timestamp": 20241209064037,
     "dd_official_formats": ["MP3"],
-    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/hollywoods-bleeding-post-malone/jgjvoqpvrvngc"
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/hollywoods-bleeding-post-malone/jgjvoqpvrvngc",
+    "dd_archived_qobuz_timestamp": 20241209201229
   },
 
   {
@@ -433,7 +452,8 @@
     "disc1_goldmine": "VG+",
 
     "dd": "No",
-    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/cry-baby-melanie-martinez/0075679921369"
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/cry-baby-melanie-martinez/0075679921369",
+    "dd_archived_qobuz_timestamp": 20241209213413
   },
 
   {
@@ -459,7 +479,8 @@
     "disc1_goldmine": "NM",
 
     "dd": "No",
-    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/god-of-war-ragnarok-original-soundtrack-bear-mccreary/nk0xepbhgucwb"
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/god-of-war-ragnarok-original-soundtrack-bear-mccreary/nk0xepbhgucwb",
+    "dd_archived_qobuz_timestamp": 20241209213938
   },
 
   {
@@ -488,9 +509,11 @@
 
     "dd": "No",
     "dd_official_url": "https://shopau.oliviarodrigo.com/collections/au/products/sour-digital-album",
+    "dd_archived_official_timestamp": 20241209064722,
     "dd_official_formats": ["MP3"],
     "dd_official_regions": ["AU"],
-    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/sour-olivia-rodrigo/pqbbikwu2ljnb"
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/sour-olivia-rodrigo/pqbbikwu2ljnb",
+    "dd_archived_qobuz_timestamp": 20241209214126
   },
 
   {
@@ -517,10 +540,12 @@
     "disc1_goldmine": "VG+",
 
     "dd": "No",
-    "dd_official_url": "https://shopau.oliviarodrigo.com/collections/a-la-carte/products/guts-digital-album",
+    "dd_official_url": "https://shopau.oliviarodrigo.com/collections/music/products/guts-spilled-deluxe-digital-album",
+    "dd_archived_official_timestamp": 20241209065206,
     "dd_official_formats": ["MP3"],
     "dd_official_regions": ["AU"],
-    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/guts-olivia-rodrigo/vrqtmyvds2ztc"
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/guts-spilled-olivia-rodrigo/yzqn1wq2hlksc",
+    "dd_archived_qobuz_timestamp": 20241209214459
   },
 
   {
@@ -550,8 +575,10 @@
 
     "dd": "No",
     "dd_official_url": "https://shopus.hstyles.co.uk/products/harrys-house-digital-download",
+    "dd_archived_official_timestamp": 20241209065519,
     "dd_official_formats": ["AAC", "FLAC"],
-    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/harrys-house-harry-styles/kowixpbhn056a"
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/harrys-house-harry-styles/kowixpbhn056a",
+    "dd_archived_qobuz_timestamp": 20241209214823
   },
 
   {
@@ -579,7 +606,8 @@
     "disc1_goldmine": "VG+",
 
     "dd": "No",
-    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/midnights-taylor-swift/lfrznf57rq9pa"
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/midnights-taylor-swift/lfrznf57rq9pa",
+    "dd_archived_qobuz_timestamp": 20241209215531
   },
 
   {
@@ -612,8 +640,10 @@
 
     "dd": "No",
     "dd_official_url": "https://txdxe.com/products/sos",
+    "dd_archived_official_timestamp": 20241209070303,
     "dd_official_formats": ["MP3", "WAV", "FLAC"],
-    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/sos-sza/ckyh7bv0dt6tb"
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/sos-sza/ckyh7bv0dt6tb",
+    "dd_archived_qobuz_timestamp": 20241209220950
   },
 
   {
@@ -640,8 +670,10 @@
 
     "dd": "No",
     "dd_official_url": "https://shopkaliuchis.com/products/red-moon-in-venus-digital-album",
+    "dd_archived_official_timestamp": 20241209070840,
     "dd_official_formats": ["MP3"],
-    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/red-moon-in-venus-kali-uchis/nh8wmgsf1t4ya"
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/red-moon-in-venus-kali-uchis/nh8wmgsf1t4ya",
+    "dd_archived_qobuz_timestamp": 20241210004200
   },
 
   {
@@ -672,7 +704,8 @@
     "disc2_goldmine": "VG+",
 
     "dd": "No",
-    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/young-the-giant-young-the-giant/dhx79zq3t2sbc"
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/young-the-giant-young-the-giant/dhx79zq3t2sbc",
+    "dd_archived_qobuz_timestamp": 20241210004400
   },
 
   {
@@ -698,7 +731,8 @@
     "disc1_goldmine": "F",
 
     "dd": "No",
-    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/pyromania-def-leppard/u5pezdh2j0oub"
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/pyromania-def-leppard/u5pezdh2j0oub",
+    "dd_archived_qobuz_timestamp": 20241210005221
   },
 
   {
@@ -726,7 +760,8 @@
     "disc1_goldmine": "VG+",
 
     "dd": "No",
-    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/barbie-the-album-various-artists/vt0p2099gflua"
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/barbie-the-album-various-artists/vt0p2099gflua",
+    "dd_archived_qobuz_timestamp": 20241210005630
   },
 
   {
@@ -846,7 +881,8 @@
     "disc2_goldmine": "VG+",
 
     "dd": "No",
-    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/recomposed-by-max-richter-vivaldi-the-four-seasons-konzerthaus-kammerorchester-berlin/0002894793305"
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/recomposed-by-max-richter-vivaldi-the-four-seasons-konzerthaus-kammerorchester-berlin/0002894793305",
+    "dd_archived_qobuz_timestamp": 20241210010851
   },
 
   {
