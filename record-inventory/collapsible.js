@@ -1,4 +1,3 @@
-function startCollapsible() {
   // Select all elements with the class 'collapsible-r' (instead of 'collapsible')
   let coll = document.getElementsByClassName("collapsible-r");
 
@@ -63,6 +62,3 @@ function startCollapsible() {
     // Make the div focusable for keyboard navigation
     coll[i].setAttribute("tabindex", "0");
   }
-
-  console.log('Collapsible initialized');
-}

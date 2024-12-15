@@ -1,15 +1,185 @@
-fetch('/record-inventory/records.json')
-.then(response => {
-  if (!response.ok) {
-    throw new Error('JSON file could not be found.');
+//
+// Copyright 2024 Tyler Morgan. All rights reserved.
+//
+
+import fs from 'fs';
+import { JSDOM } from 'jsdom';
+import prettier, { doc } from 'prettier';
+import path from 'path';
+
+const dom = new JSDOM(`<!DOCTYPE html><html lang="en" dir="ltr"><head></head><body></body></html>`);
+
+// Access the document object for DOM manipulation
+const document = dom.window.document;
+
+const metaCharset = document.createElement('meta');
+metaCharset.setAttribute('charset', 'UTF-8');
+document.head.append(metaCharset);
+
+const metaViewport = document.createElement('meta');
+metaViewport.setAttribute('name', 'viewport');
+metaViewport.setAttribute('content', 'width=device-width, initial-scale=1.0');
+document.head.append(metaViewport);
+
+const title = document.createElement('title');
+title.textContent = 'Records';
+document.head.append(title);
+
+const styleMain = document.createElement('link');
+styleMain.setAttribute('rel', 'stylesheet');
+styleMain.setAttribute('crossorigin', '');
+styleMain.href = 'https://tylermorgan.co/style.css';
+document.head.append(styleMain);
+
+const styleRecord = document.createElement('link');
+styleRecord.setAttribute('rel', 'stylesheet');
+styleRecord.href = '/record-inventory/records.css';
+document.head.append(styleRecord);
+
+const webDecription = document.createElement('meta');
+webDecription.setAttribute('name', 'description');
+webDecription.setAttribute('content', 'An inventory of Tyler\'s record collection.');
+document.head.append(webDecription);
+
+const iconLightSVG = document.createElement('link');
+iconLightSVG.setAttribute('rel', 'icon');
+iconLightSVG.setAttribute('media', '(prefers-color-scheme: light)');
+iconLightSVG.setAttribute('type', 'image/svg');
+iconLightSVG.href = 'https://tylermorgan.co/elements/icons/favicon-day.svg';
+document.head.append(iconLightSVG);
+
+const iconDarkSVG = document.createElement('link');
+iconDarkSVG.setAttribute('rel', 'icon');
+iconDarkSVG.setAttribute('media', '(prefers-color-scheme: dark)');
+iconDarkSVG.setAttribute('type', 'image/svg');
+iconDarkSVG.href = 'https://tylermorgan.co/elements/icons/favicon-night.svg';
+document.head.append(iconDarkSVG);
+
+const iconLightAVIF = document.createElement('link');
+iconLightAVIF.setAttribute('rel', 'icon');
+iconLightAVIF.setAttribute('media', '(prefers-color-scheme: light)');
+iconLightAVIF.setAttribute('type', 'image/avif');
+iconLightAVIF.href = 'https://tylermorgan.co/elements/icons/favicon-day-180.avif';
+document.head.append(iconLightAVIF);
+
+const iconDarkAVIF = document.createElement('link');
+iconDarkAVIF.setAttribute('rel', 'icon');
+iconDarkAVIF.setAttribute('media', '(prefers-color-scheme: dark)');
+iconDarkAVIF.setAttribute('type', 'image/avif');
+iconDarkAVIF.href = 'https://tylermorgan.co/elements/icons/favicon-night-180.avif';
+document.head.append(iconDarkAVIF);
+
+const iconLightAVIF192 = document.createElement('link');
+iconLightAVIF192.rel = 'icon';
+iconLightAVIF192.media = '(prefers-color-scheme: light)';
+iconLightAVIF192.type = 'image/avif';
+iconLightAVIF192.sizes = '192x192';
+iconLightAVIF192.href = 'https://tylermorgan.co/elements/icons/favicon-day-192.avif';
+document.head.append(iconLightAVIF192);
+
+const iconDarkAVIF192 = document.createElement('link');
+iconDarkAVIF192.rel = 'icon';
+iconDarkAVIF192.media = '(prefers-color-scheme: dark)';
+iconDarkAVIF192.type = 'image/avif';
+iconDarkAVIF192.sizes = '192x192';
+iconDarkAVIF192.href = 'https://tylermorgan.co/elements/icons/favicon-night-192.avif';
+document.head.append(iconDarkAVIF192);
+
+const appleTouchIcon = document.createElement('link');
+appleTouchIcon.rel = 'apple-touch-icon';
+appleTouchIcon.href = 'https://tylermorgan.co/apple-touch-icon.avif';
+document.head.append(appleTouchIcon);
+
+const maskIcon = document.createElement('link');
+maskIcon.rel = 'mask-icon';
+maskIcon.href = 'https://tylermorgan.co/elements/icons/mask-icon.svg';
+maskIcon.color = '#454D51';
+document.head.append(maskIcon);
+
+const lightThemeColor = document.createElement('meta');
+lightThemeColor.name = 'theme-color';
+lightThemeColor.media = '(prefers-color-scheme: light)';
+lightThemeColor.content = '#444444'
+document.head.append(lightThemeColor);
+
+const darkThemeColor = document.createElement('meta');
+darkThemeColor.name = 'theme-color';
+darkThemeColor.media = '(prefers-color-scheme: dark)';
+darkThemeColor.content = '#121111';
+document.head.append(darkThemeColor);
+
+const canonical = document.createElement('link');
+canonical.rel = 'canonical';
+canonical.href = 'https://tylermorgan.co/record-inventory/';
+document.head.append(canonical);
+
+const keywords = document.createElement('meta');
+keywords.name = 'keywords';
+keywords.content = 'record, handbook, tyler morgan, vinyl, tylerjmorg, discogs, goldmine, music, inventory';
+document.head.append(keywords);
+
+const buildDate = () => {
+  const now = new Date();
+  return now.toISOString();
+};
+
+const comment = document.createComment("note");
+comment.textContent = `This document was built on ${buildDate()}.`;
+document.body.append(comment);
+
+const header = document.createElement('header');
+header.classList.add('title-container');
+
+let headerH1 = document.createElement('h1');
+
+headerH1.classList.add('title', 'ring');
+headerH1.ariaLabel = 'Records';
+
+let headerH1SVG = document.createElement('svg');
+headerH1SVG.classList.add('ring-svg');
+headerH1SVG.setAttribute('viewBox', '0 0 100 100');
+headerH1SVG.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+
+let headerH1Path = document.createElement('path');
+headerH1Path.classList.add('ring-circle');
+headerH1Path.id = 'circlePath';
+headerH1Path.setAttribute('d', 'M 4.1779659,50 A 45.822034,45.822034 0 1 0 95.822034,50 45.822034,45.822034 0 1 0 4.1779658,50');
+headerH1SVG.append(headerH1Path);
+
+let headerH1Text = document.createElement('text');
+
+let headerH1TextPath = document.createElement('textPath');
+headerH1TextPath.setAttribute('href', '#circlePath');
+headerH1TextPath.setAttribute('fill', 'var(--primary-color)');
+headerH1TextPath.textContent = 'RECORDS · RECORDS · RECORDS · RECORDS · RECORDS ·';
+headerH1Text.append(headerH1TextPath);
+
+headerH1SVG.append(headerH1Text);
+
+headerH1.append(headerH1SVG);
+
+header.append(headerH1);
+
+document.body.append(header);
+
+const main = document.createElement('main');
+
+const section1 = document.createElement('section');
+
+const recordsFilePath = path.resolve('records.json');
+
+fs.readFile(recordsFilePath, 'utf8', (err, data) => {
+  if (err) {
+    console.error('JSON file could not be found.', err);
+    return;
   }
-  return response.json();
-})
-.then(data => {
+  
+  const parsedRecordData = JSON.parse(data);
+
   let table = document.createElement('ul');
   table.classList.add('record-grid');
 
-  data.forEach((item, index) => {
+  parsedRecordData.forEach((item, index) => {
     let card = document.createElement('li');
     card.classList.add('record', 'collapsible-r');
     card.setAttribute('role', 'button');
@@ -108,7 +278,7 @@ fetch('/record-inventory/records.json')
     let qty = '';
     if (item.qty) {
       qty = document.createElement('p');
-      qtyLabel = document.createElement('span');
+      let qtyLabel = document.createElement('span');
       qtyLabel.classList.add('label');
       qtyLabel.textContent = 'Qty';
       qty.append(qtyLabel);
@@ -132,7 +302,7 @@ fetch('/record-inventory/records.json')
     let discColors = '';
     if (colors) {
       discColors = document.createElement('p');
-      discColorsLabel = document.createElement('span');
+      let discColorsLabel = document.createElement('span');
       discColorsLabel.classList.add('label');
       discColorsLabel.textContent = colorsLabel;
       discColors.append(discColorsLabel);
@@ -157,7 +327,7 @@ fetch('/record-inventory/records.json')
     if (genreNames) {
       genres = document.createElement('p');
 
-      genresLabel = document.createElement('span');
+      let genresLabel = document.createElement('span');
       genresLabel.classList.add('label');
       genresLabel.textContent = genresLabelName;
       genres.append(genresLabel);
@@ -182,7 +352,7 @@ fetch('/record-inventory/records.json')
     if (item.labels) {
       labels = document.createElement('p');
 
-      labelsLabel = document.createElement('span');
+      let labelsLabel = document.createElement('span');
       labelsLabel.classList.add('label');
       labelsLabel.textContent = labelsLabelName;
       labels.append(labelsLabel);
@@ -202,7 +372,7 @@ fetch('/record-inventory/records.json')
     if (item.disc_count) {
       discCount = document.createElement('p');
 
-      discCountLabel = document.createElement('span');
+      let discCountLabel = document.createElement('span');
       discCountLabel.classList.add('label');
       discCountLabel.textContent = 'Disc Count';
       discCount.append(discCountLabel);
@@ -214,7 +384,7 @@ fetch('/record-inventory/records.json')
 
     if (item.contents_count) {
       let contentsCount = document.createElement('p');
-      contentsCountLabel = document.createElement('span');
+      let contentsCountLabel = document.createElement('span');
       contentsCountLabel.classList.add('label');
       contentsCountLabel.textContent = 'Contents Count';
       contentsCount.append(contentsCountLabel);
@@ -306,7 +476,7 @@ fetch('/record-inventory/records.json')
       recordContent.append(break2);
 
       const contents = document.createElement('p');
-      contentsLabel = document.createElement('span');
+      let contentsLabel = document.createElement('span');
       contentsLabel.classList.add('label');
       contentsLabel.textContent = 'Contents Description';
       contents.append(contentsLabel);
@@ -314,147 +484,147 @@ fetch('/record-inventory/records.json')
       contents.append(document.createTextNode(': '));
 
       if (item.jacket1_qty) {
-        jacket1Break = document.createElement('br');
+        let jacket1Break = document.createElement('br');
         contents.append(jacket1Break);
 
         contents.append(document.createTextNode(`${item.jacket1_qty} - ${jacket1Desc}`));
       }
 
       if (item.jacket2_qty) {
-        jacket2Break = document.createElement('br');
+        let jacket2Break = document.createElement('br');
         contents.append(jacket2Break);
 
         contents.append(document.createTextNode(`${item.jacket2_qty} - ${jacket2Desc}`));
       }
 
       if (item.jacket3_qty) {
-        jacket3Break = document.createElement('br');
+        let jacket3Break = document.createElement('br');
         contents.append(jacket3Break);
 
         contents.append(document.createTextNode(`${item.jacket3_qty} - ${jacket3Desc}`));
       }
 
       if (item.jacket4_qty) {
-        jacket4Break = document.createElement('br');
+        let jacket4Break = document.createElement('br');
         contents.append(jacket4Break);
 
         contents.append(document.createTextNode(`${item.jacket4_qty} - ${jacket4Desc}`));
       }
 
       if (item.inner_sleeve_qty) {
-        innerSleeveBreak = document.createElement('br');
+        let innerSleeveBreak = document.createElement('br');
         contents.append(innerSleeveBreak);
 
         contents.append(document.createTextNode(`${item.inner_sleeve_qty} - Inner-sleeve`));
       }
 
       if (item.outer_sleeve_qty) {
-        outerSleeveBreak = document.createElement('br');
+        let outerSleeveBreak = document.createElement('br');
         contents.append(outerSleeveBreak);
 
         contents.append(document.createTextNode(`${item.outer_sleeve_qty} - Outer-sleeve`));
       }
 
       if (item.poster_qty) {
-        posterBreak = document.createElement('br');
+        let posterBreak = document.createElement('br');
         contents.append(posterBreak);
 
         contents.append(document.createTextNode(`${item.poster_qty} - Poster`));
       }
 
       if (item.envelope_qty) {
-        envelopeBreak = document.createElement('br');
+        let envelopeBreak = document.createElement('br');
         contents.append(envelopeBreak);
 
         contents.append(document.createTextNode(`${item.envelope_qty} - Envelope`));
       }
 
       if (item.album_photo_qty) {
-        albumPhotoBreak = document.createElement('br');
+        let albumPhotoBreak = document.createElement('br');
         contents.append(albumPhotoBreak);
 
         contents.append(document.createTextNode(`${item.album_photo_qty} - Album Photo`));
       }
 
       if (item.song_letter_qty) {
-        songLetterBreak = document.createElement('br');
+        let songLetterBreak = document.createElement('br');
         contents.append(songLetterBreak);
 
         contents.append(document.createTextNode(`${item.song_letter_qty} - Song Letter`));
       }
 
       if (item.hype_sticker_qty) {
-        hypeStickerBreak = document.createElement('br');
+        let hypeStickerBreak = document.createElement('br');
         contents.append(hypeStickerBreak);
 
         contents.append(document.createTextNode(`${item.hype_sticker_qty} - Hype Sticker`));
       }
 
       if (item.song_lyrics_booklet_qty) {
-        songLyricsBookletBreak = document.createElement('br');
+        let songLyricsBookletBreak = document.createElement('br');
         contents.append(songLyricsBookletBreak);
 
         contents.append(document.createTextNode(`${item.song_lyrics_booklet_qty} - Song Lyrics Booklet`));
       }
 
       if (item.logo_photo_qty) {
-        logoPhotoBreak = document.createElement('br');
+        let logoPhotoBreak = document.createElement('br');
         contents.append(logoPhotoBreak);
 
         contents.append(document.createTextNode(`${item.logo_photo_qty} - Logo Photo`));
       }
 
       if (item.photo_album_booklet_qty) {
-        photoAlbumBookletBreak = document.createElement('br');
+        let photoAlbumBookletBreak = document.createElement('br');
         contents.append(photoAlbumBookletBreak);
 
         contents.append(document.createTextNode(`${item.photo_album_booklet_qty} - Photo Album Booklet`));
       }
 
       if (item.other_item1_qty) {
-        other1Break = document.createElement('br');
+        let other1Break = document.createElement('br');
         contents.append(other1Break);
 
         contents.append(document.createTextNode(`${item.other_item1_qty} - ${other1Name}`));
       }
 
       if (item.other_item2_qty) {
-        other2Break = document.createElement('br');
+        let other2Break = document.createElement('br');
         contents.append(other2Break);
 
         contents.append(document.createTextNode(`${item.other_item2_qty} - ${other2Name}`));
       }
 
       if (item.other_item3_qty) {
-        other3Break = document.createElement('br');
+        let other3Break = document.createElement('br');
         contents.append(other3Break);
 
         contents.append(document.createTextNode(`${item.other_item3_qty} - ${other3Name}`));
       }
 
       if (item.other_item4_qty) {
-        other4Break = document.createElement('br');
+        let other4Break = document.createElement('br');
         contents.append(other4Break);
 
         contents.append(document.createTextNode(`${item.other_item4_qty} - ${other4Name}`));
       }
 
       if (item.other_item5_qty) {
-        other5Break = document.createElement('br');
+        let other5Break = document.createElement('br');
         contents.append(other5Break);
 
         contents.append(document.createTextNode(`${item.other_item5_qty} - ${other5Name}`));
       }
 
       if (item.other_item6_qty) {
-        other6Break = document.createElement('br');
+        let other6Break = document.createElement('br');
         contents.append(other6Break);
 
         contents.append(document.createTextNode(`${item.other_item6_qty} - ${other6Name}`));
       }
 
       if (item.digital_download_slip_qty) {
-        digitalDownloadSlipBreak = document.createElement('br');
+        let digitalDownloadSlipBreak = document.createElement('br');
         contents.append(digitalDownloadSlipBreak);
 
         contents.append(document.createTextNode(`${item.digital_download_slip_qty} - Digital Download Slip ${digitalDownloadSlipFates}`));
@@ -482,84 +652,84 @@ fetch('/record-inventory/records.json')
       goldmine.append(document.createTextNode(': '));
 
       if (item.jacket1_goldmine) {
-        jacket1GoldmineBreak = document.createElement('br');
+        let jacket1GoldmineBreak = document.createElement('br');
         goldmine.append(jacket1GoldmineBreak);
 
         goldmine.append(document.createTextNode(`${jacket1Name} - ${item.jacket1_goldmine}`));
       }
 
       if (item.jacket2_goldmine) {
-        jacket2GoldmineBreak = document.createElement('br');
+        let jacket2GoldmineBreak = document.createElement('br');
         goldmine.append(jacket2GoldmineBreak);
 
         goldmine.append(document.createTextNode(`${jacket2Name} - ${item.jacket2_goldmine}`));
       }
 
       if (item.jacket3_goldmine) {
-        jacket3GoldmineBreak = document.createElement('br');
+        let jacket3GoldmineBreak = document.createElement('br');
         goldmine.append(jacket3GoldmineBreak);
 
         goldmine.append(document.createTextNode(`${jacket3Name} - ${item.jacket3_goldmine}`));
       }
 
       if (item.jacket4_goldmine) {
-        jacket4GoldmineBreak = document.createElement('br');
+        let jacket4GoldmineBreak = document.createElement('br');
         goldmine.append(jacket4GoldmineBreak);
 
         goldmine.append(document.createTextNode(`${jacket4Name} - ${item.jacket4_goldmine}`));
       }
 
       if (item.disc1_goldmine) {
-        disc1GoldmineBreak = document.createElement('br');
+        let disc1GoldmineBreak = document.createElement('br');
         goldmine.append(disc1GoldmineBreak);
 
         goldmine.append(document.createTextNode(`${disc1Name} - ${item.disc1_goldmine}`));
       }
 
       if (item.disc2_goldmine) {
-        disc2GoldmineBreak = document.createElement('br');
+        let disc2GoldmineBreak = document.createElement('br');
         goldmine.append(disc2GoldmineBreak);
 
         goldmine.append(document.createTextNode(`${disc2Name} - ${item.disc2_goldmine}`));
       }
 
       if (item.disc3_goldmine) {
-        disc3GoldmineBreak = document.createElement('br');
+        let disc3GoldmineBreak = document.createElement('br');
         goldmine.append(disc3GoldmineBreak);
 
         goldmine.append(document.createTextNode(`${disc3Name} - ${item.disc3_goldmine}`));
       }
 
       if (item.disc4_goldmine) {
-        disc4GoldmineBreak = document.createElement('br');
+        let disc4GoldmineBreak = document.createElement('br');
         goldmine.append(disc4GoldmineBreak);
 
         goldmine.append(document.createTextNode(`${disc4Name} - ${item.disc4_goldmine}`));
       }
 
       if (item.disc5_goldmine) {
-        disc5GoldmineBreak = document.createElement('br');
+        let disc5GoldmineBreak = document.createElement('br');
         goldmine.append(disc5GoldmineBreak);
 
         goldmine.append(document.createTextNode(`${disc5Name} - ${item.disc5_goldmine}`));
       }
 
       if (item.disc6_goldmine) {
-        disc6GoldmineBreak = document.createElement('br');
+        let disc6GoldmineBreak = document.createElement('br');
         goldmine.append(disc6GoldmineBreak);
 
         goldmine.append(document.createTextNode(`${disc6Name} - ${item.disc6_goldmine}`));
       }
 
       if (item.disc7_goldmine) {
-        disc7GoldmineBreak = document.createElement('br');
+        let disc7GoldmineBreak = document.createElement('br');
         goldmine.append(disc7GoldmineBreak);
 
         goldmine.append(document.createTextNode(`${disc7Name} - ${item.disc7_goldmine}`));
       }
 
       if (item.disc8_goldmine) {
-        disc8GoldmineBreak = document.createElement('br');
+        let disc8GoldmineBreak = document.createElement('br');
         goldmine.append(disc8GoldmineBreak);
 
         goldmine.append(document.createTextNode(`${disc8Name} - ${item.disc8_goldmine}`));
@@ -577,7 +747,7 @@ fetch('/record-inventory/records.json')
     if (item.listened === true) {
       listened = document.createElement('p');
 
-      listenedLabel = document.createElement('span');
+      let listenedLabel = document.createElement('span');
       listenedLabel.classList.add('label');
       listenedLabel.textContent = 'Listened';
       listened.append(listenedLabel);
@@ -588,7 +758,7 @@ fetch('/record-inventory/records.json')
     } else if (item.listened === false) {
       listened = document.createElement('p');
 
-      listenedLabel = document.createElement('span');
+      let listenedLabel = document.createElement('span');
       listenedLabel.classList.add('label');
       listenedLabel.textContent = 'Listened';
       listened.append(listenedLabel);
@@ -604,7 +774,7 @@ fetch('/record-inventory/records.json')
     let discogs = '';
     if (item.id) {
       discogs = document.createElement('p');
-      discogsLabel = document.createElement('span');
+      let discogsLabel = document.createElement('span');
       discogsLabel.classList.add('label');
       discogsLabel.textContent = 'Discogs Release Code';
       discogs.append(discogsLabel);
@@ -628,7 +798,7 @@ fetch('/record-inventory/records.json')
       if (item.dd_yes_url) {
         dd = document.createElement('p');
 
-        ddLabel = document.createElement('span');
+        let ddLabel = document.createElement('span');
         ddLabel.classList.add('label');
         ddLabel.textContent = 'Digitally Downloaded';
         dd.append(ddLabel);
@@ -644,7 +814,7 @@ fetch('/record-inventory/records.json')
         dd.append(ddLink);
       } else {
         dd = document.createElement('p');
-        ddLabel = document.createElement('span');
+        let ddLabel = document.createElement('span');
         ddLabel.classList.add('label');
         ddLabel.textContent = 'Digitally Downloaded';
         dd.append(ddLabel);
@@ -654,7 +824,7 @@ fetch('/record-inventory/records.json')
     } else if (item.dd === 'No') {
       if (item.dd_no_url) {
         dd = document.createElement('p');
-        ddLabel = document.createElement('span');
+        let ddLabel = document.createElement('span');
         ddLabel.classList.add('label');
         ddLabel.textContent = 'Digitally Downloaded';
         dd.append(ddLabel);
@@ -670,7 +840,7 @@ fetch('/record-inventory/records.json')
         dd.append(ddLink);
       } else {
         dd = document.createElement('p');
-        ddLabel = document.createElement('span');
+        let ddLabel = document.createElement('span');
         ddLabel.classList.add('label');
         ddLabel.textContent = 'Digitally Downloaded';
         dd.append(ddLabel);
@@ -679,7 +849,7 @@ fetch('/record-inventory/records.json')
       }
     } else if (item.dd === 'N/A') {
       dd = document.createElement('p');
-      ddLabel = document.createElement('span');
+      let ddLabel = document.createElement('span');
       ddLabel.classList.add('label');
       ddLabel.textContent = 'Digitally Downloaded';
       dd.append(ddLabel);
@@ -694,7 +864,7 @@ fetch('/record-inventory/records.json')
     
     let downloadWebsites = '';
     if (item.dd === "Yes" || item.dd === "No") {
-      break5 = document.createElement('br');
+      let break5 = document.createElement('br');
       recordContent.append(break5);
       
       downloadWebsites = document.createElement('p');
@@ -702,7 +872,7 @@ fetch('/record-inventory/records.json')
 
       let artistWebsite = '';
       if (item.dd_official_url) {
-        artistWebsiteBreak = document.createElement('br');
+        let artistWebsiteBreak = document.createElement('br');
         downloadWebsites.append(artistWebsiteBreak);
 
         artistWebsite = document.createElement('a');
@@ -716,7 +886,7 @@ fetch('/record-inventory/records.json')
 
       let qobuz = '';
       if (item.dd_qobuz_url) {
-        qobuzBreak = document.createElement('br');
+        let qobuzBreak = document.createElement('br');
         downloadWebsites.append(qobuzBreak);
         
         qobuz = document.createElement('a');
@@ -733,157 +903,183 @@ fetch('/record-inventory/records.json')
     card.append(recordContent);
 
     table.append(card);
-
+    
   });
-  const gridContainer = document.getElementById('record-grid');
-  gridContainer.innerHTML = '';
-  gridContainer.append(table);
 
-  startInvUpdate();
-})
-.catch(error => {
-  console.error('Error fetching JSON:', error);
-  document.getElementById('record-grid').innerText = 'Error loading records.';
+  section1.append(table);
+
+  main.append(section1);
+
+  const section2 = document.createElement('section');
+
+  const invUpdateFilePath = path.resolve('inventory_update.json');
+
+  fs.readFile(invUpdateFilePath, 'utf8', (err, data) => {
+    if (err) {
+      console.error('JSON file could not be found.', err);
+      return; // Exit if there’s an error reading the file
+    }
+
+    const parsedInvUpdateData = JSON.parse(data);
+
+  let table = document.createElement('ul');
+  table.classList.add('update-grid');
+
+  parsedInvUpdateData.forEach((item) => {
+    let updateCard = document.createElement('li');
+    updateCard.classList.add('update-card');
+    
+    let updateCardContent = document.createElement('div');
+    updateCardContent.classList.add('update-card-content');
+
+    if (item.inventory_updated) {
+      let inventoryUpdateLabel = document.createElement('span');
+      inventoryUpdateLabel.classList.add('label');
+      inventoryUpdateLabel.textContent = 'Inventory Updated';
+      updateCardContent.append(inventoryUpdateLabel);
+
+      let inventoryUpdateBreak = document.createElement('br');
+      updateCardContent.append(inventoryUpdateBreak);
+
+      let inventoryUpdateDatetime = document.createElement('time');
+      inventoryUpdateDatetime.setAttribute('datetime', item.inventory_updated);
+      inventoryUpdateDatetime.textContent = `${item.inventory_updated} UTC`;
+      updateCardContent.append(inventoryUpdateDatetime);
+    }
+
+    if (item.last_inventory_check) {
+      let lastInventoryCheckLabel = document.createElement('span');
+      lastInventoryCheckLabel.classList.add('label');
+      lastInventoryCheckLabel.textContent = 'Last Inventory Check';
+      updateCardContent.append(lastInventoryCheckLabel);
+
+      let lastInventoryCheckBreak = document.createElement('br');
+      updateCardContent.append(lastInventoryCheckBreak);
+
+      let lastInventoryCheckDatetime = document.createElement('time');
+      lastInventoryCheckDatetime.setAttribute('datetime', item.last_inventory_check);
+      lastInventoryCheckDatetime.textContent = `${item.last_inventory_check} UTC`;
+      updateCardContent.append(lastInventoryCheckDatetime);
+    }
+
+    if (item.doc_info_updated) {
+      let docInfoUpdatedLabel = document.createElement('span');
+      docInfoUpdatedLabel.classList.add('label');
+      docInfoUpdatedLabel.textContent = 'Doc Info Updated';
+      updateCardContent.append(docInfoUpdatedLabel);
+
+      let docInfoUpdatedBreak = document.createElement('br');
+      updateCardContent.append(docInfoUpdatedBreak);
+
+      let docInfoUpdatedDatetime = document.createElement('time');
+      docInfoUpdatedDatetime.setAttribute('datetime', item.doc_info_updated);
+      docInfoUpdatedDatetime.textContent = `${item.doc_info_updated} UTC`;
+      updateCardContent.append(docInfoUpdatedDatetime);
+    }
+
+    updateCard.append(updateCardContent);
+
+    table.append(updateCard);
+  });
+  section2.append(table);
+  main.append(section2);
+
+  const section3 = document.createElement('section');
+  section3.classList.add('bottom-links');
+
+  let definitions = document.createElement('a');
+  definitions.href = '/record-handbook/inventory/defs/';
+  definitions.classList.add('bottom-link');
+  definitions.textContent = 'Definitions';
+  section3.append(definitions);
+
+  let recordHandbook = document.createElement('a');
+  recordHandbook.href = '/record-handbook/';
+  recordHandbook.classList.add('bottom-link');
+  recordHandbook.textContent = 'The Record Handbook';
+  section3.append(recordHandbook);
+
+  main.append(section3);
+
+  document.body.append(main);
+
+  const footer = document.createElement('footer');
+  footer.classList.add('footer');
+
+  const footerDisclaimer = document.createElement('p');
+  footerDisclaimer.append(document.createTextNode('Some URLs may be expired or password protected. Check the '));
+
+  const archiveLink = document.createElement('a');
+  archiveLink.href = '/record-inventory/archive/';
+  archiveLink.classList.add('content-link');
+  archiveLink.textContent = 'archive page';
+  footerDisclaimer.append(archiveLink);
+
+  footerDisclaimer.append(document.createTextNode(' for more info.'));
+
+  footer.append(footerDisclaimer);
+
+  const footerCopyright = document.createElement('p');
+  footerCopyright.append(document.createTextNode('© '));
+
+  const footerYear = document.createElement('span');
+  footerYear.id = 'year_2024';
+  footerCopyright.append(footerYear);
+
+  footerCopyright.append(document.createTextNode(' '));
+
+  const footerName = document.createElement('a');
+  footerName.href = 'https://tylermorgan.co/';
+  footerName.classList.add('content-link');
+  footerName.textContent = 'Tyler Morgan';
+  footerCopyright.append(footerName);
+
+  footerCopyright.append(document.createTextNode('. All rights reserved.'));
+
+  footer.append(footerCopyright);
+
+  const privacyPolicy = document.createElement('p');
+  const privacyPolicyLink = document.createElement('a');
+  privacyPolicyLink.classList.add('content-link');
+  privacyPolicyLink.setAttribute('rel', 'privacy-policy');
+  privacyPolicyLink.href = 'https://tylermorgan.co/privacy-policy/';
+  privacyPolicyLink.textContent = 'Privacy Policy';
+  privacyPolicy.append(privacyPolicyLink);
+
+  footer.append(privacyPolicy);
+
+  document.body.append(footer);
+
+  let collapsible = document.createElement('script');
+  collapsible.src = '/record-inventory/collapsible.js';
+  document.body.append(collapsible);
+
+  let yearScript = document.createElement('script');
+  yearScript.src = 'https://tylermorgan.co/year_2024.js'
+  yearScript.type = 'module';
+  document.body.append(yearScript);
+
+// Serialize the DOM
+const htmlContent = dom.serialize();
+
+// Format the HTML with Prettier and write it to the file
+prettier
+    .format(htmlContent, { parser: 'html' }) // Prettier formatting returns a Promise
+    .then((formattedHTML) => {
+        fs.writeFile('index.html', formattedHTML, (err) => {
+            if (err) {
+                console.error('An error occurred while creating the HTML file:', err);
+            } else {
+                console.log('HTML file successfully created with readable formatting!');
+            }
+        });
+    })
+    .catch((error) => {
+        console.error('An error occurred while formatting the HTML:', error);
+    });
+  });
 });
 
-function startInvUpdate() {
-  fetch('/record-inventory/inventory_update.json')
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('JSON file could not be found.');
-    }
-    return response.json();
-  })
-  .then(data => {
-    let table = document.createElement('ul');
-    table.classList.add('update-grid');
-
-    data.forEach((item) => {
-      let updateCard = document.createElement('li');
-      updateCard.classList.add('update-card');
-      
-      updateCardContent = document.createElement('div');
-      updateCardContent.classList.add('update-card-content');
-
-      if (item.inventory_updated) {
-        let inventoryUpdateLabel = document.createElement('span');
-        inventoryUpdateLabel.classList.add('label');
-        inventoryUpdateLabel.textContent = 'Inventory Updated';
-        updateCardContent.append(inventoryUpdateLabel);
-
-        let inventoryUpdateBreak = document.createElement('br');
-        updateCardContent.append(inventoryUpdateBreak);
-
-        let inventoryUpdateDatetime = document.createElement('time');
-        inventoryUpdateDatetime.setAttribute('datetime', item.inventory_updated);
-        inventoryUpdateDatetime.textContent = `${item.inventory_updated} UTC`;
-        updateCardContent.append(inventoryUpdateDatetime);
-      }
-
-      if (item.last_inventory_check) {
-        let lastInventoryCheckLabel = document.createElement('span');
-        lastInventoryCheckLabel.classList.add('label');
-        lastInventoryCheckLabel.textContent = 'Last Inventory Check';
-        updateCardContent.append(lastInventoryCheckLabel);
-
-        let lastInventoryCheckBreak = document.createElement('br');
-        updateCardContent.append(lastInventoryCheckBreak);
-
-        let lastInventoryCheckDatetime = document.createElement('time');
-        lastInventoryCheckDatetime.setAttribute('datetime', item.last_inventory_check);
-        lastInventoryCheckDatetime.textContent = `${item.last_inventory_check} UTC`;
-        updateCardContent.append(lastInventoryCheckDatetime);
-      }
-
-      if (item.doc_info_updated) {
-        let docInfoUpdatedLabel = document.createElement('span');
-        docInfoUpdatedLabel.classList.add('label');
-        docInfoUpdatedLabel.textContent = 'Doc Info Updated';
-        updateCardContent.append(docInfoUpdatedLabel);
-
-        let docInfoUpdatedBreak = document.createElement('br');
-        updateCardContent.append(docInfoUpdatedBreak);
-
-        let docInfoUpdatedDatetime = document.createElement('time');
-        docInfoUpdatedDatetime.setAttribute('datetime', item.doc_info_updated);
-        docInfoUpdatedDatetime.textContent = `${item.doc_info_updated} UTC`;
-        updateCardContent.append(docInfoUpdatedDatetime);
-      }
-
-      updateCard.append(updateCardContent);
-
-      table.append(updateCard);
-    });
-    const gridContainer = document.getElementById('update-grid');
-    gridContainer.innerHTML = '';
-    gridContainer.append(table);
-  })
-  startCollapsible();
-};
-
-function startCollapsible() {
-  // Select all elements with the class 'collapsible-r' (instead of 'collapsible')
-  let coll = document.getElementsByClassName("collapsible-r");
-
-  for (let i = 0; i < coll.length; i++) {
-    // Function to handle toggling content and aria attributes
-    const toggleContent = function() {
-      // Toggle the 'active' class on the clicked div (instead of button)
-      this.classList.toggle("active");
-
-      // Get the target content element (using the 'data-target-id' attribute)
-      let content = document.getElementById(this.getAttribute("data-target-id"));
-      let parentComic = this.closest('.record-grid');
-
-      // Handle case when content is null
-      if (content && content.classList.contains("content-1")) {
-        if (content.style.maxHeight) {
-          content.style.maxHeight = null;
-          parentComic.style.maxHeight = null;
-        } else {
-          content.style.maxHeight = content.scrollHeight + "px";
-          parentComic.style.maxHeight = parentComic.scrollHeight + content.scrollHeight + "px";
-        }
-      } else {
-        console.error("No content element found for:", this);
-        // Optional: Provide feedback to the user or take alternative actions
-      }
-
-      // Update the aria-expanded attribute on the clicked element
-      let expanded = this.getAttribute("aria-expanded") === "true";
-      this.setAttribute("aria-expanded", expanded ? "false" : "true");
-
-      let pressed = this.getAttribute("aria-pressed") === "true";
-      this.setAttribute("aria-pressed", pressed ? "false" : "true");
-
-      // Update the aria-hidden and tabindex attributes of the content and its links
-      if (content) {
-        let contentLinks = content.querySelectorAll(".content-link, a");
-        if (expanded) {
-          content.setAttribute("aria-hidden", "true");
-          contentLinks.forEach(link => link.setAttribute("tabindex", "-1"));
-          contentLinks.forEach(link => link.setAttribute("aria-hidden", "true"));
-        } else {
-          content.setAttribute("aria-hidden", "false");
-          contentLinks.forEach(link => link.setAttribute("tabindex", "0"));
-          contentLinks.forEach(link => link.setAttribute("aria-hidden", "false"));
-        }
-      }
-    };
-
-    // Add the click event listener
-    coll[i].addEventListener("click", toggleContent);
-
-    // Add the 'keydown' event listener to handle keyboard navigation (Enter or Space key)
-    coll[i].addEventListener("keydown", function(event) {
-      if (event.key === "Enter" || event.key === " ") {
-        // Prevent default action for Space (scrolling)
-        event.preventDefault();
-        toggleContent.call(this);  // Trigger the same function as the click event
-      }
-    });
-
-    // Make the div focusable for keyboard navigation
-    coll[i].setAttribute("tabindex", "0");
-  }
-};
+//
+// Copyright 2024 Tyler Morgan. All rights reserved.
+//

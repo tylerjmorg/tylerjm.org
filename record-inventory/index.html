@@ -1,567 +1,2425 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Records</title>
-    <link rel="stylesheet" crossorigin href="https://tylermorgan.co/style.css">
-    <meta name="description" content="An inventory of Tyler's record collection.">
-    <link rel="icon" type="image/svg" media="(prefers-color-scheme: light)" crossorigin href="https://tylermorgan.co/elements/icons/favicon-day.svg">
-    <link rel="icon" type="image/svg" media="(prefers-color-scheme: dark)" crossorigin href="https://tylermorgan.co/elements/icons/favicon-night.svg">
-    <link rel="icon" type="image/avif" media="(prefers-color-scheme: light)" crossorigin href="https://tylermorgan.co/elements/icons/favicon-day-180.avif">
-    <link rel="icon" type="image/avif" media="(prefers-color-scheme: dark)" crossorigin href="https://tylermorgan.co/elements/icons/favicon-night-180.avif">
-    <link rel="icon" type="image/avif" media="(prefers-color-scheme: light)" sizes="192x192" crossorigin href="https://tylermorgan.co/elements/icons/favicon-day-192.avif">
-    <link rel="icon" type="image/avif" media="(prefers-color-scheme: dark)" sizes="192x192" crossorigin href="https://tylermorgan.co/elements/icons/favicon-night-192.avif">
-    <link rel="apple-touch-icon" crossorigin href="https://tylermorgan.co/apple-touch-icon.avif">
-    <link rel="mask-icon" crossorigin href="https://tylermorgan.co/elements/icons/mask-icon.svg" color="#454D51">
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#444444">
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#121111">
-    <link rel="canonical" href="https://tylerjm.org/record-inventory/">
-    <meta name="keywords" content="record, handbook, tyler morgan, vinyl, tylerjmorg, discogs, goldmine, music, inventory">
-    <style>
-      :root {
-        color: var(--primary-color);
-        font-size: 0.89rem;
-      }
-      body {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        overflow-x: hidden;
-      }
-      li {
-        text-indent: 0px;
-        padding: 0;
-        list-style-type: none;
-      }
-      ul {
-        text-indent: 0px;
-        padding: 0;
-        list-style-type: none;
-      }
-      @media (min-width: 1081px){
-        .ring-svg {
-          height: 450px;
-          width: 450px;
-          border-radius: 50%;
-        }
-        .record-grid{
-          justify-content: center;
-          margin: auto;
-          display: grid;
-          flex-wrap: wrap;
-          max-width: 1350px;
-          gap: 30px 10px;
-          grid-template-columns: repeat(5, 1fr);
-          grid-template-rows: auto;
-          width: 97.5%;
-          font-size: 0.92rem;
-          text-wrap: pretty;
-        }
-        .title {
-          font-size: 40px;
-          text-align: center;
-          margin: auto;
-          justify-content: center;
-          margin-top: -350px;
-          margin-bottom: 15px;
-          width: 450px;
-          border-radius: 50%;
-        }
-        .record {
-          padding: 10px;
-          border-radius: 10px;
-          display: block;
-          background-color: var(--secondary-bkg-color);
-        }
-        .record-img {
-          min-height: 182px;
-          min-width: 182px;
-        }
-        .record-title {
-          font: 'Noto Sans', sans-serif;
-          height: fit-content;
-          font-weight: 400;
-          font-size: 0.96rem;
-          margin-top: 15px;
-          text-align: left;
-          text-wrap: pretty;
-        }
-        .artist {
-          font: 'Noto Sans', sans-serif;
-          color: #ccc;
-          font-size: 0.8rem;
-          text-wrap: pretty;
-        }
-        #explicit::before {
-          background: url(/elements/icons/explicit.svg);
-          width: 20px;
-          height: 20px;
-          vertical-align: bottom;
-          content: "";
-          margin-left: 7px;
-          display: inline-block;
-        }
-        .update-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          text-align: center;
-          gap: 30px 10px;
-          grid-template-rows: auto;
-          font-size: 0.84rem;
-          width: 97.5%;
-          max-width: 800px;
-          margin: auto;
-          justify-content: center;
-          padding-top: 20px;
-        }
-        .update-card-content {
-          padding: 10px;
-          border-radius: 10px;
-          display: block;
-          background-color: var(--secondary-bkg-color);
-        }
-      } 
-      @media (max-width: 1080px){
-        .ring-svg {
-          height: 450px;
-          width: 450px;
-          border-radius: 50%;
-        }
-        .record-grid{
-          justify-content: center;
-          margin: auto;
-          display: grid;
-          flex-wrap: wrap;
-          gap: 30px 10px;
-          grid-template-columns: repeat(4, 1fr);
-          grid-template-rows: auto;
-          width: 97.5%;
-          font-size: 0.92rem;
-          text-wrap: pretty;
-        }
-        .record {
-          padding: 10px;
-          border-radius: 10px;
-          display: block;
-          background-color: var(--secondary-bkg-color);
-        }
-        .title {
-          font-size: 40px;
-          text-align: center;
-          margin: auto;
-          justify-content: center;
-          margin-top: -350px;
-          margin-bottom: 15px;
-          width: 450px;
-          border-radius: 50%;
-        }
-        .record-title {
-          font: 'Noto Sans', sans-serif;
-          height: fit-content;
-          font-weight: 400;
-          font-size: 0.92rem;
-          margin-top: 15px;
-          text-align: left;
-        }
-        .artist {
-          font: 'Noto Sans', sans-serif;
-          color: var(--sec-color);
-          font-size: 0.88rem;
-        }
-        #explicit::before {
-          background: url(/elements/icons/explicit.svg);
-          width: 20px;
-          height: 20px;
-          vertical-align: bottom;
-          content: "";
-          margin-left: 7px;
-          display: inline-block;
-        }
-        .record-img {
-          min-height: 179px;
-          min-width: 179px;
-        }
-        .update-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          text-align: center;
-          gap: 30px 10px;
-          grid-template-rows: auto;
-          font-size: 0.84rem;
-          width: 97.5%;
-          max-width: 800px;
-          margin: auto;
-          justify-content: center;
-          padding-top: 20px;
-        }
-        .update-card-content {
-          padding: 10px;
-          border-radius: 10px;
-          display: block;
-          background-color: var(--secondary-bkg-color);
-        }
-      } 
-      @media (max-width: 850px){
-        .ring-svg {
-          height: 450px;
-          width: 450px;
-          border-radius: 50%;
-        }
-        .record-grid{
-          justify-content: center;
-          margin: auto;
-          display: grid;
-          flex-wrap: wrap;
-          gap: 30px 10px;
-          grid-template-columns: repeat(3, 1fr);
-          grid-template-rows: auto;
-          width: 97.5%;
-          font-size: 0.92rem;
-          text-wrap: pretty;
-        }
-        .title {
-          font-size: 40px;
-          text-align: center;
-          margin: auto;
-          justify-content: center;
-          margin-top: -350px;
-          margin-bottom: 15px;
-          width: 450px;
-          border-radius: 50%;
-        }
-        .record {
-          padding: 10px;
-          border-radius: 10px;
-          display: block;
-          background-color: var(--secondary-bkg-color);
-        }
-        .record-title {
-          font: 'Noto Sans', sans-serif;
-          height: fit-content;
-          font-weight: 400;
-          font-size: 0.94rem;
-          margin-top: 15px;
-          text-align: left;
-        }
-        .artist {
-          font: 'Noto Sans', sans-serif;
-          color: var(--sec-color);
-          font-size: 0.88rem;
-        }
-        #explicit::before {
-          background: url(/elements/icons/explicit.svg);
-          width: 20px;
-          height: 20px;
-          vertical-align: bottom;
-          content: "";
-          margin-left: 7px;
-          display: inline-block;
-        }
-        .update-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          text-align: center;
-          gap: 30px 10px;
-          grid-template-rows: auto;
-          font-size: 0.84rem;
-          width: 97.5%;
-          max-width: 800px;
-          margin: auto;
-          justify-content: center;
-          padding-top: 20px;
-        }
-        .update-card-content {
-          padding: 10px;
-          border-radius: 10px;
-          display: block;
-          background-color: var(--secondary-bkg-color);
-        }
-      }
-      @media (max-width: 640px){
-        .record-grid{
-          justify-content: center;
-          margin: auto;
-          display: grid;
-          flex-wrap: wrap;
-          gap: 30px 10px;
-          grid-template-columns: repeat(2, 1fr);
-          grid-template-rows: auto;
-          width: 97.5%;
-          font-size: 0.92rem;
-          text-wrap: pretty;
-        }
-        .title {
-          font-size: 40px;
-          text-align: center;
-          margin: auto;
-          justify-content: center;
-          margin-top: -190px;
-          margin-bottom: 15px;
-          width: 243px;
-          border-radius: 50%;
-        }
-        .ring-svg {
-          height: 243px;
-          width: 243px;
-          border-radius: 50%;
-        }
-        .record {
-          padding: 10px;
-          border-radius: 10px;
-          display: block;
-          background-color: var(--secondary-bkg-color);
-        }
-        .record-title {
-          font: 'Noto Sans', sans-serif;
-          height: fit-content;
-          font-weight: 400;
-          font-size: 0.94rem;
-          margin-top: 15px;
-          text-align: left;
-        }
-        .artist {
-          font: 'Noto Sans', sans-serif;
-          color: var(--sec-color);
-          font-size: 0.88rem;
-        }
-        #explicit::before {
-          background: url(/elements/icons/explicit.svg);
-          width: 20px;
-          height: 20px;
-          vertical-align: bottom;
-          content: "";
-          margin-left: 7px;
-          display: inline-block;
-        }
-        .record-img {
-          min-height: 130px;
-          min-width: 130px;
-        }
-        .update-grid {
-          display: grid;
-          grid-template-columns: repeat(1, 1fr);
-          text-align: center;
-          gap: 10px 10px;
-          grid-template-rows: auto;
-          font-size: 0.84rem;
-          width: 80%;
-          max-width: 250px;
-          margin: auto;
-          justify-content: center;
-          padding-top: 20px;
-        }
-        .update-card-content {
-          padding: 10px;
-          border-radius: 10px;
-          display: block;
-          background-color: var(--secondary-bkg-color);
-        }
-      }
-      .bottom-links {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        text-align: center;
-        gap: 30px 20px;
-        grid-template-rows: auto;
-        font-size: 0.84rem;
-        width: 90%;
-        max-width: 800px;
-        margin: auto;
-        justify-content: center;
-        padding-top: 20px;
-      }
-      .bottom-link {
-        padding: 10px;
-        border-radius: 30px;
-        display: block;
-        background-color: var(--button-link);
-        color: var(--highlight-color);
-        text-decoration: none;
-        transition: all 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s;
-        transform: scale(1);
-      }
-      .bottom-link:hover {
-        background-color: var(--secondary-bkg-color);
-        color: var(--primary-color);
-        transform: scale(1.05);
-      }
-      .record-img {
-        width: 100%;
-        border-radius: 7px;
-      }
-      .italic {
-        font-style: italic;
-      }
-      .collapsible-r{
-        font-family: 'Noto Sans', sans-serif;
-        color: var(--primary-color);
-        cursor: pointer;
-        border: none;
-      }
-
-      .collapsible-r img {
-        transform: scale(1);
-        transition: background-color 175ms linear, transform 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s;
-      }
-      .collapsible-r:hover img{
-        transform: scale(1.05);
-      }
-      .collapsible-r:hover .background-img {
-        opacity: 1;
-        filter: blur(8px);
-        transform: scale(1.05);
-      }
-      .collapsible-r .foreground-img {
-        transition: all 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s;
-        box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.25);
-      }
-      .collapsible-r:hover .foreground-img {
-        box-shadow: none;
-      }
-      .collapsible-r .background-img {
-        position: absolute;
-        top: 2px;
-        left: 0;
-        transform: scale(1);
-        transition: all 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s;
-        opacity: 0;
-        z-index: 1;
-      }
-      img {
-        pointer-events: none;
-      }
-      .active {
-        background-color: var(--secondary-bkg-color);
-
-        .background-img {
-          opacity: 1;
-          filter: blur(4px);
-          transform: scale(1.03);
-        }
-        .foreground-img {
-          box-shadow: none;
-        }
-        img {
-          transform: scale(1.03);
-        }
-      }
-
-      .collapsible-r:active {
-        .background-img {
-          opacity: 0.8;
-          filter: blur(8px);
-          transform: scale(1.02);
-        }
-        .foreground-img {
-          box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.25);
-        }
-        img {
-          transform: scale(1.02);
-        }
-      }
-      
-      .content-1 > p {
-        margin-top: 2px;
-        margin-bottom: 2px;
-      }
-      .content-1 {
-        font-size: 0.9rem;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.7s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s;
-        background-color: rgba(0, 0, 0, 0);
-      }
-      .label {
-        font-weight: bold;
-      }
-      .footer {
-        text-align: center;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        font-size: 0.8rem;
-      }
-      .img-container {
-        position: relative;
-      }
-      .foreground-img {
-        cursor: pointer;
-        position: relative;
-        z-index: 2;
-        pointer-events: none;
-      }
-      .ring {
-      /* 	--character-width: 1ch; */
-        --inner-angle: calc((360 / var(--char-count)) * 1deg);
-        --character-width: 1;
-        font-family: 'Roboto Flex', sans-serif;
-        text-transform: uppercase;
-        font-size: calc(var(--font-size, 1) * 1rem);
-        position: relative;
-        border-radius: 50%;
-      }
-      @media (prefers-reduced-motion: no-preference) {
-        .ring {
-          animation: spin 8s infinite linear;
-          transition: all 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s;
-          transform: scale(1);
-        }
-        .ring:hover {
-          animation: spin 1.8s infinite linear;
-          transform: scale(1.08);
-        }
-        @keyframes spin {
-          to {
-            rotate: 360deg;
-          }
-        }
-      }
-      .ring-circle {
-        visibility: hidden;
-      }
-      textPath {
-        font-family: 'Noto Sans', sans-serif;
-        font-size: 0.75rem;
-        text-shadow: 1px 5px 8px rgba(0, 0, 0, 0.2);
-      }
-      text { text-rendering: geometricPrecision; }
-    </style>
+    <link
+      rel="stylesheet"
+      crossorigin=""
+      href="https://tylermorgan.co/style.css"
+    />
+    <link rel="stylesheet" href="/record-inventory/records.css" />
+    <meta
+      name="description"
+      content="An inventory of Tyler's record collection."
+    />
+    <link
+      rel="icon"
+      media="(prefers-color-scheme: light)"
+      type="image/svg"
+      href="https://tylermorgan.co/elements/icons/favicon-day.svg"
+    />
+    <link
+      rel="icon"
+      media="(prefers-color-scheme: dark)"
+      type="image/svg"
+      href="https://tylermorgan.co/elements/icons/favicon-night.svg"
+    />
+    <link
+      rel="icon"
+      media="(prefers-color-scheme: light)"
+      type="image/avif"
+      href="https://tylermorgan.co/elements/icons/favicon-day-180.avif"
+    />
+    <link
+      rel="icon"
+      media="(prefers-color-scheme: dark)"
+      type="image/avif"
+      href="https://tylermorgan.co/elements/icons/favicon-night-180.avif"
+    />
+    <link
+      rel="icon"
+      media="(prefers-color-scheme: light)"
+      type="image/avif"
+      href="https://tylermorgan.co/elements/icons/favicon-day-192.avif"
+    />
+    <link
+      rel="icon"
+      media="(prefers-color-scheme: dark)"
+      type="image/avif"
+      href="https://tylermorgan.co/elements/icons/favicon-night-192.avif"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="https://tylermorgan.co/apple-touch-icon.avif"
+    />
+    <link
+      rel="mask-icon"
+      href="https://tylermorgan.co/elements/icons/mask-icon.svg"
+    />
+    <meta name="theme-color" content="#444444" />
+    <meta name="theme-color" content="#121111" />
+    <link rel="canonical" href="https://tylermorgan.co/record-inventory/" />
+    <meta
+      name="keywords"
+      content="record, handbook, tyler morgan, vinyl, tylerjmorg, discogs, goldmine, music, inventory"
+    />
   </head>
   <body>
+    <!--This document was built on 2024-12-15T21:38:07.119Z.-->
     <header class="title-container">
       <h1 class="title ring" aria-label="Records">
-        <svg class="ring-svg"
-          viewBox="0 0 100 100"
+        <svg
+          class="ring-svg"
+          viewbox="0 0 100 100"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path class="ring-circle"
+          <path
+            class="ring-circle"
             id="circlePath"
-            d="M 4.1779659,50 A 45.822034,45.822034 0 1 0 95.822034,50 45.822034,45.822034 0 1 0 4.1779658,50"    
-          />
+            d="M 4.1779659,50 A 45.822034,45.822034 0 1 0 95.822034,50 45.822034,45.822034 0 1 0 4.1779658,50"
+          ></path>
           <text>
-            <textPath href="#circlePath" fill="var(--primary-color)">
+            <textpath href="#circlePath" fill="var(--primary-color)">
               RECORDS · RECORDS · RECORDS · RECORDS · RECORDS ·
-            </textPath>
+            </textpath>
           </text>
         </svg>
       </h1>
     </header>
     <main>
-      <section id="record-grid"></section>
-      <section id="update-grid"></section>
+      <section>
+        <ul class="record-grid">
+          <li
+            class="record collapsible-r"
+            role="button"
+            aria-expanded="false"
+            tabindex="0"
+            aria-pressed="false"
+            data-target-id="aboutMeContent-0"
+            id="aboutMeButton-0"
+          >
+            <div class="record-content-wrapper">
+              <div class="img-container" role="none">
+                <img
+                  class="record-img foreground-img"
+                  src="/record-inventory/covers/21046597.avif"
+                  alt="Adele positions the right side of her face towards the viewer in front of a blue background."
+                /><img
+                  class="record-img background-img"
+                  role="presentation"
+                  src="/record-inventory/covers/21046597.avif"
+                />
+              </div>
+              <p class="record-title">
+                30<br /><span class="artist">Adele</span>
+              </p>
+            </div>
+            <div class="content-1" id="aboutMeContent-0" aria-hidden="true">
+              <p><span class="label">Qty</span>: 1</p>
+              <p><span class="label">Disc Color</span>: Clear</p>
+              <p><span class="label">Genres</span>: Jazz, Pop</p>
+              <p><span class="label">Record Label</span>: Columbia</p>
+              <br />
+              <p><span class="label">Disc Count</span>: 2</p>
+              <p><span class="label">Contents Count</span>: 3</p>
+              <br />
+              <p>
+                <span class="label">Contents Description</span>: <br />1 -
+                Jacket (Single Pocket)<br />2 - Inner-sleeve
+              </p>
+              <br />
+              <p>
+                <span class="label">Goldmine<sup>®</sup> Conditions</span>:
+                <br />Jacket - VG+<br />Disc A/B - VG+<br />Disc C/D - VG+
+              </p>
+              <br />
+              <p><span class="label">Listened</span>: Yes</p>
+              <p>
+                <span class="label">Discogs Release Code</span>:
+                <a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.discogs.com/release/21046597"
+                  >r21046597</a
+                >
+              </p>
+              <p><span class="label">Digitally Downloaded</span>: No</p>
+              <br />
+              <p>
+                Downloads available on<br /><a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.qobuz.com/us-en/album/30-adele/tuzhj8k94jxoc"
+                  >Qobuz</a
+                >
+              </p>
+            </div>
+          </li>
+          <li
+            class="record collapsible-r"
+            role="button"
+            aria-expanded="false"
+            tabindex="0"
+            aria-pressed="false"
+            data-target-id="aboutMeContent-1"
+            id="aboutMeButton-1"
+          >
+            <div class="record-content-wrapper">
+              <div class="img-container" role="none">
+                <img
+                  class="record-img foreground-img"
+                  src="/record-inventory/covers/13893955.avif"
+                  alt="Billie Eilish sits under a red ladder in a yellow room."
+                /><img
+                  class="record-img background-img"
+                  role="presentation"
+                  src="/record-inventory/covers/13893955.avif"
+                />
+              </div>
+              <p class="record-title">
+                dont smile at me<br /><span class="artist">Billie Eilish</span>
+              </p>
+            </div>
+            <div class="content-1" id="aboutMeContent-1" aria-hidden="true">
+              <p><span class="label">Qty</span>: 1</p>
+              <p><span class="label">Disc Color</span>: Black</p>
+              <p><span class="label">Genres</span>: Electronic, Pop</p>
+              <p>
+                <span class="label">Record Labels</span>: Darkroom, Interscope
+                Records
+              </p>
+              <br />
+              <p><span class="label">Disc Count</span>: 1</p>
+              <p><span class="label">Contents Count</span>: 2</p>
+              <br />
+              <p>
+                <span class="label">Contents Description</span>: <br />1 -
+                Jacket (Single Pocket)<br />1 - Inner-sleeve
+              </p>
+              <br />
+              <p>
+                <span class="label">Goldmine<sup>®</sup> Conditions</span>:
+                <br />Jacket - VG+<br />Disc - VG+
+              </p>
+              <br />
+              <p><span class="label">Listened</span>: Yes</p>
+              <p>
+                <span class="label">Discogs Release Code</span>:
+                <a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.discogs.com/release/13893955"
+                  >r13893955</a
+                >
+              </p>
+              <p><span class="label">Digitally Downloaded</span>: No</p>
+              <br />
+              <p>
+                Downloads available on<br /><a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.qobuz.com/us-en/album/dont-smile-at-me-billie-eilish/n796jd6uaf11b"
+                  >Qobuz</a
+                >
+              </p>
+            </div>
+          </li>
+          <li
+            class="record collapsible-r"
+            role="button"
+            aria-expanded="false"
+            tabindex="0"
+            aria-pressed="false"
+            data-target-id="aboutMeContent-2"
+            id="aboutMeButton-2"
+          >
+            <div class="record-content-wrapper">
+              <div class="img-container" role="none">
+                <img
+                  class="record-img foreground-img"
+                  src="/record-inventory/covers/14198724.avif"
+                  alt="Billie Eilish sits on the corner of a white bed in a black room."
+                /><img
+                  class="record-img background-img"
+                  role="presentation"
+                  src="/record-inventory/covers/14198724.avif"
+                />
+              </div>
+              <p class="record-title">
+                WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?<br /><span
+                  class="artist"
+                  >Billie Eilish</span
+                >
+              </p>
+            </div>
+            <div class="content-1" id="aboutMeContent-2" aria-hidden="true">
+              <p><span class="label">Qty</span>: 1</p>
+              <p><span class="label">Disc Color</span>: Apricot</p>
+              <p><span class="label">Genres</span>: Electronic, Pop</p>
+              <p>
+                <span class="label">Record Labels</span>: Darkroom, Interscope
+                Records
+              </p>
+              <br />
+              <p><span class="label">Disc Count</span>: 1</p>
+              <p><span class="label">Contents Count</span>: 2</p>
+              <br />
+              <p>
+                <span class="label">Contents Description</span>: <br />1 -
+                Gatefold Jacket (Single Pocket)<br />1 - Inner-sleeve
+              </p>
+              <br />
+              <p>
+                <span class="label">Goldmine<sup>®</sup> Conditions</span>:
+                <br />Jacket - VG<br />Disc - VG+
+              </p>
+              <br />
+              <p><span class="label">Listened</span>: Yes</p>
+              <p>
+                <span class="label">Discogs Release Code</span>:
+                <a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.discogs.com/release/14198724"
+                  >r14198724</a
+                >
+              </p>
+              <p><span class="label">Digitally Downloaded</span>: No</p>
+              <br />
+              <p>
+                Downloads available on<br /><a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.qobuz.com/us-en/album/when-we-all-fall-asleep-where-do-we-go-billie-eilish/wo456u01fehgc"
+                  >Qobuz</a
+                >
+              </p>
+            </div>
+          </li>
+          <li
+            class="record collapsible-r"
+            role="button"
+            aria-expanded="false"
+            tabindex="0"
+            aria-pressed="false"
+            data-target-id="aboutMeContent-3"
+            id="aboutMeButton-3"
+          >
+            <div class="record-content-wrapper">
+              <div class="img-container" role="none">
+                <img
+                  class="record-img foreground-img"
+                  src="/record-inventory/covers/19677331.avif"
+                  alt="Billie Eilish sits in front of a tan background with her arms crossed."
+                /><img
+                  class="record-img background-img"
+                  role="presentation"
+                  src="/record-inventory/covers/19677331.avif"
+                />
+              </div>
+              <p class="record-title">
+                Happier Than Ever<span id="explicit" class="label"></span
+                ><br /><span class="artist">Billie Eilish</span>
+              </p>
+            </div>
+            <div class="content-1" id="aboutMeContent-3" aria-hidden="true">
+              <p><span class="label">Qty</span>: 1</p>
+              <p><span class="label">Disc Color</span>: Pale Blue</p>
+              <p><span class="label">Genre</span>: Pop</p>
+              <p>
+                <span class="label">Record Labels</span>: Darkroom, Interscope
+                Records
+              </p>
+              <br />
+              <p><span class="label">Disc Count</span>: 2</p>
+              <p><span class="label">Contents Count</span>: 4</p>
+              <br />
+              <p>
+                <span class="label">Contents Description</span>: <br />1 -
+                Gatefold Jacket (Double Pocket)<br />2 - Inner-sleeve<br />1 -
+                Poster
+              </p>
+              <br />
+              <p>
+                <span class="label">Goldmine<sup>®</sup> Conditions</span>:
+                <br />Jacket - VG+<br />Disc A/B - NM<br />Disc C/D - NM
+              </p>
+              <br />
+              <p><span class="label">Listened</span>: Yes</p>
+              <p>
+                <span class="label">Discogs Release Code</span>:
+                <a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.discogs.com/release/19677331"
+                  >r19677331</a
+                >
+              </p>
+              <p><span class="label">Digitally Downloaded</span>: No</p>
+              <br />
+              <p>
+                Downloads available on<br /><a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://store.billieeilish.com/products/happier-than-ever-digital-album"
+                  >Artist Website (MP3)</a
+                ><br /><a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.qobuz.com/us-en/album/happier-than-ever-explicit-billie-eilish/vewzc8hmoqc8a"
+                  >Qobuz</a
+                >
+              </p>
+            </div>
+          </li>
+          <li
+            class="record collapsible-r"
+            role="button"
+            aria-expanded="false"
+            tabindex="0"
+            aria-pressed="false"
+            data-target-id="aboutMeContent-4"
+            id="aboutMeButton-4"
+          >
+            <div class="record-content-wrapper">
+              <div class="img-container" role="none">
+                <img
+                  class="record-img foreground-img"
+                  src="/record-inventory/covers/30693268.avif"
+                  alt="Billie Eilish lies floating in a pool of water. An opened white door lays upon the water's surface above her."
+                /><img
+                  class="record-img background-img"
+                  role="presentation"
+                  src="/record-inventory/covers/30693268.avif"
+                />
+              </div>
+              <p class="record-title">
+                HIT ME HARD AND SOFT<br /><span class="artist"
+                  >Billie Eilish</span
+                >
+              </p>
+            </div>
+            <div class="content-1" id="aboutMeContent-4" aria-hidden="true">
+              <p><span class="label">Qty</span>: 1</p>
+              <p><span class="label">Disc Color</span>: Red</p>
+              <p><span class="label">Genres</span>: Electronic, Pop</p>
+              <p>
+                <span class="label">Record Labels</span>: Darkroom, Interscope
+                Records
+              </p>
+              <br />
+              <p><span class="label">Disc Count</span>: 1</p>
+              <p><span class="label">Contents Count</span>: 4</p>
+              <br />
+              <p>
+                <span class="label">Contents Description</span>: <br />1 -
+                Gatefold Jacket (Single Pocket)<br />1 - Inner-sleeve<br />1 -
+                Outer-sleeve<br />1 - Hype Sticker
+              </p>
+              <br />
+              <p>
+                <span class="label">Goldmine<sup>®</sup> Conditions</span>:
+                <br />Jacket - VG+<br />Disc - VG+
+              </p>
+              <br />
+              <p><span class="label">Listened</span>: Yes</p>
+              <p>
+                <span class="label">Discogs Release Code</span>:
+                <a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.discogs.com/release/30693268"
+                  >r30693268</a
+                >
+              </p>
+              <p>
+                <span class="label">Digitally Downloaded</span>:
+                <a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://drive.proton.me/urls/ZD4BWPYJKR#SL8crwNBgdFF"
+                  >Yes</a
+                >
+              </p>
+              <br />
+              <p>
+                Downloads available on<br /><a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://store.billieeilish.com/collections/hit-me-hard-and-soft-music/products/hit-me-hard-and-soft-exclusive-digital-album-with-all-isolated-vocals"
+                  >Artist Website (MP3)</a
+                ><br /><a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.qobuz.com/us-en/album/hit-me-hard-and-soft-billie-eilish/gvcirtodd95kc"
+                  >Qobuz</a
+                >
+              </p>
+            </div>
+          </li>
+          <li
+            class="record collapsible-r"
+            role="button"
+            aria-expanded="false"
+            tabindex="0"
+            aria-pressed="false"
+            data-target-id="aboutMeContent-5"
+            id="aboutMeButton-5"
+          >
+            <div class="record-content-wrapper">
+              <div class="img-container" role="none">
+                <img
+                  class="record-img foreground-img"
+                  src="/record-inventory/covers/23683412.avif"
+                  alt="Conan Gray lies in a heart-shaped pile of red roses on a black floor."
+                /><img
+                  class="record-img background-img"
+                  role="presentation"
+                  src="/record-inventory/covers/23683412.avif"
+                />
+              </div>
+              <p class="record-title">
+                Superache<span id="explicit" class="label"></span><br /><span
+                  class="artist"
+                  >Conan Gray</span
+                >
+              </p>
+            </div>
+            <div class="content-1" id="aboutMeContent-5" aria-hidden="true">
+              <p><span class="label">Qty</span>: 1</p>
+              <p><span class="label">Disc Color</span>: Ruby Red</p>
+              <p><span class="label">Genre</span>: Pop</p>
+              <p><span class="label">Record Label</span>: Republic Records</p>
+              <br />
+              <p><span class="label">Disc Count</span>: 1</p>
+              <p><span class="label">Contents Count</span>: 14</p>
+              <br />
+              <p>
+                <span class="label">Contents Description</span>: <br />1 -
+                Jacket (Single Pocket)<br />1 - Inner-sleeve<br />2 - Poster<br />1
+                - Envelope<br />4 - Album Photo<br />4 - Song Letter<br />1 -
+                Hype Sticker
+              </p>
+              <br />
+              <p>
+                <span class="label">Goldmine<sup>®</sup> Conditions</span>:
+                <br />Jacket - VG<br />Disc - VG+
+              </p>
+              <br />
+              <p><span class="label">Listened</span>: Yes</p>
+              <p>
+                <span class="label">Discogs Release Code</span>:
+                <a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.discogs.com/release/23683412"
+                  >r23683412</a
+                >
+              </p>
+              <p><span class="label">Digitally Downloaded</span>: No</p>
+              <br />
+              <p>
+                Downloads available on<br /><a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://shop.conangray.com/products/superache-digital-album"
+                  >Artist Website (MP3)</a
+                ><br /><a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.qobuz.com/us-en/album/superache-conan-gray/enqrpjtn03sra"
+                  >Qobuz</a
+                >
+              </p>
+            </div>
+          </li>
+          <li
+            class="record collapsible-r"
+            role="button"
+            aria-expanded="false"
+            tabindex="0"
+            aria-pressed="false"
+            data-target-id="aboutMeContent-6"
+            id="aboutMeButton-6"
+          >
+            <div class="record-content-wrapper">
+              <div class="img-container" role="none">
+                <img
+                  class="record-img foreground-img"
+                  src="/record-inventory/covers/28830886.avif"
+                  alt="Noah Kahan stands in the background of a barnyard setting. One German Shepherd sits beside Noah while the other German Shepherd runs towards the foreground."
+                /><img
+                  class="record-img background-img"
+                  role="presentation"
+                  src="/record-inventory/covers/28830886.avif"
+                />
+              </div>
+              <p class="record-title">
+                Stick Season<span id="explicit" class="label"></span><br /><span
+                  class="artist"
+                  >Noah Kahan</span
+                >
+              </p>
+            </div>
+            <div class="content-1" id="aboutMeContent-6" aria-hidden="true">
+              <p><span class="label">Qty</span>: 1</p>
+              <p><span class="label">Disc Color</span>: Black</p>
+              <p>
+                <span class="label">Genres</span>: Rock, Pop, Folk, World,
+                Country
+              </p>
+              <p>
+                <span class="label">Record Labels</span>: Mercury, Republic
+                Records
+              </p>
+              <br />
+              <p><span class="label">Disc Count</span>: 2</p>
+              <p><span class="label">Contents Count</span>: 5</p>
+              <br />
+              <p>
+                <span class="label">Contents Description</span>: <br />1 -
+                Gatefold Jacket (Double Pocket)<br />2 - Inner-sleeve<br />1 -
+                Poster<br />1 - Hype Sticker
+              </p>
+              <br />
+              <p>
+                <span class="label">Goldmine<sup>®</sup> Conditions</span>:
+                <br />Jacket - VG+<br />Disc A/B - VG+<br />Disc C/D - VG+
+              </p>
+              <br />
+              <p><span class="label">Listened</span>: Yes</p>
+              <p>
+                <span class="label">Discogs Release Code</span>:
+                <a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.discogs.com/release/28830886"
+                  >r28830886</a
+                >
+              </p>
+              <p><span class="label">Digitally Downloaded</span>: No</p>
+              <br />
+              <p>
+                Downloads available on<br /><a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.qobuz.com/us-en/album/stick-season-noah-kahan/p87zu4urgi2tb"
+                  >Qobuz</a
+                >
+              </p>
+            </div>
+          </li>
+          <li
+            class="record collapsible-r"
+            role="button"
+            aria-expanded="false"
+            tabindex="0"
+            aria-pressed="false"
+            data-target-id="aboutMeContent-7"
+            id="aboutMeButton-7"
+          >
+            <div class="record-content-wrapper">
+              <div class="img-container" role="none">
+                <img
+                  class="record-img foreground-img"
+                  src="/record-inventory/covers/10123738.avif"
+                  alt="Khalid stands in front of a mountainous landscape. The sky is clear and blue."
+                /><img
+                  class="record-img background-img"
+                  role="presentation"
+                  src="/record-inventory/covers/10123738.avif"
+                />
+              </div>
+              <p class="record-title">
+                American Teen<span id="explicit" class="label"></span
+                ><br /><span class="artist">Khalid</span>
+              </p>
+            </div>
+            <div class="content-1" id="aboutMeContent-7" aria-hidden="true">
+              <p><span class="label">Qty</span>: 1</p>
+              <p><span class="label">Disc Color</span>: Black</p>
+              <p><span class="label">Genre</span>: Funk / Soul</p>
+              <p>
+                <span class="label">Record Labels</span>: RCA Records, Right
+                Hand Music Group
+              </p>
+              <br />
+              <p><span class="label">Disc Count</span>: 2</p>
+              <p><span class="label">Contents Count</span>: 4</p>
+              <br />
+              <p>
+                <span class="label">Contents Description</span>: <br />1 -
+                Gatefold Jacket (Double Pocket)<br />2 - Inner-sleeve<br />1 -
+                Digital Download Slip (Inactive)
+              </p>
+              <br />
+              <p>
+                <span class="label">Goldmine<sup>®</sup> Conditions</span>:
+                <br />Jacket - VG+<br />Disc One/Two - VG+<br />Disc Three/Four
+                - VG+
+              </p>
+              <br />
+              <p><span class="label">Listened</span>: Yes</p>
+              <p>
+                <span class="label">Discogs Release Code</span>:
+                <a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.discogs.com/release/10123738"
+                  >r10123738</a
+                >
+              </p>
+              <p><span class="label">Digitally Downloaded</span>: No</p>
+              <br />
+              <p>
+                Downloads available on<br /><a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.qobuz.com/us-en/album/american-teen-khalid/0886446309347"
+                  >Qobuz</a
+                >
+              </p>
+            </div>
+          </li>
+          <li
+            class="record collapsible-r"
+            role="button"
+            aria-expanded="false"
+            tabindex="0"
+            aria-pressed="false"
+            data-target-id="aboutMeContent-8"
+            id="aboutMeButton-8"
+          >
+            <div class="record-content-wrapper">
+              <div class="img-container" role="none">
+                <img
+                  class="record-img foreground-img"
+                  src="/record-inventory/covers/13693928.avif"
+                  alt="Khalid stands on top of a van in front of a desert landscape in the sunset sky."
+                /><img
+                  class="record-img background-img"
+                  role="presentation"
+                  src="/record-inventory/covers/13693928.avif"
+                />
+              </div>
+              <p class="record-title">
+                Free Spirit<span id="explicit" class="label"></span><br /><span
+                  class="artist"
+                  >Khalid</span
+                >
+              </p>
+            </div>
+            <div class="content-1" id="aboutMeContent-8" aria-hidden="true">
+              <p><span class="label">Qty</span>: 1</p>
+              <p><span class="label">Disc Color</span>: Black</p>
+              <p><span class="label">Genre</span>: Funk / Soul</p>
+              <p>
+                <span class="label">Record Labels</span>: RCA Records, Right
+                Hand Music Group
+              </p>
+              <br />
+              <p><span class="label">Disc Count</span>: 2</p>
+              <p><span class="label">Contents Count</span>: 5</p>
+              <br />
+              <p>
+                <span class="label">Contents Description</span>: <br />1 -
+                Gatefold Jacket (Double Pocket)<br />2 - Inner-sleeve<br />1 -
+                Poster<br />1 - Digital Download Slip (Inactive)
+              </p>
+              <br />
+              <p>
+                <span class="label">Goldmine<sup>®</sup> Conditions</span>:
+                <br />Jacket - VG+<br />Disc One/Two - VG+<br />Disc Three/Four
+                - VG+
+              </p>
+              <br />
+              <p><span class="label">Listened</span>: Yes</p>
+              <p>
+                <span class="label">Discogs Release Code</span>:
+                <a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.discogs.com/release/13693928"
+                  >r13693928</a
+                >
+              </p>
+              <p><span class="label">Digitally Downloaded</span>: No</p>
+              <br />
+              <p>
+                Downloads available on<br /><a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.qobuz.com/us-en/album/free-spirit-khalid/f06uhxxw9omba"
+                  >Qobuz</a
+                >
+              </p>
+            </div>
+          </li>
+          <li
+            class="record collapsible-r"
+            role="button"
+            aria-expanded="false"
+            tabindex="0"
+            aria-pressed="false"
+            data-target-id="aboutMeContent-9"
+            id="aboutMeButton-9"
+          >
+            <div class="record-content-wrapper">
+              <div class="img-container" role="none">
+                <img
+                  class="record-img foreground-img"
+                  src="/record-inventory/covers/10559651.avif"
+                  alt="Kendrick Lamar stands in front of a maroon brick wall wearing a white t-shirt."
+                /><img
+                  class="record-img background-img"
+                  role="presentation"
+                  src="/record-inventory/covers/10559651.avif"
+                />
+              </div>
+              <p class="record-title">
+                DAMN.<span id="explicit" class="label"></span><br /><span
+                  class="artist"
+                  >Kendrick Lamar</span
+                >
+              </p>
+            </div>
+            <div class="content-1" id="aboutMeContent-9" aria-hidden="true">
+              <p><span class="label">Qty</span>: 1</p>
+              <p><span class="label">Disc Color</span>: Black</p>
+              <p><span class="label">Genre</span>: Hip Hop</p>
+              <p>
+                <span class="label">Record Labels</span>: Aftermath, Interscope
+                Records, Top Dawg Entertainment
+              </p>
+              <br />
+              <p><span class="label">Disc Count</span>: 2</p>
+              <p><span class="label">Contents Count</span>: 3</p>
+              <br />
+              <p>
+                <span class="label">Contents Description</span>: <br />1 -
+                Gatefold Jacket (Double Pocket)<br />2 - Inner-sleeve
+              </p>
+              <br />
+              <p>
+                <span class="label">Goldmine<sup>®</sup> Conditions</span>:
+                <br />Jacket - VG<br />Disc A/B - VG+<br />Disc C/D - VG+
+              </p>
+              <br />
+              <p><span class="label">Listened</span>: Yes</p>
+              <p>
+                <span class="label">Discogs Release Code</span>:
+                <a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.discogs.com/release/10559651"
+                  >r10559651</a
+                >
+              </p>
+              <p><span class="label">Digitally Downloaded</span>: No</p>
+              <br />
+              <p>
+                Downloads available on<br /><a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.qobuz.com/us-en/album/damn-kendrick-lamar/0060255760871"
+                  >Qobuz</a
+                >
+              </p>
+            </div>
+          </li>
+          <li
+            class="record collapsible-r"
+            role="button"
+            aria-expanded="false"
+            tabindex="0"
+            aria-pressed="false"
+            data-target-id="aboutMeContent-10"
+            id="aboutMeButton-10"
+          >
+            <div class="record-content-wrapper">
+              <div class="img-container" role="none">
+                <img
+                  class="record-img foreground-img"
+                  src="/record-inventory/covers/10469963.avif"
+                  alt="Stylized golden text spells out 'Stoney' on a brown background."
+                /><img
+                  class="record-img background-img"
+                  role="presentation"
+                  src="/record-inventory/covers/10469963.avif"
+                />
+              </div>
+              <p class="record-title">
+                Stoney<span id="explicit" class="label"></span><br /><span
+                  class="artist"
+                  >Post Malone</span
+                >
+              </p>
+            </div>
+            <div class="content-1" id="aboutMeContent-10" aria-hidden="true">
+              <p><span class="label">Qty</span>: 1</p>
+              <p><span class="label">Disc Color</span>: Orange</p>
+              <p><span class="label">Genre</span>: Hip Hop</p>
+              <p><span class="label">Record Label</span>: Republic Records</p>
+              <br />
+              <p><span class="label">Disc Count</span>: 2</p>
+              <p><span class="label">Contents Count</span>: 3</p>
+              <br />
+              <p>
+                <span class="label">Contents Description</span>: <br />1 -
+                Gatefold Jacket (Double Pocket)<br />2 - Inner-sleeve
+              </p>
+              <br />
+              <p>
+                <span class="label">Goldmine<sup>®</sup> Conditions</span>:
+                <br />Jacket - VG+<br />Disc A/B - VG+<br />Disc C/D - VG+
+              </p>
+              <br />
+              <p><span class="label">Listened</span>: Yes</p>
+              <p>
+                <span class="label">Discogs Release Code</span>:
+                <a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.discogs.com/release/10469963"
+                  >r10469963</a
+                >
+              </p>
+              <p><span class="label">Digitally Downloaded</span>: No</p>
+              <br />
+              <p>
+                Downloads available on<br /><a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://shop.republicrecords.com/collections/post-malone/products/post-malone-stoney-digital-album"
+                  >Artist Website (MP3)</a
+                ><br /><a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.qobuz.com/us-en/album/stoney-post-malone/0060255726179"
+                  >Qobuz</a
+                >
+              </p>
+            </div>
+          </li>
+          <li
+            class="record collapsible-r"
+            role="button"
+            aria-expanded="false"
+            tabindex="0"
+            aria-pressed="false"
+            data-target-id="aboutMeContent-11"
+            id="aboutMeButton-11"
+          >
+            <div class="record-content-wrapper">
+              <div class="img-container" role="none">
+                <img
+                  class="record-img foreground-img"
+                  src="/record-inventory/covers/12705859.avif"
+                  alt="Barbed wire digs inside the corners of the left eye of a face."
+                /><img
+                  class="record-img background-img"
+                  role="presentation"
+                  src="/record-inventory/covers/12705859.avif"
+                />
+              </div>
+              <p class="record-title">
+                beerbongs &amp; bentleys<span id="explicit" class="label"></span
+                ><br /><span class="artist">Post Malone</span>
+              </p>
+            </div>
+            <div class="content-1" id="aboutMeContent-11" aria-hidden="true">
+              <p><span class="label">Qty</span>: 1</p>
+              <p><span class="label">Disc Color</span>: Clear</p>
+              <p><span class="label">Genres</span>: Hip Hop, Rock, Pop</p>
+              <p><span class="label">Record Label</span>: Republic Records</p>
+              <br />
+              <p><span class="label">Disc Count</span>: 2</p>
+              <p><span class="label">Contents Count</span>: 5</p>
+              <br />
+              <p>
+                <span class="label">Contents Description</span>: <br />1 -
+                Gatefold Jacket (Double Pocket)<br />2 - Inner-sleeve<br />2 -
+                Double-sided Artwork Slip
+              </p>
+              <br />
+              <p>
+                <span class="label">Goldmine<sup>®</sup> Conditions</span>:
+                <br />Jacket - VG<br />Disc A/B - VG+<br />Disc C/D - VG+
+              </p>
+              <br />
+              <p><span class="label">Listened</span>: Yes</p>
+              <p>
+                <span class="label">Discogs Release Code</span>:
+                <a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.discogs.com/release/12705859"
+                  >r12705859</a
+                >
+              </p>
+              <p><span class="label">Digitally Downloaded</span>: No</p>
+              <br />
+              <p>
+                Downloads available on<br /><a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://shop.republicrecords.com/products/post-malone-beerbongs-bentleys-digital-album"
+                  >Artist Website (MP3)</a
+                ><br /><a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.qobuz.com/us-en/album/beerbongs-bentleys-post-malone/mb0zgu7w885cc"
+                  >Qobuz</a
+                >
+              </p>
+            </div>
+          </li>
+          <li
+            class="record collapsible-r"
+            role="button"
+            aria-expanded="false"
+            tabindex="0"
+            aria-pressed="false"
+            data-target-id="aboutMeContent-12"
+            id="aboutMeButton-12"
+          >
+            <div class="record-content-wrapper">
+              <div class="img-container" role="none">
+                <img
+                  class="record-img foreground-img"
+                  src="/record-inventory/covers/15522170.avif"
+                  alt="Post Malone turns his back against the viewer wearing a black jacket and pants. He stands inside a mural with bones and a sword beside him."
+                /><img
+                  class="record-img background-img"
+                  role="presentation"
+                  src="/record-inventory/covers/15522170.avif"
+                />
+              </div>
+              <p class="record-title">
+                Hollywood's Bleeding<span id="explicit" class="label"></span
+                ><br /><span class="artist">Post Malone</span>
+              </p>
+            </div>
+            <div class="content-1" id="aboutMeContent-12" aria-hidden="true">
+              <p><span class="label">Qty</span>: 1</p>
+              <p><span class="label">Disc Color</span>: Lavender</p>
+              <p><span class="label">Genres</span>: Hip Hop, Rock, Pop</p>
+              <p><span class="label">Record Label</span>: Republic Records</p>
+              <br />
+              <p><span class="label">Disc Count</span>: 2</p>
+              <p><span class="label">Contents Count</span>: 5</p>
+              <br />
+              <p>
+                <span class="label">Contents Description</span>: <br />1 -
+                Gatefold Jacket (Double Pocket)<br />2 - Inner-sleeve<br />2 -
+                Photo Album Booklet
+              </p>
+              <br />
+              <p>
+                <span class="label">Goldmine<sup>®</sup> Conditions</span>:
+                <br />Jacket - VG<br />Disc A/B - VG+<br />Disc C/D - VG+
+              </p>
+              <br />
+              <p><span class="label">Listened</span>: Yes</p>
+              <p>
+                <span class="label">Discogs Release Code</span>:
+                <a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.discogs.com/release/15522170"
+                  >r15522170</a
+                >
+              </p>
+              <p><span class="label">Digitally Downloaded</span>: No</p>
+              <br />
+              <p>
+                Downloads available on<br /><a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://shop.republicrecords.com/collections/digital-music/products/post-malone-hollywoods-bleeding-digital-album"
+                  >Artist Website (MP3)</a
+                ><br /><a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.qobuz.com/us-en/album/hollywoods-bleeding-post-malone/jgjvoqpvrvngc"
+                  >Qobuz</a
+                >
+              </p>
+            </div>
+          </li>
+          <li
+            class="record collapsible-r"
+            role="button"
+            aria-expanded="false"
+            tabindex="0"
+            aria-pressed="false"
+            data-target-id="aboutMeContent-13"
+            id="aboutMeButton-13"
+          >
+            <div class="record-content-wrapper">
+              <div class="img-container" role="none">
+                <img
+                  class="record-img foreground-img"
+                  src="/record-inventory/covers/7773820.avif"
+                  alt="Melanie Martinez rests upon a cloud. Paper tears fall from her eyes onto a paper village."
+                /><img
+                  class="record-img background-img"
+                  role="presentation"
+                  src="/record-inventory/covers/7773820.avif"
+                />
+              </div>
+              <p class="record-title">
+                Cry Baby<span id="explicit" class="label"></span><br /><span
+                  class="artist"
+                  >Melanie Martinez</span
+                >
+              </p>
+            </div>
+            <div class="content-1" id="aboutMeContent-13" aria-hidden="true">
+              <p><span class="label">Qty</span>: 1</p>
+              <p><span class="label">Disc Color</span>: Black</p>
+              <p><span class="label">Genre</span>: Pop</p>
+              <p><span class="label">Record Label</span>: Atlantic</p>
+              <br />
+              <p><span class="label">Disc Count</span>: 1</p>
+              <p><span class="label">Contents Count</span>: 4</p>
+              <br />
+              <p>
+                <span class="label">Contents Description</span>: <br />1 -
+                Gatefold Jacket (Double Pocket)<br />1 - Inner-sleeve<br />1 -
+                Song Info Slip<br />1 - Story Booklet
+              </p>
+              <br />
+              <p>
+                <span class="label">Goldmine<sup>®</sup> Conditions</span>:
+                <br />Jacket - VG+<br />Disc - VG+
+              </p>
+              <br />
+              <p><span class="label">Listened</span>: Yes</p>
+              <p>
+                <span class="label">Discogs Release Code</span>:
+                <a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.discogs.com/release/7773820"
+                  >r7773820</a
+                >
+              </p>
+              <p><span class="label">Digitally Downloaded</span>: No</p>
+              <br />
+              <p>
+                Downloads available on<br /><a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.qobuz.com/us-en/album/cry-baby-melanie-martinez/0075679921369"
+                  >Qobuz</a
+                >
+              </p>
+            </div>
+          </li>
+          <li
+            class="record collapsible-r"
+            role="button"
+            aria-expanded="false"
+            tabindex="0"
+            aria-pressed="false"
+            data-target-id="aboutMeContent-14"
+            id="aboutMeButton-14"
+          >
+            <div class="record-content-wrapper">
+              <div class="img-container" role="none">
+                <img
+                  class="record-img foreground-img"
+                  src="/record-inventory/covers/25110724.avif"
+                  alt="The silhouette of two overlapping hands presents a mountainous landscape. The sky fades between gold, blue, and green hues."
+                /><img
+                  class="record-img background-img"
+                  role="presentation"
+                  src="/record-inventory/covers/25110724.avif"
+                />
+              </div>
+              <p class="record-title">
+                A Son's Path / Giantess Of Ironwood (Music From God Of War
+                Ragnarök)<br /><span class="artist">Bear McCreary</span>
+              </p>
+            </div>
+            <div class="content-1" id="aboutMeContent-14" aria-hidden="true">
+              <p><span class="label">Qty</span>: 1</p>
+              <p><span class="label">Disc Color</span>: Green Transparent</p>
+              <p>
+                <span class="label">Genres</span>: Classical, Stage &amp; Screen
+              </p>
+              <p>
+                <span class="label">Record Label</span>: Sony Interactive
+                Entertainment LLC
+              </p>
+              <br />
+              <p><span class="label">Disc Count</span>: 1</p>
+              <p><span class="label">Contents Count</span>: 2</p>
+              <br />
+              <p>
+                <span class="label">Contents Description</span>: <br />1 -
+                Jacket (Single Pocket)<br />1 - Inner-sleeve
+              </p>
+              <br />
+              <p>
+                <span class="label">Goldmine<sup>®</sup> Conditions</span>:
+                <br />Jacket - NM<br />Disc - NM
+              </p>
+              <br />
+              <p><span class="label">Listened</span>: Yes</p>
+              <p>
+                <span class="label">Discogs Release Code</span>:
+                <a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.discogs.com/release/25110724"
+                  >r25110724</a
+                >
+              </p>
+              <p><span class="label">Digitally Downloaded</span>: No</p>
+              <br />
+              <p>
+                Downloads available on<br /><a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.qobuz.com/us-en/album/god-of-war-ragnarok-original-soundtrack-bear-mccreary/nk0xepbhgucwb"
+                  >Qobuz</a
+                >
+              </p>
+            </div>
+          </li>
+          <li
+            class="record collapsible-r"
+            role="button"
+            aria-expanded="false"
+            tabindex="0"
+            aria-pressed="false"
+            data-target-id="aboutMeContent-15"
+            id="aboutMeButton-15"
+          >
+            <div class="record-content-wrapper">
+              <div class="img-container" role="none">
+                <img
+                  class="record-img foreground-img"
+                  src="/record-inventory/covers/23011151.avif"
+                  alt="Olivia Rodrigo's face is covered in stickers. She sticks out her tongue which has stickers spelling out 'SOUR'."
+                /><img
+                  class="record-img background-img"
+                  role="presentation"
+                  src="/record-inventory/covers/23011151.avif"
+                />
+              </div>
+              <p class="record-title">
+                SOUR<span id="explicit" class="label"></span><br /><span
+                  class="artist"
+                  >Olivia Rodrigo</span
+                >
+              </p>
+            </div>
+            <div class="content-1" id="aboutMeContent-15" aria-hidden="true">
+              <p><span class="label">Qty</span>: 1</p>
+              <p><span class="label">Disc Color</span>: Black</p>
+              <p><span class="label">Genres</span>: Rock, Pop</p>
+              <p><span class="label">Record Label</span>: Geffen Records</p>
+              <br />
+              <p><span class="label">Disc Count</span>: 1</p>
+              <p><span class="label">Contents Count</span>: 3</p>
+              <br />
+              <p>
+                <span class="label">Contents Description</span>: <br />1 -
+                Gatefold Jacket (Single Pocket)<br />1 - Inner-sleeve<br />1 -
+                Hype Sticker
+              </p>
+              <br />
+              <p>
+                <span class="label">Goldmine<sup>®</sup> Conditions</span>:
+                <br />Jacket - VG+<br />Disc - VG+
+              </p>
+              <br />
+              <p><span class="label">Listened</span>: Yes</p>
+              <p>
+                <span class="label">Discogs Release Code</span>:
+                <a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.discogs.com/release/23011151"
+                  >r23011151</a
+                >
+              </p>
+              <p><span class="label">Digitally Downloaded</span>: No</p>
+              <br />
+              <p>
+                Downloads available on<br /><a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://shopau.oliviarodrigo.com/collections/au/products/sour-digital-album"
+                  >Artist Website (MP3 [AU Only])</a
+                ><br /><a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.qobuz.com/us-en/album/sour-olivia-rodrigo/pqbbikwu2ljnb"
+                  >Qobuz</a
+                >
+              </p>
+            </div>
+          </li>
+          <li
+            class="record collapsible-r"
+            role="button"
+            aria-expanded="false"
+            tabindex="0"
+            aria-pressed="false"
+            data-target-id="aboutMeContent-16"
+            id="aboutMeButton-16"
+          >
+            <div class="record-content-wrapper">
+              <div class="img-container" role="none">
+                <img
+                  class="record-img foreground-img"
+                  src="/record-inventory/covers/27940287.avif"
+                  alt="Olivia Rodrigo lies on a purple floor. She bites the tip of her right thumb. Rings around her right hand spell out 'GUTS'."
+                /><img
+                  class="record-img background-img"
+                  role="presentation"
+                  src="/record-inventory/covers/27940287.avif"
+                />
+              </div>
+              <p class="record-title">
+                GUTS<span id="explicit" class="label"></span><br /><span
+                  class="artist"
+                  >Olivia Rodrigo</span
+                >
+              </p>
+            </div>
+            <div class="content-1" id="aboutMeContent-16" aria-hidden="true">
+              <p><span class="label">Qty</span>: 1</p>
+              <p><span class="label">Disc Color</span>: Black</p>
+              <p><span class="label">Genres</span>: Rock, Pop</p>
+              <p><span class="label">Record Label</span>: Geffen Records</p>
+              <br />
+              <p><span class="label">Disc Count</span>: 1</p>
+              <p><span class="label">Contents Count</span>: 2</p>
+              <br />
+              <p>
+                <span class="label">Contents Description</span>: <br />1 -
+                Gatefold Jacket (Single Pocket)<br />1 - Inner-sleeve
+              </p>
+              <br />
+              <p>
+                <span class="label">Goldmine<sup>®</sup> Conditions</span>:
+                <br />Jacket - VG+<br />Disc - VG+
+              </p>
+              <br />
+              <p><span class="label">Listened</span>: Yes</p>
+              <p>
+                <span class="label">Discogs Release Code</span>:
+                <a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.discogs.com/release/27940287"
+                  >r27940287</a
+                >
+              </p>
+              <p><span class="label">Digitally Downloaded</span>: No</p>
+              <br />
+              <p>
+                Downloads available on<br /><a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://shopau.oliviarodrigo.com/collections/music/products/guts-spilled-deluxe-digital-album"
+                  >Artist Website (MP3 [AU Only])</a
+                ><br /><a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.qobuz.com/us-en/album/guts-spilled-olivia-rodrigo/yzqn1wq2hlksc"
+                  >Qobuz</a
+                >
+              </p>
+            </div>
+          </li>
+          <li
+            class="record collapsible-r"
+            role="button"
+            aria-expanded="false"
+            tabindex="0"
+            aria-pressed="false"
+            data-target-id="aboutMeContent-17"
+            id="aboutMeButton-17"
+          >
+            <div class="record-content-wrapper">
+              <div class="img-container" role="none">
+                <img
+                  class="record-img foreground-img"
+                  src="/record-inventory/covers/26128271.avif"
+                  alt="Harry Styles stands on the ceiling of an upside-down furnished room."
+                /><img
+                  class="record-img background-img"
+                  role="presentation"
+                  src="/record-inventory/covers/26128271.avif"
+                />
+              </div>
+              <p class="record-title">
+                Harry's House<br /><span class="artist">Harry Styles</span>
+              </p>
+            </div>
+            <div class="content-1" id="aboutMeContent-17" aria-hidden="true">
+              <p><span class="label">Qty</span>: 1</p>
+              <p><span class="label">Disc Color</span>: Black</p>
+              <p><span class="label">Genres</span>: Rock, Pop</p>
+              <p>
+                <span class="label">Record Labels</span>: Columbia, Erskine
+                Records
+              </p>
+              <br />
+              <p><span class="label">Disc Count</span>: 1</p>
+              <p><span class="label">Contents Count</span>: 4</p>
+              <br />
+              <p>
+                <span class="label">Contents Description</span>: <br />1 -
+                Gatefold Jacket (Double Pocket)<br />1 - Inner-sleeve<br />1 -
+                Album Photo<br />1 - Song Lyrics Booklet
+              </p>
+              <br />
+              <p>
+                <span class="label">Goldmine<sup>®</sup> Conditions</span>:
+                <br />Jacket - VG<br />Disc - VG+
+              </p>
+              <br />
+              <p><span class="label">Listened</span>: Yes</p>
+              <p>
+                <span class="label">Discogs Release Code</span>:
+                <a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.discogs.com/release/26128271"
+                  >r26128271</a
+                >
+              </p>
+              <p><span class="label">Digitally Downloaded</span>: No</p>
+              <br />
+              <p>
+                Downloads available on<br /><a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://shopus.hstyles.co.uk/products/harrys-house-digital-download"
+                  >Artist Website (AAC, FLAC)</a
+                ><br /><a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.qobuz.com/us-en/album/harrys-house-harry-styles/kowixpbhn056a"
+                  >Qobuz</a
+                >
+              </p>
+            </div>
+          </li>
+          <li
+            class="record collapsible-r"
+            role="button"
+            aria-expanded="false"
+            tabindex="0"
+            aria-pressed="false"
+            data-target-id="aboutMeContent-18"
+            id="aboutMeButton-18"
+          >
+            <div class="record-content-wrapper">
+              <div class="img-container" role="none">
+                <img
+                  class="record-img foreground-img"
+                  src="/record-inventory/covers/24893972.avif"
+                  alt="Taylor Swift sits against a wooden wall with her left palm on her face. The top and right border of the cover presents the album and track names."
+                /><img
+                  class="record-img background-img"
+                  role="presentation"
+                  src="/record-inventory/covers/24893972.avif"
+                />
+              </div>
+              <p class="record-title">
+                Midnights<span id="explicit" class="label"></span><br /><span
+                  class="artist"
+                  >Taylor Swift</span
+                >
+              </p>
+            </div>
+            <div class="content-1" id="aboutMeContent-18" aria-hidden="true">
+              <p><span class="label">Qty</span>: 1</p>
+              <p><span class="label">Disc Color</span>: Mahogany Marbled</p>
+              <p><span class="label">Genres</span>: Electronic, Pop</p>
+              <p><span class="label">Record Label</span>: Republic Records</p>
+              <br />
+              <p><span class="label">Disc Count</span>: 1</p>
+              <p><span class="label">Contents Count</span>: 3</p>
+              <br />
+              <p>
+                <span class="label">Contents Description</span>: <br />1 -
+                Gatefold Jacket (Double Pocket)<br />1 - Inner-sleeve<br />1 -
+                Song Lyrics Booklet
+              </p>
+              <br />
+              <p>
+                <span class="label">Goldmine<sup>®</sup> Conditions</span>:
+                <br />Jacket - VG+<br />Disc - VG+
+              </p>
+              <br />
+              <p><span class="label">Listened</span>: Yes</p>
+              <p>
+                <span class="label">Discogs Release Code</span>:
+                <a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.discogs.com/release/24893972"
+                  >r24893972</a
+                >
+              </p>
+              <p><span class="label">Digitally Downloaded</span>: No</p>
+              <br />
+              <p>
+                Downloads available on<br /><a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.qobuz.com/us-en/album/midnights-taylor-swift/lfrznf57rq9pa"
+                  >Qobuz</a
+                >
+              </p>
+            </div>
+          </li>
+          <li
+            class="record collapsible-r"
+            role="button"
+            aria-expanded="false"
+            tabindex="0"
+            aria-pressed="false"
+            data-target-id="aboutMeContent-19"
+            id="aboutMeButton-19"
+          >
+            <div class="record-content-wrapper">
+              <div class="img-container" role="none">
+                <img
+                  class="record-img foreground-img"
+                  src="/record-inventory/covers/27139257.avif"
+                  alt="SZA sits on the edge of a diving board in the middle of the water."
+                /><img
+                  class="record-img background-img"
+                  role="presentation"
+                  src="/record-inventory/covers/27139257.avif"
+                />
+              </div>
+              <p class="record-title">
+                SOS<span id="explicit" class="label"></span><br /><span
+                  class="artist"
+                  >SZA</span
+                >
+              </p>
+            </div>
+            <div class="content-1" id="aboutMeContent-19" aria-hidden="true">
+              <p><span class="label">Qty</span>: 1</p>
+              <p><span class="label">Disc Color</span>: Black</p>
+              <p><span class="label">Genre</span>: Funk / Soul</p>
+              <p>
+                <span class="label">Record Labels</span>: RCA, Top Dawg
+                Entertainment
+              </p>
+              <br />
+              <p><span class="label">Disc Count</span>: 2</p>
+              <p><span class="label">Contents Count</span>: 5</p>
+              <br />
+              <p>
+                <span class="label">Contents Description</span>: <br />1 -
+                Jacket (Single Pocket)<br />2 - Inner-sleeve<br />1 - Hype
+                Sticker<br />1 - Double-sided Artwork Slip
+              </p>
+              <br />
+              <p>
+                <span class="label">Goldmine<sup>®</sup> Conditions</span>:
+                <br />Jacket - VG+<br />Disc One/Two - VG+<br />Disc Three/Four
+                - VG+
+              </p>
+              <br />
+              <p><span class="label">Listened</span>: Yes</p>
+              <p>
+                <span class="label">Discogs Release Code</span>:
+                <a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.discogs.com/release/27139257"
+                  >r27139257</a
+                >
+              </p>
+              <p><span class="label">Digitally Downloaded</span>: No</p>
+              <br />
+              <p>
+                Downloads available on<br /><a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://txdxe.com/products/sos"
+                  >Artist Website (MP3, WAV, FLAC)</a
+                ><br /><a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.qobuz.com/us-en/album/sos-sza/ckyh7bv0dt6tb"
+                  >Qobuz</a
+                >
+              </p>
+            </div>
+          </li>
+          <li
+            class="record collapsible-r"
+            role="button"
+            aria-expanded="false"
+            tabindex="0"
+            aria-pressed="false"
+            data-target-id="aboutMeContent-20"
+            id="aboutMeButton-20"
+          >
+            <div class="record-content-wrapper">
+              <div class="img-container" role="none">
+                <img
+                  class="record-img foreground-img"
+                  src="/record-inventory/covers/26364716.avif"
+                  alt="A portrait photo of Kali Uchis wearing a decorative headpiece with butterflies around it."
+                /><img
+                  class="record-img background-img"
+                  role="presentation"
+                  src="/record-inventory/covers/26364716.avif"
+                />
+              </div>
+              <p class="record-title">
+                Red Moon in Venus<span id="explicit" class="label"></span
+                ><br /><span class="artist">Kali Uchis</span>
+              </p>
+            </div>
+            <div class="content-1" id="aboutMeContent-20" aria-hidden="true">
+              <p><span class="label">Qty</span>: 1</p>
+              <p><span class="label">Disc Color</span>: Black</p>
+              <p>
+                <span class="label">Genres</span>: Electronic, Latin, Funk /
+                Soul, Pop
+              </p>
+              <p><span class="label">Record Label</span>: Interscope Records</p>
+              <br />
+              <p><span class="label">Disc Count</span>: 1</p>
+              <p><span class="label">Contents Count</span>: 2</p>
+              <br />
+              <p>
+                <span class="label">Contents Description</span>: <br />1 -
+                Jacket (Single Pocket)<br />1 - Inner-sleeve
+              </p>
+              <br />
+              <p>
+                <span class="label">Goldmine<sup>®</sup> Conditions</span>:
+                <br />Jacket - VG+<br />Disc - VG+
+              </p>
+              <br />
+              <p><span class="label">Listened</span>: Yes</p>
+              <p>
+                <span class="label">Discogs Release Code</span>:
+                <a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.discogs.com/release/26364716"
+                  >r26364716</a
+                >
+              </p>
+              <p><span class="label">Digitally Downloaded</span>: No</p>
+              <br />
+              <p>
+                Downloads available on<br /><a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://shopkaliuchis.com/products/red-moon-in-venus-digital-album"
+                  >Artist Website (MP3)</a
+                ><br /><a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.qobuz.com/us-en/album/red-moon-in-venus-kali-uchis/nh8wmgsf1t4ya"
+                  >Qobuz</a
+                >
+              </p>
+            </div>
+          </li>
+          <li
+            class="record collapsible-r"
+            role="button"
+            aria-expanded="false"
+            tabindex="0"
+            aria-pressed="false"
+            data-target-id="aboutMeContent-21"
+            id="aboutMeButton-21"
+          >
+            <div class="record-content-wrapper">
+              <div class="img-container" role="none">
+                <img
+                  class="record-img foreground-img"
+                  src="/record-inventory/covers/3102547.avif"
+                  alt="A scrap paper artwork of a mountainous landscape. Hues of green, red, cream, and blue radiate throughout the cover."
+                /><img
+                  class="record-img background-img"
+                  role="presentation"
+                  src="/record-inventory/covers/3102547.avif"
+                />
+              </div>
+              <p class="record-title">
+                Young the Giant<br /><span class="artist">Young the Giant</span>
+              </p>
+            </div>
+            <div class="content-1" id="aboutMeContent-21" aria-hidden="true">
+              <p><span class="label">Qty</span>: 1</p>
+              <p><span class="label">Disc Color</span>: Black</p>
+              <p><span class="label">Genres</span>: Rock, Pop</p>
+              <p><span class="label">Record Label</span>: Roadrunner Records</p>
+              <br />
+              <p><span class="label">Disc Count</span>: 2</p>
+              <p><span class="label">Contents Count</span>: 4</p>
+              <br />
+              <p>
+                <span class="label">Contents Description</span>: <br />1 -
+                Jacket (Single Pocket)<br />2 - Inner-sleeve<br />1 -
+                Double-sided Artwork Slip
+              </p>
+              <br />
+              <p>
+                <span class="label">Goldmine<sup>®</sup> Conditions</span>:
+                <br />Jacket - VG<br />Disc A/B - VG+<br />Disc C/D - VG+
+              </p>
+              <br />
+              <p><span class="label">Listened</span>: Yes</p>
+              <p>
+                <span class="label">Discogs Release Code</span>:
+                <a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.discogs.com/release/3102547"
+                  >r3102547</a
+                >
+              </p>
+              <p><span class="label">Digitally Downloaded</span>: No</p>
+              <br />
+              <p>
+                Downloads available on<br /><a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.qobuz.com/us-en/album/young-the-giant-young-the-giant/dhx79zq3t2sbc"
+                  >Qobuz</a
+                >
+              </p>
+            </div>
+          </li>
+          <li
+            class="record collapsible-r"
+            role="button"
+            aria-expanded="false"
+            tabindex="0"
+            aria-pressed="false"
+            data-target-id="aboutMeContent-22"
+            id="aboutMeButton-22"
+          >
+            <div class="record-content-wrapper">
+              <div class="img-container" role="none">
+                <img
+                  class="record-img foreground-img"
+                  src="/record-inventory/covers/393266.avif"
+                  alt="A drawing of a scope aiming at a burning skyscraper."
+                /><img
+                  class="record-img background-img"
+                  role="presentation"
+                  src="/record-inventory/covers/393266.avif"
+                />
+              </div>
+              <p class="record-title">
+                Pyromania<br /><span class="artist">Def Leppard</span>
+              </p>
+            </div>
+            <div class="content-1" id="aboutMeContent-22" aria-hidden="true">
+              <p><span class="label">Qty</span>: 1</p>
+              <p><span class="label">Disc Color</span>: Black</p>
+              <p><span class="label">Genre</span>: Rock</p>
+              <p><span class="label">Record Label</span>: Mercury</p>
+              <br />
+              <p><span class="label">Disc Count</span>: 1</p>
+              <p><span class="label">Contents Count</span>: 2</p>
+              <br />
+              <p>
+                <span class="label">Contents Description</span>: <br />1 -
+                Jacket (Single Pocket)<br />1 - Inner-sleeve
+              </p>
+              <br />
+              <p>
+                <span class="label">Goldmine<sup>®</sup> Conditions</span>:
+                <br />Jacket - F<br />Disc - F
+              </p>
+              <br />
+              <p><span class="label">Listened</span>: Yes</p>
+              <p>
+                <span class="label">Discogs Release Code</span>:
+                <a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.discogs.com/release/393266"
+                  >r393266</a
+                >
+              </p>
+              <p><span class="label">Digitally Downloaded</span>: No</p>
+              <br />
+              <p>
+                Downloads available on<br /><a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.qobuz.com/us-en/album/pyromania-def-leppard/u5pezdh2j0oub"
+                  >Qobuz</a
+                >
+              </p>
+            </div>
+          </li>
+          <li
+            class="record collapsible-r"
+            role="button"
+            aria-expanded="false"
+            tabindex="0"
+            aria-pressed="false"
+            data-target-id="aboutMeContent-23"
+            id="aboutMeButton-23"
+          >
+            <div class="record-content-wrapper">
+              <div class="img-container" role="none">
+                <img
+                  class="record-img foreground-img"
+                  src="/record-inventory/covers/27535197.avif"
+                  alt="Margot Robbie (a.k.a. Barbie) poses lying down against a pink glittered background. The pink background is bordered by a blue sky."
+                /><img
+                  class="record-img background-img"
+                  role="presentation"
+                  src="/record-inventory/covers/27535197.avif"
+                />
+              </div>
+              <p class="record-title">
+                Barbie The Album<br /><span class="artist italic">Various</span>
+              </p>
+            </div>
+            <div class="content-1" id="aboutMeContent-23" aria-hidden="true">
+              <p><span class="label">Qty</span>: 1</p>
+              <p><span class="label">Disc Color</span>: Hot Pink</p>
+              <p>
+                <span class="label">Genres</span>: Electronic, Pop, Stage &amp;
+                Screen
+              </p>
+              <p>
+                <span class="label">Record Labels</span>: Atlantic, WaterTower
+                Music
+              </p>
+              <br />
+              <p><span class="label">Disc Count</span>: 1</p>
+              <p><span class="label">Contents Count</span>: 4</p>
+              <br />
+              <p>
+                <span class="label">Contents Description</span>: <br />1 -
+                Jacket (Single Pocket)<br />1 - Inner-sleeve<br />1 - Poster<br />1
+                - Hype Sticker
+              </p>
+              <br />
+              <p>
+                <span class="label">Goldmine<sup>®</sup> Conditions</span>:
+                <br />Jacket - VG+<br />Disc - VG+
+              </p>
+              <br />
+              <p><span class="label">Listened</span>: Yes</p>
+              <p>
+                <span class="label">Discogs Release Code</span>:
+                <a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.discogs.com/release/27535197"
+                  >r27535197</a
+                >
+              </p>
+              <p><span class="label">Digitally Downloaded</span>: No</p>
+              <br />
+              <p>
+                Downloads available on<br /><a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.qobuz.com/us-en/album/barbie-the-album-various-artists/vt0p2099gflua"
+                  >Qobuz</a
+                >
+              </p>
+            </div>
+          </li>
+          <li
+            class="record collapsible-r"
+            role="button"
+            aria-expanded="false"
+            tabindex="0"
+            aria-pressed="false"
+            data-target-id="aboutMeContent-24"
+            id="aboutMeButton-24"
+          >
+            <div class="record-content-wrapper">
+              <div class="img-container" role="none">
+                <img
+                  class="record-img foreground-img"
+                  src="/record-inventory/covers/11273965.avif"
+                  alt="Four kids on a road with their bikes stare at the monster in the dark clouds."
+                /><img
+                  class="record-img background-img"
+                  role="presentation"
+                  src="/record-inventory/covers/11273965.avif"
+                />
+              </div>
+              <p class="record-title">
+                Stranger Things (Music From The Netflix Original Series)<br /><span
+                  class="artist italic"
+                  >Various</span
+                >
+              </p>
+            </div>
+            <div class="content-1" id="aboutMeContent-24" aria-hidden="true">
+              <p><span class="label">Qty</span>: 1</p>
+              <p><span class="label">Disc Color</span>: Black</p>
+              <p><span class="label">Genres</span>: Rock, Pop</p>
+              <p><span class="label">Record Labels</span>: Legacy, Netflix</p>
+              <br />
+              <p><span class="label">Disc Count</span>: 2</p>
+              <p><span class="label">Contents Count</span>: 5</p>
+              <br />
+              <p>
+                <span class="label">Contents Description</span>: <br />1 -
+                Gatefold Jacket (Double Pocket)<br />2 - Inner-sleeve<br />1 -
+                Logo Photo<br />1 - Mini Season 2 Poster
+              </p>
+              <br />
+              <p>
+                <span class="label">Goldmine<sup>®</sup> Conditions</span>:
+                <br />Jacket - VG<br />Disc A/B - VG+<br />Disc C/D - VG+
+              </p>
+              <br />
+              <p><span class="label">Listened</span>: Yes</p>
+              <p>
+                <span class="label">Discogs Release Code</span>:
+                <a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.discogs.com/release/11273965"
+                  >r11273965</a
+                >
+              </p>
+              <p><span class="label">Digitally Downloaded</span>: N/A</p>
+            </div>
+          </li>
+          <li
+            class="record collapsible-r"
+            role="button"
+            aria-expanded="false"
+            tabindex="0"
+            aria-pressed="false"
+            data-target-id="aboutMeContent-25"
+            id="aboutMeButton-25"
+          >
+            <div class="record-content-wrapper">
+              <div class="img-container" role="none">
+                <img
+                  class="record-img foreground-img"
+                  src="/record-inventory/covers/6469008.avif"
+                  alt="A view of a foggy mountainside with a light beige border around the cover."
+                /><img
+                  class="record-img background-img"
+                  role="presentation"
+                  src="/record-inventory/covers/6469008.avif"
+                />
+              </div>
+              <p class="record-title">
+                Symphony No. 9 "From the New World"<br /><span class="artist"
+                  >Berlin Philharmonic Orchestra, Antonín Dvořák,
+                  <span class="italic">et al.</span></span
+                >
+              </p>
+            </div>
+            <div class="content-1" id="aboutMeContent-25" aria-hidden="true">
+              <p><span class="label">Qty</span>: 1</p>
+              <p><span class="label">Disc Color</span>: Black</p>
+              <p><span class="label">Genre</span>: Classical</p>
+              <p>
+                <span class="label">Record Label</span>: Vinyl Passion Classical
+              </p>
+              <br />
+              <p><span class="label">Disc Count</span>: 1</p>
+              <p><span class="label">Contents Count</span>: 2</p>
+              <br />
+              <p>
+                <span class="label">Contents Description</span>: <br />1 -
+                Jacket (Single Pocket)<br />1 - Inner-sleeve
+              </p>
+              <br />
+              <p>
+                <span class="label">Goldmine<sup>®</sup> Conditions</span>:
+                <br />Jacket - VG<br />Disc - VG+
+              </p>
+              <br />
+              <p><span class="label">Listened</span>: Yes</p>
+              <p>
+                <span class="label">Discogs Release Code</span>:
+                <a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.discogs.com/release/6469008"
+                  >r6469008</a
+                >
+              </p>
+              <p><span class="label">Digitally Downloaded</span>: N/A</p>
+            </div>
+          </li>
+          <li
+            class="record collapsible-r"
+            role="button"
+            aria-expanded="false"
+            tabindex="0"
+            aria-pressed="false"
+            data-target-id="aboutMeContent-26"
+            id="aboutMeButton-26"
+          >
+            <div class="record-content-wrapper">
+              <div class="img-container" role="none">
+                <img
+                  class="record-img foreground-img"
+                  src="/record-inventory/covers/13128709.avif"
+                  alt="George Szell holds his hand toward the foreground blocking the view of his face. The background is a light blue."
+                /><img
+                  class="record-img background-img"
+                  role="presentation"
+                  src="/record-inventory/covers/13128709.avif"
+                />
+              </div>
+              <p class="record-title">
+                George Szell Conducts Beethoven Symphonies 4 &amp; 5<br /><span
+                  class="artist"
+                  >Cleveland Orchestra, Ludwig van Beethoven,
+                  <span class="italic">et al.</span></span
+                >
+              </p>
+            </div>
+            <div class="content-1" id="aboutMeContent-26" aria-hidden="true">
+              <p><span class="label">Qty</span>: 1</p>
+              <p><span class="label">Disc Color</span>: Black</p>
+              <p><span class="label">Genre</span>: Classical</p>
+              <p><span class="label">Record Label</span>: Sony Classical</p>
+              <br />
+              <p><span class="label">Disc Count</span>: 2</p>
+              <p><span class="label">Contents Count</span>: 4</p>
+              <br />
+              <p>
+                <span class="label">Contents Description</span>: <br />1 -
+                Gatefold Jacket (Double Pocket)<br />2 - Inner-sleeve<br />1 -
+                Digital Download Slip (Inactive)
+              </p>
+              <br />
+              <p>
+                <span class="label">Goldmine<sup>®</sup> Conditions</span>:
+                <br />Jacket - VG<br />Disc A/B - VG+<br />Disc C/D - VG+
+              </p>
+              <br />
+              <p><span class="label">Listened</span>: Yes</p>
+              <p>
+                <span class="label">Discogs Release Code</span>:
+                <a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.discogs.com/release/13128709"
+                  >r13128709</a
+                >
+              </p>
+              <p><span class="label">Digitally Downloaded</span>: N/A</p>
+            </div>
+          </li>
+          <li
+            class="record collapsible-r"
+            role="button"
+            aria-expanded="false"
+            tabindex="0"
+            aria-pressed="false"
+            data-target-id="aboutMeContent-27"
+            id="aboutMeButton-27"
+          >
+            <div class="record-content-wrapper">
+              <div class="img-container" role="none">
+                <img
+                  class="record-img foreground-img"
+                  src="/record-inventory/covers/5629297.avif"
+                  alt="A grey background with slits of green, yellow, red, and blue are visible. The cover has the standard Deutsche Grammophon logo."
+                /><img
+                  class="record-img background-img"
+                  role="presentation"
+                  src="/record-inventory/covers/5629297.avif"
+                />
+              </div>
+              <p class="record-title">
+                Recomposed By Max Richter: Vivaldi · The Four Seasons<br /><span
+                  class="artist"
+                  >Konzerthaus Kammerorchester Berlin, Antonio Vivaldi,
+                  <span class="italic">et al.</span></span
+                >
+              </p>
+            </div>
+            <div class="content-1" id="aboutMeContent-27" aria-hidden="true">
+              <p><span class="label">Qty</span>: 1</p>
+              <p><span class="label">Disc Color</span>: Black</p>
+              <p><span class="label">Genres</span>: Electronic, Classical</p>
+              <p>
+                <span class="label">Record Label</span>: Deutsche Grammophon
+              </p>
+              <br />
+              <p><span class="label">Disc Count</span>: 2</p>
+              <p><span class="label">Contents Count</span>: 4</p>
+              <br />
+              <p>
+                <span class="label">Contents Description</span>: <br />1 -
+                Gatefold Jacket (Double Pocket)<br />2 - Inner-sleeve<br />1 -
+                Digital Download Slip (Inactive)
+              </p>
+              <br />
+              <p>
+                <span class="label">Goldmine<sup>®</sup> Conditions</span>:
+                <br />Jacket - VG+<br />Disc A/B - VG+<br />Disc C/D - VG+
+              </p>
+              <br />
+              <p><span class="label">Listened</span>: Yes</p>
+              <p>
+                <span class="label">Discogs Release Code</span>:
+                <a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.discogs.com/release/5629297"
+                  >r5629297</a
+                >
+              </p>
+              <p><span class="label">Digitally Downloaded</span>: No</p>
+              <br />
+              <p>
+                Downloads available on<br /><a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.qobuz.com/us-en/album/recomposed-by-max-richter-vivaldi-the-four-seasons-konzerthaus-kammerorchester-berlin/0002894793305"
+                  >Qobuz</a
+                >
+              </p>
+            </div>
+          </li>
+          <li
+            class="record collapsible-r"
+            role="button"
+            aria-expanded="false"
+            tabindex="0"
+            aria-pressed="false"
+            data-target-id="aboutMeContent-28"
+            id="aboutMeButton-28"
+          >
+            <div class="record-content-wrapper">
+              <div class="img-container" role="none">
+                <img
+                  class="record-img foreground-img"
+                  src="/record-inventory/covers/17084202.avif"
+                  alt="Riccardo Muti stands in front of a black background. His hands together in front of his chin. The cover is surrounded by a red border."
+                /><img
+                  class="record-img background-img"
+                  role="presentation"
+                  src="/record-inventory/covers/17084202.avif"
+                />
+              </div>
+              <p class="record-title">
+                Tchaikovsky Symphony No. 1 in G minor "Winter Dreams"<br /><span
+                  class="artist"
+                  >New Philharmonic Orchestra, Pyotr Ilyich Tchaikovsky,
+                  <span class="italic">et al.</span></span
+                >
+              </p>
+            </div>
+            <div class="content-1" id="aboutMeContent-28" aria-hidden="true">
+              <p><span class="label">Qty</span>: 1</p>
+              <p><span class="label">Disc Color</span>: Black</p>
+              <p><span class="label">Genre</span>: Classical</p>
+              <p>
+                <span class="label">Record Labels</span>: Angel Records, Angel
+                Red Line
+              </p>
+              <br />
+              <p><span class="label">Disc Count</span>: 1</p>
+              <p><span class="label">Contents Count</span>: 2</p>
+              <br />
+              <p>
+                <span class="label">Contents Description</span>: <br />1 -
+                Jacket (Single Pocket)<br />1 - Inner-sleeve
+              </p>
+              <br />
+              <p>
+                <span class="label">Goldmine<sup>®</sup> Conditions</span>:
+                <br />Jacket - G+<br />Disc - VG
+              </p>
+              <br />
+              <p><span class="label">Listened</span>: Yes</p>
+              <p>
+                <span class="label">Discogs Release Code</span>:
+                <a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.discogs.com/release/17084202"
+                  >r17084202</a
+                >
+              </p>
+              <p><span class="label">Digitally Downloaded</span>: N/A</p>
+            </div>
+          </li>
+          <li
+            class="record collapsible-r"
+            role="button"
+            aria-expanded="false"
+            tabindex="0"
+            aria-pressed="false"
+            data-target-id="aboutMeContent-29"
+            id="aboutMeButton-29"
+          >
+            <div class="record-content-wrapper">
+              <div class="img-container" role="none">
+                <img
+                  class="record-img foreground-img"
+                  src="/record-inventory/covers/3905196.avif"
+                  alt="Roger Williams plays the piano in front of a red curtain. Lights beam down on him."
+                /><img
+                  class="record-img background-img"
+                  role="presentation"
+                  src="/record-inventory/covers/3905196.avif"
+                />
+              </div>
+              <p class="record-title">
+                Autumn Leaves The Best of Roger Williams<br /><span
+                  class="artist"
+                  >Roger Williams</span
+                >
+              </p>
+            </div>
+            <div class="content-1" id="aboutMeContent-29" aria-hidden="true">
+              <p><span class="label">Qty</span>: 1</p>
+              <p><span class="label">Disc Color</span>: Black</p>
+              <p><span class="label">Genre</span>: Pop</p>
+              <p><span class="label">Record Label</span>: Reader's Digest</p>
+              <br />
+              <p><span class="label">Disc Count</span>: 8</p>
+              <p><span class="label">Contents Count</span>: 10</p>
+              <br />
+              <p>
+                <span class="label">Contents Description</span>: <br />1 -
+                Outer-jacket Shell<br />1 - Inner-jacket Shell<br />8 -
+                Inner-sleeve
+              </p>
+              <br />
+              <p>
+                <span class="label">Goldmine<sup>®</sup> Conditions</span>:
+                <br />Outer-jacket Shell - VG<br />Inner-jacket Shell - VG<br />Record
+                1 - VG+<br />Record 2 - VG+<br />Record 3 - VG+<br />Record 4 -
+                VG+<br />Record 5 - VG+<br />Record 6 - VG+<br />Record 7 -
+                VG+<br />Record 8 - VG+
+              </p>
+              <br />
+              <p><span class="label">Listened</span>: Yes</p>
+              <p>
+                <span class="label">Discogs Release Code</span>:
+                <a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.discogs.com/release/3905196"
+                  >r3905196</a
+                >
+              </p>
+              <p><span class="label">Digitally Downloaded</span>: N/A</p>
+            </div>
+          </li>
+          <li
+            class="record collapsible-r"
+            role="button"
+            aria-expanded="false"
+            tabindex="0"
+            aria-pressed="false"
+            data-target-id="aboutMeContent-30"
+            id="aboutMeButton-30"
+          >
+            <div class="record-content-wrapper">
+              <div class="img-container" role="none">
+                <img
+                  class="record-img foreground-img"
+                  src="/record-inventory/covers/6034299.avif"
+                  alt="A gold record disc rests on top of red velvet fabric. A white tone-arm rests atop the disc."
+                /><img
+                  class="record-img background-img"
+                  role="presentation"
+                  src="/record-inventory/covers/6034299.avif"
+                />
+              </div>
+              <p class="record-title">
+                23 Great Themes From Great Music<br /><span
+                  class="artist italic"
+                  >Various</span
+                >
+              </p>
+            </div>
+            <div class="content-1" id="aboutMeContent-30" aria-hidden="true">
+              <p><span class="label">Qty</span>: 1</p>
+              <p><span class="label">Disc Color</span>: Black</p>
+              <p><span class="label">Genre</span>: Classical</p>
+              <p>
+                <span class="label">Record Label</span>: Symphonic Treasures
+              </p>
+              <br />
+              <p><span class="label">Disc Count</span>: 1</p>
+              <p><span class="label">Contents Count</span>: 2</p>
+              <br />
+              <p>
+                <span class="label">Contents Description</span>: <br />1 -
+                Jacket (Single Pocket)<br />1 - MIM Article Slip
+              </p>
+              <br />
+              <p>
+                <span class="label">Goldmine<sup>®</sup> Conditions</span>:
+                <br />Jacket - G<br />Disc - VG
+              </p>
+              <br />
+              <p><span class="label">Listened</span>: Yes</p>
+              <p>
+                <span class="label">Discogs Release Code</span>:
+                <a
+                  class="content-link"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  href="https://www.discogs.com/release/6034299"
+                  >r6034299</a
+                >
+              </p>
+              <p><span class="label">Digitally Downloaded</span>: N/A</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+      <section>
+        <ul class="update-grid">
+          <li class="update-card">
+            <div class="update-card-content">
+              <span class="label">Inventory Updated</span><br /><time
+                datetime="2024-12-10"
+                >2024-12-10 UTC</time
+              >
+            </div>
+          </li>
+          <li class="update-card">
+            <div class="update-card-content">
+              <span class="label">Last Inventory Check</span><br /><time
+                datetime="2024-01-18"
+                >2024-01-18 UTC</time
+              >
+            </div>
+          </li>
+          <li class="update-card">
+            <div class="update-card-content">
+              <span class="label">Doc Info Updated</span><br /><time
+                datetime="2024-12-15"
+                >2024-12-15 UTC</time
+              >
+            </div>
+          </li>
+        </ul>
+      </section>
       <section class="bottom-links">
-        <a class="bottom-link" href="/record-handbook/inventory/defs/">Definitions</a>
-        <a class="bottom-link" href="/record-handbook/ ">The Record Handbook</a>
+        <a href="/record-handbook/inventory/defs/" class="bottom-link"
+          >Definitions</a
+        ><a href="/record-handbook/" class="bottom-link">The Record Handbook</a>
       </section>
     </main>
     <footer class="footer">
-      <p>Some URLs may be expired or password protected. Check the <a class="content-link" href="/record-inventory/archive/">archive page</a> for more info.</p>
-      <p>&copy; <span id="year_2024"></span> <a href="https://tylermorgan.co/" class="content-link">Tyler Morgan</a>. All rights reserved.</p>
-      <p><a class="content-link" rel="privacy-policy" href="https://tylermorgan.co/privacy-policy/">Privacy Policy</a></p>
+      <p>
+        Some URLs may be expired or password protected. Check the
+        <a href="/record-inventory/archive/" class="content-link"
+          >archive page</a
+        >
+        for more info.
+      </p>
+      <p>
+        © <span id="year_2024"></span>
+        <a href="https://tylermorgan.co/" class="content-link">Tyler Morgan</a>.
+        All rights reserved.
+      </p>
+      <p>
+        <a
+          class="content-link"
+          rel="privacy-policy"
+          href="https://tylermorgan.co/privacy-policy/"
+          >Privacy Policy</a
+        >
+      </p>
     </footer>
-    <script src="/record-inventory/record_grid_v2.js"></script>
     <script src="/record-inventory/collapsible.js"></script>
-    <script src="/record-inventory/inventory_update.js"></script>
     <script src="https://tylermorgan.co/year_2024.js" type="module"></script>
   </body>
 </html>
