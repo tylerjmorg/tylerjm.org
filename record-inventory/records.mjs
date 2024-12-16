@@ -17,8 +17,8 @@ metaCharset.setAttribute('charset', 'UTF-8');
 document.head.append(metaCharset);
 
 const metaViewport = document.createElement('meta');
-metaViewport.setAttribute('name', 'viewport');
-metaViewport.setAttribute('content', 'width=device-width, initial-scale=1.0');
+metaViewport.name = 'viewport';
+metaViewport.content = 'width=device-width, initial-scale=1.0';
 document.head.append(metaViewport);
 
 const title = document.createElement('title');
@@ -26,46 +26,50 @@ title.textContent = 'Records';
 document.head.append(title);
 
 const styleMain = document.createElement('link');
-styleMain.setAttribute('rel', 'stylesheet');
-styleMain.setAttribute('crossorigin', '');
+styleMain.rel = 'stylesheet';
+styleMain.crossOrigin = 'anonymous';
 styleMain.href = 'https://tylermorgan.co/style.css';
 document.head.append(styleMain);
 
 const styleRecord = document.createElement('link');
-styleRecord.setAttribute('rel', 'stylesheet');
+styleRecord.rel = 'stylesheet';
 styleRecord.href = '/record-inventory/records.css';
 document.head.append(styleRecord);
 
 const webDecription = document.createElement('meta');
-webDecription.setAttribute('name', 'description');
-webDecription.setAttribute('content', 'An inventory of Tyler\'s record collection.');
+webDecription.name = 'description';
+webDecription.content = 'An inventory of Tyler\'s record collection.';
 document.head.append(webDecription);
 
 const iconLightSVG = document.createElement('link');
-iconLightSVG.setAttribute('rel', 'icon');
-iconLightSVG.setAttribute('media', '(prefers-color-scheme: light)');
-iconLightSVG.setAttribute('type', 'image/svg');
+iconLightSVG.rel = 'icon';
+iconLightSVG.media = '(prefers-color-scheme: light)';
+iconLightSVG.type = 'image/svg';
+iconLightSVG.crossOrigin = 'anonymous';
 iconLightSVG.href = 'https://tylermorgan.co/elements/icons/favicon-day.svg';
 document.head.append(iconLightSVG);
 
 const iconDarkSVG = document.createElement('link');
-iconDarkSVG.setAttribute('rel', 'icon');
-iconDarkSVG.setAttribute('media', '(prefers-color-scheme: dark)');
-iconDarkSVG.setAttribute('type', 'image/svg');
+iconDarkSVG.rel = 'icon';
+iconDarkSVG.media = '(prefers-color-scheme: dark)';
+iconDarkSVG.type = 'image/svg';
+iconDarkSVG.crossOrigin = 'anonymous';
 iconDarkSVG.href = 'https://tylermorgan.co/elements/icons/favicon-night.svg';
 document.head.append(iconDarkSVG);
 
 const iconLightAVIF = document.createElement('link');
-iconLightAVIF.setAttribute('rel', 'icon');
-iconLightAVIF.setAttribute('media', '(prefers-color-scheme: light)');
-iconLightAVIF.setAttribute('type', 'image/avif');
+iconLightAVIF.rel = 'icon';
+iconLightAVIF.media = '(prefers-color-scheme: light)';
+iconLightAVIF.type = 'image/avif';
+iconLightAVIF.crossOrigin = 'anonymous';
 iconLightAVIF.href = 'https://tylermorgan.co/elements/icons/favicon-day-180.avif';
 document.head.append(iconLightAVIF);
 
 const iconDarkAVIF = document.createElement('link');
-iconDarkAVIF.setAttribute('rel', 'icon');
-iconDarkAVIF.setAttribute('media', '(prefers-color-scheme: dark)');
-iconDarkAVIF.setAttribute('type', 'image/avif');
+iconDarkAVIF.rel = 'icon';
+iconDarkAVIF.media = '(prefers-color-scheme: dark)';
+iconDarkAVIF.type = 'image/avif';
+iconDarkAVIF.crossOrigin = 'anonymous';
 iconDarkAVIF.href = 'https://tylermorgan.co/elements/icons/favicon-night-180.avif';
 document.head.append(iconDarkAVIF);
 
@@ -73,7 +77,8 @@ const iconLightAVIF192 = document.createElement('link');
 iconLightAVIF192.rel = 'icon';
 iconLightAVIF192.media = '(prefers-color-scheme: light)';
 iconLightAVIF192.type = 'image/avif';
-iconLightAVIF192.sizes = '192x192';
+iconLightAVIF192.crossOrigin = 'anonymous';
+iconLightAVIF192.setAttribute('sizes', '192x192');
 iconLightAVIF192.href = 'https://tylermorgan.co/elements/icons/favicon-day-192.avif';
 document.head.append(iconLightAVIF192);
 
@@ -81,19 +86,22 @@ const iconDarkAVIF192 = document.createElement('link');
 iconDarkAVIF192.rel = 'icon';
 iconDarkAVIF192.media = '(prefers-color-scheme: dark)';
 iconDarkAVIF192.type = 'image/avif';
-iconDarkAVIF192.sizes = '192x192';
+iconDarkAVIF192.crossOrigin = 'anonymous';
+iconDarkAVIF192.setAttribute('sizes', '192x192');
 iconDarkAVIF192.href = 'https://tylermorgan.co/elements/icons/favicon-night-192.avif';
 document.head.append(iconDarkAVIF192);
 
 const appleTouchIcon = document.createElement('link');
 appleTouchIcon.rel = 'apple-touch-icon';
+appleTouchIcon.crossOrigin = 'anonymous';
 appleTouchIcon.href = 'https://tylermorgan.co/apple-touch-icon.avif';
 document.head.append(appleTouchIcon);
 
 const maskIcon = document.createElement('link');
 maskIcon.rel = 'mask-icon';
+maskIcon.crossOrigin = 'anonymous';
 maskIcon.href = 'https://tylermorgan.co/elements/icons/mask-icon.svg';
-maskIcon.color = '#454D51';
+maskIcon.setAttribute('color', '#454D51');
 document.head.append(maskIcon);
 
 const lightThemeColor = document.createElement('meta');
@@ -110,7 +118,7 @@ document.head.append(darkThemeColor);
 
 const canonical = document.createElement('link');
 canonical.rel = 'canonical';
-canonical.href = 'https://tylermorgan.co/record-inventory/';
+canonical.href = 'https://tylerjm.org/record-inventory/';
 document.head.append(canonical);
 
 const keywords = document.createElement('meta');
@@ -182,11 +190,11 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
   parsedRecordData.forEach((item, index) => {
     let card = document.createElement('li');
     card.classList.add('record', 'collapsible-r');
-    card.setAttribute('role', 'button');
-    card.setAttribute('aria-expanded', 'false');
-    card.setAttribute('tabindex', '0');
-    card.setAttribute('aria-pressed', 'false');
-    card.setAttribute('data-target-id', `aboutMeContent-${index}`)
+    card.role = 'button';
+    card.ariaExpanded = 'false';
+    card.tabIndex = '0';
+    card.ariaPressed = 'false';
+    card.setAttribute('data-target-id', `aboutMeContent-${index}`);
     card.id = `aboutMeButton-${index}`;
 
     let recordContentWrapper = document.createElement('div');
@@ -194,7 +202,7 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
 
     let imgContainer = document.createElement('div');
     imgContainer.classList.add('img-container');
-    imgContainer.setAttribute('role', 'none');
+    imgContainer.role = 'none';
 
     let mod = '';
     if (item.mod_id) {
@@ -206,13 +214,13 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
     foregroungImg.src = `/record-inventory/covers/${item.id}${mod}.avif`;
 
     if (item.img_alt) {
-      foregroungImg.setAttribute('alt', item.img_alt);
+      foregroungImg.alt = item.img_alt;
     }
     imgContainer.append(foregroungImg);
 
     let backgroundImg = document.createElement('img');
     backgroundImg.classList.add('record-img', 'background-img');
-    backgroundImg.setAttribute('role', 'presentation');
+    backgroundImg.role = 'presentation';
     backgroundImg.src = `/record-inventory/covers/${item.id}${mod}.avif`;
     imgContainer.append(backgroundImg);
 
@@ -273,7 +281,7 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
     let recordContent = document.createElement('div');
     recordContent.classList.add('content-1');
     recordContent.id = `aboutMeContent-${index}`;
-    recordContent.setAttribute('aria-hidden', 'true');
+    recordContent.ariaHidden = 'true';
 
     let qty = '';
     if (item.qty) {
@@ -783,8 +791,8 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
 
       const discogsLink = document.createElement('a');
       discogsLink.classList.add('content-link');
-      discogsLink.setAttribute('tabindex', '-1');
-      discogsLink.setAttribute('aria-hidden', 'true');
+      discogsLink.tabIndex = '-1';
+      discogsLink.ariaHidden = 'true';
       discogsLink.href = `https://www.discogs.com/release/${item.id}`;
       discogsLink.textContent = releaseCode;
       discogs.append(discogsLink);
@@ -807,11 +815,12 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
 
         let ddLink = document.createElement('a');
         ddLink.classList.add('content-link');
-        ddLink.setAttribute('tabindex', '-1');
-        ddLink.setAttribute('aria-hidden', 'true');
+        ddLink.tabIndex = '-1';
+        ddLink.ariaHidden = 'true';
         ddLink.href = item.dd_yes_url;
         ddLink.textContent = 'Yes';
         dd.append(ddLink);
+        recordContent.append(dd);
       } else {
         dd = document.createElement('p');
         let ddLabel = document.createElement('span');
@@ -820,6 +829,7 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
         dd.append(ddLabel);
 
         dd.append(document.createTextNode(': Yes'));
+        recordContent.append(dd);
       }
     } else if (item.dd === 'No') {
       if (item.dd_no_url) {
@@ -833,11 +843,12 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
 
         let ddLink = document.createElement('a');
         ddLink.classList.add('content-link');
-        ddLink.setAttribute('tabindex', '-1');
-        ddLink.setAttribute('aria-hidden', 'true');
+        ddLink.tabIndex = '-1';
+        ddLink.ariaHidden = 'true';
         ddLink.href = item.dd_no_url;
         ddLink.textContent = 'No';
         dd.append(ddLink);
+        recordContent.append(dd);
       } else {
         dd = document.createElement('p');
         let ddLabel = document.createElement('span');
@@ -846,6 +857,7 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
         dd.append(ddLabel);
 
         dd.append(document.createTextNode(': No'));
+        recordContent.append(dd);
       }
     } else if (item.dd === 'N/A') {
       dd = document.createElement('p');
@@ -855,9 +867,8 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
       dd.append(ddLabel);
 
       dd.append(document.createTextNode(': N/A'));
+      recordContent.append(dd);
     }
-
-    recordContent.append(dd);
 
     const artistRegions = item.dd_official_regions ? ` [${item.dd_official_regions.join(', ')} Only]` : '';
     const artistFormats = item.dd_official_formats ? ` (${item.dd_official_formats.join(', ')}${artistRegions})` : '';
@@ -877,8 +888,8 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
 
         artistWebsite = document.createElement('a');
         artistWebsite.classList.add('content-link');
-        artistWebsite.setAttribute('tabindex', '-1');
-        artistWebsite.setAttribute('aria-hidden', 'true');
+        artistWebsite.tabIndex = '-1';
+        artistWebsite.ariaHidden = 'true';
         artistWebsite.href = item.dd_official_url;
         artistWebsite.textContent = `Artist Website${artistFormats}`;
         downloadWebsites.append(artistWebsite);
@@ -891,8 +902,8 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
         
         qobuz = document.createElement('a');
         qobuz.classList.add('content-link');
-        qobuz.setAttribute('tabindex', '-1');
-        qobuz.setAttribute('aria-hidden', 'true');
+        qobuz.tabIndex = '-1';
+        qobuz.ariaHidden = 'true';
         qobuz.href = item.dd_qobuz_url;
         qobuz.textContent = 'Qobuz';
         downloadWebsites.append(qobuz);
@@ -942,7 +953,7 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
       updateCardContent.append(inventoryUpdateBreak);
 
       let inventoryUpdateDatetime = document.createElement('time');
-      inventoryUpdateDatetime.setAttribute('datetime', item.inventory_updated);
+      inventoryUpdateDatetime.dateTime = item.inventory_updated;
       inventoryUpdateDatetime.textContent = `${item.inventory_updated} UTC`;
       updateCardContent.append(inventoryUpdateDatetime);
     }
@@ -957,7 +968,7 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
       updateCardContent.append(lastInventoryCheckBreak);
 
       let lastInventoryCheckDatetime = document.createElement('time');
-      lastInventoryCheckDatetime.setAttribute('datetime', item.last_inventory_check);
+      lastInventoryCheckDatetime.dateTime = item.last_inventory_check;
       lastInventoryCheckDatetime.textContent = `${item.last_inventory_check} UTC`;
       updateCardContent.append(lastInventoryCheckDatetime);
     }
@@ -972,7 +983,7 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
       updateCardContent.append(docInfoUpdatedBreak);
 
       let docInfoUpdatedDatetime = document.createElement('time');
-      docInfoUpdatedDatetime.setAttribute('datetime', item.doc_info_updated);
+      docInfoUpdatedDatetime.dateTime = item.doc_info_updated;
       docInfoUpdatedDatetime.textContent = `${item.doc_info_updated} UTC`;
       updateCardContent.append(docInfoUpdatedDatetime);
     }
@@ -1041,7 +1052,7 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
   const privacyPolicy = document.createElement('p');
   const privacyPolicyLink = document.createElement('a');
   privacyPolicyLink.classList.add('content-link');
-  privacyPolicyLink.setAttribute('rel', 'privacy-policy');
+  privacyPolicyLink.rel = 'privacy-policy';
   privacyPolicyLink.href = 'https://tylermorgan.co/privacy-policy/';
   privacyPolicyLink.textContent = 'Privacy Policy';
   privacyPolicy.append(privacyPolicyLink);
@@ -1057,6 +1068,7 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
   let yearScript = document.createElement('script');
   yearScript.src = 'https://tylermorgan.co/year_2024.js'
   yearScript.type = 'module';
+  yearScript.crossOrigin = 'anonymous';
   document.body.append(yearScript);
 
 // Serialize the DOM
@@ -1064,7 +1076,7 @@ const htmlContent = dom.serialize();
 
 // Format the HTML with Prettier and write it to the file
 prettier
-    .format(htmlContent, { parser: 'html' }) // Prettier formatting returns a Promise
+    .format(htmlContent, { parser: 'html' })
     .then((formattedHTML) => {
         fs.writeFile('index.html', formattedHTML, (err) => {
             if (err) {
