@@ -7,7 +7,12 @@ import { JSDOM } from 'jsdom';
 import prettier, { doc } from 'prettier';
 import path from 'path';
 
-const dom = new JSDOM(`<!DOCTYPE html><html lang="en" dir="ltr"><head></head><body></body></html>`);
+const buildDate = () => {
+  const now = new Date();
+  return now.toISOString();
+};
+
+const dom = new JSDOM(`<!DOCTYPE html><!--Document built: ${buildDate()}--><html lang="en" dir="ltr"><head></head><body></body></html>`);
 
 // Access the document object for DOM manipulation
 const document = dom.window.document;
@@ -126,46 +131,34 @@ keywords.name = 'keywords';
 keywords.content = 'record, handbook, tyler morgan, vinyl, tylerjmorg, discogs, goldmine, music, inventory';
 document.head.append(keywords);
 
-const buildDate = () => {
-  const now = new Date();
-  return now.toISOString();
-};
-
-const comment = document.createComment("note");
-comment.textContent = `This document was built on ${buildDate()}.`;
-document.body.append(comment);
-
 const header = document.createElement('header');
 header.classList.add('title-container');
 
-let headerH1 = document.createElement('h1');
-
+const headerH1 = document.createElement('h1');
 headerH1.classList.add('title', 'ring');
 headerH1.ariaLabel = 'Records';
 
-let headerH1SVG = document.createElement('svg');
+const headerH1SVG = document.createElement('svg');
 headerH1SVG.classList.add('ring-svg');
 headerH1SVG.setAttribute('viewBox', '0 0 100 100');
 headerH1SVG.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
 
-let headerH1Path = document.createElement('path');
+const headerH1Path = document.createElement('path');
 headerH1Path.classList.add('ring-circle');
 headerH1Path.id = 'circlePath';
 headerH1Path.setAttribute('d', 'M 4.1779659,50 A 45.822034,45.822034 0 1 0 95.822034,50 45.822034,45.822034 0 1 0 4.1779658,50');
 headerH1SVG.append(headerH1Path);
 
-let headerH1Text = document.createElement('text');
+const headerH1Text = document.createElement('text');
 
-let headerH1TextPath = document.createElement('textPath');
+const headerH1TextPath = document.createElement('textPath');
 headerH1TextPath.setAttribute('href', '#circlePath');
 headerH1TextPath.setAttribute('fill', 'var(--primary-color)');
 headerH1TextPath.textContent = 'RECORDS · RECORDS · RECORDS · RECORDS · RECORDS ·';
 headerH1Text.append(headerH1TextPath);
 
 headerH1SVG.append(headerH1Text);
-
 headerH1.append(headerH1SVG);
-
 header.append(headerH1);
 
 document.body.append(header);
@@ -184,11 +177,11 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
   
   const parsedRecordData = JSON.parse(data);
 
-  let table = document.createElement('ul');
+  const table = document.createElement('ul');
   table.classList.add('record-grid');
 
   parsedRecordData.forEach((item, index) => {
-    let card = document.createElement('li');
+    const card = document.createElement('li');
     card.classList.add('record', 'collapsible-r');
     card.role = 'button';
     card.ariaExpanded = 'false';
@@ -197,10 +190,10 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
     card.setAttribute('data-target-id', `aboutMeContent-${index}`);
     card.id = `aboutMeButton-${index}`;
 
-    let recordContentWrapper = document.createElement('div');
+    const recordContentWrapper = document.createElement('div');
     recordContentWrapper.classList.add('record-content-wrapper');
 
-    let imgContainer = document.createElement('div');
+    const imgContainer = document.createElement('div');
     imgContainer.classList.add('img-container');
     imgContainer.role = 'none';
 
@@ -218,7 +211,7 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
     }
     imgContainer.append(foregroungImg);
 
-    let backgroundImg = document.createElement('img');
+    const backgroundImg = document.createElement('img');
     backgroundImg.classList.add('record-img', 'background-img');
     backgroundImg.role = 'presentation';
     backgroundImg.src = `/record-inventory/covers/${item.id}${mod}.avif`;
@@ -246,39 +239,41 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
     if (Array.isArray(item.artists)) {
       if (!item.artists.includes("Various")) {
         if (item.artists.length > 2) {
-          artists = document.createElement('br');
+          const artistsBreak = document.createElement('br');
+          title.append(artistsBreak);
+
+          artists = document.createElement('span');
+          artists.classList.add('artist');
+          artists.textContent = item.artists.slice(0, 2).join(', ');
+          artists.textContent += ', ';
           title.append(artists);
 
-          let artistSpan = document.createElement('span');
-          artistSpan.classList.add('artist');
-          artistSpan.textContent = item.artists.slice(0, 2).join(', ');
-          artistSpan.textContent += ', ';
-          title.append(artistSpan);
-
-          let etAl = document.createElement('span');
+          const etAl = document.createElement('span');
           etAl.classList.add('italic');
           etAl.textContent = 'et al.';
-          artistSpan.append(etAl);
+          artists.append(etAl);
         } else {
-          artists = document.createElement('br');
+          const artistsBreak = document.createElement('br');
+          title.append(artistsBreak);
+
+          artists = document.createElement('span');
+          artists.classList.add('artist');
+          artists.textContent = item.artists.join(', ');
           title.append(artists);
-          let artistSpan = document.createElement('span');
-          artistSpan.classList.add('artist');
-          artistSpan.textContent = item.artists.join(', ');
-          title.append(artistSpan);
         }
       } else if (item.artists.includes("Various")) {
-        artists = document.createElement('br');
+        const artistsBreak = document.createElement('br');
+        title.append(artistsBreak);
+
+        artists = document.createElement('span');
+        artists.classList.add('artist', 'italic');
+        artists.textContent = item.artists.join(', ');
         title.append(artists);
-        let artistSpan = document.createElement('span');
-        artistSpan.classList.add('artist', 'italic');
-        artistSpan.textContent = item.artists.join(', ');
-        title.append(artistSpan);
       }
     }
     card.append(recordContentWrapper);
 
-    let recordContent = document.createElement('div');
+    const recordContent = document.createElement('div');
     recordContent.classList.add('content-1');
     recordContent.id = `aboutMeContent-${index}`;
     recordContent.ariaHidden = 'true';
@@ -286,7 +281,7 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
     let qty = '';
     if (item.qty) {
       qty = document.createElement('p');
-      let qtyLabel = document.createElement('span');
+      const qtyLabel = document.createElement('span');
       qtyLabel.classList.add('label');
       qtyLabel.textContent = 'Qty';
       qty.append(qtyLabel);
@@ -310,7 +305,7 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
     let discColors = '';
     if (colors) {
       discColors = document.createElement('p');
-      let discColorsLabel = document.createElement('span');
+      const discColorsLabel = document.createElement('span');
       discColorsLabel.classList.add('label');
       discColorsLabel.textContent = colorsLabel;
       discColors.append(discColorsLabel);
@@ -335,7 +330,7 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
     if (genreNames) {
       genres = document.createElement('p');
 
-      let genresLabel = document.createElement('span');
+      const genresLabel = document.createElement('span');
       genresLabel.classList.add('label');
       genresLabel.textContent = genresLabelName;
       genres.append(genresLabel);
@@ -360,7 +355,7 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
     if (item.labels) {
       labels = document.createElement('p');
 
-      let labelsLabel = document.createElement('span');
+      const labelsLabel = document.createElement('span');
       labelsLabel.classList.add('label');
       labelsLabel.textContent = labelsLabelName;
       labels.append(labelsLabel);
@@ -380,7 +375,7 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
     if (item.disc_count) {
       discCount = document.createElement('p');
 
-      let discCountLabel = document.createElement('span');
+      const discCountLabel = document.createElement('span');
       discCountLabel.classList.add('label');
       discCountLabel.textContent = 'Disc Count';
       discCount.append(discCountLabel);
@@ -390,9 +385,11 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
       recordContent.append(discCount);
     }
 
+    let contentsCount = '';
     if (item.contents_count) {
-      let contentsCount = document.createElement('p');
-      let contentsCountLabel = document.createElement('span');
+      contentsCount = document.createElement('p');
+
+      const contentsCountLabel = document.createElement('span');
       contentsCountLabel.classList.add('label');
       contentsCountLabel.textContent = 'Contents Count';
       contentsCount.append(contentsCountLabel);
@@ -434,22 +431,18 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
     let jacket3Pocket = '';
     if (item.jacket3_pocket_qty === 1) {
       jacket3Pocket = ' (Single Pocket)';
-    }
-    if (item.jacket3_pocket_qty === 2) {
+    } else if (item.jacket3_pocket_qty === 2) {
       jacket3Pocket = ' (Double Pocket)';
-    }
-    if (item.jacket3_pocket_qty === 3) {
+    } else if (item.jacket3_pocket_qty === 3) {
       jacket3Pocket = ' (Triple Pocket)';
     }
 
     let jacket4Pocket = '';
     if (item.jacket4_pocket_qty === 1) {
       jacket4Pocket = ' (Single Pocket)';
-    }
-    if (item.jacket4_pocket_qty === 2) {
+    } else if (item.jacket4_pocket_qty === 2) {
       jacket4Pocket = ' (Double Pocket)';
-    }
-    if (item.jacket4_pocket_qty === 3) {
+    } else if (item.jacket4_pocket_qty === 3) {
       jacket4Pocket = ' (Triple Pocket)';
     }
 
@@ -484,7 +477,7 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
       recordContent.append(break2);
 
       const contents = document.createElement('p');
-      let contentsLabel = document.createElement('span');
+      const contentsLabel = document.createElement('span');
       contentsLabel.classList.add('label');
       contentsLabel.textContent = 'Contents Description';
       contents.append(contentsLabel);
@@ -492,147 +485,147 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
       contents.append(document.createTextNode(': '));
 
       if (item.jacket1_qty) {
-        let jacket1Break = document.createElement('br');
+        const jacket1Break = document.createElement('br');
         contents.append(jacket1Break);
 
         contents.append(document.createTextNode(`${item.jacket1_qty} - ${jacket1Desc}`));
       }
 
       if (item.jacket2_qty) {
-        let jacket2Break = document.createElement('br');
+        const jacket2Break = document.createElement('br');
         contents.append(jacket2Break);
 
         contents.append(document.createTextNode(`${item.jacket2_qty} - ${jacket2Desc}`));
       }
 
       if (item.jacket3_qty) {
-        let jacket3Break = document.createElement('br');
+        const jacket3Break = document.createElement('br');
         contents.append(jacket3Break);
 
         contents.append(document.createTextNode(`${item.jacket3_qty} - ${jacket3Desc}`));
       }
 
       if (item.jacket4_qty) {
-        let jacket4Break = document.createElement('br');
+        const jacket4Break = document.createElement('br');
         contents.append(jacket4Break);
 
         contents.append(document.createTextNode(`${item.jacket4_qty} - ${jacket4Desc}`));
       }
 
       if (item.inner_sleeve_qty) {
-        let innerSleeveBreak = document.createElement('br');
+        const innerSleeveBreak = document.createElement('br');
         contents.append(innerSleeveBreak);
 
         contents.append(document.createTextNode(`${item.inner_sleeve_qty} - Inner-sleeve`));
       }
 
       if (item.outer_sleeve_qty) {
-        let outerSleeveBreak = document.createElement('br');
+        const outerSleeveBreak = document.createElement('br');
         contents.append(outerSleeveBreak);
 
         contents.append(document.createTextNode(`${item.outer_sleeve_qty} - Outer-sleeve`));
       }
 
       if (item.poster_qty) {
-        let posterBreak = document.createElement('br');
+        const posterBreak = document.createElement('br');
         contents.append(posterBreak);
 
         contents.append(document.createTextNode(`${item.poster_qty} - Poster`));
       }
 
       if (item.envelope_qty) {
-        let envelopeBreak = document.createElement('br');
+        const envelopeBreak = document.createElement('br');
         contents.append(envelopeBreak);
 
         contents.append(document.createTextNode(`${item.envelope_qty} - Envelope`));
       }
 
       if (item.album_photo_qty) {
-        let albumPhotoBreak = document.createElement('br');
+        const albumPhotoBreak = document.createElement('br');
         contents.append(albumPhotoBreak);
 
         contents.append(document.createTextNode(`${item.album_photo_qty} - Album Photo`));
       }
 
       if (item.song_letter_qty) {
-        let songLetterBreak = document.createElement('br');
+        const songLetterBreak = document.createElement('br');
         contents.append(songLetterBreak);
 
         contents.append(document.createTextNode(`${item.song_letter_qty} - Song Letter`));
       }
 
       if (item.hype_sticker_qty) {
-        let hypeStickerBreak = document.createElement('br');
+        const hypeStickerBreak = document.createElement('br');
         contents.append(hypeStickerBreak);
 
         contents.append(document.createTextNode(`${item.hype_sticker_qty} - Hype Sticker`));
       }
 
       if (item.song_lyrics_booklet_qty) {
-        let songLyricsBookletBreak = document.createElement('br');
+        const songLyricsBookletBreak = document.createElement('br');
         contents.append(songLyricsBookletBreak);
 
         contents.append(document.createTextNode(`${item.song_lyrics_booklet_qty} - Song Lyrics Booklet`));
       }
 
       if (item.logo_photo_qty) {
-        let logoPhotoBreak = document.createElement('br');
+        const logoPhotoBreak = document.createElement('br');
         contents.append(logoPhotoBreak);
 
         contents.append(document.createTextNode(`${item.logo_photo_qty} - Logo Photo`));
       }
 
       if (item.photo_album_booklet_qty) {
-        let photoAlbumBookletBreak = document.createElement('br');
+        const photoAlbumBookletBreak = document.createElement('br');
         contents.append(photoAlbumBookletBreak);
 
         contents.append(document.createTextNode(`${item.photo_album_booklet_qty} - Photo Album Booklet`));
       }
 
       if (item.other_item1_qty) {
-        let other1Break = document.createElement('br');
+        const other1Break = document.createElement('br');
         contents.append(other1Break);
 
         contents.append(document.createTextNode(`${item.other_item1_qty} - ${other1Name}`));
       }
 
       if (item.other_item2_qty) {
-        let other2Break = document.createElement('br');
+        const other2Break = document.createElement('br');
         contents.append(other2Break);
 
         contents.append(document.createTextNode(`${item.other_item2_qty} - ${other2Name}`));
       }
 
       if (item.other_item3_qty) {
-        let other3Break = document.createElement('br');
+        const other3Break = document.createElement('br');
         contents.append(other3Break);
 
         contents.append(document.createTextNode(`${item.other_item3_qty} - ${other3Name}`));
       }
 
       if (item.other_item4_qty) {
-        let other4Break = document.createElement('br');
+        const other4Break = document.createElement('br');
         contents.append(other4Break);
 
         contents.append(document.createTextNode(`${item.other_item4_qty} - ${other4Name}`));
       }
 
       if (item.other_item5_qty) {
-        let other5Break = document.createElement('br');
+        const other5Break = document.createElement('br');
         contents.append(other5Break);
 
         contents.append(document.createTextNode(`${item.other_item5_qty} - ${other5Name}`));
       }
 
       if (item.other_item6_qty) {
-        let other6Break = document.createElement('br');
+        const other6Break = document.createElement('br');
         contents.append(other6Break);
 
         contents.append(document.createTextNode(`${item.other_item6_qty} - ${other6Name}`));
       }
 
       if (item.digital_download_slip_qty) {
-        let digitalDownloadSlipBreak = document.createElement('br');
+        const digitalDownloadSlipBreak = document.createElement('br');
         contents.append(digitalDownloadSlipBreak);
 
         contents.append(document.createTextNode(`${item.digital_download_slip_qty} - Digital Download Slip ${digitalDownloadSlipFates}`));
@@ -645,7 +638,9 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
     if (item.jacket1_goldmine || item.disc1_goldmine) {
       const break3 = document.createElement('br');
       recordContent.append(break3);
+
       const goldmine = document.createElement('p');
+
       const goldmineLabel = document.createElement('span');
       goldmineLabel.classList.add('label');
       goldmineLabel.textContent = 'Goldmine';
@@ -660,84 +655,84 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
       goldmine.append(document.createTextNode(': '));
 
       if (item.jacket1_goldmine) {
-        let jacket1GoldmineBreak = document.createElement('br');
+        const jacket1GoldmineBreak = document.createElement('br');
         goldmine.append(jacket1GoldmineBreak);
 
         goldmine.append(document.createTextNode(`${jacket1Name} - ${item.jacket1_goldmine}`));
       }
 
       if (item.jacket2_goldmine) {
-        let jacket2GoldmineBreak = document.createElement('br');
+        const jacket2GoldmineBreak = document.createElement('br');
         goldmine.append(jacket2GoldmineBreak);
 
         goldmine.append(document.createTextNode(`${jacket2Name} - ${item.jacket2_goldmine}`));
       }
 
       if (item.jacket3_goldmine) {
-        let jacket3GoldmineBreak = document.createElement('br');
+        const jacket3GoldmineBreak = document.createElement('br');
         goldmine.append(jacket3GoldmineBreak);
 
         goldmine.append(document.createTextNode(`${jacket3Name} - ${item.jacket3_goldmine}`));
       }
 
       if (item.jacket4_goldmine) {
-        let jacket4GoldmineBreak = document.createElement('br');
+        const jacket4GoldmineBreak = document.createElement('br');
         goldmine.append(jacket4GoldmineBreak);
 
         goldmine.append(document.createTextNode(`${jacket4Name} - ${item.jacket4_goldmine}`));
       }
 
       if (item.disc1_goldmine) {
-        let disc1GoldmineBreak = document.createElement('br');
+        const disc1GoldmineBreak = document.createElement('br');
         goldmine.append(disc1GoldmineBreak);
 
         goldmine.append(document.createTextNode(`${disc1Name} - ${item.disc1_goldmine}`));
       }
 
       if (item.disc2_goldmine) {
-        let disc2GoldmineBreak = document.createElement('br');
+        const disc2GoldmineBreak = document.createElement('br');
         goldmine.append(disc2GoldmineBreak);
 
         goldmine.append(document.createTextNode(`${disc2Name} - ${item.disc2_goldmine}`));
       }
 
       if (item.disc3_goldmine) {
-        let disc3GoldmineBreak = document.createElement('br');
+        const disc3GoldmineBreak = document.createElement('br');
         goldmine.append(disc3GoldmineBreak);
 
         goldmine.append(document.createTextNode(`${disc3Name} - ${item.disc3_goldmine}`));
       }
 
       if (item.disc4_goldmine) {
-        let disc4GoldmineBreak = document.createElement('br');
+        const disc4GoldmineBreak = document.createElement('br');
         goldmine.append(disc4GoldmineBreak);
 
         goldmine.append(document.createTextNode(`${disc4Name} - ${item.disc4_goldmine}`));
       }
 
       if (item.disc5_goldmine) {
-        let disc5GoldmineBreak = document.createElement('br');
+        const disc5GoldmineBreak = document.createElement('br');
         goldmine.append(disc5GoldmineBreak);
 
         goldmine.append(document.createTextNode(`${disc5Name} - ${item.disc5_goldmine}`));
       }
 
       if (item.disc6_goldmine) {
-        let disc6GoldmineBreak = document.createElement('br');
+        const disc6GoldmineBreak = document.createElement('br');
         goldmine.append(disc6GoldmineBreak);
 
         goldmine.append(document.createTextNode(`${disc6Name} - ${item.disc6_goldmine}`));
       }
 
       if (item.disc7_goldmine) {
-        let disc7GoldmineBreak = document.createElement('br');
+        const disc7GoldmineBreak = document.createElement('br');
         goldmine.append(disc7GoldmineBreak);
 
         goldmine.append(document.createTextNode(`${disc7Name} - ${item.disc7_goldmine}`));
       }
 
       if (item.disc8_goldmine) {
-        let disc8GoldmineBreak = document.createElement('br');
+        const disc8GoldmineBreak = document.createElement('br');
         goldmine.append(disc8GoldmineBreak);
 
         goldmine.append(document.createTextNode(`${disc8Name} - ${item.disc8_goldmine}`));
@@ -755,7 +750,7 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
     if (item.listened === true) {
       listened = document.createElement('p');
 
-      let listenedLabel = document.createElement('span');
+      const listenedLabel = document.createElement('span');
       listenedLabel.classList.add('label');
       listenedLabel.textContent = 'Listened';
       listened.append(listenedLabel);
@@ -766,7 +761,7 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
     } else if (item.listened === false) {
       listened = document.createElement('p');
 
-      let listenedLabel = document.createElement('span');
+      const listenedLabel = document.createElement('span');
       listenedLabel.classList.add('label');
       listenedLabel.textContent = 'Listened';
       listened.append(listenedLabel);
@@ -782,7 +777,8 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
     let discogs = '';
     if (item.id) {
       discogs = document.createElement('p');
-      let discogsLabel = document.createElement('span');
+
+      const discogsLabel = document.createElement('span');
       discogsLabel.classList.add('label');
       discogsLabel.textContent = 'Discogs Release Code';
       discogs.append(discogsLabel);
@@ -806,24 +802,26 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
       if (item.dd_yes_url) {
         dd = document.createElement('p');
 
-        let ddLabel = document.createElement('span');
+        const ddLabel = document.createElement('span');
         ddLabel.classList.add('label');
         ddLabel.textContent = 'Digitally Downloaded';
         dd.append(ddLabel);
 
         dd.append(document.createTextNode(': '));
 
-        let ddLink = document.createElement('a');
+        const ddLink = document.createElement('a');
         ddLink.classList.add('content-link');
         ddLink.tabIndex = '-1';
         ddLink.ariaHidden = 'true';
         ddLink.href = item.dd_yes_url;
         ddLink.textContent = 'Yes';
+
         dd.append(ddLink);
         recordContent.append(dd);
       } else {
         dd = document.createElement('p');
-        let ddLabel = document.createElement('span');
+
+        const ddLabel = document.createElement('span');
         ddLabel.classList.add('label');
         ddLabel.textContent = 'Digitally Downloaded';
         dd.append(ddLabel);
@@ -834,24 +832,27 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
     } else if (item.dd === 'No') {
       if (item.dd_no_url) {
         dd = document.createElement('p');
-        let ddLabel = document.createElement('span');
+
+        const ddLabel = document.createElement('span');
         ddLabel.classList.add('label');
         ddLabel.textContent = 'Digitally Downloaded';
         dd.append(ddLabel);
 
         dd.append(document.createTextNode(': '));
 
-        let ddLink = document.createElement('a');
+        const ddLink = document.createElement('a');
         ddLink.classList.add('content-link');
         ddLink.tabIndex = '-1';
         ddLink.ariaHidden = 'true';
         ddLink.href = item.dd_no_url;
         ddLink.textContent = 'No';
+
         dd.append(ddLink);
         recordContent.append(dd);
       } else {
         dd = document.createElement('p');
-        let ddLabel = document.createElement('span');
+
+        const ddLabel = document.createElement('span');
         ddLabel.classList.add('label');
         ddLabel.textContent = 'Digitally Downloaded';
         dd.append(ddLabel);
@@ -861,7 +862,8 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
       }
     } else if (item.dd === 'N/A') {
       dd = document.createElement('p');
-      let ddLabel = document.createElement('span');
+
+      const ddLabel = document.createElement('span');
       ddLabel.classList.add('label');
       ddLabel.textContent = 'Digitally Downloaded';
       dd.append(ddLabel);
@@ -875,7 +877,7 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
     
     let downloadWebsites = '';
     if (item.dd === "Yes" || item.dd === "No") {
-      let break5 = document.createElement('br');
+      const break5 = document.createElement('br');
       recordContent.append(break5);
       
       downloadWebsites = document.createElement('p');
@@ -883,7 +885,7 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
 
       let artistWebsite = '';
       if (item.dd_official_url) {
-        let artistWebsiteBreak = document.createElement('br');
+        const artistWebsiteBreak = document.createElement('br');
         downloadWebsites.append(artistWebsiteBreak);
 
         artistWebsite = document.createElement('a');
@@ -897,7 +899,7 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
 
       let qobuz = '';
       if (item.dd_qobuz_url) {
-        let qobuzBreak = document.createElement('br');
+        const qobuzBreak = document.createElement('br');
         downloadWebsites.append(qobuzBreak);
         
         qobuz = document.createElement('a');
@@ -933,56 +935,56 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
 
     const parsedInvUpdateData = JSON.parse(data);
 
-  let table = document.createElement('ul');
+  const table = document.createElement('ul');
   table.classList.add('update-grid');
 
   parsedInvUpdateData.forEach((item) => {
-    let updateCard = document.createElement('li');
+    const updateCard = document.createElement('li');
     updateCard.classList.add('update-card');
     
-    let updateCardContent = document.createElement('div');
+    const updateCardContent = document.createElement('div');
     updateCardContent.classList.add('update-card-content');
 
     if (item.inventory_updated) {
-      let inventoryUpdateLabel = document.createElement('span');
+      const inventoryUpdateLabel = document.createElement('span');
       inventoryUpdateLabel.classList.add('label');
       inventoryUpdateLabel.textContent = 'Inventory Updated';
       updateCardContent.append(inventoryUpdateLabel);
 
-      let inventoryUpdateBreak = document.createElement('br');
+      const inventoryUpdateBreak = document.createElement('br');
       updateCardContent.append(inventoryUpdateBreak);
 
-      let inventoryUpdateDatetime = document.createElement('time');
+      const inventoryUpdateDatetime = document.createElement('time');
       inventoryUpdateDatetime.dateTime = item.inventory_updated;
       inventoryUpdateDatetime.textContent = `${item.inventory_updated} UTC`;
       updateCardContent.append(inventoryUpdateDatetime);
     }
 
     if (item.last_inventory_check) {
-      let lastInventoryCheckLabel = document.createElement('span');
+      const lastInventoryCheckLabel = document.createElement('span');
       lastInventoryCheckLabel.classList.add('label');
       lastInventoryCheckLabel.textContent = 'Last Inventory Check';
       updateCardContent.append(lastInventoryCheckLabel);
 
-      let lastInventoryCheckBreak = document.createElement('br');
+      const lastInventoryCheckBreak = document.createElement('br');
       updateCardContent.append(lastInventoryCheckBreak);
 
-      let lastInventoryCheckDatetime = document.createElement('time');
+      const lastInventoryCheckDatetime = document.createElement('time');
       lastInventoryCheckDatetime.dateTime = item.last_inventory_check;
       lastInventoryCheckDatetime.textContent = `${item.last_inventory_check} UTC`;
       updateCardContent.append(lastInventoryCheckDatetime);
     }
 
     if (item.doc_info_updated) {
-      let docInfoUpdatedLabel = document.createElement('span');
+      const docInfoUpdatedLabel = document.createElement('span');
       docInfoUpdatedLabel.classList.add('label');
       docInfoUpdatedLabel.textContent = 'Doc Info Updated';
       updateCardContent.append(docInfoUpdatedLabel);
 
-      let docInfoUpdatedBreak = document.createElement('br');
+      const docInfoUpdatedBreak = document.createElement('br');
       updateCardContent.append(docInfoUpdatedBreak);
 
-      let docInfoUpdatedDatetime = document.createElement('time');
+      const docInfoUpdatedDatetime = document.createElement('time');
       docInfoUpdatedDatetime.dateTime = item.doc_info_updated;
       docInfoUpdatedDatetime.textContent = `${item.doc_info_updated} UTC`;
       updateCardContent.append(docInfoUpdatedDatetime);
@@ -998,13 +1000,13 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
   const section3 = document.createElement('section');
   section3.classList.add('bottom-links');
 
-  let definitions = document.createElement('a');
+  const definitions = document.createElement('a');
   definitions.href = '/record-handbook/inventory/defs/';
   definitions.classList.add('bottom-link');
   definitions.textContent = 'Definitions';
   section3.append(definitions);
 
-  let recordHandbook = document.createElement('a');
+  const recordHandbook = document.createElement('a');
   recordHandbook.href = '/record-handbook/';
   recordHandbook.classList.add('bottom-link');
   recordHandbook.textContent = 'The Record Handbook';
@@ -1061,11 +1063,11 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
 
   document.body.append(footer);
 
-  let collapsible = document.createElement('script');
+  const collapsible = document.createElement('script');
   collapsible.src = '/record-inventory/collapsible.js';
   document.body.append(collapsible);
 
-  let yearScript = document.createElement('script');
+  const yearScript = document.createElement('script');
   yearScript.src = 'https://tylermorgan.co/year_2024.js'
   yearScript.type = 'module';
   yearScript.crossOrigin = 'anonymous';
