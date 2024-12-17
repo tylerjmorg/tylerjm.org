@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Archive | Records</title>
+  <meta name="description" content="Tyler's record archives">
+  <link rel="icon" type="image/svg" media="(prefers-color-scheme: light)" crossorigin href="https://tylermorgan.co/elements/icons/favicon-day.svg">
+  <link rel="icon" type="image/svg" media="(prefers-color-scheme: dark)" crossorigin href="https://tylermorgan.co/elements/icons/favicon-night.svg">
+  <link rel="icon" type="image/avif" media="(prefers-color-scheme: light)" crossorigin href="https://tylermorgan.co/elements/icons/favicon-day-180.avif">
+  <link rel="icon" type="image/avif" media="(prefers-color-scheme: dark)" crossorigin href="https://tylermorgan.co/elements/icons/favicon-night-180.avif">
+  <link rel="icon" type="image/avif" media="(prefers-color-scheme: light)" sizes="192x192" crossorigin href="https://tylermorgan.co/elements/icons/favicon-day-192.avif">
+  <link rel="icon" type="image/avif" media="(prefers-color-scheme: dark)" sizes="192x192" crossorigin href="https://tylermorgan.co/elements/icons/favicon-night-192.avif">
+  <link rel="apple-touch-icon" crossorigin href="https://tylermorgan.co/apple-touch-icon.avif">
+  <link rel="mask-icon" crossorigin href="https://tylermorgan.co/elements/icons/mask-icon.svg" color="#454D51">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
+  <link rel="canonical" href="https://tylerjm.org/record-inventory/archive/">
+  <meta name="keywords" content="record, handbook, tyler morgan, vinyl, tylerjmorg, discogs, goldmine, music, inventory">
+  <link rel="stylesheet" href="https://tylermorgan.co/fonts.css">
+  <style>
+    :root {
+      color-scheme: light dark;
+      --primary-color: light-dark(#000000FF,#FFFFFFFF);
+      --body-background: light-dark(#FFFFFFFF,#000000FF);
+      --secondary-bkg-color: light-dark(lab(23.52 0 0 / 1),lab(12.39 0.72 -0.51 / 1));
+      --highlight-color: light-dark(lab(32.21 -2.48 -3.63 / 1),lab(86.75 0.16 0.61 / 1));
+      --button-link: light-dark(lab(86.03 0.16 0.61 / 1),lab(21.31 0.21 0.79 / 1));
+      --highlight-color-hover: light-dark(lab(100 0 0 / 1),lab(88.17 0.16 0.61 / 1));
+    }
+    body {
+      background-color: var(--body-background);
+      color: var(--primary-color);
+      font-family: 'Noto Sans', sans-serif;
+      text-wrap: pretty;
+      word-break: break-word;
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      text-align: center;
+    }
+    h2 {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+    p {
+      font-size: 0.85rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    .italic {
+      font-style: italic;
+    }
+    .record {
+      padding-bottom: 1.2rem;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      font-size: 0.71rem;
+    }
+    .footer p {
+      font-size: inherit;
+    }
+    .content-link {
+      text-decoration: underline solid transparent;
+      font-weight: bold;
+      color: var(--biolink-color);
+      cursor: pointer;
+      transition: color 150ms linear, text-decoration 150ms linear;
+    }
+    .content-link:hover {
+      color: var(--primary-hover);
+      text-decoration: underline solid currentColor;
+    }
+    .bottom-links {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      text-align: center;
+      gap: 30px 20px;
+      grid-template-rows: auto;
+      font-size: 0.84rem;
+      width: 90%;
+      max-width: 800px;
+      margin: auto;
+      justify-content: center;
+      padding-top: 20px;
+    }
+    .bottom-link {
+      padding: 10px;
+      border-radius: 30px;
+      display: block;
+      background-color: var(--button-link);
+      color: var(--highlight-color);
+      text-decoration: none;
+      transition: all 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s;
+      transform: scale(1);
+    }
+    .bottom-link:hover {
+      background-color: var(--secondary-bkg-color);
+      color: var(--highlight-color-hover);
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div id="archive_data"></div>
+  <section class="bottom-links">
+    <a class="bottom-link" href="/record-inventory/">Tyler's Records</a>
+    <a class="bottom-link" href="/record-handbook/">The Record Handbook</a>
+  </section>
+  <footer class="footer">
+    <p>Discogs URLs and owner file URLs are not archived.</p>
+    <p>&copy; <span id="year_2024"></span> <a href="https://tylermorgan.co/" class="content-link">Tyler Morgan</a>. All rights reserved.</p>
+    <p><a class="content-link" rel="privacy-policy" href="https://tylermorgan.co/privacy-policy/">Privacy Policy</a></p>
+  </footer>
+  <script src="/record-inventory/archive/archive_data.js"></script>
+  <script src="https://tylermorgan.co/year_2024.js" type="module"></script>
+</body>
+</html>

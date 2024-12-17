@@ -7,153 +7,155 @@ import { JSDOM } from 'jsdom';
 import prettier, { doc } from 'prettier';
 import path from 'path';
 
-const buildDate = () => {
+const TIMESTAMP = () => {
   const now = new Date();
   return now.toISOString();
 };
 
-const BUILDER_VERSION = '0.3.0';
+const BUILDER_VERSION = '0.4.0';
 
-const dom = new JSDOM(`<!DOCTYPE html><!--Document built: ${buildDate()} v${BUILDER_VERSION}--><html lang="en" dir="ltr"><head></head><body></body></html>`);
+const buildInfo = `File built from records.mjs v${BUILDER_VERSION} on ${TIMESTAMP()}`;
+
+const dom = new JSDOM(`<!DOCTYPE html><!--${buildInfo}--><html lang="en" dir="ltr"><head></head><body></body></html>`);
 
 // Access the document object for DOM manipulation
-const document = dom.window.document;
+const recordDocument = dom.window.document;
 
-const metaCharset = document.createElement('meta');
+const metaCharset = recordDocument.createElement('meta');
 metaCharset.setAttribute('charset', 'UTF-8');
-document.head.append(metaCharset);
+recordDocument.head.append(metaCharset);
 
-const metaViewport = document.createElement('meta');
+const metaViewport = recordDocument.createElement('meta');
 metaViewport.name = 'viewport';
 metaViewport.content = 'width=device-width, initial-scale=1.0';
-document.head.append(metaViewport);
+recordDocument.head.append(metaViewport);
 
-const title = document.createElement('title');
+const title = recordDocument.createElement('title');
 title.textContent = 'Records';
-document.head.append(title);
+recordDocument.head.append(title);
 
-const styleMain = document.createElement('link');
+const styleMain = recordDocument.createElement('link');
 styleMain.rel = 'stylesheet';
 styleMain.crossOrigin = 'anonymous';
 styleMain.href = 'https://tylermorgan.co/style.css';
-document.head.append(styleMain);
+recordDocument.head.append(styleMain);
 
-const styleRecord = document.createElement('link');
+const styleRecord = recordDocument.createElement('link');
 styleRecord.rel = 'stylesheet';
 styleRecord.href = '/record-inventory/records.css';
-document.head.append(styleRecord);
+recordDocument.head.append(styleRecord);
 
-const webDecription = document.createElement('meta');
+const webDecription = recordDocument.createElement('meta');
 webDecription.name = 'description';
 webDecription.content = 'An inventory of Tyler\'s record collection.';
-document.head.append(webDecription);
+recordDocument.head.append(webDecription);
 
-const iconLightSVG = document.createElement('link');
+const iconLightSVG = recordDocument.createElement('link');
 iconLightSVG.rel = 'icon';
 iconLightSVG.media = '(prefers-color-scheme: light)';
 iconLightSVG.type = 'image/svg';
 iconLightSVG.crossOrigin = 'anonymous';
 iconLightSVG.href = 'https://tylermorgan.co/elements/icons/favicon-day.svg';
-document.head.append(iconLightSVG);
+recordDocument.head.append(iconLightSVG);
 
-const iconDarkSVG = document.createElement('link');
+const iconDarkSVG = recordDocument.createElement('link');
 iconDarkSVG.rel = 'icon';
 iconDarkSVG.media = '(prefers-color-scheme: dark)';
 iconDarkSVG.type = 'image/svg';
 iconDarkSVG.crossOrigin = 'anonymous';
 iconDarkSVG.href = 'https://tylermorgan.co/elements/icons/favicon-night.svg';
-document.head.append(iconDarkSVG);
+recordDocument.head.append(iconDarkSVG);
 
-const iconLightAVIF = document.createElement('link');
+const iconLightAVIF = recordDocument.createElement('link');
 iconLightAVIF.rel = 'icon';
 iconLightAVIF.media = '(prefers-color-scheme: light)';
 iconLightAVIF.type = 'image/avif';
 iconLightAVIF.crossOrigin = 'anonymous';
 iconLightAVIF.href = 'https://tylermorgan.co/elements/icons/favicon-day-180.avif';
-document.head.append(iconLightAVIF);
+recordDocument.head.append(iconLightAVIF);
 
-const iconDarkAVIF = document.createElement('link');
+const iconDarkAVIF = recordDocument.createElement('link');
 iconDarkAVIF.rel = 'icon';
 iconDarkAVIF.media = '(prefers-color-scheme: dark)';
 iconDarkAVIF.type = 'image/avif';
 iconDarkAVIF.crossOrigin = 'anonymous';
 iconDarkAVIF.href = 'https://tylermorgan.co/elements/icons/favicon-night-180.avif';
-document.head.append(iconDarkAVIF);
+recordDocument.head.append(iconDarkAVIF);
 
-const iconLightAVIF192 = document.createElement('link');
+const iconLightAVIF192 = recordDocument.createElement('link');
 iconLightAVIF192.rel = 'icon';
 iconLightAVIF192.media = '(prefers-color-scheme: light)';
 iconLightAVIF192.type = 'image/avif';
 iconLightAVIF192.crossOrigin = 'anonymous';
 iconLightAVIF192.setAttribute('sizes', '192x192');
 iconLightAVIF192.href = 'https://tylermorgan.co/elements/icons/favicon-day-192.avif';
-document.head.append(iconLightAVIF192);
+recordDocument.head.append(iconLightAVIF192);
 
-const iconDarkAVIF192 = document.createElement('link');
+const iconDarkAVIF192 = recordDocument.createElement('link');
 iconDarkAVIF192.rel = 'icon';
 iconDarkAVIF192.media = '(prefers-color-scheme: dark)';
 iconDarkAVIF192.type = 'image/avif';
 iconDarkAVIF192.crossOrigin = 'anonymous';
 iconDarkAVIF192.setAttribute('sizes', '192x192');
 iconDarkAVIF192.href = 'https://tylermorgan.co/elements/icons/favicon-night-192.avif';
-document.head.append(iconDarkAVIF192);
+recordDocument.head.append(iconDarkAVIF192);
 
-const appleTouchIcon = document.createElement('link');
+const appleTouchIcon = recordDocument.createElement('link');
 appleTouchIcon.rel = 'apple-touch-icon';
 appleTouchIcon.crossOrigin = 'anonymous';
 appleTouchIcon.href = 'https://tylermorgan.co/apple-touch-icon.avif';
-document.head.append(appleTouchIcon);
+recordDocument.head.append(appleTouchIcon);
 
-const maskIcon = document.createElement('link');
+const maskIcon = recordDocument.createElement('link');
 maskIcon.rel = 'mask-icon';
 maskIcon.crossOrigin = 'anonymous';
 maskIcon.href = 'https://tylermorgan.co/elements/icons/mask-icon.svg';
 maskIcon.setAttribute('color', '#454D51');
-document.head.append(maskIcon);
+recordDocument.head.append(maskIcon);
 
-const lightThemeColor = document.createElement('meta');
+const lightThemeColor = recordDocument.createElement('meta');
 lightThemeColor.name = 'theme-color';
 lightThemeColor.media = '(prefers-color-scheme: light)';
 lightThemeColor.content = '#444444'
-document.head.append(lightThemeColor);
+recordDocument.head.append(lightThemeColor);
 
-const darkThemeColor = document.createElement('meta');
+const darkThemeColor = recordDocument.createElement('meta');
 darkThemeColor.name = 'theme-color';
 darkThemeColor.media = '(prefers-color-scheme: dark)';
 darkThemeColor.content = '#121111';
-document.head.append(darkThemeColor);
+recordDocument.head.append(darkThemeColor);
 
-const canonical = document.createElement('link');
+const canonical = recordDocument.createElement('link');
 canonical.rel = 'canonical';
 canonical.href = 'https://tylerjm.org/record-inventory/';
-document.head.append(canonical);
+recordDocument.head.append(canonical);
 
-const keywords = document.createElement('meta');
+const keywords = recordDocument.createElement('meta');
 keywords.name = 'keywords';
 keywords.content = 'record, handbook, tyler morgan, vinyl, tylerjmorg, discogs, goldmine, music, inventory';
-document.head.append(keywords);
+recordDocument.head.append(keywords);
 
-const header = document.createElement('header');
+const header = recordDocument.createElement('header');
 header.classList.add('title-container');
 
-const headerH1 = document.createElement('h1');
+const headerH1 = recordDocument.createElement('h1');
 headerH1.classList.add('title', 'ring');
 headerH1.ariaLabel = 'Records';
 
-const headerH1SVG = document.createElement('svg');
+const headerH1SVG = recordDocument.createElement('svg');
 headerH1SVG.classList.add('ring-svg');
 headerH1SVG.setAttribute('viewBox', '0 0 100 100');
 headerH1SVG.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
 
-const headerH1Path = document.createElement('path');
+const headerH1Path = recordDocument.createElement('path');
 headerH1Path.classList.add('ring-circle');
 headerH1Path.id = 'circlePath';
 headerH1Path.setAttribute('d', 'M 4.1779659,50 A 45.822034,45.822034 0 1 0 95.822034,50 45.822034,45.822034 0 1 0 4.1779658,50');
 headerH1SVG.append(headerH1Path);
 
-const headerH1Text = document.createElement('text');
+const headerH1Text = recordDocument.createElement('text');
 
-const headerH1TextPath = document.createElement('textPath');
+const headerH1TextPath = recordDocument.createElement('textPath');
 headerH1TextPath.setAttribute('href', '#circlePath');
 headerH1TextPath.setAttribute('fill', 'var(--primary-color)');
 headerH1TextPath.textContent = 'RECORDS · RECORDS · RECORDS · RECORDS · RECORDS ·';
@@ -163,11 +165,11 @@ headerH1SVG.append(headerH1Text);
 headerH1.append(headerH1SVG);
 header.append(headerH1);
 
-document.body.append(header);
+recordDocument.body.append(header);
 
-const main = document.createElement('main');
+const main = recordDocument.createElement('main');
 
-const section1 = document.createElement('section');
+const section1 = recordDocument.createElement('section');
 
 const recordsFilePath = path.resolve('records.json');
 
@@ -179,11 +181,11 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
   
   const parsedRecordData = JSON.parse(data);
 
-  const table = document.createElement('div');
+  const table = recordDocument.createElement('div');
   table.classList.add('record-grid');
 
   parsedRecordData.forEach((item, index) => {
-    const card = document.createElement('div');
+    const card = recordDocument.createElement('div');
     card.classList.add('record', 'collapsible-r');
     card.ariaExpanded = 'false';
     card.tabIndex = '0';
@@ -192,10 +194,10 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
     card.setAttribute('data-target-id', `aboutMeContent-${index}`);
     card.id = `aboutMeButton-${index}`;
 
-    const recordContentWrapper = document.createElement('div');
+    const recordContentWrapper = recordDocument.createElement('div');
     recordContentWrapper.classList.add('record-content-wrapper');
 
-    const imgContainer = document.createElement('div');
+    const imgContainer = recordDocument.createElement('div');
     imgContainer.classList.add('img-container');
     imgContainer.role = 'none';
 
@@ -204,7 +206,7 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
       mod = `-${item.mod_id}`;
     }
 
-    const foregroungImg = document.createElement('img');
+    const foregroungImg = recordDocument.createElement('img');
     foregroungImg.classList.add('record-img', 'foreground-img');
     foregroungImg.src = `/record-inventory/covers/${item.id}${mod}.avif`;
 
@@ -213,7 +215,7 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
     }
     imgContainer.append(foregroungImg);
 
-    const backgroundImg = document.createElement('img');
+    const backgroundImg = recordDocument.createElement('img');
     backgroundImg.classList.add('record-img', 'background-img');
     backgroundImg.role = 'presentation';
     backgroundImg.src = `/record-inventory/covers/${item.id}${mod}.avif`;
@@ -223,7 +225,7 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
 
     let title = '';
     if (item.title) {
-      title = document.createElement('p');
+      title = recordDocument.createElement('p');
       title.classList.add('record-title');
       title.textContent = item.title;
       recordContentWrapper.append(title);
@@ -231,7 +233,7 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
 
     let explicit = '';
     if (item.explicit) {
-      explicit = document.createElement('span');
+      explicit = recordDocument.createElement('span');
       explicit.id = 'explicit';
       explicit.classList.add('label');
       title.append(explicit);
@@ -241,33 +243,33 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
     if (Array.isArray(item.artists)) {
       if (!item.artists.includes("Various")) {
         if (item.artists.length > 2) {
-          const artistsBreak = document.createElement('br');
+          const artistsBreak = recordDocument.createElement('br');
           title.append(artistsBreak);
 
-          artists = document.createElement('span');
+          artists = recordDocument.createElement('span');
           artists.classList.add('artist');
           artists.textContent = item.artists.slice(0, 2).join(', ');
           artists.textContent += ', ';
           title.append(artists);
 
-          const etAl = document.createElement('span');
+          const etAl = recordDocument.createElement('span');
           etAl.classList.add('italic');
           etAl.textContent = 'et al.';
           artists.append(etAl);
         } else {
-          const artistsBreak = document.createElement('br');
+          const artistsBreak = recordDocument.createElement('br');
           title.append(artistsBreak);
 
-          artists = document.createElement('span');
+          artists = recordDocument.createElement('span');
           artists.classList.add('artist');
           artists.textContent = item.artists.join(', ');
           title.append(artists);
         }
       } else if (item.artists.includes("Various")) {
-        const artistsBreak = document.createElement('br');
+        const artistsBreak = recordDocument.createElement('br');
         title.append(artistsBreak);
 
-        artists = document.createElement('span');
+        artists = recordDocument.createElement('span');
         artists.classList.add('artist', 'italic');
         artists.textContent = item.artists.join(', ');
         title.append(artists);
@@ -275,20 +277,20 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
     }
     card.append(recordContentWrapper);
 
-    const recordContent = document.createElement('div');
+    const recordContent = recordDocument.createElement('div');
     recordContent.classList.add('content-1');
     recordContent.id = `aboutMeContent-${index}`;
     recordContent.ariaHidden = 'true';
 
     let qty = '';
     if (item.qty) {
-      qty = document.createElement('p');
-      const qtyLabel = document.createElement('span');
+      qty = recordDocument.createElement('p');
+      const qtyLabel = recordDocument.createElement('span');
       qtyLabel.classList.add('label');
       qtyLabel.textContent = 'Qty';
       qty.append(qtyLabel);
 
-      qty.append(document.createTextNode(`: ${item.qty}`));
+      qty.append(recordDocument.createTextNode(`: ${item.qty}`));
 
       recordContent.append(qty);
     }
@@ -306,13 +308,13 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
 
     let discColors = '';
     if (colors) {
-      discColors = document.createElement('p');
-      const discColorsLabel = document.createElement('span');
+      discColors = recordDocument.createElement('p');
+      const discColorsLabel = recordDocument.createElement('span');
       discColorsLabel.classList.add('label');
       discColorsLabel.textContent = colorsLabel;
       discColors.append(discColorsLabel);
 
-      discColors.append(document.createTextNode(`: ${colors}`));
+      discColors.append(recordDocument.createTextNode(`: ${colors}`));
 
       recordContent.append(discColors);
     }
@@ -330,14 +332,14 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
       
     let genres = '';
     if (genreNames) {
-      genres = document.createElement('p');
+      genres = recordDocument.createElement('p');
 
-      const genresLabel = document.createElement('span');
+      const genresLabel = recordDocument.createElement('span');
       genresLabel.classList.add('label');
       genresLabel.textContent = genresLabelName;
       genres.append(genresLabel);
 
-      genres.append(document.createTextNode(`: ${genreNames}`));
+      genres.append(recordDocument.createTextNode(`: ${genreNames}`));
 
       recordContent.append(genres);
     }
@@ -355,48 +357,48 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
 
     let labels = '';
     if (item.labels) {
-      labels = document.createElement('p');
+      labels = recordDocument.createElement('p');
 
-      const labelsLabel = document.createElement('span');
+      const labelsLabel = recordDocument.createElement('span');
       labelsLabel.classList.add('label');
       labelsLabel.textContent = labelsLabelName;
       labels.append(labelsLabel);
 
-      labels.append(document.createTextNode(`: ${labelNames}`));
+      labels.append(recordDocument.createTextNode(`: ${labelNames}`));
 
       recordContent.append(labels);
     }
 
     let break1 = '';
     if (item.disc_count || item.contents_count){
-      break1 = document.createElement('br');
+      break1 = recordDocument.createElement('br');
       recordContent.append(break1);
     }
 
     let discCount = '';
     if (item.disc_count) {
-      discCount = document.createElement('p');
+      discCount = recordDocument.createElement('p');
 
-      const discCountLabel = document.createElement('span');
+      const discCountLabel = recordDocument.createElement('span');
       discCountLabel.classList.add('label');
       discCountLabel.textContent = 'Disc Count';
       discCount.append(discCountLabel);
 
-      discCount.append(document.createTextNode(`: ${item.disc_count}`));
+      discCount.append(recordDocument.createTextNode(`: ${item.disc_count}`));
 
       recordContent.append(discCount);
     }
 
     let contentsCount = '';
     if (item.contents_count) {
-      contentsCount = document.createElement('p');
+      contentsCount = recordDocument.createElement('p');
 
-      const contentsCountLabel = document.createElement('span');
+      const contentsCountLabel = recordDocument.createElement('span');
       contentsCountLabel.classList.add('label');
       contentsCountLabel.textContent = 'Contents Count';
       contentsCount.append(contentsCountLabel);
 
-      contentsCount.append(document.createTextNode(`: ${item.contents_count}`));
+      contentsCount.append(recordDocument.createTextNode(`: ${item.contents_count}`));
 
       recordContent.append(contentsCount);
     }
@@ -475,162 +477,162 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
 
     // Start contents counting
     if (item.jacket1_qty || item.inner_sleeve_qty || item.outer_sleeve_qty || item.poster_qty || item.envelope_qty || item.album_photo_qty || item.song_letter_qty || item.hype_sticker_qty || item.song_lyrics_booklet_qty || item.logo_photo_qty || item.photo_album_booklet_qty || item.other_item1_qty) {
-      const break2 = document.createElement('br');
+      const break2 = recordDocument.createElement('br');
       recordContent.append(break2);
 
-      const contents = document.createElement('p');
-      const contentsLabel = document.createElement('span');
+      const contents = recordDocument.createElement('p');
+      const contentsLabel = recordDocument.createElement('span');
       contentsLabel.classList.add('label');
       contentsLabel.textContent = 'Contents Description';
       contents.append(contentsLabel);
 
-      contents.append(document.createTextNode(': '));
+      contents.append(recordDocument.createTextNode(': '));
 
       if (item.jacket1_qty) {
-        const jacket1Break = document.createElement('br');
+        const jacket1Break = recordDocument.createElement('br');
         contents.append(jacket1Break);
 
-        contents.append(document.createTextNode(`${item.jacket1_qty} - ${jacket1Desc}`));
+        contents.append(recordDocument.createTextNode(`${item.jacket1_qty} - ${jacket1Desc}`));
       }
 
       if (item.jacket2_qty) {
-        const jacket2Break = document.createElement('br');
+        const jacket2Break = recordDocument.createElement('br');
         contents.append(jacket2Break);
 
-        contents.append(document.createTextNode(`${item.jacket2_qty} - ${jacket2Desc}`));
+        contents.append(recordDocument.createTextNode(`${item.jacket2_qty} - ${jacket2Desc}`));
       }
 
       if (item.jacket3_qty) {
-        const jacket3Break = document.createElement('br');
+        const jacket3Break = recordDocument.createElement('br');
         contents.append(jacket3Break);
 
-        contents.append(document.createTextNode(`${item.jacket3_qty} - ${jacket3Desc}`));
+        contents.append(recordDocument.createTextNode(`${item.jacket3_qty} - ${jacket3Desc}`));
       }
 
       if (item.jacket4_qty) {
-        const jacket4Break = document.createElement('br');
+        const jacket4Break = recordDocument.createElement('br');
         contents.append(jacket4Break);
 
-        contents.append(document.createTextNode(`${item.jacket4_qty} - ${jacket4Desc}`));
+        contents.append(recordDocument.createTextNode(`${item.jacket4_qty} - ${jacket4Desc}`));
       }
 
       if (item.inner_sleeve_qty) {
-        const innerSleeveBreak = document.createElement('br');
+        const innerSleeveBreak = recordDocument.createElement('br');
         contents.append(innerSleeveBreak);
 
-        contents.append(document.createTextNode(`${item.inner_sleeve_qty} - Inner-sleeve`));
+        contents.append(recordDocument.createTextNode(`${item.inner_sleeve_qty} - Inner-sleeve`));
       }
 
       if (item.outer_sleeve_qty) {
-        const outerSleeveBreak = document.createElement('br');
+        const outerSleeveBreak = recordDocument.createElement('br');
         contents.append(outerSleeveBreak);
 
-        contents.append(document.createTextNode(`${item.outer_sleeve_qty} - Outer-sleeve`));
+        contents.append(recordDocument.createTextNode(`${item.outer_sleeve_qty} - Outer-sleeve`));
       }
 
       if (item.poster_qty) {
-        const posterBreak = document.createElement('br');
+        const posterBreak = recordDocument.createElement('br');
         contents.append(posterBreak);
 
-        contents.append(document.createTextNode(`${item.poster_qty} - Poster`));
+        contents.append(recordDocument.createTextNode(`${item.poster_qty} - Poster`));
       }
 
       if (item.envelope_qty) {
-        const envelopeBreak = document.createElement('br');
+        const envelopeBreak = recordDocument.createElement('br');
         contents.append(envelopeBreak);
 
-        contents.append(document.createTextNode(`${item.envelope_qty} - Envelope`));
+        contents.append(recordDocument.createTextNode(`${item.envelope_qty} - Envelope`));
       }
 
       if (item.album_photo_qty) {
-        const albumPhotoBreak = document.createElement('br');
+        const albumPhotoBreak = recordDocument.createElement('br');
         contents.append(albumPhotoBreak);
 
-        contents.append(document.createTextNode(`${item.album_photo_qty} - Album Photo`));
+        contents.append(recordDocument.createTextNode(`${item.album_photo_qty} - Album Photo`));
       }
 
       if (item.song_letter_qty) {
-        const songLetterBreak = document.createElement('br');
+        const songLetterBreak = recordDocument.createElement('br');
         contents.append(songLetterBreak);
 
-        contents.append(document.createTextNode(`${item.song_letter_qty} - Song Letter`));
+        contents.append(recordDocument.createTextNode(`${item.song_letter_qty} - Song Letter`));
       }
 
       if (item.hype_sticker_qty) {
-        const hypeStickerBreak = document.createElement('br');
+        const hypeStickerBreak = recordDocument.createElement('br');
         contents.append(hypeStickerBreak);
 
-        contents.append(document.createTextNode(`${item.hype_sticker_qty} - Hype Sticker`));
+        contents.append(recordDocument.createTextNode(`${item.hype_sticker_qty} - Hype Sticker`));
       }
 
       if (item.song_lyrics_booklet_qty) {
-        const songLyricsBookletBreak = document.createElement('br');
+        const songLyricsBookletBreak = recordDocument.createElement('br');
         contents.append(songLyricsBookletBreak);
 
-        contents.append(document.createTextNode(`${item.song_lyrics_booklet_qty} - Song Lyrics Booklet`));
+        contents.append(recordDocument.createTextNode(`${item.song_lyrics_booklet_qty} - Song Lyrics Booklet`));
       }
 
       if (item.logo_photo_qty) {
-        const logoPhotoBreak = document.createElement('br');
+        const logoPhotoBreak = recordDocument.createElement('br');
         contents.append(logoPhotoBreak);
 
-        contents.append(document.createTextNode(`${item.logo_photo_qty} - Logo Photo`));
+        contents.append(recordDocument.createTextNode(`${item.logo_photo_qty} - Logo Photo`));
       }
 
       if (item.photo_album_booklet_qty) {
-        const photoAlbumBookletBreak = document.createElement('br');
+        const photoAlbumBookletBreak = recordDocument.createElement('br');
         contents.append(photoAlbumBookletBreak);
 
-        contents.append(document.createTextNode(`${item.photo_album_booklet_qty} - Photo Album Booklet`));
+        contents.append(recordDocument.createTextNode(`${item.photo_album_booklet_qty} - Photo Album Booklet`));
       }
 
       if (item.other_item1_qty) {
-        const other1Break = document.createElement('br');
+        const other1Break = recordDocument.createElement('br');
         contents.append(other1Break);
 
-        contents.append(document.createTextNode(`${item.other_item1_qty} - ${other1Name}`));
+        contents.append(recordDocument.createTextNode(`${item.other_item1_qty} - ${other1Name}`));
       }
 
       if (item.other_item2_qty) {
-        const other2Break = document.createElement('br');
+        const other2Break = recordDocument.createElement('br');
         contents.append(other2Break);
 
-        contents.append(document.createTextNode(`${item.other_item2_qty} - ${other2Name}`));
+        contents.append(recordDocument.createTextNode(`${item.other_item2_qty} - ${other2Name}`));
       }
 
       if (item.other_item3_qty) {
-        const other3Break = document.createElement('br');
+        const other3Break = recordDocument.createElement('br');
         contents.append(other3Break);
 
-        contents.append(document.createTextNode(`${item.other_item3_qty} - ${other3Name}`));
+        contents.append(recordDocument.createTextNode(`${item.other_item3_qty} - ${other3Name}`));
       }
 
       if (item.other_item4_qty) {
-        const other4Break = document.createElement('br');
+        const other4Break = recordDocument.createElement('br');
         contents.append(other4Break);
 
-        contents.append(document.createTextNode(`${item.other_item4_qty} - ${other4Name}`));
+        contents.append(recordDocument.createTextNode(`${item.other_item4_qty} - ${other4Name}`));
       }
 
       if (item.other_item5_qty) {
-        const other5Break = document.createElement('br');
+        const other5Break = recordDocument.createElement('br');
         contents.append(other5Break);
 
-        contents.append(document.createTextNode(`${item.other_item5_qty} - ${other5Name}`));
+        contents.append(recordDocument.createTextNode(`${item.other_item5_qty} - ${other5Name}`));
       }
 
       if (item.other_item6_qty) {
-        const other6Break = document.createElement('br');
+        const other6Break = recordDocument.createElement('br');
         contents.append(other6Break);
 
-        contents.append(document.createTextNode(`${item.other_item6_qty} - ${other6Name}`));
+        contents.append(recordDocument.createTextNode(`${item.other_item6_qty} - ${other6Name}`));
       }
 
       if (item.digital_download_slip_qty) {
-        const digitalDownloadSlipBreak = document.createElement('br');
+        const digitalDownloadSlipBreak = recordDocument.createElement('br');
         contents.append(digitalDownloadSlipBreak);
 
-        contents.append(document.createTextNode(`${item.digital_download_slip_qty} - Digital Download Slip ${digitalDownloadSlipFates}`));
+        contents.append(recordDocument.createTextNode(`${item.digital_download_slip_qty} - Digital Download Slip ${digitalDownloadSlipFates}`));
       }
       recordContent.append(contents);
     }
@@ -638,137 +640,137 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
 
       //Goldmine
     if (item.jacket1_goldmine || item.disc1_goldmine) {
-      const break3 = document.createElement('br');
+      const break3 = recordDocument.createElement('br');
       recordContent.append(break3);
 
-      const goldmine = document.createElement('p');
+      const goldmine = recordDocument.createElement('p');
 
-      const goldmineLabel = document.createElement('span');
+      const goldmineLabel = recordDocument.createElement('span');
       goldmineLabel.classList.add('label');
       goldmineLabel.textContent = 'Goldmine';
-      const trademarkSup = document.createElement('sup');
+      const trademarkSup = recordDocument.createElement('sup');
       trademarkSup.textContent = '®';
-      const conditionsText = document.createTextNode(' Conditions');
+      const conditionsText = recordDocument.createTextNode(' Conditions');
 
       goldmineLabel.append(trademarkSup);
       goldmineLabel.append(conditionsText);
       goldmine.append(goldmineLabel);
 
-      goldmine.append(document.createTextNode(': '));
+      goldmine.append(recordDocument.createTextNode(': '));
 
       if (item.jacket1_goldmine) {
-        const jacket1GoldmineBreak = document.createElement('br');
+        const jacket1GoldmineBreak = recordDocument.createElement('br');
         goldmine.append(jacket1GoldmineBreak);
 
-        goldmine.append(document.createTextNode(`${jacket1Name} - ${item.jacket1_goldmine}`));
+        goldmine.append(recordDocument.createTextNode(`${jacket1Name} - ${item.jacket1_goldmine}`));
       }
 
       if (item.jacket2_goldmine) {
-        const jacket2GoldmineBreak = document.createElement('br');
+        const jacket2GoldmineBreak = recordDocument.createElement('br');
         goldmine.append(jacket2GoldmineBreak);
 
-        goldmine.append(document.createTextNode(`${jacket2Name} - ${item.jacket2_goldmine}`));
+        goldmine.append(recordDocument.createTextNode(`${jacket2Name} - ${item.jacket2_goldmine}`));
       }
 
       if (item.jacket3_goldmine) {
-        const jacket3GoldmineBreak = document.createElement('br');
+        const jacket3GoldmineBreak = recordDocument.createElement('br');
         goldmine.append(jacket3GoldmineBreak);
 
-        goldmine.append(document.createTextNode(`${jacket3Name} - ${item.jacket3_goldmine}`));
+        goldmine.append(recordDocument.createTextNode(`${jacket3Name} - ${item.jacket3_goldmine}`));
       }
 
       if (item.jacket4_goldmine) {
-        const jacket4GoldmineBreak = document.createElement('br');
+        const jacket4GoldmineBreak = recordDocument.createElement('br');
         goldmine.append(jacket4GoldmineBreak);
 
-        goldmine.append(document.createTextNode(`${jacket4Name} - ${item.jacket4_goldmine}`));
+        goldmine.append(recordDocument.createTextNode(`${jacket4Name} - ${item.jacket4_goldmine}`));
       }
 
       if (item.disc1_goldmine) {
-        const disc1GoldmineBreak = document.createElement('br');
+        const disc1GoldmineBreak = recordDocument.createElement('br');
         goldmine.append(disc1GoldmineBreak);
 
-        goldmine.append(document.createTextNode(`${disc1Name} - ${item.disc1_goldmine}`));
+        goldmine.append(recordDocument.createTextNode(`${disc1Name} - ${item.disc1_goldmine}`));
       }
 
       if (item.disc2_goldmine) {
-        const disc2GoldmineBreak = document.createElement('br');
+        const disc2GoldmineBreak = recordDocument.createElement('br');
         goldmine.append(disc2GoldmineBreak);
 
-        goldmine.append(document.createTextNode(`${disc2Name} - ${item.disc2_goldmine}`));
+        goldmine.append(recordDocument.createTextNode(`${disc2Name} - ${item.disc2_goldmine}`));
       }
 
       if (item.disc3_goldmine) {
-        const disc3GoldmineBreak = document.createElement('br');
+        const disc3GoldmineBreak = recordDocument.createElement('br');
         goldmine.append(disc3GoldmineBreak);
 
-        goldmine.append(document.createTextNode(`${disc3Name} - ${item.disc3_goldmine}`));
+        goldmine.append(recordDocument.createTextNode(`${disc3Name} - ${item.disc3_goldmine}`));
       }
 
       if (item.disc4_goldmine) {
-        const disc4GoldmineBreak = document.createElement('br');
+        const disc4GoldmineBreak = recordDocument.createElement('br');
         goldmine.append(disc4GoldmineBreak);
 
-        goldmine.append(document.createTextNode(`${disc4Name} - ${item.disc4_goldmine}`));
+        goldmine.append(recordDocument.createTextNode(`${disc4Name} - ${item.disc4_goldmine}`));
       }
 
       if (item.disc5_goldmine) {
-        const disc5GoldmineBreak = document.createElement('br');
+        const disc5GoldmineBreak = recordDocument.createElement('br');
         goldmine.append(disc5GoldmineBreak);
 
-        goldmine.append(document.createTextNode(`${disc5Name} - ${item.disc5_goldmine}`));
+        goldmine.append(recordDocument.createTextNode(`${disc5Name} - ${item.disc5_goldmine}`));
       }
 
       if (item.disc6_goldmine) {
-        const disc6GoldmineBreak = document.createElement('br');
+        const disc6GoldmineBreak = recordDocument.createElement('br');
         goldmine.append(disc6GoldmineBreak);
 
-        goldmine.append(document.createTextNode(`${disc6Name} - ${item.disc6_goldmine}`));
+        goldmine.append(recordDocument.createTextNode(`${disc6Name} - ${item.disc6_goldmine}`));
       }
 
       if (item.disc7_goldmine) {
-        const disc7GoldmineBreak = document.createElement('br');
+        const disc7GoldmineBreak = recordDocument.createElement('br');
         goldmine.append(disc7GoldmineBreak);
 
-        goldmine.append(document.createTextNode(`${disc7Name} - ${item.disc7_goldmine}`));
+        goldmine.append(recordDocument.createTextNode(`${disc7Name} - ${item.disc7_goldmine}`));
       }
 
       if (item.disc8_goldmine) {
-        const disc8GoldmineBreak = document.createElement('br');
+        const disc8GoldmineBreak = recordDocument.createElement('br');
         goldmine.append(disc8GoldmineBreak);
 
-        goldmine.append(document.createTextNode(`${disc8Name} - ${item.disc8_goldmine}`));
+        goldmine.append(recordDocument.createTextNode(`${disc8Name} - ${item.disc8_goldmine}`));
       }
       recordContent.append(goldmine);
     }
     
     let break4 = '';
     if (item.listened || item.id || item.dd){
-      break4 = document.createElement('br');
+      break4 = recordDocument.createElement('br');
       recordContent.append(break4);
     }
 
     let listened = '';
     if (item.listened === true) {
-      listened = document.createElement('p');
+      listened = recordDocument.createElement('p');
 
-      const listenedLabel = document.createElement('span');
+      const listenedLabel = recordDocument.createElement('span');
       listenedLabel.classList.add('label');
       listenedLabel.textContent = 'Listened';
       listened.append(listenedLabel);
 
-      listened.append(document.createTextNode(': Yes'));
+      listened.append(recordDocument.createTextNode(': Yes'));
 
       recordContent.append(listened);
     } else if (item.listened === false) {
-      listened = document.createElement('p');
+      listened = recordDocument.createElement('p');
 
-      const listenedLabel = document.createElement('span');
+      const listenedLabel = recordDocument.createElement('span');
       listenedLabel.classList.add('label');
       listenedLabel.textContent = 'Listened';
       listened.append(listenedLabel);
 
-      listened.append(document.createTextNode(': No'));
+      listened.append(recordDocument.createTextNode(': No'));
 
       recordContent.append(listened);
     }
@@ -778,16 +780,16 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
 
     let discogs = '';
     if (item.id) {
-      discogs = document.createElement('p');
+      discogs = recordDocument.createElement('p');
 
-      const discogsLabel = document.createElement('span');
+      const discogsLabel = recordDocument.createElement('span');
       discogsLabel.classList.add('label');
       discogsLabel.textContent = 'Discogs Release Code';
       discogs.append(discogsLabel);
 
-      discogs.append(document.createTextNode(': '));
+      discogs.append(recordDocument.createTextNode(': '));
 
-      const discogsLink = document.createElement('a');
+      const discogsLink = recordDocument.createElement('a');
       discogsLink.classList.add('content-link');
       discogsLink.tabIndex = '-1';
       discogsLink.ariaHidden = 'true';
@@ -802,16 +804,16 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
     let dd = '';
     if (item.dd === 'Yes') {
       if (item.dd_yes_url) {
-        dd = document.createElement('p');
+        dd = recordDocument.createElement('p');
 
-        const ddLabel = document.createElement('span');
+        const ddLabel = recordDocument.createElement('span');
         ddLabel.classList.add('label');
         ddLabel.textContent = 'Digitally Downloaded';
         dd.append(ddLabel);
 
-        dd.append(document.createTextNode(': '));
+        dd.append(recordDocument.createTextNode(': '));
 
-        const ddLink = document.createElement('a');
+        const ddLink = recordDocument.createElement('a');
         ddLink.classList.add('content-link');
         ddLink.tabIndex = '-1';
         ddLink.ariaHidden = 'true';
@@ -821,28 +823,28 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
         dd.append(ddLink);
         recordContent.append(dd);
       } else {
-        dd = document.createElement('p');
+        dd = recordDocument.createElement('p');
 
-        const ddLabel = document.createElement('span');
+        const ddLabel = recordDocument.createElement('span');
         ddLabel.classList.add('label');
         ddLabel.textContent = 'Digitally Downloaded';
         dd.append(ddLabel);
 
-        dd.append(document.createTextNode(': Yes'));
+        dd.append(recordDocument.createTextNode(': Yes'));
         recordContent.append(dd);
       }
     } else if (item.dd === 'No') {
       if (item.dd_no_url) {
-        dd = document.createElement('p');
+        dd = recordDocument.createElement('p');
 
-        const ddLabel = document.createElement('span');
+        const ddLabel = recordDocument.createElement('span');
         ddLabel.classList.add('label');
         ddLabel.textContent = 'Digitally Downloaded';
         dd.append(ddLabel);
 
-        dd.append(document.createTextNode(': '));
+        dd.append(recordDocument.createTextNode(': '));
 
-        const ddLink = document.createElement('a');
+        const ddLink = recordDocument.createElement('a');
         ddLink.classList.add('content-link');
         ddLink.tabIndex = '-1';
         ddLink.ariaHidden = 'true';
@@ -852,25 +854,25 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
         dd.append(ddLink);
         recordContent.append(dd);
       } else {
-        dd = document.createElement('p');
+        dd = recordDocument.createElement('p');
 
-        const ddLabel = document.createElement('span');
+        const ddLabel = recordDocument.createElement('span');
         ddLabel.classList.add('label');
         ddLabel.textContent = 'Digitally Downloaded';
         dd.append(ddLabel);
 
-        dd.append(document.createTextNode(': No'));
+        dd.append(recordDocument.createTextNode(': No'));
         recordContent.append(dd);
       }
     } else if (item.dd === 'N/A') {
-      dd = document.createElement('p');
+      dd = recordDocument.createElement('p');
 
-      const ddLabel = document.createElement('span');
+      const ddLabel = recordDocument.createElement('span');
       ddLabel.classList.add('label');
       ddLabel.textContent = 'Digitally Downloaded';
       dd.append(ddLabel);
 
-      dd.append(document.createTextNode(': N/A'));
+      dd.append(recordDocument.createTextNode(': N/A'));
       recordContent.append(dd);
     }
 
@@ -879,18 +881,18 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
     
     let downloadWebsites = '';
     if (item.dd === "Yes" || item.dd === "No") {
-      const break5 = document.createElement('br');
+      const break5 = recordDocument.createElement('br');
       recordContent.append(break5);
       
-      downloadWebsites = document.createElement('p');
+      downloadWebsites = recordDocument.createElement('p');
       downloadWebsites.textContent = 'Downloads available on';
 
       let artistWebsite = '';
       if (item.dd_official_url) {
-        const artistWebsiteBreak = document.createElement('br');
+        const artistWebsiteBreak = recordDocument.createElement('br');
         downloadWebsites.append(artistWebsiteBreak);
 
-        artistWebsite = document.createElement('a');
+        artistWebsite = recordDocument.createElement('a');
         artistWebsite.classList.add('content-link');
         artistWebsite.tabIndex = '-1';
         artistWebsite.ariaHidden = 'true';
@@ -901,10 +903,10 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
 
       let qobuz = '';
       if (item.dd_qobuz_url) {
-        const qobuzBreak = document.createElement('br');
+        const qobuzBreak = recordDocument.createElement('br');
         downloadWebsites.append(qobuzBreak);
         
-        qobuz = document.createElement('a');
+        qobuz = recordDocument.createElement('a');
         qobuz.classList.add('content-link');
         qobuz.tabIndex = '-1';
         qobuz.ariaHidden = 'true';
@@ -925,7 +927,7 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
 
   main.append(section1);
 
-  const section2 = document.createElement('section');
+  const section2 = recordDocument.createElement('section');
 
   const invUpdateFilePath = path.resolve('inventory_update.json');
 
@@ -937,56 +939,56 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
 
     const parsedInvUpdateData = JSON.parse(data);
 
-  const table = document.createElement('ul');
+  const table = recordDocument.createElement('ul');
   table.classList.add('update-grid');
 
   parsedInvUpdateData.forEach((item) => {
-    const updateCard = document.createElement('li');
+    const updateCard = recordDocument.createElement('li');
     updateCard.classList.add('update-card');
     
-    const updateCardContent = document.createElement('div');
+    const updateCardContent = recordDocument.createElement('div');
     updateCardContent.classList.add('update-card-content');
 
     if (item.inventory_updated) {
-      const inventoryUpdateLabel = document.createElement('span');
+      const inventoryUpdateLabel = recordDocument.createElement('span');
       inventoryUpdateLabel.classList.add('label');
       inventoryUpdateLabel.textContent = 'Inventory Updated';
       updateCardContent.append(inventoryUpdateLabel);
 
-      const inventoryUpdateBreak = document.createElement('br');
+      const inventoryUpdateBreak = recordDocument.createElement('br');
       updateCardContent.append(inventoryUpdateBreak);
 
-      const inventoryUpdateDatetime = document.createElement('time');
+      const inventoryUpdateDatetime = recordDocument.createElement('time');
       inventoryUpdateDatetime.dateTime = item.inventory_updated;
       inventoryUpdateDatetime.textContent = `${item.inventory_updated} UTC`;
       updateCardContent.append(inventoryUpdateDatetime);
     }
 
     if (item.last_inventory_check) {
-      const lastInventoryCheckLabel = document.createElement('span');
+      const lastInventoryCheckLabel = recordDocument.createElement('span');
       lastInventoryCheckLabel.classList.add('label');
       lastInventoryCheckLabel.textContent = 'Last Inventory Check';
       updateCardContent.append(lastInventoryCheckLabel);
 
-      const lastInventoryCheckBreak = document.createElement('br');
+      const lastInventoryCheckBreak = recordDocument.createElement('br');
       updateCardContent.append(lastInventoryCheckBreak);
 
-      const lastInventoryCheckDatetime = document.createElement('time');
+      const lastInventoryCheckDatetime = recordDocument.createElement('time');
       lastInventoryCheckDatetime.dateTime = item.last_inventory_check;
       lastInventoryCheckDatetime.textContent = `${item.last_inventory_check} UTC`;
       updateCardContent.append(lastInventoryCheckDatetime);
     }
 
     if (item.doc_info_updated) {
-      const docInfoUpdatedLabel = document.createElement('span');
+      const docInfoUpdatedLabel = recordDocument.createElement('span');
       docInfoUpdatedLabel.classList.add('label');
       docInfoUpdatedLabel.textContent = 'Doc Info Updated';
       updateCardContent.append(docInfoUpdatedLabel);
 
-      const docInfoUpdatedBreak = document.createElement('br');
+      const docInfoUpdatedBreak = recordDocument.createElement('br');
       updateCardContent.append(docInfoUpdatedBreak);
 
-      const docInfoUpdatedDatetime = document.createElement('time');
+      const docInfoUpdatedDatetime = recordDocument.createElement('time');
       docInfoUpdatedDatetime.dateTime = item.doc_info_updated;
       docInfoUpdatedDatetime.textContent = `${item.doc_info_updated} UTC`;
       updateCardContent.append(docInfoUpdatedDatetime);
@@ -999,16 +1001,16 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
   section2.append(table);
   main.append(section2);
 
-  const section3 = document.createElement('section');
+  const section3 = recordDocument.createElement('section');
   section3.classList.add('bottom-links');
 
-  const definitions = document.createElement('a');
+  const definitions = recordDocument.createElement('a');
   definitions.href = '/record-handbook/inventory/defs/';
   definitions.classList.add('bottom-link');
   definitions.textContent = 'Definitions';
   section3.append(definitions);
 
-  const recordHandbook = document.createElement('a');
+  const recordHandbook = recordDocument.createElement('a');
   recordHandbook.href = '/record-handbook/';
   recordHandbook.classList.add('bottom-link');
   recordHandbook.textContent = 'The Record Handbook';
@@ -1016,45 +1018,45 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
 
   main.append(section3);
 
-  document.body.append(main);
+  recordDocument.body.append(main);
 
-  const footer = document.createElement('footer');
+  const footer = recordDocument.createElement('footer');
   footer.classList.add('footer');
 
-  const footerDisclaimer = document.createElement('p');
-  footerDisclaimer.append(document.createTextNode('Some URLs may be expired or password protected. Check the '));
+  const footerDisclaimer = recordDocument.createElement('p');
+  footerDisclaimer.append(recordDocument.createTextNode('Some URLs may be expired or password protected. Check the '));
 
-  const archiveLink = document.createElement('a');
+  const archiveLink = recordDocument.createElement('a');
   archiveLink.href = '/record-inventory/archive/';
   archiveLink.classList.add('content-link');
   archiveLink.textContent = 'archive page';
   footerDisclaimer.append(archiveLink);
 
-  footerDisclaimer.append(document.createTextNode(' for more info.'));
+  footerDisclaimer.append(recordDocument.createTextNode(' for more info.'));
 
   footer.append(footerDisclaimer);
 
-  const footerCopyright = document.createElement('p');
-  footerCopyright.append(document.createTextNode('© '));
+  const footerCopyright = recordDocument.createElement('p');
+  footerCopyright.append(recordDocument.createTextNode('© '));
 
-  const footerYear = document.createElement('span');
+  const footerYear = recordDocument.createElement('span');
   footerYear.id = 'year_2024';
   footerCopyright.append(footerYear);
 
-  footerCopyright.append(document.createTextNode(' '));
+  footerCopyright.append(recordDocument.createTextNode(' '));
 
-  const footerName = document.createElement('a');
+  const footerName = recordDocument.createElement('a');
   footerName.href = 'https://tylermorgan.co/';
   footerName.classList.add('content-link');
   footerName.textContent = 'Tyler Morgan';
   footerCopyright.append(footerName);
 
-  footerCopyright.append(document.createTextNode('. All rights reserved.'));
+  footerCopyright.append(recordDocument.createTextNode('. All rights reserved.'));
 
   footer.append(footerCopyright);
 
-  const privacyPolicy = document.createElement('p');
-  const privacyPolicyLink = document.createElement('a');
+  const privacyPolicy = recordDocument.createElement('p');
+  const privacyPolicyLink = recordDocument.createElement('a');
   privacyPolicyLink.classList.add('content-link');
   privacyPolicyLink.rel = 'privacy-policy';
   privacyPolicyLink.href = 'https://tylermorgan.co/privacy-policy/';
@@ -1063,24 +1065,24 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
 
   footer.append(privacyPolicy);
 
-  document.body.append(footer);
+  recordDocument.body.append(footer);
 
-  const collapsible = document.createElement('script');
+  const collapsible = recordDocument.createElement('script');
   collapsible.src = '/record-inventory/collapsible.js';
-  document.body.append(collapsible);
+  recordDocument.body.append(collapsible);
 
-  const yearScript = document.createElement('script');
+  const yearScript = recordDocument.createElement('script');
   yearScript.src = 'https://tylermorgan.co/year_2024.js'
   yearScript.type = 'module';
   yearScript.crossOrigin = 'anonymous';
-  document.body.append(yearScript);
+  recordDocument.body.append(yearScript);
 
 // Serialize the DOM
-const htmlContent = dom.serialize();
+const recordHtmlContent = dom.serialize();
 
 // Format the HTML with Prettier and write it to the file
 prettier
-    .format(htmlContent, { parser: 'html' })
+    .format(recordHtmlContent, { parser: 'html' })
     .then((formattedHTML) => {
         fs.writeFile('index.html', formattedHTML, (err) => {
             if (err) {
@@ -1097,15 +1099,15 @@ prettier
 });
 
 
-const createCollapsible = 
-  `// Document built: ${buildDate()} v${BUILDER_VERSION}
-  let coll = document.getElementsByClassName("collapsible-r");
+const createCollapsible =
+  `// ${buildInfo}
+  let coll = document.getElementsByClassName('collapsible-r');
 
   for (let i = 0; i < coll.length; i++) {
     const toggleContent = function() {
-      this.classList.toggle("active");
+      this.classList.toggle('active');
 
-      let content = document.getElementById(this.getAttribute("data-target-id"));
+      let content = document.getElementById(this.getAttribute('data-target-id'));
       let parentComic = this.closest('.record-grid');
 
       if (content && content.classList.contains("content-1")) {
@@ -1113,43 +1115,43 @@ const createCollapsible =
           content.style.maxHeight = null;
           parentComic.style.maxHeight = null;
         } else {
-          content.style.maxHeight = content.scrollHeight + "px";
-          parentComic.style.maxHeight = parentComic.scrollHeight + content.scrollHeight + "px";
+          content.style.maxHeight = content.scrollHeight + 'px';
+          parentComic.style.maxHeight = parentComic.scrollHeight + content.scrollHeight + 'px';
         }
       } else {
-        console.error("No content element found for:", this);
+        console.error('No content element found for:', this);
       }
 
-      let expanded = this.getAttribute("aria-expanded") === "true";
-      this.setAttribute("aria-expanded", expanded ? "false" : "true");
+      let expanded = this.getAttribute('aria-expanded') === 'true';
+      this.ariaExpanded = expanded ? 'false' : 'true';
 
-      let pressed = this.getAttribute("aria-pressed") === "true";
-      this.setAttribute("aria-pressed", pressed ? "false" : "true");
+      let pressed = this.getAttribute('aria-pressed') === 'true';
+      this.ariaPressed = pressed ? 'false' : 'true';
 
       if (content) {
-        let contentLinks = content.querySelectorAll(".content-link, a");
+        let contentLinks = content.querySelectorAll('.content-link, a');
         if (expanded) {
-          content.setAttribute("aria-hidden", "true");
-          contentLinks.forEach(link => link.setAttribute("tabindex", "-1"));
-          contentLinks.forEach(link => link.setAttribute("aria-hidden", "true"));
+          content.ariaHidden = 'true';
+          contentLinks.forEach(link => link.tabIndex = '-1');
+          contentLinks.forEach(link => link.ariaHidden = 'true');
         } else {
-          content.setAttribute("aria-hidden", "false");
-          contentLinks.forEach(link => link.setAttribute("tabindex", "0"));
-          contentLinks.forEach(link => link.setAttribute("aria-hidden", "false"));
+          content.ariaHidden = 'false';
+          contentLinks.forEach(link => link.tabIndex = '0');
+          contentLinks.forEach(link => link.ariaHidden = 'false');
         }
       }
     };
 
-    coll[i].addEventListener("click", toggleContent);
+    coll[i].addEventListener('click', toggleContent);
 
-    coll[i].addEventListener("keydown", function(event) {
-      if (event.key === "Enter" || event.key === " ") {
+    coll[i].addEventListener('keydown', function(event) {
+      if (event.key === 'Enter' || event.key === ' ') {
         event.preventDefault();
         toggleContent.call(this);
       }
     });
 
-    coll[i].setAttribute("tabindex", "0");
+    coll[i].tabIndex = '0';
   }`;
 
 fs.writeFile('collapsible.js', createCollapsible.toString(), (err) => {
@@ -1161,7 +1163,7 @@ fs.writeFile('collapsible.js', createCollapsible.toString(), (err) => {
 });
 
 const recordsCSS = 
-`/* Document built: ${buildDate()} v${BUILDER_VERSION} */
+`/* ${buildInfo} */
 :root {
   color: var(--primary-color);
   font-size: 0.89rem;
@@ -1675,6 +1677,409 @@ fs.writeFile('records.css', recordsCSS.toString(), (err) => {
   } else {
       console.log('CSS file successfully created!');
   }
+});
+
+const archiveDom = new JSDOM(`<!DOCTYPE html><!--${buildInfo}--><html lang="en" dir="ltr"><head></head><body></body></html>`);
+
+const archiveDocument = archiveDom.window.document;
+
+const archiveMetaCharset = archiveDocument.createElement('meta');
+archiveMetaCharset.setAttribute('charset', 'UTF-8');
+archiveDocument.head.append(archiveMetaCharset);
+
+const archiveMetaViewport = archiveDocument.createElement('meta');
+archiveMetaViewport.name = 'viewport';
+archiveMetaViewport.content = 'width=device-width, initial-scale=1.0';
+archiveDocument.head.append(archiveMetaViewport);
+
+const archiveTitle = archiveDocument.createElement('title');
+archiveTitle.textContent = 'Archive | Records';
+archiveDocument.head.append(archiveTitle);
+
+const archiveWebDecription = archiveDocument.createElement('meta');
+archiveWebDecription.name = 'description';
+archiveWebDecription.content = 'Tyler\'s record archives.';
+archiveDocument.head.append(archiveWebDecription);
+
+const archiveStylesheet = archiveDocument.createElement('link');
+archiveStylesheet.rel = 'stylesheet';
+archiveStylesheet.href = '/record-inventory/archive/archive.css';
+archiveDocument.head.append(archiveStylesheet);
+
+const archiveIconLightSVG = archiveDocument.createElement('link');
+archiveIconLightSVG.rel = 'icon';
+archiveIconLightSVG.media = '(prefers-color-scheme: light)';
+archiveIconLightSVG.type = 'image/svg';
+archiveIconLightSVG.crossOrigin = 'anonymous';
+archiveIconLightSVG.href = 'https://tylermorgan.co/elements/icons/favicon-day.svg';
+archiveDocument.head.append(archiveIconLightSVG);
+
+const archiveIconDarkSVG = archiveDocument.createElement('link');
+archiveIconDarkSVG.rel = 'icon';
+archiveIconDarkSVG.media = '(prefers-color-scheme: dark)';
+archiveIconDarkSVG.type = 'image/svg';
+archiveIconDarkSVG.crossOrigin = 'anonymous';
+archiveIconDarkSVG.href = 'https://tylermorgan.co/elements/icons/favicon-night.svg';
+archiveDocument.head.append(archiveIconDarkSVG);
+
+const archiveIconLightAVIF = archiveDocument.createElement('link');
+archiveIconLightAVIF.rel = 'icon';
+archiveIconLightAVIF.media = '(prefers-color-scheme: light)';
+archiveIconLightAVIF.type = 'image/avif';
+archiveIconLightAVIF.crossOrigin = 'anonymous';
+archiveIconLightAVIF.href = 'https://tylermorgan.co/elements/icons/favicon-day-180.avif';
+archiveDocument.head.append(archiveIconLightAVIF);
+
+const archiveIconDarkAVIF = archiveDocument.createElement('link');
+archiveIconDarkAVIF.rel = 'icon';
+archiveIconDarkAVIF.media = '(prefers-color-scheme: dark)';
+archiveIconDarkAVIF.type = 'image/avif';
+archiveIconDarkAVIF.crossOrigin = 'anonymous';
+archiveIconDarkAVIF.href = 'https://tylermorgan.co/elements/icons/favicon-night-180.avif';
+archiveDocument.head.append(archiveIconDarkAVIF);
+
+const archiveIconLightAVIF192 = archiveDocument.createElement('link');
+archiveIconLightAVIF192.rel = 'icon';
+archiveIconLightAVIF192.media = '(prefers-color-scheme: light)';
+archiveIconLightAVIF192.type = 'image/avif';
+archiveIconLightAVIF192.crossOrigin = 'anonymous';
+archiveIconLightAVIF192.setAttribute('sizes', '192x192');
+archiveIconLightAVIF192.href = 'https://tylermorgan.co/elements/icons/favicon-day-192.avif';
+archiveDocument.head.append(archiveIconLightAVIF192);
+
+const archiveIconDarkAVIF192 = archiveDocument.createElement('link');
+archiveIconDarkAVIF192.rel = 'icon';
+archiveIconDarkAVIF192.media = '(prefers-color-scheme: dark)';
+archiveIconDarkAVIF192.type = 'image/avif';
+archiveIconDarkAVIF192.crossOrigin = 'anonymous';
+archiveIconDarkAVIF192.setAttribute('sizes', '192x192');
+archiveIconDarkAVIF192.href = 'https://tylermorgan.co/elements/icons/favicon-night-192.avif';
+archiveDocument.head.append(archiveIconDarkAVIF192);
+
+const archiveAppleTouchIcon = archiveDocument.createElement('link');
+archiveAppleTouchIcon.rel = 'apple-touch-icon';
+archiveAppleTouchIcon.crossOrigin = 'anonymous';
+archiveAppleTouchIcon.href = 'https://tylermorgan.co/apple-touch-icon.avif';
+archiveDocument.head.append(archiveAppleTouchIcon);
+
+const archiveMaskIcon = archiveDocument.createElement('link');
+archiveMaskIcon.rel = 'mask-icon';
+archiveMaskIcon.crossOrigin = 'anonymous';
+archiveMaskIcon.href = 'https://tylermorgan.co/elements/icons/mask-icon.svg';
+archiveMaskIcon.setAttribute('color', '#454D51');
+archiveDocument.head.append(archiveMaskIcon);
+
+const archiveLightThemeColor = archiveDocument.createElement('meta');
+archiveLightThemeColor.name = 'theme-color';
+archiveLightThemeColor.media = '(prefers-color-scheme: light)';
+archiveLightThemeColor.content = '#FFFFFF'
+archiveDocument.head.append(archiveLightThemeColor);
+
+const archiveDarkThemeColor = archiveDocument.createElement('meta');
+archiveDarkThemeColor.name = 'theme-color';
+archiveDarkThemeColor.media = '(prefers-color-scheme: dark)';
+archiveDarkThemeColor.content = '#000000';
+archiveDocument.head.append(archiveDarkThemeColor);
+
+const archiveCanonical = archiveDocument.createElement('link');
+archiveCanonical.rel = 'canonical';
+archiveCanonical.href = 'https://tylerjm.org/record-inventory/archive/';
+archiveDocument.head.append(archiveCanonical);
+
+const archiveKeywords = archiveDocument.createElement('meta');
+archiveKeywords.name = 'keywords';
+archiveKeywords.content = 'record, handbook, tyler morgan, vinyl, tylerjmorg, music, inventory, archive';
+archiveDocument.head.append(archiveKeywords);
+
+const archiveFonts = archiveDocument.createElement('link');
+archiveFonts.rel = 'stylesheet';
+archiveFonts.href = 'https://tylermorgan.co/fonts.css';
+archiveDocument.head.append(archiveFonts);
+
+fs.readFile(recordsFilePath, 'utf8', (err, data) => {
+  if (err) {
+    console.error('JSON file could not be found.', err);
+    return;
+  }
+  
+  const archiveParsedRecordData = JSON.parse(data);
+
+  let header = archiveDocument.createElement('header');
+
+  let title = archiveDocument.createElement('h1');
+    title.textContent = 'Archived Links';
+    header.append(title);
+
+  let main = archiveDocument.createElement('main');
+
+  archiveParsedRecordData.forEach((item) => {
+    if (item.dd_archived_official_timestamp || item.dd_archived_qobuz_timestamp) {
+    let record = archiveDocument.createElement('section');
+    record.classList.add('record');
+
+    let recordTitle = archiveDocument.createElement('h2');
+    recordTitle.append(archiveDocument.createTextNode(item.title));
+    recordTitle.append(archiveDocument.createTextNode(' — '));
+    
+    let recordArtists = '';
+    if (Array.isArray(item.artists)) {
+      if (!item.artists.includes("Various")) {
+        if (item.artists.length > 2) {
+          recordTitle.append(archiveDocument.createTextNode(`${item.artists.slice(0, 2).join(', ')}, `));
+
+          const etAl = archiveDocument.createElement('span');
+          etAl.classList.add('italic');
+          etAl.textContent = 'et al.';
+          recordTitle.append(etAl);
+        } else {
+          recordTitle.append(archiveDocument.createTextNode(item.artists.join(', ')));
+        }
+      } else if (item.artists.includes("Various")) {
+        recordArtists = archiveDocument.createElement('span');
+        recordArtists.classList.add('italic');
+        recordArtists.textContent = item.artists.join(', ');
+        recordTitle.append(recordArtists);
+      }
+    }
+
+    record.append(recordTitle);
+
+    const officialArchiveUrl = item.dd_archived_official_timestamp ? `https://web.archive.org/web/${item.dd_archived_official_timestamp}/${item.dd_official_url}` : '';
+
+    let artistArchive = '';
+    if (item.dd_official_url && item.dd_archived_official_timestamp) {
+      let artistArchive = archiveDocument.createElement('p');
+
+      let artistArchiveLabel = archiveDocument.createElement('span');
+      artistArchiveLabel.textContent = 'Artist Website Archive: ';
+      artistArchive.append(artistArchiveLabel);
+
+      let artistArchiveLink = archiveDocument.createElement('a');
+      artistArchiveLink.classList.add('italic');
+      artistArchiveLink.href = officialArchiveUrl;
+      artistArchiveLink.textContent = officialArchiveUrl;
+      artistArchive.append(artistArchiveLink);
+
+      record.append(artistArchive);
+    }
+
+    const qobuzArchiveUrl = item.dd_archived_qobuz_timestamp ? `https://web.archive.org/web/${item.dd_archived_qobuz_timestamp}/${item.dd_qobuz_url}` : '';
+
+    let qobuzArchive = '';
+    if (item.dd_archived_qobuz_timestamp && item.dd_qobuz_url) {
+      let qobuzArchive = archiveDocument.createElement('p');
+
+      let qobuzArchiveLabel = archiveDocument.createElement('span');
+
+      qobuzArchiveLabel.textContent = 'Qobuz Archive: ';
+      qobuzArchive.append(qobuzArchiveLabel);
+
+      let qobuzArchiveLink = archiveDocument.createElement('a');
+      qobuzArchiveLink.classList.add('italic');
+      qobuzArchiveLink.href = qobuzArchiveUrl;
+      qobuzArchiveLink.textContent = qobuzArchiveUrl;
+      qobuzArchive.append(qobuzArchiveLink);
+
+      record.append(qobuzArchive);
+    }
+
+    main.append(record);
+}});
+  archiveDocument.body.append(header);
+
+  const archiveBottomLinks = archiveDocument.createElement('section');
+  archiveBottomLinks.classList.add('bottom-links');
+
+  const tylersRecords = archiveDocument.createElement('a');
+  tylersRecords.href = '/record-inventory/';
+  tylersRecords.classList.add('bottom-link');
+  tylersRecords.textContent = 'Tyler\'s Records';
+  archiveBottomLinks.append(tylersRecords);
+
+  const archiveRecordHandbook = archiveDocument.createElement('a');
+  archiveRecordHandbook.href = '/record-handbook/';
+  archiveRecordHandbook.classList.add('bottom-link');
+  archiveRecordHandbook.textContent = 'The Record Handbook';
+  archiveBottomLinks.append(archiveRecordHandbook);
+
+  main.append(archiveBottomLinks);
+  archiveDocument.body.append(main);
+
+  const archiveFooter = archiveDocument.createElement('footer');
+  archiveFooter.classList.add('footer');
+
+  const archiveFooterDisclaimer = archiveDocument.createElement('p');
+  archiveFooterDisclaimer.textContent = 'Discogs URLs and owner file URLs are not archived.';
+  archiveFooter.append(archiveFooterDisclaimer);
+
+  const archiveCopyright = archiveDocument.createElement('p');
+  archiveCopyright.textContent = '© ';
+
+  const archivefooterYear = archiveDocument.createElement('span');
+  archivefooterYear.id = 'year_2024';
+  archiveCopyright.append(archivefooterYear);
+
+  archiveCopyright.append(archiveDocument.createTextNode(' '));
+
+  const archiveTyler = archiveDocument.createElement('a');
+  archiveTyler.href = 'https://tylermorgan.co/';
+  archiveTyler.classList.add('content-link');
+  archiveTyler.textContent = 'Tyler Morgan';
+  archiveCopyright.append(archiveTyler);
+
+  archiveCopyright.append(archiveDocument.createTextNode('. All rights reserved.'));
+
+  archiveFooter.append(archiveCopyright);
+
+  const archivePrivacyPolicy = archiveDocument.createElement('p');
+  const archivePrivacyPolicyLink = archiveDocument.createElement('a');
+  archivePrivacyPolicyLink.classList.add('content-link');
+  archivePrivacyPolicyLink.rel = 'privacy-policy';
+  archivePrivacyPolicyLink.href = 'https://tylermorgan.co/privacy-policy/';
+  archivePrivacyPolicyLink.textContent = 'Privacy Policy';
+  archivePrivacyPolicy.append(archivePrivacyPolicyLink);
+
+  archiveFooter.append(archivePrivacyPolicy);
+
+  archiveDocument.body.append(archiveFooter);
+
+  const archiveCopyrightYear = archiveDocument.createElement('script');
+  archiveCopyrightYear.src = 'https://tylermorgan.co/year_2024.js';
+  archiveCopyrightYear.type = 'module';
+  archiveCopyrightYear.crossOrigin = 'anonymous';
+  archiveDocument.body.append(archiveCopyrightYear);
+
+// Serialize the DOM
+const archiveHtmlContent = archiveDom.serialize();
+
+// Format the HTML with Prettier and write it to the file
+prettier
+    .format(archiveHtmlContent, { parser: 'html' })
+    .then((archiveFormattedHTML) => {
+        const directoryPath = 'archive';
+        const filePath = path.join(directoryPath, 'index.html');
+
+        // Check if the directory exists, and create it if it doesn't
+        if (!fs.existsSync(directoryPath)) {
+            fs.mkdirSync(directoryPath, { recursive: true });
+        }
+
+        // Write the formatted HTML to the file
+        fs.writeFile(filePath, archiveFormattedHTML, (err) => {
+            if (err) {
+                console.error('An error occurred while creating the HTML file:', err);
+            } else {
+                console.log('HTML file successfully created with readable formatting!');
+            }
+        });
+    })
+    .catch((error) => {
+        console.error('An error occurred while formatting the HTML:', error);
+    });
+  });
+
+const archiveCSS =
+`/* ${buildInfo} */
+:root {
+  color-scheme: light dark;
+  --primary-color: light-dark(#000000FF,#FFFFFFFF);
+  --body-background: light-dark(#FFFFFFFF,#000000FF);
+  --secondary-bkg-color: light-dark(lab(23.52 0 0 / 1),lab(12.39 0.72 -0.51 / 1));
+  --highlight-color: light-dark(lab(32.21 -2.48 -3.63 / 1),lab(86.75 0.16 0.61 / 1));
+  --button-link: light-dark(lab(86.03 0.16 0.61 / 1),lab(21.31 0.21 0.79 / 1));
+  --highlight-color-hover: light-dark(lab(100 0 0 / 1),lab(88.17 0.16 0.61 / 1));
+}
+body {
+  background-color: var(--body-background);
+  color: var(--primary-color);
+  font-family: 'Noto Sans', sans-serif;
+  text-wrap: pretty;
+  word-break: break-word;
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  text-align: center;
+}
+h2 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+p {
+  font-size: 0.85rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.italic {
+  font-style: italic;
+}
+.record {
+  padding-bottom: 1.2rem;
+}
+.footer {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 0.71rem;
+}
+.footer p {
+  font-size: inherit;
+}
+.content-link {
+  text-decoration: underline solid transparent;
+  font-weight: bold;
+  color: var(--biolink-color);
+  cursor: pointer;
+  transition: color 150ms linear, text-decoration 150ms linear;
+}
+.content-link:hover {
+  color: var(--primary-hover);
+  text-decoration: underline solid currentColor;
+}
+.bottom-links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  text-align: center;
+  gap: 30px 20px;
+  grid-template-rows: auto;
+  font-size: 0.84rem;
+  width: 90%;
+  max-width: 800px;
+  margin: auto;
+  justify-content: center;
+  padding-top: 20px;
+}
+.bottom-link {
+  padding: 10px;
+  border-radius: 30px;
+  display: block;
+  background-color: var(--button-link);
+  color: var(--highlight-color);
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s;
+  transform: scale(1);
+}
+.bottom-link:hover {
+  background-color: var(--secondary-bkg-color);
+  color: var(--highlight-color-hover);
+  transform: scale(1.05);
+}`;
+
+const directoryPath = 'archive';
+const filePathCSS = path.join(directoryPath, 'archive.css');
+
+if (!fs.existsSync(directoryPath)) {
+    fs.mkdirSync(directoryPath, { recursive: true });
+}
+
+fs.writeFile(filePathCSS, archiveCSS, (err) => {
+    if (err) {
+        console.error('An error occurred while creating the CSS file:', err);
+    } else {
+        console.log('CSS file successfully created with readable formatting!');
+    }
 });
 
 //
