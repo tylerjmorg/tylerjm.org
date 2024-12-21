@@ -87,6 +87,8 @@
     "dd_official_formats": [],
     "dd_official_regions": [],
     "dd_qobuz_url": "",
-    "dd_archived_qobuz_timestamp": ""
+    "dd_archived_qobuz_timestamp": "",
+
+    "notes": []
   }
 ]

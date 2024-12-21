@@ -12,7 +12,7 @@ const TIMESTAMP = () => {
   return now.toISOString();
 };
 
-const BUILDER_VERSION = '0.4.1';
+const BUILDER_VERSION = '0.5.0';
 
 const buildInfo = `File built from records.mjs v${BUILDER_VERSION} on ${TIMESTAMP()}`;
 
@@ -915,6 +915,36 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
         downloadWebsites.append(qobuz);
       }
       recordContent.append(downloadWebsites);
+
+      let notes = '';
+      if (item.notes) {
+        const break6 = recordDocument.createElement('br');
+        recordContent.append(break6);
+
+        notes = recordDocument.createElement('p');
+
+        const notesLabel = recordDocument.createElement('span');
+        notesLabel.classList.add('label');
+        notesLabel.textContent = 'Notes';
+        notes.append(notesLabel);
+
+        const notesBreak = recordDocument.createElement('br');
+        notes.append(notesBreak);
+
+        if (item.notes.length === 1) {
+          notes.append(recordDocument.createTextNode(item.notes[0]));
+          recordContent.append(notes);
+        } else {
+          item.notes.forEach((note, index) => {
+            notes.append(recordDocument.createTextNode(note));
+            if (index < item.notes.length - 1) {
+              notes.append(recordDocument.createElement('br'));
+              notes.append(recordDocument.createElement('br'));
+            }
+          });
+          recordContent.append(notes);
+        }
+      }
     }
 
     card.append(recordContent);
