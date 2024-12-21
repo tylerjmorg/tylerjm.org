@@ -638,7 +638,8 @@
     "disc1_goldmine": "VG+",
     "disc2_goldmine": "VG+",
 
-    "dd": "No",
+    "dd": "Yes",
+    "dd_yes_url": "https://drive.proton.me/urls/RSAKXBRZPW#jXV9SOjcpOoq",
     "dd_official_url": "https://txdxe.com/products/sos",
     "dd_archived_official_timestamp": 20241209070303,
     "dd_official_formats": ["MP3", "WAV", "FLAC"],

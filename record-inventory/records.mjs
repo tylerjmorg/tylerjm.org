@@ -12,7 +12,7 @@ const TIMESTAMP = () => {
   return now.toISOString();
 };
 
-const BUILDER_VERSION = '0.4.0';
+const BUILDER_VERSION = '0.4.1';
 
 const buildInfo = `File built from records.mjs v${BUILDER_VERSION} on ${TIMESTAMP()}`;
 
@@ -115,13 +115,13 @@ recordDocument.head.append(maskIcon);
 
 const lightThemeColor = recordDocument.createElement('meta');
 lightThemeColor.name = 'theme-color';
-lightThemeColor.media = '(prefers-color-scheme: light)';
-lightThemeColor.content = '#444444'
+lightThemeColor.setAttribute('media', '(prefers-color-scheme: light)');
+lightThemeColor.content = '#444444';
 recordDocument.head.append(lightThemeColor);
 
 const darkThemeColor = recordDocument.createElement('meta');
 darkThemeColor.name = 'theme-color';
-darkThemeColor.media = '(prefers-color-scheme: dark)';
+darkThemeColor.setAttribute('media', '(prefers-color-scheme: dark)');
 darkThemeColor.content = '#121111';
 recordDocument.head.append(darkThemeColor);
 
@@ -1771,13 +1771,13 @@ archiveDocument.head.append(archiveMaskIcon);
 
 const archiveLightThemeColor = archiveDocument.createElement('meta');
 archiveLightThemeColor.name = 'theme-color';
-archiveLightThemeColor.media = '(prefers-color-scheme: light)';
+archiveLightThemeColor.setAttribute('media', '(prefers-color-scheme: light)');
 archiveLightThemeColor.content = '#FFFFFF'
 archiveDocument.head.append(archiveLightThemeColor);
 
 const archiveDarkThemeColor = archiveDocument.createElement('meta');
 archiveDarkThemeColor.name = 'theme-color';
-archiveDarkThemeColor.media = '(prefers-color-scheme: dark)';
+archiveDarkThemeColor.setAttribute('media', '(prefers-color-scheme: dark)');
 archiveDarkThemeColor.content = '#000000';
 archiveDocument.head.append(archiveDarkThemeColor);
 
@@ -1848,11 +1848,9 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
 
     let artistArchive = '';
     if (item.dd_official_url && item.dd_archived_official_timestamp) {
-      let artistArchive = archiveDocument.createElement('p');
+      artistArchive = archiveDocument.createElement('p');
 
-      let artistArchiveLabel = archiveDocument.createElement('span');
-      artistArchiveLabel.textContent = 'Artist Website Archive: ';
-      artistArchive.append(artistArchiveLabel);
+      artistArchive.append(archiveDocument.createTextNode('Artist Website Archive: '));
 
       let artistArchiveLink = archiveDocument.createElement('a');
       artistArchiveLink.classList.add('italic');
@@ -1869,10 +1867,7 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
     if (item.dd_archived_qobuz_timestamp && item.dd_qobuz_url) {
       let qobuzArchive = archiveDocument.createElement('p');
 
-      let qobuzArchiveLabel = archiveDocument.createElement('span');
-
-      qobuzArchiveLabel.textContent = 'Qobuz Archive: ';
-      qobuzArchive.append(qobuzArchiveLabel);
+      qobuzArchive.append(archiveDocument.createTextNode('Qobuz Archive: '));
 
       let qobuzArchiveLink = archiveDocument.createElement('a');
       qobuzArchiveLink.classList.add('italic');
