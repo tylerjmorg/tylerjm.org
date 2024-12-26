@@ -31,6 +31,39 @@
 
   {
     "qty": 1,
+    "title": "Short n' Sweet",
+    "artists": ["Sabrina Carpenter"],
+    "labels": ["Island Records"],
+    "genres": ["Electronic", "Pop"],
+    "explicit": true,
+    "listened": true,
+    "disc_colors": ["Blue Marbled (Light Sky)"],
+    "disc_count": 1,
+    "contents_count": 4,
+    "id": 31552768,
+    "img_alt": "Sabrina Carpenter looks over her left shoulder on a sky blue background. A red lip print is on her left-back shoulder blade.",
+
+    "jacket1_qty": 1,
+    "jacket1_type": "Gatefold Jacket",
+    "jacket1_pocket_qty": 2,
+
+    "inner_sleeve_qty": 1,
+    "poster_qty": 1,
+    "album_photo_qty": 1,
+
+    "jacket1_goldmine": "VG+",
+    "disc1_goldmine": "VG+",
+
+    "dd": "No",
+    "dd_official_url": "https://store.sabrinacarpenter.com/collections/digital/products/short-n-sweet-digital-album",
+    "dd_archived_official_timestamp": 20241225200926,
+    "dd_official_formats": ["MP3"],
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/short-n-sweet-sabrina-carpenter/rbhdzcf01ftdc",
+    "dd_archived_qobuz_timestamp": 20241225201251
+  },
+
+  {
+    "qty": 1,
     "title": "dont smile at me",
     "artists": ["Billie Eilish"],
     "labels": ["Darkroom", "Interscope Records"],
@@ -485,6 +518,38 @@
 
   {
     "qty": 1,
+    "title": "The Rise and Fall of a Midwest Princess",
+    "artists": ["Chappell Roan"],
+    "labels": ["Amusement Records"],
+    "genres": ["Pop"],
+    "explicit": true,
+    "listened": false,
+    "disc_colors": ["Black"],
+    "disc_count": 2,
+    "disc1_type": "Disc A/B",
+    "disc2_type": "Disc C/D",
+    "contents_count": 4,
+    "id": 28365832,
+    "img_alt": "Chappell Roan sits in front of a dresser with a mirror. She is wearing a tiara, a blue dress, and a white sash with her name on it.",
+
+    "jacket1_qty": 1,
+    "jacket1_type": "Gatefold Jacket",
+    "jacket1_pocket_qty": 2,
+
+    "inner_sleeve_qty": 2,
+    "hype_sticker_qty": 1,
+
+    "jacket1_goldmine": "VG+",
+    "disc1_goldmine": "VG+",
+    "disc2_goldmine": "VG+",
+
+    "dd": "No",
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/the-rise-and-fall-of-a-midwest-princess-chappell-roan/agcrn2c7b6v7b",
+    "dd_archived_qobuz_timestamp": 20241225194415
+  },
+
+  {
+    "qty": 1,
     "title": "SOUR",
     "artists": ["Olivia Rodrigo"],
     "labels": ["Geffen Records"],
@@ -612,6 +677,43 @@
 
   {
     "qty": 1,
+    "title": "1989 (Taylor's Version)",
+    "artists": ["Taylor Swift"],
+    "labels": ["Republic Records"],
+    "genres": ["Electronic", "Pop"],
+    "explicit": false,
+    "listened": false,
+    "disc_colors": ["Crystal Skies Blue"],
+    "disc_count": 2,
+    "disc1_type": "Disc A/B",
+    "disc2_type": "Disc C/D",
+    "contents_count": 6,
+    "id": 28745716,
+    "img_alt": "Taylor Swift looks to her left with a smile. The background is a blue sky with seagulls flying.",
+
+    "jacket1_qty": 1,
+    "jacket1_type": "Gatefold Jacket",
+    "jacket1_pocket_qty": 2,
+
+    "inner_sleeve_qty": 2,
+    "hype_sticker_qty": 1,
+    "other_item1_qty": 2,
+    "other_item1_type": "Secondary Sticker",
+
+    "jacket1_goldmine": "VG+",
+    "disc1_goldmine": "VG+",
+    "disc2_goldmine": "VG+",
+
+    "dd": "No",
+    "dd_official_url": "https://store.taylorswift.com/products/1989-taylors-version-digital-deluxe-album",
+    "dd_archived_official_timestamp": 20241116231424,
+    "dd_official_formats": ["MP3"],
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/1989-taylors-version-taylor-swift/ycurs90b1g28a",
+    "dd_archived_qobuz_timestamp": 20240508193601
+  },
+
+  {
+    "qty": 1,
     "title": "SOS",
     "artists": ["SZA"],
     "labels": ["RCA", "Top Dawg Entertainment"],
@@ -642,7 +744,7 @@
     "dd_yes_url": "https://drive.proton.me/urls/RSAKXBRZPW#jXV9SOjcpOoq",
     "dd_official_url": "https://shop.szasos.com/products/sos-deluxe-digital-download",
     "dd_archived_official_timestamp": 20241221194514,
-    "dd_official_formats": ["MP3", "WAV", "FLAC"],
+    "dd_official_formats": ["ALAC", "FLAC", "MP3", "WAV"],
     "dd_qobuz_url": "https://www.qobuz.com/us-en/album/sos-deluxe-lana-sza/h4gvv3ksw94ka",
     "dd_archived_qobuz_timestamp": 20241221194726
   },
@@ -734,6 +836,34 @@
     "dd": "No",
     "dd_qobuz_url": "https://www.qobuz.com/us-en/album/pyromania-def-leppard/u5pezdh2j0oub",
     "dd_archived_qobuz_timestamp": 20241210005221
+  },
+
+  {
+    "qty": 1,
+    "title": "Rumours",
+    "artists": ["Fleetwood Mac"],
+    "labels": ["Warner Records"],
+    "genres": ["Rock"],
+    "explicit": false,
+    "listened": false,
+    "disc_colors": ["Clear"],
+    "disc_count": 1,
+    "contents_count": 3,
+    "id": 23059547,
+    "img_alt": "Mick Fleetwood and Stevie Nicks stand together in front of an off-white background.",
+
+    "jacket1_qty": 1,
+    "jacket1_pocket_qty": 1,
+
+    "inner_sleeve_qty": 1,
+    "song_lyrics_booklet_qty": 1,
+
+    "jacket1_goldmine": "VG+",
+    "disc1_goldmine": "VG+",
+
+    "dd": "No",
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/rumours-fleetwood-mac/0603497941032",
+    "dd_archived_qobuz_timestamp": 20241220025442
   },
 
   {

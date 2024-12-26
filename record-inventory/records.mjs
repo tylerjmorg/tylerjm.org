@@ -12,7 +12,7 @@ const TIMESTAMP = () => {
   return now.toISOString();
 };
 
-const BUILDER_VERSION = '0.5.0';
+const BUILDER_VERSION = '0.5.1';
 
 const buildInfo = `File built from records.mjs v${BUILDER_VERSION} on ${TIMESTAMP()}`;
 
@@ -235,6 +235,7 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
     if (item.explicit) {
       explicit = recordDocument.createElement('span');
       explicit.id = 'explicit';
+      explicit.ariaLabel = 'Explicit';
       explicit.classList.add('label');
       title.append(explicit);
     }
