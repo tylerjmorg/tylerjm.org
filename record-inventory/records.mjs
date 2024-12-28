@@ -12,7 +12,7 @@ const TIMESTAMP = () => {
   return now.toISOString();
 };
 
-const BUILDER_VERSION = '0.5.2';
+const BUILDER_VERSION = '0.5.3';
 
 const buildInfo = `File built from records.mjs v${BUILDER_VERSION} on ${TIMESTAMP()}`;
 
@@ -231,13 +231,18 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
       recordContentWrapper.append(title);
     }
 
-    let explicit = '';
+    let explicitOuter = '';
     if (item.explicit) {
-      explicit = recordDocument.createElement('span');
-      explicit.id = 'explicit';
-      explicit.ariaLabel = 'Explicit';
-      explicit.classList.add('label');
-      title.append(explicit);
+      explicitOuter = recordDocument.createElement('span');
+      explicitOuter.classList.add('logo', 'label');
+      const explicitMiddle = recordDocument.createElement('span');
+      explicitMiddle.classList.add('logo_wrap','svgicon')
+      const explicitInner = recordDocument.createElement('span');
+      explicitInner.classList.add('u-visually-hidden');
+      explicitInner.textContent = 'Explicit';
+      explicitMiddle.append(explicitInner);
+      explicitOuter.append(explicitMiddle);
+      title.append(explicitOuter);
     }
 
     let artists = '';
@@ -1269,14 +1274,35 @@ ul {
     font-size: 0.8rem;
     text-wrap: pretty;
   }
-  #explicit::before {
-    background: url(/elements/icons/explicit.svg);
-    width: 20px;
-    height: 20px;
-    vertical-align: bottom;
-    content: "";
-    margin-left: 7px;
+  .logo_wrap {
     display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-image: url(/elements/icons/explicit.svg);
+    transition: none;
+  }
+  .svgicon {
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .u-visually-hidden {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+  .logo {
+    display: inline-block;
+    vertical-align: bottom;
+    line-height: 0;
+    width: 1.4rem;
+	  height: 1.4rem;
+    margin-left: 0.5rem;
   }
   .update-grid {
     display: grid;
@@ -1345,14 +1371,35 @@ ul {
     color: var(--sec-color);
     font-size: 0.88rem;
   }
-  #explicit::before {
-    background: url(/elements/icons/explicit.svg);
-    width: 20px;
-    height: 20px;
-    vertical-align: bottom;
-    content: "";
-    margin-left: 7px;
+  .logo_wrap {
     display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-image: url(/elements/icons/explicit.svg);
+    transition: none;
+  }
+  .svgicon {
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .u-visually-hidden {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+  .logo {
+    display: inline-block;
+    vertical-align: bottom;
+    line-height: 0;
+    width: 1.4rem;
+	  height: 1.4rem;
+    margin-left: 0.5rem;
   }
   .record-img {
     min-height: 179px;
@@ -1425,14 +1472,35 @@ ul {
     color: var(--sec-color);
     font-size: 0.88rem;
   }
-  #explicit::before {
-    background: url(/elements/icons/explicit.svg);
-    width: 20px;
-    height: 20px;
-    vertical-align: bottom;
-    content: "";
-    margin-left: 7px;
+  .logo_wrap {
     display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-image: url(/elements/icons/explicit.svg);
+    transition: none;
+  }
+  .svgicon {
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .u-visually-hidden {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+  .logo {
+    display: inline-block;
+    vertical-align: bottom;
+    line-height: 0;
+    width: 1.4rem;
+	  height: 1.4rem;
+    margin-left: 0.5rem;
   }
   .update-grid {
     display: grid;
@@ -1501,14 +1569,35 @@ ul {
     color: var(--sec-color);
     font-size: 0.88rem;
   }
-  #explicit::before {
-    background: url(/elements/icons/explicit.svg);
-    width: 20px;
-    height: 20px;
-    vertical-align: bottom;
-    content: "";
-    margin-left: 7px;
+  .logo_wrap {
     display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-image: url(/elements/icons/explicit.svg);
+    transition: none;
+  }
+  .svgicon {
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .u-visually-hidden {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+  .logo {
+    display: inline-block;
+    vertical-align: bottom;
+    line-height: 0;
+    width: 1.4rem;
+	  height: 1.4rem;
+    margin-left: 0.5rem;
   }
   .record-img {
     min-height: 130px;

@@ -1,4 +1,4 @@
-/* File built from records.mjs v0.5.2 on 2024-12-26T04:24:19.955Z */
+/* File built from records.mjs v0.5.3 on 2024-12-28T09:48:13.547Z */
 :root {
   color: var(--primary-color);
   font-size: 0.89rem;
@@ -73,14 +73,35 @@ ul {
     font-size: 0.8rem;
     text-wrap: pretty;
   }
-  #explicit::before {
-    background: url(/elements/icons/explicit.svg);
-    width: 20px;
-    height: 20px;
-    vertical-align: bottom;
-    content: "";
-    margin-left: 7px;
+  .logo_wrap {
     display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-image: url(/elements/icons/explicit.svg);
+    transition: none;
+  }
+  .svgicon {
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .u-visually-hidden {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+  .logo {
+    display: inline-block;
+    vertical-align: bottom;
+    line-height: 0;
+    width: 1.4rem;
+	  height: 1.4rem;
+    margin-left: 0.5rem;
   }
   .update-grid {
     display: grid;
@@ -149,14 +170,35 @@ ul {
     color: var(--sec-color);
     font-size: 0.88rem;
   }
-  #explicit::before {
-    background: url(/elements/icons/explicit.svg);
-    width: 20px;
-    height: 20px;
-    vertical-align: bottom;
-    content: "";
-    margin-left: 7px;
+  .logo_wrap {
     display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-image: url(/elements/icons/explicit.svg);
+    transition: none;
+  }
+  .svgicon {
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .u-visually-hidden {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+  .logo {
+    display: inline-block;
+    vertical-align: bottom;
+    line-height: 0;
+    width: 1.4rem;
+	  height: 1.4rem;
+    margin-left: 0.5rem;
   }
   .record-img {
     min-height: 179px;
@@ -229,14 +271,35 @@ ul {
     color: var(--sec-color);
     font-size: 0.88rem;
   }
-  #explicit::before {
-    background: url(/elements/icons/explicit.svg);
-    width: 20px;
-    height: 20px;
-    vertical-align: bottom;
-    content: "";
-    margin-left: 7px;
+  .logo_wrap {
     display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-image: url(/elements/icons/explicit.svg);
+    transition: none;
+  }
+  .svgicon {
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .u-visually-hidden {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+  .logo {
+    display: inline-block;
+    vertical-align: bottom;
+    line-height: 0;
+    width: 1.4rem;
+	  height: 1.4rem;
+    margin-left: 0.5rem;
   }
   .update-grid {
     display: grid;
@@ -305,14 +368,35 @@ ul {
     color: var(--sec-color);
     font-size: 0.88rem;
   }
-  #explicit::before {
-    background: url(/elements/icons/explicit.svg);
-    width: 20px;
-    height: 20px;
-    vertical-align: bottom;
-    content: "";
-    margin-left: 7px;
+  .logo_wrap {
     display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-image: url(/elements/icons/explicit.svg);
+    transition: none;
+  }
+  .svgicon {
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .u-visually-hidden {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+  .logo {
+    display: inline-block;
+    vertical-align: bottom;
+    line-height: 0;
+    width: 1.4rem;
+	  height: 1.4rem;
+    margin-left: 0.5rem;
   }
   .record-img {
     min-height: 130px;
