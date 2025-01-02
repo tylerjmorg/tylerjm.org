@@ -1,4 +1,4 @@
-/* File built from records.mjs v0.5.3 on 2024-12-28T09:48:13.547Z */
+/* File built from records.mjs v0.5.4 on 2025-01-02T17:52:11.282Z */
 :root {
   color: var(--primary-color);
   font-size: 0.89rem;
@@ -585,7 +585,7 @@ img {
 }
 textPath {
   font-family: 'Noto Sans', sans-serif;
-  font-size: 0.75rem;
+  font-size: 10.65px;
   text-shadow: 1px 5px 8px rgba(0, 0, 0, 0.2);
 }
 text { text-rendering: geometricPrecision; }

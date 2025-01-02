@@ -12,7 +12,7 @@ const TIMESTAMP = () => {
   return now.toISOString();
 };
 
-const BUILDER_VERSION = '0.5.3';
+const BUILDER_VERSION = '0.5.4';
 
 const buildInfo = `File built from records.mjs v${BUILDER_VERSION} on ${TIMESTAMP()}`;
 
@@ -1786,7 +1786,7 @@ img {
 }
 textPath {
   font-family: 'Noto Sans', sans-serif;
-  font-size: 0.75rem;
+  font-size: 10.65px;
   text-shadow: 1px 5px 8px rgba(0, 0, 0, 0.2);
 }
 text { text-rendering: geometricPrecision; }`

@@ -523,7 +523,7 @@
     "labels": ["Amusement Records"],
     "genres": ["Pop"],
     "explicit": true,
-    "listened": false,
+    "listened": true,
     "disc_colors": ["Black"],
     "disc_count": 2,
     "disc1_type": "Disc A/B",
@@ -645,7 +645,7 @@
 
     "dd": "No",
     "dd_qobuz_url": "https://www.qobuz.com/us-en/album/fine-line-harry-styles/l95rxaid5vttc",
-    "dd_archived_qobuz_timestamp": ""
+    "dd_archived_qobuz_timestamp": 20241229023514
   },
 
   {
@@ -720,8 +720,8 @@
     "listened": false,
     "disc_colors": ["Crystal Skies Blue"],
     "disc_count": 2,
-    "disc1_type": "Disc A/B",
-    "disc2_type": "Disc C/D",
+    "disc1_type": "Disc 1",
+    "disc2_type": "Disc 2",
     "contents_count": 6,
     "id": 28745716,
     "img_alt": "Taylor Swift looks to her left smiling. The background is a blue sky with seagulls flying.",
