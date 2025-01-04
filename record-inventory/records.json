@@ -183,7 +183,9 @@
     "dd_archived_official_timestamp": 20241209071459,
     "dd_official_formats": ["MP3"],
     "dd_qobuz_url": "https://www.qobuz.com/us-en/album/hit-me-hard-and-soft-billie-eilish/gvcirtodd95kc",
-    "dd_archived_qobuz_timestamp": 20241209074144
+    "dd_archived_qobuz_timestamp": 20241209074144,
+
+    "notes": ["Disc is solid translucent red rather than marbled as depicted on Amazon."]
   },
 
   {
@@ -383,7 +385,9 @@
     "dd_archived_official_timestamp": 20241209062533,
     "dd_official_formats": ["MP3"],
     "dd_qobuz_url": "https://www.qobuz.com/us-en/album/stoney-post-malone/0060255726179",
-    "dd_archived_qobuz_timestamp": 20241209200344
+    "dd_archived_qobuz_timestamp": 20241209200344,
+
+    "notes": ["Discs are not marbled as described on Discogs release."]
   },
 
   {
@@ -717,7 +721,7 @@
     "labels": ["Republic Records"],
     "genres": ["Electronic", "Pop"],
     "explicit": false,
-    "listened": false,
+    "listened": true,
     "disc_colors": ["Crystal Skies Blue"],
     "disc_count": 2,
     "disc1_type": "Disc 1",
@@ -903,7 +907,9 @@
 
     "dd": "No",
     "dd_qobuz_url": "https://www.qobuz.com/us-en/album/pyromania-def-leppard/u5pezdh2j0oub",
-    "dd_archived_qobuz_timestamp": 20241210005221
+    "dd_archived_qobuz_timestamp": 20241210005221,
+
+    "notes": ["A permanent skip exists on track \"Rock of Ages.\""]
   },
 
   {
@@ -913,7 +919,7 @@
     "labels": ["Warner Records"],
     "genres": ["Rock"],
     "explicit": false,
-    "listened": false,
+    "listened": true,
     "disc_colors": ["Clear"],
     "disc_count": 1,
     "contents_count": 3,

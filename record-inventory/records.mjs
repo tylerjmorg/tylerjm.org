@@ -12,7 +12,7 @@ const TIMESTAMP = () => {
   return now.toISOString();
 };
 
-const BUILDER_VERSION = '0.5.4';
+const BUILDER_VERSION = '0.5.5';
 
 const buildInfo = `File built from records.mjs v${BUILDER_VERSION} on ${TIMESTAMP()}`;
 
@@ -2100,8 +2100,8 @@ const archiveCSS =
   --primary-color: light-dark(#000000FF,#FFFFFFFF);
   --body-background: light-dark(#FFFFFFFF,#000000FF);
   --secondary-bkg-color: light-dark(lab(23.52 0 0 / 1),lab(12.39 0.72 -0.51 / 1));
-  --highlight-color: light-dark(lab(32.21 -2.48 -3.63 / 1),lab(86.75 0.16 0.61 / 1));
-  --button-link: light-dark(lab(86.03 0.16 0.61 / 1),lab(21.31 0.21 0.79 / 1));
+  --highlight-color: light-dark(lab(29.21 -2.48 -3.63 / 1),lab(86.75 0.16 0.61 / 1));
+  --button-link: light-dark(lab(91.95 -0.16 -0.6 / 1),lab(21.31 0.21 0.79 / 1));
   --highlight-color-hover: light-dark(lab(100 0 0 / 1),lab(88.17 0.16 0.61 / 1));
 }
 body {
