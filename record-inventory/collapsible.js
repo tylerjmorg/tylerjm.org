@@ -1,4 +1,4 @@
-// File built from records.mjs v0.5.5 on 2025-01-04T19:40:13.850Z
+// File built from records.mjs v0.5.6 on 2025-01-06T04:29:34.158Z
   let coll = document.getElementsByClassName('collapsible-r');
 
   for (let i = 0; i < coll.length; i++) {

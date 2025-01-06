@@ -12,7 +12,7 @@ const TIMESTAMP = () => {
   return now.toISOString();
 };
 
-const BUILDER_VERSION = '0.5.5';
+const BUILDER_VERSION = '0.5.6';
 
 const buildInfo = `File built from records.mjs v${BUILDER_VERSION} on ${TIMESTAMP()}`;
 
@@ -1970,7 +1970,7 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
     if (item.dd_official_url && item.dd_archived_official_timestamp) {
       artistArchive = archiveDocument.createElement('p');
 
-      artistArchive.append(archiveDocument.createTextNode('Artist Website Archive: '));
+      artistArchive.append(archiveDocument.createTextNode('Artist Site: '));
 
       let artistArchiveLink = archiveDocument.createElement('a');
       artistArchiveLink.classList.add('italic');
@@ -1987,7 +1987,7 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
     if (item.dd_archived_qobuz_timestamp && item.dd_qobuz_url) {
       let qobuzArchive = archiveDocument.createElement('p');
 
-      qobuzArchive.append(archiveDocument.createTextNode('Qobuz Archive: '));
+      qobuzArchive.append(archiveDocument.createTextNode('Qobuz: '));
 
       let qobuzArchiveLink = archiveDocument.createElement('a');
       qobuzArchiveLink.classList.add('italic');
