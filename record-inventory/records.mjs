@@ -12,7 +12,7 @@ const TIMESTAMP = () => {
   return now.toISOString();
 };
 
-const BUILDER_VERSION = '0.5.6';
+const BUILDER_VERSION = '0.5.7';
 
 const buildInfo = `File built from records.mjs v${BUILDER_VERSION} on ${TIMESTAMP()}`;
 
@@ -105,13 +105,6 @@ appleTouchIcon.rel = 'apple-touch-icon';
 appleTouchIcon.crossOrigin = 'anonymous';
 appleTouchIcon.href = 'https://tylermorgan.co/apple-touch-icon.avif';
 recordDocument.head.append(appleTouchIcon);
-
-const maskIcon = recordDocument.createElement('link');
-maskIcon.rel = 'mask-icon';
-maskIcon.crossOrigin = 'anonymous';
-maskIcon.href = 'https://tylermorgan.co/elements/icons/mask-icon.svg';
-maskIcon.setAttribute('color', '#454D51');
-recordDocument.head.append(maskIcon);
 
 const lightThemeColor = recordDocument.createElement('meta');
 lightThemeColor.name = 'theme-color';
@@ -1881,13 +1874,6 @@ archiveAppleTouchIcon.rel = 'apple-touch-icon';
 archiveAppleTouchIcon.crossOrigin = 'anonymous';
 archiveAppleTouchIcon.href = 'https://tylermorgan.co/apple-touch-icon.avif';
 archiveDocument.head.append(archiveAppleTouchIcon);
-
-const archiveMaskIcon = archiveDocument.createElement('link');
-archiveMaskIcon.rel = 'mask-icon';
-archiveMaskIcon.crossOrigin = 'anonymous';
-archiveMaskIcon.href = 'https://tylermorgan.co/elements/icons/mask-icon.svg';
-archiveMaskIcon.setAttribute('color', '#454D51');
-archiveDocument.head.append(archiveMaskIcon);
 
 const archiveLightThemeColor = archiveDocument.createElement('meta');
 archiveLightThemeColor.name = 'theme-color';
