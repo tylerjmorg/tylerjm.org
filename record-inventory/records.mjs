@@ -12,7 +12,7 @@ const TIMESTAMP = () => {
   return now.toISOString();
 };
 
-const BUILDER_VERSION = '0.5.7';
+const BUILDER_VERSION = '0.5.8';
 
 const buildInfo = `File built from records.mjs v${BUILDER_VERSION} on ${TIMESTAMP()}`;
 
@@ -102,8 +102,7 @@ recordDocument.head.append(iconDarkAVIF192);
 
 const appleTouchIcon = recordDocument.createElement('link');
 appleTouchIcon.rel = 'apple-touch-icon';
-appleTouchIcon.crossOrigin = 'anonymous';
-appleTouchIcon.href = 'https://tylermorgan.co/apple-touch-icon.avif';
+appleTouchIcon.href = '/apple-touch-icon.avif';
 recordDocument.head.append(appleTouchIcon);
 
 const lightThemeColor = recordDocument.createElement('meta');
@@ -1871,8 +1870,7 @@ archiveDocument.head.append(archiveIconDarkAVIF192);
 
 const archiveAppleTouchIcon = archiveDocument.createElement('link');
 archiveAppleTouchIcon.rel = 'apple-touch-icon';
-archiveAppleTouchIcon.crossOrigin = 'anonymous';
-archiveAppleTouchIcon.href = 'https://tylermorgan.co/apple-touch-icon.avif';
+archiveAppleTouchIcon.href = '/apple-touch-icon.avif';
 archiveDocument.head.append(archiveAppleTouchIcon);
 
 const archiveLightThemeColor = archiveDocument.createElement('meta');
