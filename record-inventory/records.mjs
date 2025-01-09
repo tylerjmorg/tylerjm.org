@@ -12,7 +12,7 @@ const TIMESTAMP = () => {
   return now.toISOString();
 };
 
-const BUILDER_VERSION = '0.5.8';
+const BUILDER_VERSION = '0.5.9';
 
 const buildInfo = `File built from records.mjs v${BUILDER_VERSION} on ${TIMESTAMP()}`;
 
@@ -55,7 +55,7 @@ iconLightSVG.rel = 'icon';
 iconLightSVG.media = '(prefers-color-scheme: light)';
 iconLightSVG.type = 'image/svg';
 iconLightSVG.crossOrigin = 'anonymous';
-iconLightSVG.href = 'https://tylermorgan.co/elements/icons/favicon-light.svg';
+iconLightSVG.href = 'https://tylermorgan.co/elements/icons/icon_bgtp_light.svg';
 recordDocument.head.append(iconLightSVG);
 
 const iconDarkSVG = recordDocument.createElement('link');
@@ -63,7 +63,7 @@ iconDarkSVG.rel = 'icon';
 iconDarkSVG.media = '(prefers-color-scheme: dark)';
 iconDarkSVG.type = 'image/svg';
 iconDarkSVG.crossOrigin = 'anonymous';
-iconDarkSVG.href = 'https://tylermorgan.co/elements/icons/favicon-dark.svg';
+iconDarkSVG.href = 'https://tylermorgan.co/elements/icons/icon_bgtp_dark.svg';
 recordDocument.head.append(iconDarkSVG);
 
 const iconLightAVIF = recordDocument.createElement('link');
@@ -71,7 +71,7 @@ iconLightAVIF.rel = 'icon';
 iconLightAVIF.media = '(prefers-color-scheme: light)';
 iconLightAVIF.type = 'image/avif';
 iconLightAVIF.crossOrigin = 'anonymous';
-iconLightAVIF.href = 'https://tylermorgan.co/elements/icons/favicon-light-180.avif';
+iconLightAVIF.href = 'https://tylermorgan.co/elements/icons/icon_bgtp_light_x180.avif';
 recordDocument.head.append(iconLightAVIF);
 
 const iconDarkAVIF = recordDocument.createElement('link');
@@ -79,7 +79,7 @@ iconDarkAVIF.rel = 'icon';
 iconDarkAVIF.media = '(prefers-color-scheme: dark)';
 iconDarkAVIF.type = 'image/avif';
 iconDarkAVIF.crossOrigin = 'anonymous';
-iconDarkAVIF.href = 'https://tylermorgan.co/elements/icons/favicon-dark-180.avif';
+iconDarkAVIF.href = 'https://tylermorgan.co/elements/icons/icon_bgtp_dark_x180.avif';
 recordDocument.head.append(iconDarkAVIF);
 
 const iconLightAVIF192 = recordDocument.createElement('link');
@@ -88,7 +88,7 @@ iconLightAVIF192.media = '(prefers-color-scheme: light)';
 iconLightAVIF192.type = 'image/avif';
 iconLightAVIF192.crossOrigin = 'anonymous';
 iconLightAVIF192.setAttribute('sizes', '192x192');
-iconLightAVIF192.href = 'https://tylermorgan.co/elements/icons/favicon-light-192.avif';
+iconLightAVIF192.href = 'https://tylermorgan.co/elements/icons/icon_bgtp_light_x192.avif';
 recordDocument.head.append(iconLightAVIF192);
 
 const iconDarkAVIF192 = recordDocument.createElement('link');
@@ -97,7 +97,7 @@ iconDarkAVIF192.media = '(prefers-color-scheme: dark)';
 iconDarkAVIF192.type = 'image/avif';
 iconDarkAVIF192.crossOrigin = 'anonymous';
 iconDarkAVIF192.setAttribute('sizes', '192x192');
-iconDarkAVIF192.href = 'https://tylermorgan.co/elements/icons/favicon-dark-192.avif';
+iconDarkAVIF192.href = 'https://tylermorgan.co/elements/icons/icon_bgtp_dark_x192.avif';
 recordDocument.head.append(iconDarkAVIF192);
 
 const appleTouchIcon = recordDocument.createElement('link');
@@ -1823,7 +1823,7 @@ archiveIconLightSVG.rel = 'icon';
 archiveIconLightSVG.media = '(prefers-color-scheme: light)';
 archiveIconLightSVG.type = 'image/svg';
 archiveIconLightSVG.crossOrigin = 'anonymous';
-archiveIconLightSVG.href = 'https://tylermorgan.co/elements/icons/favicon-light.svg';
+archiveIconLightSVG.href = 'https://tylermorgan.co/elements/icons/icon_bgtp_light.svg';
 archiveDocument.head.append(archiveIconLightSVG);
 
 const archiveIconDarkSVG = archiveDocument.createElement('link');
@@ -1831,7 +1831,7 @@ archiveIconDarkSVG.rel = 'icon';
 archiveIconDarkSVG.media = '(prefers-color-scheme: dark)';
 archiveIconDarkSVG.type = 'image/svg';
 archiveIconDarkSVG.crossOrigin = 'anonymous';
-archiveIconDarkSVG.href = 'https://tylermorgan.co/elements/icons/favicon-dark.svg';
+archiveIconDarkSVG.href = 'https://tylermorgan.co/elements/icons/icon_bgtp_dark.svg';
 archiveDocument.head.append(archiveIconDarkSVG);
 
 const archiveIconLightAVIF = archiveDocument.createElement('link');
@@ -1839,7 +1839,7 @@ archiveIconLightAVIF.rel = 'icon';
 archiveIconLightAVIF.media = '(prefers-color-scheme: light)';
 archiveIconLightAVIF.type = 'image/avif';
 archiveIconLightAVIF.crossOrigin = 'anonymous';
-archiveIconLightAVIF.href = 'https://tylermorgan.co/elements/icons/favicon-light-180.avif';
+archiveIconLightAVIF.href = 'https://tylermorgan.co/elements/icons/icon_bgtp_light_x180.avif';
 archiveDocument.head.append(archiveIconLightAVIF);
 
 const archiveIconDarkAVIF = archiveDocument.createElement('link');
@@ -1847,7 +1847,7 @@ archiveIconDarkAVIF.rel = 'icon';
 archiveIconDarkAVIF.media = '(prefers-color-scheme: dark)';
 archiveIconDarkAVIF.type = 'image/avif';
 archiveIconDarkAVIF.crossOrigin = 'anonymous';
-archiveIconDarkAVIF.href = 'https://tylermorgan.co/elements/icons/favicon-dark-180.avif';
+archiveIconDarkAVIF.href = 'https://tylermorgan.co/elements/icons/icon_bgtp_dark_x180.avif';
 archiveDocument.head.append(archiveIconDarkAVIF);
 
 const archiveIconLightAVIF192 = archiveDocument.createElement('link');
@@ -1856,7 +1856,7 @@ archiveIconLightAVIF192.media = '(prefers-color-scheme: light)';
 archiveIconLightAVIF192.type = 'image/avif';
 archiveIconLightAVIF192.crossOrigin = 'anonymous';
 archiveIconLightAVIF192.setAttribute('sizes', '192x192');
-archiveIconLightAVIF192.href = 'https://tylermorgan.co/elements/icons/favicon-light-192.avif';
+archiveIconLightAVIF192.href = 'https://tylermorgan.co/elements/icons/icon_bgtp_light_x192.avif';
 archiveDocument.head.append(archiveIconLightAVIF192);
 
 const archiveIconDarkAVIF192 = archiveDocument.createElement('link');
@@ -1865,7 +1865,7 @@ archiveIconDarkAVIF192.media = '(prefers-color-scheme: dark)';
 archiveIconDarkAVIF192.type = 'image/avif';
 archiveIconDarkAVIF192.crossOrigin = 'anonymous';
 archiveIconDarkAVIF192.setAttribute('sizes', '192x192');
-archiveIconDarkAVIF192.href = 'https://tylermorgan.co/elements/icons/favicon-dark-192.avif';
+archiveIconDarkAVIF192.href = 'https://tylermorgan.co/elements/icons/icon_bgtp_dark_x192.avif';
 archiveDocument.head.append(archiveIconDarkAVIF192);
 
 const archiveAppleTouchIcon = archiveDocument.createElement('link');
