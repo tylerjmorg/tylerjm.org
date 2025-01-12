@@ -12,7 +12,7 @@ const TIMESTAMP = () => {
   return now.toISOString();
 };
 
-const BUILDER_VERSION = '0.5.9';
+const BUILDER_VERSION = '0.5.10';
 
 const buildInfo = `File built from records.mjs v${BUILDER_VERSION} on ${TIMESTAMP()}`;
 
@@ -1136,15 +1136,15 @@ const createCollapsible =
       this.classList.toggle('active');
 
       let content = document.getElementById(this.getAttribute('data-target-id'));
-      let parentComic = this.closest('.record-grid');
+      let parentRecord = this.closest('.record-grid');
 
       if (content && content.classList.contains("content-1")) {
         if (content.style.maxHeight) {
           content.style.maxHeight = null;
-          parentComic.style.maxHeight = null;
+          parentRecord.style.maxHeight = null;
         } else {
           content.style.maxHeight = content.scrollHeight + 'px';
-          parentComic.style.maxHeight = parentComic.scrollHeight + content.scrollHeight + 'px';
+          parentRecord.style.maxHeight = parentRecord.scrollHeight + content.scrollHeight + 'px';
         }
       } else {
         console.error('No content element found for:', this);

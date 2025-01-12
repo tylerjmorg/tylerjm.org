@@ -1,4 +1,4 @@
-// File built from records.mjs v0.5.9 on 2025-01-12T12:37:07.105Z
+// File built from records.mjs v0.5.10 on 2025-01-12T19:39:40.252Z
   let coll = document.getElementsByClassName('collapsible-r');
 
   for (let i = 0; i < coll.length; i++) {
@@ -6,15 +6,15 @@
       this.classList.toggle('active');
 
       let content = document.getElementById(this.getAttribute('data-target-id'));
-      let parentComic = this.closest('.record-grid');
+      let parentRecord = this.closest('.record-grid');
 
       if (content && content.classList.contains("content-1")) {
         if (content.style.maxHeight) {
           content.style.maxHeight = null;
-          parentComic.style.maxHeight = null;
+          parentRecord.style.maxHeight = null;
         } else {
           content.style.maxHeight = content.scrollHeight + 'px';
-          parentComic.style.maxHeight = parentComic.scrollHeight + content.scrollHeight + 'px';
+          parentRecord.style.maxHeight = parentRecord.scrollHeight + content.scrollHeight + 'px';
         }
       } else {
         console.error('No content element found for:', this);
