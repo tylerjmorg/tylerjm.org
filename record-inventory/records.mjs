@@ -1,5 +1,5 @@
 //
-// Copyright 2024 Tyler Morgan. All rights reserved.
+// Copyright 2024-2025 Tyler Morgan. All rights reserved.
 //
 
 import fs from 'fs';
@@ -2182,5 +2182,5 @@ fs.writeFile(filePathCSS, archiveCSS, (err) => {
 });
 
 //
-// Copyright 2024 Tyler Morgan. All rights reserved.
+// Copyright 2024-2025 Tyler Morgan. All rights reserved.
 //

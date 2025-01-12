@@ -823,6 +823,36 @@
 
   {
     "qty": 1,
+    "title": "IGOR",
+    "artists": ["Tyler, The Creator"],
+    "labels": ["Columbia"],
+    "genres": ["Hip Hop", "Funk / Soul"],
+    "explicit": true,
+    "listened": true,
+    "disc_colors": ["Black"],
+    "disc_count": 1,
+    "contents_count": 4,
+    "id": 14215683,
+    "img_alt": "Monochrome photo of Tyler, the Creator staring at the camera, surrounded by a pink background.",
+
+    "jacket1_qty": 1,
+    "jacket1_type": "Gatefold Jacket",
+    "jacket1_pocket_qty": 1,
+
+    "inner_sleeve_qty": 1,
+    "hype_sticker_qty": 1,
+    "poster_qty": 1,
+
+    "jacket1_goldmine": "VG+",
+    "disc1_goldmine": "VG+",
+
+    "dd": "No",
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/igor-tyler-the-creator/qtz65tw2of0ha",
+    "dd_archived_qobuz_timestamp": 20241225194514
+  },
+
+  {
+    "qty": 1,
     "title": "Red Moon in Venus",
     "artists": ["Kali Uchis"],
     "labels": ["Interscope Records"],
