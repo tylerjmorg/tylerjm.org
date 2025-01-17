@@ -12,7 +12,7 @@ const TIMESTAMP = () => {
   return now.toISOString();
 };
 
-const BUILDER_VERSION = '0.5.10';
+const BUILDER_VERSION = '0.5.11';
 
 const buildInfo = `File built from records.mjs v${BUILDER_VERSION} on ${TIMESTAMP()}`;
 
@@ -44,6 +44,11 @@ const styleRecord = recordDocument.createElement('link');
 styleRecord.rel = 'stylesheet';
 styleRecord.href = '/record-inventory/records.css';
 recordDocument.head.append(styleRecord);
+
+const styleExternalLinks = recordDocument.createElement('link');
+styleExternalLinks.rel = 'stylesheet';
+styleExternalLinks.href = 'https://tylermorgan.co/external_links.css';
+recordDocument.head.append(styleExternalLinks);
 
 const webDecription = recordDocument.createElement('meta');
 webDecription.name = 'description';
@@ -788,7 +793,7 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
       discogs.append(recordDocument.createTextNode(': '));
 
       const discogsLink = recordDocument.createElement('a');
-      discogsLink.classList.add('content-link');
+      discogsLink.classList.add('content-link', 'external');
       discogsLink.tabIndex = '-1';
       discogsLink.ariaHidden = 'true';
       discogsLink.href = `https://www.discogs.com/release/${item.id}`;
@@ -812,7 +817,7 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
         dd.append(recordDocument.createTextNode(': '));
 
         const ddLink = recordDocument.createElement('a');
-        ddLink.classList.add('content-link');
+        ddLink.classList.add('content-link', 'external');
         ddLink.tabIndex = '-1';
         ddLink.ariaHidden = 'true';
         ddLink.href = item.dd_yes_url;
@@ -843,7 +848,7 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
         dd.append(recordDocument.createTextNode(': '));
 
         const ddLink = recordDocument.createElement('a');
-        ddLink.classList.add('content-link');
+        ddLink.classList.add('content-link', 'external');
         ddLink.tabIndex = '-1';
         ddLink.ariaHidden = 'true';
         ddLink.href = item.dd_no_url;
@@ -891,7 +896,7 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
         downloadWebsites.append(artistWebsiteBreak);
 
         artistWebsite = recordDocument.createElement('a');
-        artistWebsite.classList.add('content-link');
+        artistWebsite.classList.add('content-link', 'external');
         artistWebsite.tabIndex = '-1';
         artistWebsite.ariaHidden = 'true';
         artistWebsite.href = item.dd_official_url;
@@ -905,7 +910,7 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
         downloadWebsites.append(qobuzBreak);
         
         qobuz = recordDocument.createElement('a');
-        qobuz.classList.add('content-link');
+        qobuz.classList.add('content-link', 'external');
         qobuz.tabIndex = '-1';
         qobuz.ariaHidden = 'true';
         qobuz.href = item.dd_qobuz_url;
@@ -1075,7 +1080,7 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
 
   const footerName = recordDocument.createElement('a');
   footerName.href = 'https://tylermorgan.co/';
-  footerName.classList.add('content-link');
+  footerName.classList.add('content-link', 'external');
   footerName.textContent = 'Tyler Morgan';
   footerCopyright.append(footerName);
 
@@ -1085,7 +1090,7 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
 
   const privacyPolicy = recordDocument.createElement('p');
   const privacyPolicyLink = recordDocument.createElement('a');
-  privacyPolicyLink.classList.add('content-link');
+  privacyPolicyLink.classList.add('content-link', 'external');
   privacyPolicyLink.rel = 'privacy-policy';
   privacyPolicyLink.href = 'https://tylermorgan.co/privacy-policy/';
   privacyPolicyLink.textContent = 'Privacy Policy';
@@ -1810,13 +1815,18 @@ archiveDocument.head.append(archiveTitle);
 
 const archiveWebDecription = archiveDocument.createElement('meta');
 archiveWebDecription.name = 'description';
-archiveWebDecription.content = 'Tyler\'s record archives.';
+archiveWebDecription.content = 'Tyler\'s record archive links.';
 archiveDocument.head.append(archiveWebDecription);
 
 const archiveStylesheet = archiveDocument.createElement('link');
 archiveStylesheet.rel = 'stylesheet';
 archiveStylesheet.href = '/record-inventory/archive/archive.css';
 archiveDocument.head.append(archiveStylesheet);
+
+const archiveExternalLinks = archiveDocument.createElement('link');
+archiveExternalLinks.rel = 'stylesheet';
+archiveExternalLinks.href = 'https://tylermorgan.co/external_links.css';
+archiveDocument.head.append(archiveExternalLinks);
 
 const archiveIconLightSVG = archiveDocument.createElement('link');
 archiveIconLightSVG.rel = 'icon';
@@ -1957,7 +1967,7 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
       artistArchive.append(archiveDocument.createTextNode('Artist Site: '));
 
       let artistArchiveLink = archiveDocument.createElement('a');
-      artistArchiveLink.classList.add('italic');
+      artistArchiveLink.classList.add('italic', 'external-bw');
       artistArchiveLink.href = officialArchiveUrl;
       artistArchiveLink.textContent = officialArchiveUrl;
       artistArchive.append(artistArchiveLink);
@@ -1974,7 +1984,7 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
       qobuzArchive.append(archiveDocument.createTextNode('Qobuz: '));
 
       let qobuzArchiveLink = archiveDocument.createElement('a');
-      qobuzArchiveLink.classList.add('italic');
+      qobuzArchiveLink.classList.add('italic', 'external-bw');
       qobuzArchiveLink.href = qobuzArchiveUrl;
       qobuzArchiveLink.textContent = qobuzArchiveUrl;
       qobuzArchive.append(qobuzArchiveLink);
@@ -2022,7 +2032,7 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
 
   const archiveTyler = archiveDocument.createElement('a');
   archiveTyler.href = 'https://tylermorgan.co/';
-  archiveTyler.classList.add('content-link');
+  archiveTyler.classList.add('content-link', 'external-bw');
   archiveTyler.textContent = 'Tyler Morgan';
   archiveCopyright.append(archiveTyler);
 
@@ -2032,7 +2042,7 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
 
   const archivePrivacyPolicy = archiveDocument.createElement('p');
   const archivePrivacyPolicyLink = archiveDocument.createElement('a');
-  archivePrivacyPolicyLink.classList.add('content-link');
+  archivePrivacyPolicyLink.classList.add('content-link', 'external-bw');
   archivePrivacyPolicyLink.rel = 'privacy-policy';
   archivePrivacyPolicyLink.href = 'https://tylermorgan.co/privacy-policy/';
   archivePrivacyPolicyLink.textContent = 'Privacy Policy';
