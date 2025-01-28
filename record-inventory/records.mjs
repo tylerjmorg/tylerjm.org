@@ -12,7 +12,7 @@ const TIMESTAMP = () => {
   return now.toISOString();
 };
 
-const BUILDER_VERSION = '0.5.11';
+const BUILDER_VERSION = '0.5.12';
 
 const buildInfo = `File built from records.mjs v${BUILDER_VERSION} on ${TIMESTAMP()}`;
 
@@ -1073,7 +1073,7 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
   footerCopyright.append(recordDocument.createTextNode('© '));
 
   const footerYear = recordDocument.createElement('span');
-  footerYear.id = 'year_2024';
+  footerYear.setAttribute('data-copyright-currentyear', '');
   footerCopyright.append(footerYear);
 
   footerCopyright.append(recordDocument.createTextNode(' '));
@@ -1088,15 +1088,31 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
 
   footer.append(footerCopyright);
 
-  const privacyPolicy = recordDocument.createElement('p');
+  const footerLinks = recordDocument.createElement('ul');
+  footerLinks.classList.add('footer-links');
+
+  const footerLink1 = recordDocument.createElement('li');
+  footerLink1.classList.add('footer-link');
+
   const privacyPolicyLink = recordDocument.createElement('a');
   privacyPolicyLink.classList.add('content-link', 'external');
   privacyPolicyLink.rel = 'privacy-policy';
   privacyPolicyLink.href = 'https://tylermorgan.co/privacy-policy/';
   privacyPolicyLink.textContent = 'Privacy Policy';
-  privacyPolicy.append(privacyPolicyLink);
+  footerLink1.append(privacyPolicyLink);
+  footerLinks.append(footerLink1);
 
-  footer.append(privacyPolicy);
+  const footerLink2 = recordDocument.createElement('li');
+  footerLink2.classList.add('footer-link');
+
+  const intellectualPropertyLink = recordDocument.createElement('a');
+  intellectualPropertyLink.classList.add('content-link', 'external');
+  intellectualPropertyLink.href = 'https://tylermorgan.co/intellectual-property/';
+  intellectualPropertyLink.textContent = 'Intellectual Property';
+  footerLink2.append(intellectualPropertyLink);
+  footerLinks.append(footerLink2);
+
+  footer.append(footerLinks);
 
   recordDocument.body.append(footer);
 
@@ -1105,8 +1121,7 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
   recordDocument.body.append(collapsible);
 
   const yearScript = recordDocument.createElement('script');
-  yearScript.src = 'https://tylermorgan.co/year_2024.js'
-  yearScript.type = 'module';
+  yearScript.src = 'https://tylermorgan.co/copyright_year.js'
   yearScript.crossOrigin = 'anonymous';
   recordDocument.body.append(yearScript);
 
@@ -2024,9 +2039,9 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
   const archiveCopyright = archiveDocument.createElement('p');
   archiveCopyright.textContent = '© ';
 
-  const archivefooterYear = archiveDocument.createElement('span');
-  archivefooterYear.id = 'year_2024';
-  archiveCopyright.append(archivefooterYear);
+  const archiveFooterYear = archiveDocument.createElement('span');
+  archiveFooterYear.setAttribute('data-copyright-currentyear', '');
+  archiveCopyright.append(archiveFooterYear);
 
   archiveCopyright.append(archiveDocument.createTextNode(' '));
 
@@ -2040,21 +2055,36 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
 
   archiveFooter.append(archiveCopyright);
 
-  const archivePrivacyPolicy = archiveDocument.createElement('p');
+  const archiveFooterLinks = archiveDocument.createElement('ul');
+  archiveFooterLinks.classList.add('footer-links');
+
+  const archiveFooterLink1 = archiveDocument.createElement('li');
+  archiveFooterLink1.classList.add('footer-link');
+
   const archivePrivacyPolicyLink = archiveDocument.createElement('a');
   archivePrivacyPolicyLink.classList.add('content-link', 'external-bw');
   archivePrivacyPolicyLink.rel = 'privacy-policy';
   archivePrivacyPolicyLink.href = 'https://tylermorgan.co/privacy-policy/';
   archivePrivacyPolicyLink.textContent = 'Privacy Policy';
-  archivePrivacyPolicy.append(archivePrivacyPolicyLink);
+  archiveFooterLink1.append(archivePrivacyPolicyLink);
+  archiveFooterLinks.append(archiveFooterLink1);
 
-  archiveFooter.append(archivePrivacyPolicy);
+  const archiveFooterLink2 = archiveDocument.createElement('li');
+  archiveFooterLink2.classList.add('footer-link');
+
+  const archiveIntellectualPropertyLink = archiveDocument.createElement('a');
+  archiveIntellectualPropertyLink.classList.add('content-link', 'external-bw');
+  archiveIntellectualPropertyLink.href = 'https://tylermorgan.co/intellectual-property/';
+  archiveIntellectualPropertyLink.textContent = 'Intellectual Property';
+  archiveFooterLink2.append(archiveIntellectualPropertyLink);
+  archiveFooterLinks.append(archiveFooterLink2);
+
+  archiveFooter.append(archiveFooterLinks);
 
   archiveDocument.body.append(archiveFooter);
 
   const archiveCopyrightYear = archiveDocument.createElement('script');
-  archiveCopyrightYear.src = 'https://tylermorgan.co/year_2024.js';
-  archiveCopyrightYear.type = 'module';
+  archiveCopyrightYear.src = 'https://tylermorgan.co/copyright_year.js';
   archiveCopyrightYear.crossOrigin = 'anonymous';
   archiveDocument.body.append(archiveCopyrightYear);
 
@@ -2174,6 +2204,37 @@ p {
   background-color: var(--secondary-bkg-color);
   color: var(--highlight-color-hover);
   transform: scale(1.05);
+}
+.footer-links {
+  padding: 0;
+  display: flex;
+  margin: auto;
+  text-align: center;
+  justify-content: center;
+  list-style-type: none;
+  width: 100%;
+  margin-bottom: 15px;
+  font-size: 0.75rem;
+}
+
+.footer-link {
+  margin-right: 10px;
+}
+
+.footer-link:after {
+  padding: 0;
+  list-style-type: none;
+  content: "";
+  position: absolute;
+  height: 10px;
+  width: 1px;
+  background-color: var(--primary-color);
+  margin: 3px;
+  margin-left: 4px;
+  font-size: 0.75rem;
+}
+.footer-link:last-child:after {
+  display: none;
 }`;
 
 const directoryPath = 'archive';

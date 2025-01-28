@@ -23,8 +23,11 @@
    ul {
     padding-left: 20px;
    }
-   ul > li {
+   ul > li{
     list-style-type: disc;
+   }
+   .footer-links, .footer-link {
+    list-style-type: none;
    }
    .version-note {
     margin-bottom: 50px;
@@ -183,10 +186,17 @@
    </section>
   </main>
   <footer>
-   <p class="footer2" style="margin-top: 60px;">&copy; <span id="year_2024"></span> <a class="content-link external" href="https://tylermorgan.co">Tyler Morgan</a>. All rights reserved.</p>
-   <p class="footer2"><a class="content-link external" rel="privacy-policy" href="https://tylermorgan.co/privacy-policy/">Privacy Policy</a></p>
+   <p class="footer2" style="margin-top: 60px;">&copy; <span data-copyright-currentyear></span> <a class="content-link external" href="https://tylermorgan.co">Tyler Morgan</a>. All rights reserved.</p>
+   <ul class="footer-links">
+    <li class="footer-link">
+      <a class="content-link external" rel="privacy-policy" href="https://tylermorgan.co/privacy-policy/">Privacy Policy</a>
+    </li>
+    <li class="footer-link">
+      <a class="content-link external" href="https://tylermorgan.co/intellectual-property/">Intellectual Property</a>
+    </li>
+  </ul>
   </footer>
   <script src="https://tylermorgan.co/collapsible.js"></script>
-  <script src="https://tylermorgan.co/year_2024.js" type="module"></script>
+  <script src="https://tylermorgan.co/copyright_year.js"></script>
  </body>
 </html>

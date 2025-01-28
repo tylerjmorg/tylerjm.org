@@ -1,4 +1,4 @@
-/* File built from records.mjs v0.5.11 on 2025-01-17T08:00:24.419Z */
+/* File built from records.mjs v0.5.12 on 2025-01-28T07:30:01.537Z */
 :root {
   color-scheme: light dark;
   --primary-color: light-dark(#000000FF,#FFFFFFFF);
@@ -84,4 +84,35 @@ p {
   background-color: var(--secondary-bkg-color);
   color: var(--highlight-color-hover);
   transform: scale(1.05);
+}
+.footer-links {
+  padding: 0;
+  display: flex;
+  margin: auto;
+  text-align: center;
+  justify-content: center;
+  list-style-type: none;
+  width: 100%;
+  margin-bottom: 15px;
+  font-size: 0.75rem;
+}
+
+.footer-link {
+  margin-right: 10px;
+}
+
+.footer-link:after {
+  padding: 0;
+  list-style-type: none;
+  content: "";
+  position: absolute;
+  height: 10px;
+  width: 1px;
+  background-color: var(--primary-color);
+  margin: 3px;
+  margin-left: 4px;
+  font-size: 0.75rem;
+}
+.footer-link:last-child:after {
+  display: none;
 }
