@@ -190,6 +190,39 @@
 
   {
     "qty": 1,
+    "title": "BIRDS OF A FEATHER",
+    "artists": ["Billie Eilish"],
+    "labels": ["Darkroom", "Interscope Records"],
+    "genres": ["Pop"],
+    "explicit": false,
+    "listened": true,
+    "disc_colors": ["Translucent Green"],
+    "disc_count": 1,
+    "contents_count": 3,
+    "id": 32278635,
+    "img_alt": "In a grainy image, Eilish in a blue short sleeve polo stands in a meadow of flowers, with a forest and mountain behind her. Her face is turned away from the camera and she is holding a white flower in her arms, raised towards the camera.",
+
+    "jacket1_qty": 1,
+    "jacket1_pocket_qty": 1,
+
+    "inner_sleeve_qty": 1,
+    "other_item1_qty": 1,
+    "other_item1_type": "Secondary Sticker",
+
+    "jacket1_goldmine": "VG",
+    "disc1_goldmine": "VG+",
+
+    "dd": "Yes",
+    "dd_yes_url": "https://drive.proton.me/urls/ZD4BWPYJKR#SL8crwNBgdFF",
+    "dd_official_url": "https://store.billieeilish.com/collections/hit-me-hard-and-soft-music/products/hit-me-hard-and-soft-exclusive-digital-album-with-all-isolated-vocals",
+    "dd_archived_official_timestamp": 20241209071459,
+    "dd_official_formats": ["MP3"],
+    "dd_qobuz_url": "https://www.qobuz.com/us-en/album/hit-me-hard-and-soft-billie-eilish/gvcirtodd95kc",
+    "dd_archived_qobuz_timestamp": 20241209074144
+  },
+
+  {
+    "qty": 1,
     "title": "Superache",
     "artists": ["Conan Gray"],
     "labels": ["Republic Records"],

@@ -3,3 +3,14 @@
 node_modules/
 package-lock.json
 package.json
+*.aux
+*.log
+*.nav
+*.fls
+*.snm
+*.synctex.gz
+*.synctex(busy)
+*.fdb_latexmk
+*.out
+*.bcf-SAVE-ERROR
+signature.svg
