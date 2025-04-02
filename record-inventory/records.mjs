@@ -12,7 +12,7 @@ const TIMESTAMP = () => {
   return now.toISOString();
 };
 
-const BUILDER_VERSION = '0.5.12';
+const BUILDER_VERSION = '0.6.0';
 
 const buildInfo = `File built from records.mjs v${BUILDER_VERSION} on ${TIMESTAMP()}`;
 
@@ -404,6 +404,48 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
       contentsCount.append(recordDocument.createTextNode(`: ${item.contents_count}`));
 
       recordContent.append(contentsCount);
+    }
+
+    let disc_sizeize = '';
+    if (item.disc_size) {
+      disc_sizeize = recordDocument.createElement('p');
+
+      const discSizeLabel = recordDocument.createElement('span');
+      discSizeLabel.classList.add('label');
+      discSizeLabel.textContent = 'Size';
+      disc_sizeize.append(discSizeLabel);
+
+      disc_sizeize.append(recordDocument.createTextNode(`: ${item.disc_size}"`));
+
+      recordContent.append(disc_sizeize);
+    }
+
+    let rpm = '';
+    if (item.rpm) {
+      rpm = recordDocument.createElement('p');
+
+      const rpmLabel = recordDocument.createElement('span');
+      rpmLabel.classList.add('label');
+      rpmLabel.textContent = 'RPM';
+      rpm.append(rpmLabel);
+
+      rpm.append(recordDocument.createTextNode(`: ${item.rpm}`));
+
+      recordContent.append(rpm);
+    }
+
+    let holeType = '';
+    if (item.hole_type) {
+      holeType = recordDocument.createElement('p');
+
+      const holeTypeLabel = recordDocument.createElement('span');
+      holeTypeLabel.classList.add('label');
+      holeTypeLabel.textContent = 'Spindle Hole Type';
+      holeType.append(holeTypeLabel);
+
+      holeType.append(recordDocument.createTextNode(`: ${item.hole_type}`));
+
+      recordContent.append(holeType);
     }
 
     // Start contents naming
