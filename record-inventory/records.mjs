@@ -12,7 +12,7 @@ const TIMESTAMP = () => {
   return now.toISOString();
 };
 
-const BUILDER_VERSION = '0.6.0';
+const BUILDER_VERSION = '0.6.1';
 
 const buildInfo = `File built from records.mjs v${BUILDER_VERSION} on ${TIMESTAMP()}`;
 
@@ -199,8 +199,8 @@ fs.readFile(recordsFilePath, 'utf8', (err, data) => {
     imgContainer.role = 'none';
 
     let mod = '';
-    if (item.mod_id) {
-      mod = `-${item.mod_id}`;
+    if (item.mod_uuid) {
+      mod = `_${item.mod_uuid}`;
     }
 
     const foregroungImg = recordDocument.createElement('img');

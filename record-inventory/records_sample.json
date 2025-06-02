@@ -23,7 +23,7 @@
     "disc8_type": "",
     "contents_count": 3,
     "id": 21046597,
-    "mod_id": "",
+    "mod_uuid": "`uuidgen | tr 'A-F' 'a-f' | tr -d '-'`  ex., 4e048af2aae4417da25647d6e3121a2a",
     "img_alt": "",
 
     "jacket1_qty": 0,
