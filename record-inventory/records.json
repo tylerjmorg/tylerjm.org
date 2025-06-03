@@ -249,7 +249,7 @@
     "labels": ["Darkroom", "Interscope Records"],
     "genres": ["Pop"],
     "explicit": false,
-    "listened": false,
+    "listened": true,
     "rpm": 33,
     "disc_size": 12,
     "hole_type": "Standard",
@@ -275,7 +275,7 @@
     "dd_archived_official_timestamp": 20241209071459,
     "dd_official_formats": ["MP3"],
 
-    "notes": ["Non-RSD version."]
+    "notes": ["Non-Record Store Day (RSD) version."]
   },
 
   {
